@@ -37,7 +37,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-O Habits é um app para ajudar a rastrear os hábitos.
+O nosso app tem como o objetivo de gerenciar o agendamento de serviços solicitados pelo cliente cadastrado no sistema e controle administrativo dos lucros mensais e anuais.
 - [Visite o projeto online](link já hospedado)
 
 ## 🔖 Layout
