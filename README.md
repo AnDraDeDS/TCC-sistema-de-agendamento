@@ -9,33 +9,40 @@
   <a href="#memo-licença">Creditos</a>
 </p>
 
-<p align="center">
-  <img alt="License" src="https://cdn-icons-png.flaticon.com/512/3206/3206042.png">
-</p>
+<!-- <p align="center">
+  <img alt="imagem licenca" src="https://cdn-icons-png.flaticon.com/512/3206/3206042.png">
+</p> -->
 
 <br>
 
-<p align="center">
-  <img alt="Projeto Habits" src="./.github/Preview.jpg" width="100%">
-</p>
+<!-- <p align="center">
+  <!-- <img alt="Imagem do projeto" src="./.github/Preview.jpg" width="100%"> -->
+<!-- </p> --> -->
 
-## 🚀 Tecnologias
+## 👨‍💻 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- HTML e CSS
-- JavaScript
-- Git e Github
-- Figma
+-	Visual Studio Code;
+-	PHPmyAdmin;
+-	HTML;
+-	CSS;
+-	PHP;
+-	JavaScript;
+-	Figma;
+-	Github;
+-	WampServer;
+-	Br modelo.
+
 
 ## 💻 Projeto
 
 O Habits é um app para ajudar a rastrear os hábitos.
-- [Visite o projeto online](https://andrade1907.github.io/nlw-setup)
+- [Visite o projeto online](link já hospedado)
 
 ## 🔖 Layout
 
-Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/community/file/1195327109778210238). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
+Você pode visualizar o layout do projeto através [DESSE LINK](link do figma publicado). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
 
 ## :memo: Licença
 
@@ -43,4 +50,4 @@ Esse projeto está sob a licença MIT.
 
 ---
 
-Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://discord.gg/rocketseat)
+Feito por Gabriel Andrade Vieira; Izabella Grando de Camargo; Rhyan Ely Costa e Silva; Yasmin Rodrigues Rio Tinto
