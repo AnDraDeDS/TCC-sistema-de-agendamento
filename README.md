@@ -19,7 +19,7 @@
   <img alt="Imagem do projeto" src="./src/images/Login.jpeg" width="100%">
 </p>
 
-<!-- ## 👨‍💻 Tecnologias
+## 👨‍💻 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
@@ -50,4 +50,4 @@ Esse projeto está sob a licença MIT.
 
 ---
 
-Feito por Gabriel Andrade Vieira; Izabella Grando de Camargo; Rhyan Ely Costa e Silva; Yasmin Rodrigues Rio Tinto -->
+Feito por Gabriel Andrade Vieira; Izabella Grando de Camargo; Rhyan Ely Costa e Silva; Yasmin Rodrigues Rio Tinto
