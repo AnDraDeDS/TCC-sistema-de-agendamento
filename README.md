@@ -15,9 +15,9 @@
 
 <br>
 
-<!-- <p align="center">
-  <!-- <img alt="Imagem do projeto" src="./.github/Preview.jpg" width="100%"> -->
-<!-- </p> --> -->
+<p align="center">
+  <img alt="Imagem do projeto" src="./imagem-logn.jfif" width="100%">
+</p>
 
 ## 👨‍💻 Tecnologias
 
