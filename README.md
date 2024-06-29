@@ -16,7 +16,7 @@
 <br>
 
 <p align="center">
-  <img alt="Imagem do projeto" src="./src/images/Login.jpeg" width="100%">
+  <img alt="Imagem do projeto" src="./src/images/Cadastro.png" width="100%">
 </p>
 
 ## 👨‍💻 Tecnologias

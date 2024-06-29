@@ -1,5 +1,4 @@
-# Arquivos
+/node_modules
+
 tailwind.config.js
 
-# Diretório
-node_modules
