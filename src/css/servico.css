@@ -1,0 +1,22 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    outline: 1px dashed coral;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+}
+
+.header{
+    width: 100%;
+    height: 20%;
+    opacity: 100%;
+    background-image: url('../images/capa.png');
+    background-size: cover;
+    background-position: 12% 80%;   
+}
+
+#logo, #carwash{
+}

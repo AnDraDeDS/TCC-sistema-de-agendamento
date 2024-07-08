@@ -14,5 +14,5 @@ function esconder() {
     eye_closed.classList.add("d-none");
     eye_open.classList.remove("d-none");
     senha.removeAttribute("type");
-    senha.setAttribute("type", "password");
+    senha.setAttribute("type", "password"); 
 }

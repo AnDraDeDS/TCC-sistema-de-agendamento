@@ -7,7 +7,7 @@ body{
   width: 100vw;
   height: 100vh;
   
-  background-image: linear-gradient(rgba(0,0,0) 18%, rgba(7, 66, 118, 0.733) 60% ), url("../images/capa.png");
+  background-image: linear-gradient(rgba(0,0,0) 40%, rgba(7, 66, 118, 0.733) 100% ), url("../images/capa.png");
   background-size: cover;
   background-position: center center;
 }
@@ -67,7 +67,7 @@ body{
 
 
 .conteudo{
-  margin-top: 8vh;
+  margin-top: 4vh;
   width: 25%;
   height: 50%;
 }
@@ -92,6 +92,7 @@ input{
   color: white;
   padding-bottom: 80px;
   height: 25px;
+  width: 12vw;
 }
 input:focus{ outline: 0px; }
 
@@ -102,7 +103,7 @@ input:focus{ outline: 0px; }
 }
 
 .botao{
-  margin-top: 0px;
+  margin-top: 2vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,4 +128,8 @@ input:focus{ outline: 0px; }
 .cadastrar:focus{
   transition: 0.2s;
   font-size: 0.95em;
+}
+
+#eye_open, #eye_closed{
+margin-left: 5vw;
 }
