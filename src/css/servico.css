@@ -1,22 +1,59 @@
 *{
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
-    outline: 1px dashed coral;
 }
 
-.container{
-    height: 100vh;
-    width: 100vw;
-}
 
 .header{
-    width: 100%;
-    height: 20%;
-    opacity: 100%;
-    background-image: url('../images/capa.png');
+    width: 100vw;
+    height: 20vh;
+    flex-direction: column;
+    background: url('../images/capa.png');
     background-size: cover;
-    background-position: 12% 80%;   
+    background-position: 15% 75%;
 }
 
-#logo, #carwash{
+.logo{
+    display: flex;
+    width: 100%;
+    height: 60%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#jr, .space{
+    margin: 20px;
+    display: flex;
+    justify-self: start;
+}
+
+#carwash{
+    display: flex;
+    justify-self: center;
+
+}
+.navbar{
+    height: 40%;
+    width: 100%;
+    padding: 0;
+    align-items: end;
+}
+
+.navbar ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 0;
+}
+
+.navbar ul li{
+    color: white;
+    font-size: 1.4em;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 25%;
 }
