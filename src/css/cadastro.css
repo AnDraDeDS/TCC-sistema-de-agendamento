@@ -133,3 +133,6 @@ input:focus{ outline: 0px; }
 #eye_open, #eye_closed{
 margin-left: 5vw;
 }
+#eye_open, #eye_closed:hover{
+  cursor: pointer;
+  }
