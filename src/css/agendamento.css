@@ -114,19 +114,55 @@ body::-webkit-scrollbar-thumb {
     background-color: #181A1B;
     border-radius: 10px;
 }
-.item1{
-    grid-area: a;
+.item button:hover  {
+    transition: all .2s ease;
+    background-image: url("../images/icons/agendamento/pos-agendar.svg");
 }
-.item1>span{
+.texto{
+    display: flex;
+    width: 310px;
+    height: 50px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.item>h3{
+    color: #fff;
+    font-size: 1.5em;
+    padding: .5em;
+}
+.texto p {
+    color: #BDC0C2;
+    font-size: 1.4em;
+    width: 200px;
+    font-weight: 200;
+    margin-left: 3px;
+    padding: 10px;
+}
+.item>span{
     display: block;
     width: 320px;
     height: 160px;
-    background-image: url("../images/agendamento/lavagem-simples.png");
     background-size: cover;
-    background-position: 15% 70%;
     border-radius: 10px;
 }
-
+.texto button {
+    display: block;
+    width: 139px;
+    height: 142px;
+    border: none;
+    background-color: transparent;
+    background-image: url("../images/icons/agendamento/agendar.svg");
+    background-size: cover;
+    background-position: 5% 70%;
+    margin-bottom: 15px;
+}
+.texto button:hover{
+    cursor: auto;
+}
+.item1{
+    grid-area: a;
+}
 .item2{
     grid-area: b;
 }
@@ -148,31 +184,63 @@ body::-webkit-scrollbar-thumb {
 .item8{
     grid-area: h;
 }
-
-.item>h3{
-    color: #fff;
-    font-size: 1.5em;
-    padding: .5em;
+.item1>span{
+    background-image: url("../images/agendamento/lavagem-simples.png");
+}
+.item2>span{
+    background-image: url("../images/agendamento/polimento-de-farol.png");
+}
+.item3>span{
+    background-image: url("../images/agendamento/polimento-e-cristalizacao.png");
+}
+.item4>span{
+    background-image: url("../images/agendamento/lavagem-de-motor.png");
+}
+.item5>span{
+    background-image: url("../images/agendamento/lavagem-completa.jpg");
+}
+.item6>span{
+    background-image: url("../images/agendamento/higienizacao-de-banco-de-couro.png");
+}
+.item7>span{
+    background-image: url("../images/agendamento/higienizacao-de-teto.png");
+}
+.item8>span{
+    background-image: url("../images/agendamento/higienizacao-de-banco.png");
+}
+.item2>.texto{
+  width: 340px;
+}
+.item2>.texto button{
+    position: relative;
+    right: 12px;
+}
+.item3>.texto{
+    width: 340px;
+}
+.item3>.texto button{
+      position: relative;
+      right: 12px;
+}
+.item6>.texto{
+    width: 340px;
+}
+.item6>.texto button{
+      position: relative;
+      right: 12px;
+}
+.item7>.texto{
+    width: 340px;
+}
+.item7>.texto button{
+      position: relative;
+      right: 12px;
+}
+.item8>.texto{
+    width: 340px;
+}
+.item8>.texto button{
+      position: relative;
+      right: 12px;
 }
 
-.texto{
-    display: flex;
-    width: 400px;
-    height: 50px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.texto p {
-    color: #BDC0C2;
-    font-size: 1.5em;
-    font-weight: 200;
-    margin-left: 3px;
-    padding: 10px;
-}
-.texto img{
-    height: 350px;
-    width: 200px;
-    margin-right: 10px;
-    margin-bottom: 15px;
-}
