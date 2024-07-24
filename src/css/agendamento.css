@@ -124,7 +124,7 @@ body::-webkit-scrollbar-thumb {
 }
 .texto{
     display: flex;
-    width: 310px;
+    width: 328px;
     height: 50px;
     flex-direction: row;
     justify-content: space-between;
@@ -213,37 +213,37 @@ body::-webkit-scrollbar-thumb {
     background-image: url("../images/agendamento/higienizacao-de-banco.png");
 }
 .item1>.texto{
-  width: 340px;
+  width: 360px;
 }
 .item1>.texto button{
     margin-right: 30px;
 }
 .item2>.texto{
-  width: 340px;
+  width: 360px;
 }
 .item2>.texto button{
     margin-right: 30px;
 }
 .item3>.texto{
-    width: 340px;
+    width: 360px;
 }
 .item3>.texto button{
       margin-right: 30px;
 }
 .item6>.texto{
-    width: 340px;
+    width: 360px;
 }
 .item6>.texto button{
       margin-right: 30px;
 }
 .item7>.texto{
-    width: 340px;
+    width: 360px;
 }
 .item7>.texto button{
       margin-right: 30px;
 }
 .item8>.texto{
-    width: 340px;
+    width: 360px;
 }
 .item8>.texto button{
       margin-right: 30px;
