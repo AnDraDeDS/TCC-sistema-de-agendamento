@@ -3,6 +3,42 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: 'K2D';
+    src: url(../fonts/K2D/K2D-Regular.ttf);
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: 'Carme';
+    src: url(../fonts/Carme/Carme-Regular.ttf);
+}
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url(../fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: 'Arimo';
+    src: url(../fonts/Arimo/Arimo-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Kanit';
+    src: url(../fonts/Kanit/Kanit-Regular.ttf);
+}
+@font-face {
+    font-family: 'League Spartan';
+    src: url(../fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf);
+}
 body {
     background-color: #272727;
     overflow-x: hidden;
