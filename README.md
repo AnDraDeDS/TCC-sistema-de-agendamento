@@ -16,7 +16,7 @@
 <br>
 
 <p align="center">
-  <img alt="Imagem do projeto" src="./src/images/imagem-do-projeto.png" width="100%">
+  <img alt="Imagem do projeto" src="./src/images/imagem-do-projeto.svg" width="100%">
 </p>
 
 ## 👨‍💻 Tecnologias
