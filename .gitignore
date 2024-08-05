@@ -1,5 +1,2 @@
-/node_modules
-/src/fonts
-
-tailwind.config.js
+./src/fonts
 
