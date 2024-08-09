@@ -147,6 +147,7 @@ body::-webkit-scrollbar-thumb {
     gap: 10px;
     padding-bottom: 40px;
 }
+
 .item{
     margin-top: 5em;
     width: 320px;
@@ -154,9 +155,14 @@ body::-webkit-scrollbar-thumb {
     background-color: #181A1B;
     border-radius: 10px;
 }
-.item button:hover  {
-    transition: all .2s ease;
-    background-image: url("../images/icons/agendamento/pos-agendar.svg");
+.texto .agendar:hover  {
+    transition: 0.1s;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: url("../images/icons/agendamento/pos-agendar.png");
+    background-size: cover;
+    margin-bottom: 15px;
 }
 .texto{
     display: flex;
@@ -186,16 +192,14 @@ body::-webkit-scrollbar-thumb {
     background-size: cover;
     border-radius: 10px;
 }
-.texto button {
-    display: block;
-    width: 139px;
-    height: 142px;
+.texto .agendar{
+    width: 50px;
+    height: 51px;
     border: none;
-    background-color: transparent;
-    background-image: url("../images/icons/agendamento/agendar.svg");
+    background: url("../images/icons/agendamento/agendar.png");
     background-size: cover;
-    background-position: 5% 70%;
     margin-bottom: 15px;
+    margin-right: 15px;
 }
 .texto button:hover{
     cursor: auto;
@@ -249,39 +253,114 @@ body::-webkit-scrollbar-thumb {
     background-image: url("../images/agendamento/higienizacao-de-banco.png");
 }
 .item1>.texto{
-  width: 360px;
+    width: 360px;
 }
 .item1>.texto button{
-    margin-right: 30px;
+    margin-right: 55px;
 }
 .item2>.texto{
-  width: 360px;
+    width: 360px;
 }
 .item2>.texto button{
-    margin-right: 30px;
+    margin-right: 55px;
 }
 .item3>.texto{
     width: 360px;
 }
 .item3>.texto button{
-      margin-right: 30px;
+    margin-right: 55px;
 }
 .item6>.texto{
     width: 360px;
 }
 .item6>.texto button{
-      margin-right: 30px;
+    margin-right: 55px;
 }
 .item7>.texto{
     width: 360px;
 }
 .item7>.texto button{
-      margin-right: 30px;
+    margin-right: 55px;
 }
 .item8>.texto{
     width: 360px;
 }
 .item8>.texto button{
-      margin-right: 30px;
+    margin-right: 55px;
 }
 
+
+/*Content após seleção de serviço*/
+
+.content_focus{
+    padding-top: 20vh;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.side{
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 55%;
+    height: 100%;
+}
+
+.side h1{
+    font-size: 4em;
+    color: white;
+}
+
+.side p{
+
+    font-size: 1.5em;
+    color: white;
+    font-weight: 300;
+    margin-right: 25%;
+    margin-top: 50px;
+    text-align: justify;
+}
+
+.side button{
+    width: 450px;
+    height: 100px;
+    font-size: 1.5em;
+    color: white;
+    font-weight: 500;
+    border: 0px;
+    border-radius: 5px;
+    background-color: #63C3FF;
+}
+
+.aside{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aside img{
+    width: 400px;
+    height: 250px;
+    margin-top: 20px;
+}
+
+.button_voltar{
+    margin-top: 3%;
+    height: 10%;
+    width: 5%;
+    background-color: #ffffff;
+    border-radius: 0 50% 50% 0;
+    background-color: #0487D9;
+    border: 0;
+}
+
+.button_voltar:hover{
+    transition: 0.3s;
+    padding-right: 10px;
+}

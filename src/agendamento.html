@@ -35,7 +35,7 @@
                     <h3>Lavagem Simples</h3>
                     <div class="texto">
                         <p>A partir de R$30</p>
-                        <button type="submit"></button>
+                        <button class="agendar" type="submit" onclick="servico_foco()"></button>
                     </div>
                 
         </div>
@@ -44,7 +44,7 @@
                 <h3>Polimento de Farol</h3>
                     <div class="texto">
                         <p>A partir de R$120</p>
-                        <button type="submit"></button>
+                        <button class="agendar" type="submit" onclick="servico_foco()"></button>
                     </div>
             </div>
             <div class="item item3">
@@ -52,7 +52,7 @@
                 <h3>Polimento e Cristalização</h3>
                 <div class="texto">
                     <p>A partir de R$350</p>
-                    <button type="submit"></button>
+                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
                 </div> 
             </div>
             <div class="item item4">
@@ -60,7 +60,7 @@
                 <h3>Lavagem de Motor</h3>
                 <div class="texto">
                     <p>A partir de R$30</p>
-                    <button type="submit"></button>
+                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
                 </div>
             </div>
             <div class="item item5">
@@ -68,7 +68,7 @@
                 <h3>Lavagem Completa</h3>
                 <div class="texto">
                     <p>A partir de R$70</p>
-                    <button type="submit"></button>
+                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
                 </div>
             </div>
             <div class="item item6">
@@ -76,7 +76,7 @@
                 <h3>Hig. Banco de Couro</h3>
                 <div class="texto">
                     <p>A partir de R$200</p>
-                    <button type="submit"></button>
+                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
                 </div>
             </div>
             <div class="item item7">
@@ -84,7 +84,7 @@
                 <h3>Higienização de Teto</h3>
                 <div class="texto">
                     <p>A partir de R$100</p>
-                    <button type="submit"></button>
+                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
                 </div>
             </div>
             <div class="item item8">
@@ -92,8 +92,24 @@
                 <h3>Higienização de Banco</h3>
                 <div class="texto">
                     <p>A partir de R$280</p>
-                    <button type="submit"></button>
+                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
                 </div>
+            </div>
+        </div>
+
+        <div class="content_focus d-none">
+            <button class="button_voltar" onclick="voltar()">
+                <img src="./images/icons/agendamento/icon_seta.svg" alt="">
+            </button>
+            <div class="side">
+                <h1>HIGIENIZAÇÃO DE BANCO DE COURO</h1>
+                <p>Lavagem completa do veículo acompanhada de uma higienização profunda dos bancos removendo sujeiras e odores. </p>
+                <p><span style="color: #63C3FF; font-weight: 700;">Duração:</span> 2 dias</p>
+                <button>CONFIRMAR<br>SELEÇÃO</button>
+            </div>
+            <div class="aside">
+                <img src="./images/agendamento/higienizacao-de-banco.png" alt="">
+                <img src="./images/agendamento/higienizacao-de-banco_2.png" alt="">
             </div>
         </div>
         
@@ -101,4 +117,5 @@
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="./JS/agendamento.js"></script>
 </html>
