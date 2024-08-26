@@ -27,9 +27,9 @@
             </div>
         </div>
 
-    <!-- CONTEÚDO -->
+    <!-- CONTEÚDOS -->
 
-        <div class="content">
+        <div class="content d-none">
             <div class="item item1">
                 <span></span>
                     <h3>Lavagem Simples</h3>
@@ -105,11 +105,59 @@
                 <h1>HIGIENIZAÇÃO DE BANCO DE COURO</h1>
                 <p>Lavagem completa do veículo acompanhada de uma higienização profunda dos bancos removendo sujeiras e odores. </p>
                 <p><span style="color: #63C3FF; font-weight: 700;">Duração:</span> 2 dias</p>
-                <button>CONFIRMAR<br>SELEÇÃO</button>
+                <button onclick="agend_foco()">CONFIRMAR<br>SELEÇÃO</button>
             </div>
             <div class="aside">
                 <img src="./images/agendamento/higienizacao-de-banco.png" alt="">
                 <img src="./images/agendamento/higienizacao-de-banco_2.png" alt="">
+            </div>
+        </div>
+
+        <div class="content_agenda">
+            <button class="voltar"></button>
+                <div class="side">
+                <div class="background_calendar">
+                    <div class="fundo_mes">
+                        <button class="mes"><h1>Agosto</h1><img src="./images/icons/agendamento/icon_seta.svg" alt=""></button>
+                    </div>
+                    <div class="semana">
+                        <h1>D</h1>
+                        <h1>S</h1>
+                        <h1>T</h1>
+                        <h1>Q</h1>
+                        <h1>Q</h1>
+                        <h1>S</h1>
+                        <h1>S</h1>
+                    </div>
+                    <div class="dias"></div>
+                    </div>
+                </div>
+
+                <div class="aside">
+                    <div class="opcoes">
+                        <div class="fechado"><div class="circle"></div> <p>Indisponível</p></div>
+                        <div class="aberto"><div class="circle"></div><p>Selecionado</p></div>
+                    </div>
+
+                    <div class="horarios">
+                        <h1 id="title">HORÁRIOS</h1>
+                        <button class="horario" id="hora1">08:00 - 09:30</button>
+                        <button class="horario" id="hora2">09:30 - 11:00</button>
+                        <button class="horario" id="hora3">11:00 - 12:30</button>
+                        <button class="horario" id="hora4">12:30 - 14:00</button>
+                        <button class="horario" id="hora5">14:00 - 15:30</button>
+                        <button class="horario" id="hora6">15:30 - 17:00</button>
+                    </div>
+                    <div class="line"></div>
+                    
+                    <div class="veiculos">
+                        <h1 id="title">VEÍCULOS</h1>
+                        <button class="veiculo" id="moto"><img src="./images/icons/agendamento/moto.svg"></button>
+                        <button class="veiculo" id="carro"><img src="./images/icons/agendamento/carro.svg"></button>
+                        <button class="veiculo" id="caminhonete"><img src="./images/icons/agendamento/caminhonete.svg"></button>
+                    </div>
+                    <button id="agendar_horario">AGENDAR</button>
+                </div>
             </div>
         </div>
         
