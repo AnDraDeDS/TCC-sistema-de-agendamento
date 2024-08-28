@@ -562,7 +562,11 @@ body::-webkit-scrollbar-thumb {
     outline: 0;
     background-color: #44B2F7;
 }
-
+.veiculo:focus{
+    border: 0;
+    outline: 0;
+    background-color: #44B2F7;
+}
 #title{
     grid-area: a;
 }
