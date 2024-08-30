@@ -5,7 +5,7 @@
 }
 body {
     background-color: #272727;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 body::-webkit-scrollbar-track {
     background-color: #000;
@@ -124,7 +124,7 @@ aside h1 {
     cursor: auto;
     text-decoration: none;
     display: flex;
-    width: 800px;
+    width: 700px;
     height: fit-content;
     background-color: #0487D9;
     padding: 8px;
@@ -145,9 +145,9 @@ aside h1 {
 }
 
 .background-sidebar{
-    width: 700px;
+    width: 650px;
     height: 100vh;
-    background-color: #151515;
+    background-color: #1e1e1e;
 }
 .sidebar .container-cms {
     height: 60vh;
@@ -156,28 +156,54 @@ aside h1 {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 2em;
 }
 
-.sidebar button {
+.sidebar .container-cms button{
     cursor:  auto;
     color: #fff;
-    margin-top: 4em;
+    margin-top: 2.5em;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
     background-color: #0487D9;
     width: 300px;
     border-radius: 10px;
+    font-size: 1.4em;
 }
 .sidebar span{
-    flex-grow: .9;
-     font-size: 1.4em;
+   margin: 0 auto;
 }
-.sidebar .container-cms img{
+.linha{
+    display: block;
+    height: 1px;
+    width: 80%;
+    background-color: #fff;
+}
+.dropdown-menu{
+    width: 300px;
+    background-color: #151515;
+    height: auto;
+}
+ 
+.dropdown-toggle::after{ 
+    border: 0; /* Removendo o icone do dropdown do bootstrap */
+}
+.arrow:target{
+    transform: rotate(180deg);
+}
+.dropdown-menu > li a{
+    color: #fff;
+    margin: 0 auto;
+    padding: -20px;
+    font-size: 1em;
+    width: 80px;
+    background-color: transparent;
+}
+.dropdown-menu > li a:hover{
     cursor: pointer;
-    height: 30px;
-    width: 20px;
-    padding: 2px;
+    color: #fff;
+    background-color: #151515;
 }
 
