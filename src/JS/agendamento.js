@@ -19,3 +19,26 @@ function voltar(){
     content2.classList.add("d-none");
     content.classList.remove("d-none");
 }
+
+var dog = new Date()
+var day = dog.getDate();
+
+if(day < 38){
+    let numb = day;
+
+    while(numb < 38){
+        let dia = document.getElementById(`d${numb}`);
+        dia.innerHTML=`${numb}`;
+        numb++;
+    }
+}
+
+if(day > 1){
+    let numb2 = day;
+
+    while(numb2 > 1){
+        let dia = document.getElementById(`d${numb2}`);
+        dia.innerHTML=`${numb2}`;
+        numb2--;
+    }
+}
