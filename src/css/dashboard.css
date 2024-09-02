@@ -97,3 +97,113 @@ body::-webkit-scrollbar-thumb {
     padding-top: 5%;
     padding-bottom: 5%;
 }
+
+.content {
+    padding-top: 24vh;
+    display: grid;
+    grid-template-areas: "a b";
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+aside{
+    grid-area: a;
+    width: 40vw;
+}
+
+aside h1 {
+    color: #fff;
+    padding: 1em;
+    margin-left: 30px;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+.sidebar a{
+    cursor: auto;
+    text-decoration: none;
+    display: flex;
+    width: 700px;
+    height: fit-content;
+    background-color: #0487D9;
+    padding: 8px;
+    border-radius: 0% 30px 30px 0%;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar h4{
+    background-color: #0487D9;
+    font-size: 1.4em;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    flex-grow: 1;
+}
+.sidebar img{
+    cursor: pointer;
+}
+
+.background-sidebar{
+    width: 650px;
+    height: 100vh;
+    background-color: #1e1e1e;
+}
+.sidebar .container-cms {
+    height: 60vh;
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+}
+
+.sidebar .container-cms button{
+    cursor:  auto;
+    color: #fff;
+    margin-top: 2.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #0487D9;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 1.4em;
+}
+.sidebar span{
+   margin: 0 auto;
+}
+.linha{
+    display: block;
+    height: 1px;
+    width: 80%;
+    background-color: #fff;
+}
+.dropdown-menu{
+    width: 300px;
+    background-color: #151515;
+    height: auto;
+}
+ 
+.dropdown-toggle::after{ 
+    border: 0; /* Removendo o icone do dropdown do bootstrap */
+}
+.arrow:target{
+    transform: rotate(180deg);
+}
+.dropdown-menu > li a{
+    color: #fff;
+    margin: 0 auto;
+    padding: -20px;
+    font-size: 1em;
+    width: 80px;
+    background-color: transparent;
+}
+.dropdown-menu > li a:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: #151515;
+}
+
