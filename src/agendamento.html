@@ -116,59 +116,26 @@
         <div class="content_agenda">
             <button class="voltar"></button>
                 <div class="side">
-                <div class="background_calendar">
-                    <div class="fundo_mes">
-                        <button class="mes"><h1>Agosto</h1><img src="./images/icons/agendamento/icon_seta.svg" alt=""></button>
-                    </div>
-                    <div class="semana">
-                        <h1>D</h1>
-                        <h1>S</h1>
-                        <h1>T</h1>
-                        <h1>Q</h1>
-                        <h1>Q</h1>
-                        <h1>S</h1>
-                        <h1>S</h1>
-                    </div>
-                    <div class="dias">
-                        <div class="dia" id="d1"></div>
-                        <div class="dia" id="d2"></div>
-                        <div class="dia" id="d3"></div>
-                        <div class="dia" id="d4"></div>
-                        <div class="dia" id="d5"></div>
-                        <div class="dia" id="d6"></div>
-                        <div class="dia" id="d7"></div>
-                        <div class="dia" id="d8"></div>
-                        <div class="dia" id="d9"></div>
-                        <div class="dia" id="d10"></div>
-                        <div class="dia" id="d11"></div>
-                        <div class="dia" id="d12"></div>
-                        <div class="dia" id="d13"></div>
-                        <div class="dia" id="d14"></div>
-                        <div class="dia" id="d15"></div>
-                        <div class="dia" id="d16"></div>
-                        <div class="dia" id="d17"></div>
-                        <div class="dia" id="d18"></div>
-                        <div class="dia" id="d19"></div>
-                        <div class="dia" id="d20"></div>
-                        <div class="dia" id="d21"></div>
-                        <div class="dia" id="d22"></div>
-                        <div class="dia" id="d23"></div>
-                        <div class="dia" id="d24"></div>
-                        <div class="dia" id="d25"></div>
-                        <div class="dia" id="d26"></div>
-                        <div class="dia" id="d27"></div>
-                        <div class="dia" id="d28"></div>
-                        <div class="dia" id="d29"></div>
-                        <div class="dia" id="d30"></div>
-                        <div class="dia" id="d31"></div>
-                        <div class="dia" id="d32"></div>
-                        <div class="dia" id="d33"></div>
-                        <div class="dia" id="d34"></div>
-                        <div class="dia" id="d35"></div>
-                        <div class="dia" id="d36"></div>
-                        <div class="dia" id="d37"></div>
-                    </div>
-                    </div>
+                    <div class="calendar">
+                        <header>
+                            <button id="prev" class="buttons btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="drop()" onblur="hide()">
+                                <img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
+                            </button>
+                            <button class="buttons dropdown-menu d-none prox-mes"></button>
+                        </header>
+                        <section>
+                          <ul class="days">
+                            <li>D</li>
+                            <li>S</li>
+                            <li>T</li>
+                            <li>Q</li>
+                            <li>Q</li>
+                            <li>S</li>
+                            <li>S</li>
+                          </ul>
+                          <ul class="dates"></ul>
+                        </section>
+                      </div>
                 </div>
 
                 <div class="aside">
