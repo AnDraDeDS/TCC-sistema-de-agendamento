@@ -69,7 +69,6 @@ function voltar(){
     content.classList.remove("d-none");
 }
 
-
 const months = [
   "Janeiro",
   "Fevereiro",
@@ -98,7 +97,7 @@ function renderCalendar() {
   let datesHtml = "";
 
   for (let i = start; i > 0; i--) {
-    datesHtml += `<li class="inactive">${endDatePrev - i + 1}</li>`;
+    datesHtml += `<button><li class="inactive">${endDatePrev - i + 1}</li></button>`;
   }
 
   for (let i = 1; i <= endDate; i++) {
@@ -108,20 +107,20 @@ function renderCalendar() {
       year === new Date().getFullYear()
         ? ' class="today"'
         : "";
-    datesHtml += `<li${className}>${i}</li>`;
+    datesHtml += `<button><li${className}>${i}</li></button>`;
   }
 
   for (let i = end; i < 6; i++) {
-    datesHtml += `<li class="inactive">${i - end + 1}</li>`;
+    datesHtml += `<button><li class="inactive">${i - end + 1}</li></button>`;
   }
 
   dates.innerHTML = datesHtml;
   header.textContent = `${months[month]} ${year}`;
 
   if(dropdown.getAttribute("id") == "next"){
-    months[month] == 11 ? dropdown.textContent = `${months[0]} ${year+1}` :  dropdown.textContent = `${months[month-1]} ${year}`; // Resolver virada do ano
+    months[month] == 11 ? dropdown.textContent = `${months[0]} ${year+1}` :  dropdown.textContent = `${months[month-1]} ${year}`;
   }else{
-    dropdown.textContent = `${months[month+1]} ${year}`; //
+    dropdown.textContent = `${months[month+1]} ${year}`;
   }
   
 }

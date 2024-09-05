@@ -2,8 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    outline: 1px dashed coral;
 }
+*::selection{
+background-color: transparent;
+}
+
 @font-face {
     font-family: 'K2D';
     src: url(../fonts/K2D/K2D-Regular.ttf);
@@ -404,7 +407,7 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
     align-items: center;
     margin: auto;
-    width: 80%;
+    width: 70%;
     height: 530px;
     padding: 1rem;
     background: #5A5A5A;
@@ -431,21 +434,47 @@ body::-webkit-scrollbar-thumb {
   }
 
   .calendar nav {
-    display: flex;
-    align-items: center;
-  }
-  .calendar ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-  }
-  .calendar section ul li {
-    width: calc(100% / 7);
-    margin-top: 25px;
-    position: relative;
-    z-index: 2;
-  }
+      display: flex;
+      align-items: center;
+    }
+    .calendar ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .calendar section .dates button {
+        width: calc(100% / 8);
+        height: calc(100vw / 27);
+        position: relative;
+        margin: calc(23px - 1vw) 0.89% ;
+        z-index: 2;
+        cursor:pointer;
+        background: transparent;
+        font-size: 1em;
+        font-weight: lighter;
+        border-radius: 50%;
+        color: white;
+    }
+
+    .calendar section .dates button:focus {
+        transition: 0.2s;
+        background-color: #63C3FF;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+         rgba(0, 0, 0, 0.12) 0px -12px 30px,
+          rgba(0, 0, 0, 0.12) 0px 4px 6px,
+           rgba(0, 0, 0, 0.17) 0px 12px 13px,
+            rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+    
+    .dates .inactive {
+        color: #ccc;
+    }
+    
+    .dates button:focus li.inactive{
+        color: #ccc;
+        background-color: transparent;
+    }
 
   #prev,#next {
     cursor: pointer;
@@ -457,24 +486,12 @@ body::-webkit-scrollbar-thumb {
     color: #BDC0C2;
   }
 
-  .dates li:focus {
-    content: "";
-    width: 2rem;
-    height: 2rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #ff5454;
-    border-radius: 50%;
-    z-index: -1;
-  }
-  .dates li.inactive {
-    color: #ccc;
-  }
-
-  .dates li{
-    color: white;
+  .calendar .days li {  
+    width: calc(100% / 7);
+    margin-top: 25px;
+    position: relative;
+    z-index: 2;
+    font-size: 1em;
   }
 
 .content_agenda .aside{ 
@@ -561,11 +578,21 @@ body::-webkit-scrollbar-thumb {
     border: 0;
     outline: 0;
     background-color: #44B2F7;
+    box-shadow: rgba(0, 0, 0, 0.25) 4px 7px 8px,
+    rgba(0, 0, 0, 0.12) 0px 5px 5px,
+     rgba(0, 0, 0, 0.12) 0px 2px 3px,
+      rgba(0, 0, 0, 0.17) 0px 6px 7px,
+       rgba(0, 0, 0, 0.09) 0px -1px 3px;
 }
 .veiculo:focus{
     border: 0;
     outline: 0;
     background-color: #44B2F7;
+    box-shadow: rgba(0, 0, 0, 0.25) 4px 7px 8px,
+    rgba(0, 0, 0, 0.12) 0px 5px 5px,
+     rgba(0, 0, 0, 0.12) 0px 2px 3px,
+      rgba(0, 0, 0, 0.17) 0px 6px 7px,
+       rgba(0, 0, 0, 0.09) 0px -1px 3px;
 }
 #title{
     grid-area: a;
