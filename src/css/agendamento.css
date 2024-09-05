@@ -356,7 +356,7 @@ body::-webkit-scrollbar-thumb {
     height: 10%;
     width: 5%;
     background-color: #ffffff;
-    border-radius: 0 50% 50% 0;
+    border-radius: 0 50px 50px 0;
     background-color: #0487D9;
     border: 0;
 }
@@ -385,23 +385,30 @@ body::-webkit-scrollbar-thumb {
 .content_agenda .side{
     padding: 0;
     height: 100%;
-    width: 50%;
-    background-color: #4f9fd0;
+    width: 50%;     
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.side *{
+    font-family: 'K2D';
+}
+
 .side h3 {
     font-weight: 600;
+    font-family: 'K2D';
   }
  .side .calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: auto;
-    width: 98%;
-    max-width: 380px;
+    width: 80%;
+    height: 530px;
     padding: 1rem;
-    background: #fff;
-    border-radius: 10px;
+    background: #5A5A5A;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   .calendar header {
@@ -411,11 +418,12 @@ body::-webkit-scrollbar-thumb {
   }
 
   .calendar header .buttons{
+    font-size: 4em;
     cursor:  auto;
     color: #fff;
-    background-color: #2bd904;
-    width: 200px;
-    height: 30px;
+    background-color: #63C3FF;
+    width: 250px;
+    height: 40px;
     font-size: 1em;
     display: flex;
     align-items: center;
@@ -444,9 +452,11 @@ body::-webkit-scrollbar-thumb {
   } 
 
   .days {
-    font-weight: 600;
+    font-weight: lighter;
+    font-size: 1.5em;
+    color: #BDC0C2;
   }
-  
+
   .dates li:focus {
     content: "";
     width: 2rem;
@@ -461,6 +471,10 @@ body::-webkit-scrollbar-thumb {
   }
   .dates li.inactive {
     color: #ccc;
+  }
+
+  .dates li{
+    color: white;
   }
 
 .content_agenda .aside{ 

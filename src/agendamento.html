@@ -114,7 +114,9 @@
         </div>
 
         <div class="content_agenda">
-            <button class="voltar"></button>
+                <button class="button_voltar" onclick="voltar()">
+                    <img src="./images/icons/agendamento/icon_seta.svg" alt="">
+                </button>
                 <div class="side">
                     <div class="calendar">
                         <header>
@@ -123,8 +125,8 @@
                             </button>
                             <button class="buttons dropdown-menu d-none prox-mes" onclick="atualizar()"></button>
                         </header>
-                        <section>
-                          <ul class="days">
+                        <section style="width: 90%; height: 90%;">
+                          <ul class="days" style="padding: 0;">
                             <li>D</li>
                             <li>S</li>
                             <li>T</li>
@@ -133,7 +135,7 @@
                             <li>S</li>
                             <li>S</li>
                           </ul>
-                          <ul class="dates"></ul>
+                          <ul class="dates" style="padding: 0; display: flex;"></ul>
                         </section>
                       </div>
                 </div>

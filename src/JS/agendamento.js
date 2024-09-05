@@ -16,6 +16,13 @@ function atual(){
  }else{
   dropdown.setAttribute("id", "prev");
  }
+
+   
+ if(dropdown.getAttribute("id") == "next"){
+  months[month] === "Dezembro" ? dropdown.textContent = `${months[0]} ${year+1}` :  dropdown.textContent = `${months[month+1]} ${year}`; // Resolver virada do ano
+}else{
+    months[month] === "Janeiro" ? dropdown.textContent = `${months[11]} ${year-1}` :  dropdown.textContent = `${months[month-1]} ${year}`; // Resolver virada do ano
+  }
 }
 
 function atualizar(){
@@ -110,8 +117,9 @@ function renderCalendar() {
 
   dates.innerHTML = datesHtml;
   header.textContent = `${months[month]} ${year}`;
+
   if(dropdown.getAttribute("id") == "next"){
-    dropdown.textContent = `${months[month-1]} ${year}`; // Resolver virada do ano
+    months[month] == 11 ? dropdown.textContent = `${months[0]} ${year+1}` :  dropdown.textContent = `${months[month-1]} ${year}`; // Resolver virada do ano
   }else{
     dropdown.textContent = `${months[month+1]} ${year}`; //
   }
