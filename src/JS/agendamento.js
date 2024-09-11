@@ -97,7 +97,7 @@ function renderCalendar() {
   let datesHtml = "";
 
   for (let i = start; i > 0; i--) {
-    datesHtml += `<button><li class="inactive">${endDatePrev - i + 1}</li></button>`;
+      datesHtml += `<button><li class="inactive" onfocus="">${endDatePrev - i + 1}</li></button>`;
   }
 
   for (let i = 1; i <= endDate; i++) {
@@ -107,7 +107,17 @@ function renderCalendar() {
       year === new Date().getFullYear()
         ? ' class="today"'
         : "";
-    datesHtml += `<button><li${className}>${i}</li></button>`;
+
+    let dia = new Date(year, month, i);
+    let diaSemana = dia.getDay()
+
+    if(diaSemana == 0){
+      datesHtml += `<button style="background:grey;"><li${className}>${i}</li></button>`;
+
+    }else{
+      datesHtml += `<button><li${className}>${i}</li></button>`;
+
+    }
   }
 
   for (let i = end; i < 6; i++) {

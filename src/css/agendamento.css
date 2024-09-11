@@ -467,13 +467,9 @@ body::-webkit-scrollbar-thumb {
             rgba(0, 0, 0, 0.09) 0px -3px 5px;
     }
     
-    .dates .inactive {
+    .dates button:focus .inactive button{
         color: #ccc;
-    }
-    
-    .dates button:focus li.inactive{
-        color: #ccc;
-        background-color: transparent;
+        background-color: #000000;
     }
 
   #prev,#next {
