@@ -175,12 +175,6 @@ aside h1 {
 .sidebar span{
    margin: 0 auto;
 }
-.linha{
-    display: block;
-    height: 1px;
-    width: 80%;
-    background-color: #fff;
-}
 .dropdown-menu{
     width: 300px;
     background-color: #151515;
@@ -224,6 +218,34 @@ aside h1 {
     background-color: #242425;
     margin-left: 25px;
     border-radius: 10px;
-    width: 300px;
+    width: 350px;
     height: 400px;
+}
+.container-servicos ul{
+    display:flex;
+    padding: 10px;
+    flex-direction:column;
+    justify-content: space-between;
+    gap:20px;
+}
+.container-servicos li{
+    background-color: #5A5A5A;
+    padding:5px;
+    height: 80px;
+    width: 320px;
+    border-radius: 15px;
+}
+
+.foto-de-perfil{
+    border-radius:50%
+}
+.container-item{
+    display:flex;
+    width:280px;
+    height:80px;
+    gap:10px;
+}
+
+.nome{
+    padding:0;
 }

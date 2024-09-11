@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <script src="./js/navbar.js" defer></script>
-    <title>Painel de Controle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <script src="./js/navbar.js" defer></script>
+  <title>Painel de Controle</title>
 </head>
+
 <body>
 
-    <!-- NAVBAR -->
+  <!-- NAVBAR -->
 
-        <div class="header">
-            <div class="logo"><img id="jr" src="../images/jr_navbar.svg"><img id="carwash" src="../images/carwash.svg"><div class="space"></div></div>
-            <div class="navbar">
-                <ul>
-                        <li><a href="./agendamento.html">Agendamento</a></li>
-                        <li><a href="./informacoes.html">Informações</a></li>
-                        <li><a href="./galeria.html">Galeria</a></li>           
-                        <li style="background-color: #63C3FF;"><a href="./perfil.html">Dashboard</a></li>
-                </ul>
-            </div>
-        </div>
+  <div class="header">
+    <div class="logo"><img id="jr" src="../images/jr_navbar.svg"><img id="carwash" src="../images/carwash.svg">
+      <div class="space"></div>
+    </div>
+    <div class="navbar">
+      <ul>
+        <li><a href="./agendamento.html">Agendamento</a></li>
+        <li><a href="./informacoes.html">Informações</a></li>
+        <li><a href="./galeria.html">Galeria</a></li>
+        <li style="background-color: #63C3FF;"><a href="./perfil.html">Dashboard</a></li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- CONTEÚDO -->
+  <!-- CONTEÚDO -->
 
-        <div class="content">
-            <aside>
-              <!-- <div class="sidebar expandir">
+  <div class="content">
+    <aside>
+      <!-- <div class="sidebar expandir">
                   <a href="">
                     <h4>Gerenciar</h4><img src="../images/icons/dashboard/menu.svg" alt="" height="25px" width="40px"></a>
                        
@@ -68,22 +75,32 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="container-servicos">
-                  <h1>SERVIÇOS AGENDADOS</h1>
-                  <div class="background-servicos">
-                  <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                  </ul>
+      <div class="container-servicos">
+        <h1>SERVIÇOS AGENDADOS</h1>
+        <div class="background-servicos">
+          <ul>
+            <li class="container-item">
+                <img src="https://conteudo.imguol.com.br/c/entretenimento/19/2022/07/13/vikings-1657747090442_v2_1008x1389.jpg" alt="" class="foto-de-perfil" height="65" width="60">
+                <div class="container-nome-veiculo">
+                <p class="nome">João Bonicarlos</p>
+                <div class="container-veiculo">
+                  Veículo: <span class="tipo">Carro</span>
+                  <div class="linha"></div>
                 </div>
                 </div>
-            </aside>
-            <main></main>
+            </li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
         </div>
+      </div>
+    </aside>
+    <main></main>
+  </div>
 
 
 
 </body>
 <script src="../JS/dashboard.js"></script>
+
 </html>
