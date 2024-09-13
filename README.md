@@ -15,10 +15,6 @@
 
 <br>
 
-<p align="center">
-  <img alt="Imagem do projeto" src="./src/images/Cadastro.png" width="100%">
-</p>
-
 ## 👨‍💻 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -44,9 +40,8 @@ O nosso app tem como o objetivo de gerenciar o agendamento de serviços solicita
 
 Você pode visualizar o layout do projeto através [DESSE LINK](link do figma publicado). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
 
-## :memo: Licença
 
-Esse projeto está sob a licença MIT.
+
 
 ---
 
