@@ -457,7 +457,7 @@ body::-webkit-scrollbar-thumb {
         color: white;
     }
 
-    .calendar section .dates button:focus {
+    .calendar section .dates button:focus{
         transition: 0.2s;
         background-color: #63C3FF;
         box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -467,9 +467,16 @@ body::-webkit-scrollbar-thumb {
             rgba(0, 0, 0, 0.09) 0px -3px 5px;
     }
     
-    .dates button:focus .inactive button{
+    .calendar section .dates .btn_inactive:focus{
         color: #ccc;
-        background-color: #000000;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    
+    .calendar section .dates .btn_inactive{
+        color: #ccc;
+        background-color: transparent;
+        box-shadow: none;
     }
 
   #prev,#next {

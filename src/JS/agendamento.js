@@ -69,6 +69,10 @@ function voltar(){
     content.classList.remove("d-none");
 }
 
+function mostrar_dia(dia, mes, ano){
+alert(dia + ' de ' + months[mes] + ' de ' + ano);
+}
+
 const months = [
   "Janeiro",
   "Fevereiro",
@@ -97,7 +101,7 @@ function renderCalendar() {
   let datesHtml = "";
 
   for (let i = start; i > 0; i--) {
-      datesHtml += `<button><li class="inactive" onfocus="">${endDatePrev - i + 1}</li></button>`;
+      datesHtml += `<button class="btn_inactive"><li class="inactive">${endDatePrev - i + 1}</li></button>`;
   }
 
   for (let i = 1; i <= endDate; i++) {
@@ -108,20 +112,24 @@ function renderCalendar() {
         ? ' class="today"'
         : "";
 
-    let dia = new Date(year, month, i);
-    let diaSemana = dia.getDay()
+    let data = new Date(year, month, i);
+    let diaSemana = data.getDay();
+    let dia = data.getDate();
+    let mes = data.getMonth();
+    let ano = data.getFullYear();
+
 
     if(diaSemana == 0){
-      datesHtml += `<button style="background:grey;"><li${className}>${i}</li></button>`;
+      datesHtml += `<button class="btn_inactive" style="background:grey;color:white"><li${className}>${i}</li></button>`;
 
     }else{
-      datesHtml += `<button><li${className}>${i}</li></button>`;
+      datesHtml += `<button onclick="mostrar_dia(${dia}, ${mes}, ${ano})"><li${className}>${i}</li></button>`;
 
     }
   }
 
   for (let i = end; i < 6; i++) {
-    datesHtml += `<button><li class="inactive">${i - end + 1}</li></button>`;
+    datesHtml += `<button class="btn_inactive"><li class="inactive">${i - end + 1}</li></button>`;
   }
 
   dates.innerHTML = datesHtml;
