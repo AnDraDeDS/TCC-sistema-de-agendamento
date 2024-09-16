@@ -66,7 +66,14 @@ function agend_foco(){
 
 function voltar(){
     content2.classList.add("d-none");
+    content3.classList.add("d-none");
     content.classList.remove("d-none");
+}
+
+function voltar2(){
+    content2.classList.remove("d-none");
+    content3.classList.add("d-none");
+    content.classList.add("d-none");
 }
 
 function mostrar_dia(dia, mes, ano){
@@ -123,7 +130,7 @@ function renderCalendar() {
       datesHtml += `<button class="btn_inactive" style="background:grey;color:white"><li${className}>${i}</li></button>`;
 
     }else{
-      datesHtml += `<button onclick="mostrar_dia(${dia}, ${mes}, ${ano})"><li${className}>${i}</li></button>`;
+      datesHtml += `<button name="data" value="${dia}, ${mes}, ${ano}" onclick="mostrar_dia(${dia}, ${mes}, ${ano})"><li${className}>${i}</li></button>`;
 
     }
   }
