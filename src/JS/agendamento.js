@@ -52,10 +52,12 @@ function hide(){
  dropdown.classList.add("d-none");
 }
 
-function servico_foco(){
+function servico_foco(servico){
     content.classList.add("d-none");
     content3.classList.add("d-none");
     content2.classList.remove("d-none");
+    document.getElementById("ValorServico").value = servico;
+    alert(document.getElementById("ValorServico").value)
 }
 
 function agend_foco(){

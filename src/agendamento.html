@@ -30,21 +30,21 @@
     <!-- CONTEÚDOS -->
 
         <div class="content">
+        <form class="content" action="" method="post">
             <div class="item item1">
                 <span></span>
                     <h3>Lavagem Simples</h3>
                     <div class="texto">
                         <p>A partir de R$30</p>
-                        <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                        <button class="agendar" type="button" onclick="servico_foco('Lavagem Simples')"></button>
                     </div>
-                
-        </div>
+            </div>
             <div class="item item2">
                 <span></span>
                 <h3>Polimento de Farol</h3>
                     <div class="texto">
                         <p>A partir de R$120</p>
-                        <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                        <button class="agendar" type="button" onclick="servico_foco('Polimento de Farol')"></button>
                     </div>
             </div>
             <div class="item item3">
@@ -52,7 +52,7 @@
                 <h3>Polimento e Cristalização</h3>
                 <div class="texto">
                     <p>A partir de R$350</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Polimento e Cristalização')"></button>
                 </div> 
             </div>
             <div class="item item4">
@@ -60,7 +60,7 @@
                 <h3>Lavagem de Motor</h3>
                 <div class="texto">
                     <p>A partir de R$30</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Lavagem de Motor')"></button>
                 </div>
             </div>
             <div class="item item5">
@@ -68,7 +68,7 @@
                 <h3>Lavagem Completa</h3>
                 <div class="texto">
                     <p>A partir de R$70</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Lavagem Completa')"></button>
                 </div>
             </div>
             <div class="item item6">
@@ -76,7 +76,7 @@
                 <h3>Hig. Banco de Couro</h3>
                 <div class="texto">
                     <p>A partir de R$200</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Hig. Banco de Couro')"></button>
                 </div>
             </div>
             <div class="item item7">
@@ -84,7 +84,7 @@
                 <h3>Higienização de Teto</h3>
                 <div class="texto">
                     <p>A partir de R$100</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Higienização de Teto')"></button>
                 </div>
             </div>
             <div class="item item8">
@@ -92,9 +92,11 @@
                 <h3>Higienização de Banco</h3>
                 <div class="texto">
                     <p>A partir de R$280</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Higienização de Banco')"></button>
                 </div>
             </div>
+            <input type="hidden" id="ValorServico" name="ValorServico">
+        </form>
         </div>
 
         <div class="content_focus d-none">
