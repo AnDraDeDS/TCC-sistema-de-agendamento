@@ -141,7 +141,7 @@ body::-webkit-scrollbar-thumb {
 
 
 .content{
-    padding-top: 18vh;
+    padding-top: 8vh;
     display: grid;
     grid-template-areas: "a b c"
                          "d e f"

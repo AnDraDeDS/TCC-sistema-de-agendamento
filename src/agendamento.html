@@ -29,22 +29,22 @@
 
     <!-- CONTEÚDOS -->
 
-        <div class="content d-none">
+        <div class="content">
+        <form class="content" action="" method="post">
             <div class="item item1">
                 <span></span>
                     <h3>Lavagem Simples</h3>
                     <div class="texto">
                         <p>A partir de R$30</p>
-                        <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                        <button class="agendar" type="button" onclick="servico_foco('Lavagem Simples')"></button>
                     </div>
-                
-        </div>
+            </div>
             <div class="item item2">
                 <span></span>
                 <h3>Polimento de Farol</h3>
                     <div class="texto">
                         <p>A partir de R$120</p>
-                        <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                        <button class="agendar" type="button" onclick="servico_foco('Polimento de Farol')"></button>
                     </div>
             </div>
             <div class="item item3">
@@ -52,7 +52,7 @@
                 <h3>Polimento e Cristalização</h3>
                 <div class="texto">
                     <p>A partir de R$350</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Polimento e Cristalização')"></button>
                 </div> 
             </div>
             <div class="item item4">
@@ -60,7 +60,7 @@
                 <h3>Lavagem de Motor</h3>
                 <div class="texto">
                     <p>A partir de R$30</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Lavagem de Motor')"></button>
                 </div>
             </div>
             <div class="item item5">
@@ -68,7 +68,7 @@
                 <h3>Lavagem Completa</h3>
                 <div class="texto">
                     <p>A partir de R$70</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Lavagem Completa')"></button>
                 </div>
             </div>
             <div class="item item6">
@@ -76,7 +76,7 @@
                 <h3>Hig. Banco de Couro</h3>
                 <div class="texto">
                     <p>A partir de R$200</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Hig. Banco de Couro')"></button>
                 </div>
             </div>
             <div class="item item7">
@@ -84,7 +84,7 @@
                 <h3>Higienização de Teto</h3>
                 <div class="texto">
                     <p>A partir de R$100</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Higienização de Teto')"></button>
                 </div>
             </div>
             <div class="item item8">
@@ -92,9 +92,11 @@
                 <h3>Higienização de Banco</h3>
                 <div class="texto">
                     <p>A partir de R$280</p>
-                    <button class="agendar" type="submit" onclick="servico_foco()"></button>
+                    <button class="agendar" type="button" onclick="servico_foco('Higienização de Banco')"></button>
                 </div>
             </div>
+            <input type="hidden" id="ValorServico" name="ValorServico">
+        </form>
         </div>
 
         <div class="content_focus d-none">
@@ -113,8 +115,8 @@
             </div>
         </div>
 
-        <div class="content_agenda">
-                <button class="button_voltar" onclick="voltar()">
+        <div class="content_agenda d-none">
+                <button class="button_voltar" onclick="voltar2()">
                     <img src="./images/icons/agendamento/icon_seta.svg" alt="">
                 </button>
                 <div class="side">
@@ -148,20 +150,20 @@
 
                     <div class="horarios">
                         <h1 id="title">HORÁRIOS</h1>
-                        <button class="horario" id="hora1">08:00 - 09:30</button>
-                        <button class="horario" id="hora2">09:30 - 11:00</button>
-                        <button class="horario" id="hora3">11:00 - 12:30</button>
-                        <button class="horario" id="hora4">12:30 - 14:00</button>
-                        <button class="horario" id="hora5">14:00 - 15:30</button>
-                        <button class="horario" id="hora6">15:30 - 17:00</button>
+                        <button class="horario" name="horario" vlaue="08:00 - 09:30" id="hora1">08:00 - 09:30</button>
+                        <button class="horario" name="horario" vlaue="09:30 - 11:00" id="hora2">09:30 - 11:00</button>
+                        <button class="horario" name="horario" vlaue="11:00 - 12:30" id="hora3">11:00 - 12:30</button>
+                        <button class="horario" name="horario" vlaue="12:30 - 14:00" id="hora4">12:30 - 14:00</button>
+                        <button class="horario" name="horario" vlaue="14:00 - 15:30" id="hora5">14:00 - 15:30</button>
+                        <button class="horario" name="horario" vlaue="15:30 - 17:00" id="hora6">15:30 - 17:00</button>
                     </div>
                     <div class="line"></div>
                     
                     <div class="veiculos">
                         <h1 id="title">VEÍCULOS</h1>
-                        <button class="veiculo" id="moto"><img src="./images/icons/agendamento/moto.svg"></button>
-                        <button class="veiculo" id="carro"><img src="./images/icons/agendamento/carro.svg"></button>
-                        <button class="veiculo" id="caminhonete"><img src="./images/icons/agendamento/caminhonete.svg"></button>
+                        <button class="veiculo" name="veiculo" value="moto" id="moto"><img src="./images/icons/agendamento/moto.svg"></button>
+                        <button class="veiculo" name="veiculo" value="carro" id="carro"><img src="./images/icons/agendamento/carro.svg"></button>
+                        <button class="veiculo" name="veiculo" value="caminhonete" id="caminhonete"><img src="./images/icons/agendamento/caminhonete.svg"></button>
                     </div>
                     <button id="agendar_horario">AGENDAR</button>
                 </div>

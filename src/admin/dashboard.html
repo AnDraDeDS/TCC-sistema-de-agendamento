@@ -20,9 +20,9 @@
             <div class="logo"><img id="jr" src="../images/jr_navbar.svg"><img id="carwash" src="../images/carwash.svg"><div class="space"></div></div>
             <div class="navbar">
                 <ul>
-                        <li><a href="./agendamento.html">Agendamento</a></li>
-                        <li><a href="./informacoes.html">Informações</a></li>
-                        <li><a href="./galeria.html">Galeria</a></li>           
+                        <li><a href="../agendamento.html">Agendamento</a></li>
+                        <li><a href="../informacoes.html">Informações</a></li>
+                        <li><a href="../galeria.html">Galeria</a></li>           
                         <li style="background-color: #63C3FF;"><a href="./perfil.html">Dashboard</a></li>
                 </ul>
             </div>
@@ -32,11 +32,11 @@
 
         <div class="content">
             <aside>
-                <div class="sidebar expandir">
-                    <a href="">
+                <div id="buceta" class="sidebar expandir">
+                    <div class="header_sidebar">
                        <h4>Gerenciar</h4>
-                        <img src="../images/icons/dashboard/menu.svg" alt="" height="25px" width="40px">
-                    </a>
+                        <button style="background: transparent; border: 0px;" onclick="toggleSide()"><img src="../images/icons/dashboard/menu.svg" alt="" height="25px" width="40px"></button>
+                    </div>
                     <div class="background-sidebar">
                         <div class="container-cms">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -67,8 +67,8 @@
                                   </ul>
                         </div>
                     </div>
-                </div>
-                <!-- <h1>SERVIÇOS AGENDADOS</h1>
+                </div> 
+                <!-- <h1>SERVIÇOS AGENDADOSw</h1>
                 <ul class="background-servicos">
                     <li></li>
                     <li></li>

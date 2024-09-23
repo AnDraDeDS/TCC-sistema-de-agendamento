@@ -1,6 +1,11 @@
 const BUTTONS = document.querySelectorAll(".btn")
 const ARROWS = document.querySelectorAll('.arrow')
+const sideBar = document.getElementById("buceta");
 
+
+function toggleSide(){
+    sideBar.classList.toggle("active");
+}
 
 numb = 0;
 BUTTONS.forEach((BUTTON,index) =>{ 
