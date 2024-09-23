@@ -2,10 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
+
+*::selection{
+background: none;
+}
+
 body {
     background-color: #272727;
     overflow-x: hidden;
+    overflow-y: none;
 }
 body::-webkit-scrollbar-track {
     background-color: #000;
@@ -120,17 +127,40 @@ aside h1 {
     font-size: 1.8em;
     font-weight: bold;
 }
-.sidebar a{
+
+.sidebar{
+    transition: 0.8s;
+    transform: translateY(0%) translateX(-650px);
+    box-shadow: -5px 0px 5px #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.active{
+    transform: 0;
+    box-shadow: -5px 0px 5px #333;
+    transform: translateY(0%) translateX(0px);
+    transition: 0.8s;
+}
+
+.sidebar .header_sidebar{
     cursor: auto;
     text-decoration: none;
     display: flex;
-    width: 700px;
+    width: 710px;
     height: fit-content;
     background-color: #0487D9;
     padding: 8px;
     border-radius: 0% 30px 30px 0%;
     justify-content: center;
     align-items: center;
+}
+
+.header_sidebar button:focus{
+    border: 0;
+    margin: 0;
+    outline: 0;
 }
 .sidebar h4{
     background-color: #0487D9;
@@ -142,12 +172,14 @@ aside h1 {
 }
 .sidebar img{
     cursor: pointer;
+    padding-right: 10px;
 }
 
 .background-sidebar{
     width: 650px;
-    height: 100vh;
+    height: 69vh;
     background-color: #1e1e1e;
+    border-radius: 0 0 20px 0;
 }
 .sidebar .container-cms {
     height: 60vh;
@@ -181,6 +213,7 @@ aside h1 {
     width: 80%;
     background-color: #fff;
 }
+
 .dropdown-menu{
     width: 300px;
     background-color: #151515;

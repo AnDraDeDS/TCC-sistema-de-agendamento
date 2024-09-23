@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+*::selection{
+background-color: transparent;
+}
+
 @font-face {
     font-family: 'K2D';
     src: url(../fonts/K2D/K2D-Regular.ttf);
@@ -136,7 +140,7 @@ body::-webkit-scrollbar-thumb {
 
 
 .content{
-    padding-top: 18vh;
+    padding-top: 8vh;
     display: grid;
     grid-template-areas: "a b c"
                          "d e f"
@@ -355,7 +359,7 @@ body::-webkit-scrollbar-thumb {
     height: 10%;
     width: 5%;
     background-color: #ffffff;
-    border-radius: 0 50% 50% 0;
+    border-radius: 0 50px 50px 0;
     background-color: #0487D9;
     border: 0;
 }
@@ -384,103 +388,114 @@ body::-webkit-scrollbar-thumb {
 .content_agenda .side{
     padding: 0;
     height: 100%;
-    width: 50%;
-    background-color: #4f9fd0;
+    width: 50%;     
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.content_agenda .side .background_calendar{
-    background-color: #5A5A5A;
-    color: #BDC0C2;
-    height: 90%;
-    width: 70%;
-    border-radius: 5px;
+.side *{
+    font-family: 'K2D';
+}
+
+.side h3 {
+    font-weight: 600;
+    font-family: 'K2D';
+  }
+ .side .calendar {
     display: flex;
-    align-items: center;
     flex-direction: column;
-}
-
-.background_calendar .fundo_mes{
-    height: 10%;
-    width: 100%;
+    align-items: center;
+    margin: auto;
+    width: 70%;
+    height: 530px;
+    padding: 1rem;
+    background: #5A5A5A;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .calendar header {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
 
-.background_calendar .semana{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    height: 10%;
-    width: 90%;
+  .calendar header .buttons{
+    font-size: 4em;
+    cursor:  auto;
+    color: #fff;
+    background-color: #63C3FF;
+    width: 250px;
+    height: 40px;
+    font-size: 1em;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    border-bottom: 1px solid white;
-}
-
-.semana h1{
-    color: #BDC0C2;
-    font-weight:400;
-    font-size: 1.5em;
-    width: 12%;
-    text-align: center;
-}
-
-.background_calendar .dias{
-    height: 80%;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-}
+  }
 
-.dias .wrap{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 0;
-    justify-content: justify;
-}
+  .calendar nav {
+      display: flex;
+      align-items: center;
+    }
+    .calendar ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .calendar section .dates button {
+        width: calc(100% / 8);
+        height: calc(100vw / 27);
+        position: relative;
+        margin: calc(23px - 1vw) 0.89% ;
+        z-index: 2;
+        cursor:pointer;
+        background: transparent;
+        font-size: 1em;
+        font-weight: lighter;
+        border-radius: 50%;
+        color: white;
+    }
 
-.background_calendar .wrap .dia{
-    height: 90%;
-    width: 9%;
-    background-color: #272727;
-    border-radius: 50%;
-    margin: 1.5%;
-}
-
-.fundo_mes .mes{
-    width: 200px;
-    height: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 15px;
+    .calendar section .dates button:focus{
+        transition: 0.2s;
+        background-color: #63C3FF;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+         rgba(0, 0, 0, 0.12) 0px -12px 30px,
+          rgba(0, 0, 0, 0.12) 0px 4px 6px,
+           rgba(0, 0, 0, 0.17) 0px 12px 13px,
+            rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
     
-}
-.mes:hover img{
-    transition: 0.2s;
-    margin-top: 5px;
-}
+    .calendar section .dates .btn_inactive:focus{
+        color: #ccc;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    
+    .calendar section .dates .btn_inactive{
+        color: #ccc;
+        background-color: transparent;
+        box-shadow: none;
+    }
 
-.mes h1{
-    font-size: 0.8em;
-    text-align: center;
-    margin-left: 20%;
-    margin-top: 5%;
-    text-transform: uppercase;
-}
+  #prev,#next {
+    cursor: pointer;
+  } 
 
-.mes img{
-    margin-left: 20%;
-    height: 20px;
-    transform: rotate(-90deg);
-}
+  .days {
+    font-weight: lighter;
+    font-size: 1.5em;
+    color: #BDC0C2;
+  }
+
+  .calendar .days li {  
+    width: calc(100% / 7);
+    margin-top: 25px;
+    position: relative;
+    z-index: 2;
+    font-size: 1em;
+  }
 
 .content_agenda .aside{ 
     height: 100%;
@@ -566,11 +581,21 @@ body::-webkit-scrollbar-thumb {
     border: 0;
     outline: 0;
     background-color: #44B2F7;
+    box-shadow: rgba(0, 0, 0, 0.25) 4px 7px 8px,
+    rgba(0, 0, 0, 0.12) 0px 5px 5px,
+     rgba(0, 0, 0, 0.12) 0px 2px 3px,
+      rgba(0, 0, 0, 0.17) 0px 6px 7px,
+       rgba(0, 0, 0, 0.09) 0px -1px 3px;
 }
 .veiculo:focus{
     border: 0;
     outline: 0;
     background-color: #44B2F7;
+    box-shadow: rgba(0, 0, 0, 0.25) 4px 7px 8px,
+    rgba(0, 0, 0, 0.12) 0px 5px 5px,
+     rgba(0, 0, 0, 0.12) 0px 2px 3px,
+      rgba(0, 0, 0, 0.17) 0px 6px 7px,
+       rgba(0, 0, 0, 0.09) 0px -1px 3px;
 }
 #title{
     grid-area: a;
