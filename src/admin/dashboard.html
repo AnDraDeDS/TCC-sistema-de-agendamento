@@ -14,7 +14,9 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/dashboard.css">
   <script src="./js/navbar.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
   <title>Painel de Controle</title>
 </head>
 
@@ -37,45 +39,44 @@
   </div>
 
   <!-- CONTEÚDO -->
-
-  <div class="content">
-    <aside>
-      <!-- <div class="sidebar expandir">
-                  <a href="">
-                    <h4>Gerenciar</h4><img src="../images/icons/dashboard/menu.svg" alt="" height="25px" width="40px"></a>
-                       
-                    
-                    <div class="background-sidebar">
-                        <div class="container-cms">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <span>Serviços</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Inserir</a></li>
-                                  <span class="linha"></span>
-                                  <li><a class="dropdown-item" href="#">Atualizar</a></li>
-                                  <span class="linha"></span>
-                                  <li><a class="dropdown-item" href="#">Excluir</a></li>
-                                </ul>
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span>Galeria</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
-                                  </button>
-                                  <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Inserir</a></li>
-                                    <span class="linha"></span>
-                                    <li><a class="dropdown-item" href="#">Atualizar</a></li>
-                                    <span class="linha"></span>
-                                    <li><a class="dropdown-item" href="#">Excluir</a></li>
-                                  </ul>
-                                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span>Informações</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
-                                  </button>
-                                  <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Atualizar</a></li>
-                                  </ul>
-                        </div>
+      <div class="content">
+        <aside>
+            <div id="sidebar" class="sidebar expandir">
+                <div class="header_sidebar">
+                   <h4>Gerenciar</h4>
+                    <button style="background: transparent; border: 0px;" onclick="toggleSide()"><img src="../images/icons/dashboard/menu.svg" alt="" height="25px" width="40px" class="imgMenu"></button>
+                </div>
+                <div class="background-sidebar">
+                    <div class="container-cms">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <span>Serviços</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Inserir</a></li>
+                              <span class="linha"></span>
+                              <li><a class="dropdown-item" href="#">Atualizar</a></li>
+                              <span class="linha"></span>
+                              <li><a class="dropdown-item" href="#">Excluir</a></li>
+                            </ul>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span>Galeria</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Inserir</a></li>
+                                <span class="linha"></span>
+                                <li><a class="dropdown-item" href="#">Atualizar</a></li>
+                                <span class="linha"></span>
+                                <li><a class="dropdown-item" href="#">Excluir</a></li>
+                              </ul>
+                              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span>Informações</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Atualizar</a></li>
+                              </ul>
                     </div>
-                </div> -->
+                </div>
+            </div> 
       <div class="container-servicos">
         <h1>SERVIÇOS AGENDADOS</h1>
         <div class="background-servicos">
@@ -122,7 +123,66 @@
     </aside>
     <main>
       <div class="grafico">
-        <div class="cabecalho">Média de Rendimentos <button>Anual<img src="../images/icons/dashboard/arrow-mes.svg" alt="" class="arrow"></button></div>
+        <div class="cabecalho">Média de Rendimentos 
+          <select id="select">
+          <option value="anual">Anual</option>
+          <option value="mensal">Mensal</option>
+          <option value="dia">Dia</option>
+          <img src="../images/icons/dashboard/arrow-mes.svg" alt="" class="arrow">
+        </select> 
+        <h4>2024</h4>
+      </div>
+      <div class="container-grafico">
+        <canvas id="grafico1" "></canvas>
+      </div>
+        <script>
+          const ctx = document.getElementById('grafico1');
+          let valoresX = [0,1000,2000,4000,6000,8000,10000,12000,14000];
+          let meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+        
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: meses,
+              datasets: [{
+                label: '',
+                data: valoresX,
+                borderWidth: 1,
+                borderColor: '#63C3FF',
+                backgroundColor: '#63C3FF',
+                color:'#fff',
+              }]
+            },
+            options: {
+              plugins:{
+              legend: {
+                display: false,
+              },
+              },
+              scales: {
+                x:{
+                  ticks:{
+                    font:{
+                      size:12
+                    },
+                },
+              },
+                y: {
+                  ticks:{
+                    font:{
+                      size:15
+                    },
+                    color: 'white'
+                  },
+                  beginAtZero: true,
+                },
+              }
+            }
+          });
+      
+        </script>
+        
+      
       </div>
     </main>
   </div>

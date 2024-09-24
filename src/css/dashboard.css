@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+*::selection{
+    background: none;
+}
+
 body {
     background-color: #272727;
     overflow-x: hidden;
@@ -110,11 +114,11 @@ body::-webkit-scrollbar-thumb {
 
 aside{
     grid-area: a;
-    width: 40vw;
+    width: 30vw;
 }
 main{
     padding-top: 3.5vh;
-    width: 60vw;
+    width: 75vw;
     grid-area: b;
 }
 
@@ -125,17 +129,39 @@ aside h1 {
     font-size: 1.8em;
     font-weight: bold;
 }
-.sidebar a{
+.sidebar{
+    transition: 0.8s;
+    transform: translateY(0%) translateX(-650px);
+    box-shadow: -5px 0px 5px #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.active{
+    transform: 0;
+    box-shadow: -5px 0px 5px #333;
+    transform: translateY(0%) translateX(0px);
+    transition: 0.8s;
+}
+
+.sidebar .header_sidebar{
     cursor: auto;
     text-decoration: none;
     display: flex;
-    width: 700px;
+    width: 710px;
     height: fit-content;
     background-color: #0487D9;
     padding: 8px;
     border-radius: 0% 30px 30px 0%;
     justify-content: center;
     align-items: center;
+}
+
+.header_sidebar button:focus{
+    border: 0;
+    margin: 0;
+    outline: 0;
 }
 .sidebar h4{
     background-color: #0487D9;
@@ -147,12 +173,14 @@ aside h1 {
 }
 .sidebar img{
     cursor: pointer;
+    padding-right: 10px;
 }
 
 .background-sidebar{
     width: 650px;
-    height: 100vh;
+    height: 69vh;
     background-color: #1e1e1e;
+    border-radius: 0 0 20px 0;
 }
 .sidebar .container-cms {
     height: 60vh;
@@ -180,6 +208,13 @@ aside h1 {
 .sidebar span{
    margin: 0 auto;
 }
+.linha{
+    display: block;
+    height: 1px;
+    width: 80%;
+    background-color: #fff;
+}
+
 .dropdown-menu{
     width: 300px;
     background-color: #151515;
@@ -213,7 +248,7 @@ aside h1 {
     align-items: start;
 }
 .container-servicos h1{
-    margin: 0;
+    margin: 0px;
 }
 .container-servicos ul{
     list-style-type: none;
@@ -281,23 +316,34 @@ aside h1 {
     gap:8px;
 }
 .cabecalho{
+    display: flex;
+    gap: 10px;
     color: #FFF;
     font-size: 24px;
     font-weight: 300;
 }
-.cabecalho> button{
+.cabecalho> select{
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     background-color: #0487D9;
     width: 100px;
     height: 30px;
     border-radius: 5px;
-    position: absolute;
-    left: 54%;
-    top:27%;
+    text-align: center;
     color: #fff;
     font-size: 16px;
     margin-bottom: 20px;
     text-transform: uppercase;
 }
+.cabecalho > h4{
+    margin-left: 50%;
+    font-size: 2em;
+}
+.container-grafico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 400px;
+}
+
+
