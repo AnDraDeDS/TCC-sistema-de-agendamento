@@ -1,0 +1,242 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+*::selection{
+background: none;
+}
+
+body {
+    background-color: #272727;
+    overflow-x: hidden;
+    overflow-y: none;
+}
+body::-webkit-scrollbar-track {
+    background-color: #000;
+    width: 15px;
+}
+body::-webkit-scrollbar {
+    background: #F4F4F4;
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+    background: #8A8A8A;
+    border-radius: 20px;
+    border: 3px solid #000;
+}
+
+.header{
+    width: 100vw;
+    filter: drop-shadow(0 6mm 4mm rgba(59, 89, 152,.5));
+    height: 20vh;
+    background: url('../images/capa.png');
+    background-size: cover;
+    background-position: 15% 75%;
+    position: fixed;
+}
+
+.logo{
+    display: flex;
+    width: 100%;
+    height: 60%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#jr, .space{
+    max-width: 80px;
+    margin: 20px;
+    display: flex;
+    justify-self: start;
+}
+
+#carwash{
+    display: flex;
+    justify-self: center;
+    max-width: 300px;
+    padding: 1em;
+}
+
+.navbar{
+    width: 100%;
+    height: 40%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+.navbar>ul{
+    list-style-type: none;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-top: 1px rgba(255, 255, 255, 0.3) solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 2;
+    flex-direction: row;
+}
+
+.navbar ul li{
+    display: flex;
+    width: 25%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.navbar ul li:hover{
+    border: 2px solid white;
+    transition: 0.1s;
+}
+
+.navbar li>a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.3em;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.content {
+    padding-top: 24vh;
+    display: grid;
+    grid-template-areas: "a b";
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+aside{
+    grid-area: a;
+    width: 40vw;
+}
+
+aside h1 {
+    color: #fff;
+    padding: 1em;
+    margin-left: 30px;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.sidebar{
+    transition: 0.8s;
+    transform: translateY(0%) translateX(-650px);
+    box-shadow: -5px 0px 5px #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.active{
+    transform: 0;
+    box-shadow: -5px 0px 5px #333;
+    transform: translateY(0%) translateX(0px);
+    transition: 0.8s;
+}
+
+.sidebar .header_sidebar{
+    cursor: auto;
+    text-decoration: none;
+    display: flex;
+    width: 710px;
+    height: fit-content;
+    background-color: #0487D9;
+    padding: 8px;
+    border-radius: 0% 30px 30px 0%;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_sidebar button:focus{
+    border: 0;
+    margin: 0;
+    outline: 0;
+}
+.sidebar h4{
+    background-color: #0487D9;
+    font-size: 1.4em;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    flex-grow: 1;
+}
+.sidebar img{
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.background-sidebar{
+    width: 650px;
+    height: 69vh;
+    background-color: #1e1e1e;
+    border-radius: 0 0 20px 0;
+}
+.sidebar .container-cms {
+    height: 60vh;
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+}
+
+.sidebar .container-cms button{
+    cursor:  auto;
+    color: #fff;
+    margin-top: 2.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #0487D9;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 1.4em;
+}
+.sidebar span{
+   margin: 0 auto;
+}
+.linha{
+    display: block;
+    height: 1px;
+    width: 80%;
+    background-color: #fff;
+}
+
+.dropdown-menu{
+    width: 300px;
+    background-color: #151515;
+    height: auto;
+}
+ 
+.dropdown-toggle::after{ 
+    border: 0; /* Removendo o icone do dropdown do bootstrap */
+}
+.arrow:target{
+    transform: rotate(180deg);
+}
+.dropdown-menu > li a{
+    color: #fff;
+    margin: 0 auto;
+    padding: -20px;
+    font-size: 1em;
+    width: 80px;
+    background-color: transparent;
+}
+.dropdown-menu > li a:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: #151515;
+}
+
