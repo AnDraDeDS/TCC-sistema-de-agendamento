@@ -10,6 +10,7 @@
 body {
     background-color: #272727;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 body::-webkit-scrollbar-track {
     background-color: #000;
@@ -26,6 +27,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header{
+    z-index: 2;
     width: 100vw;
     filter: drop-shadow(0 6mm 4mm rgba(59, 89, 152,.5));
     height: 20vh;
@@ -107,18 +109,20 @@ body::-webkit-scrollbar-thumb {
     display: grid;
     grid-template-areas: "a b";
     width: 100vw;
-    min-height: 100vh;
     margin: 0 auto;
+    height: 10vh;
     gap: 10px;
 }
 
 aside{
     grid-area: a;
-    width: 30vw;
+    width: 45vw;
+    z-index: 0;
+    height: 100vh;
 }
 main{
     padding-top: 3.5vh;
-    width: 75vw;
+    width: 60vw;
     grid-area: b;
 }
 
@@ -130,12 +134,14 @@ aside h1 {
     font-weight: bold;
 }
 .sidebar{
+    position: absolute;
     transition: 0.8s;
     transform: translateY(0%) translateX(-650px);
     box-shadow: -5px 0px 5px #333;
     display: flex;
     flex-direction: column;
     justify-content: end;
+    z-index: 1;
 }
 
 .active{
@@ -246,7 +252,12 @@ aside h1 {
     justify-content: center;
     flex-direction: column;
     align-items: start;
+    margin-left: 15%;
+    height: 66%;
+    width: 80%;
+    border-right: 4px solid #5a5a5a;
 }
+    
 .container-servicos h1{
     margin: 0px;
 }
@@ -259,7 +270,6 @@ aside h1 {
     margin-left: 25px;
     border-radius: 10px;
     width: 460px;
-    height: 500px;
 }
 .container-servicos ul{
     display:flex;
@@ -315,12 +325,24 @@ aside h1 {
     flex-direction: column;
     gap:8px;
 }
+
+.grafico{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
 .cabecalho{
     display: flex;
     gap: 10px;
     color: #FFF;
     font-size: 24px;
     font-weight: 300;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 .cabecalho> select{
     display: flex;
@@ -331,18 +353,20 @@ aside h1 {
     text-align: center;
     color: #fff;
     font-size: 16px;
-    margin-bottom: 20px;
     text-transform: uppercase;
 }
+
+.cabecalho *{
+    margin: 0 ;
+}
+
 .cabecalho > h4{
-    margin-left: 50%;
     font-size: 2em;
 }
 .container-grafico{
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 800px;
+    width: 100%;
     height: 400px;
 }
 

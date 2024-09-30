@@ -7,16 +7,7 @@ const imgMenu = document.querySelector(".imgMenu")
 
 function toggleSide(){
     sideBar.classList.toggle("active");
-}
-imgMenu.addEventListener("click", () => {
-    const displayAtual = getComputedStyle(containerServicos).display;
-
-    if (displayAtual === "flex") {
-        containerServicos.style.display = "none";
-    } else {
-        containerServicos.style.display = "flex";
-    }
-});
+};
 
 
 numb = 0;
