@@ -1,6 +1,9 @@
 const BUTTONS = document.querySelectorAll(".btn")
 const ARROWS = document.querySelectorAll('.arrow')
 
+function toggleSide(){
+    
+}
 
 numb = 0;
 BUTTONS.forEach((BUTTON,index) =>{ 
