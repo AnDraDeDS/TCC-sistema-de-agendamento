@@ -269,7 +269,7 @@ aside h1 {
     background-color: #242425;
     margin-left: 25px;
     border-radius: 10px;
-    width: 460px;
+    width: 23vw;
 }
 .container-servicos ul{
     display:flex;
@@ -281,8 +281,8 @@ aside h1 {
 .container-servicos li{
     background-color: #5A5A5A;
     padding:5px;
-    height: 100px;
-    width: 435px;
+    height: 10vh;
+    width: 22vw;
     border-radius: 15px;
 }
 
@@ -292,15 +292,14 @@ aside h1 {
 }
 .container-item{
     display:flex;
-    width:280px;
-    height:80px;
+    width:15vw;
     gap: 5px;
 }
 
 .nome{
     padding:-2px;
     font-weight: 500;
-    width: 140px;
+    width: 15vw;
     font-size: 18px;
 }
 .azul{
@@ -314,10 +313,10 @@ aside h1 {
     flex-direction: column;
     gap: 20px;
     margin-top: 3px;
-    height: 80px;
+    height: 8vh;
     padding-right: 15px;
     border-right: 2.5px solid rgba(0, 0, 0, 0.5);
-    width: 140px;
+    width: 7vw;
 }
 .info-agendamento{
     margin-left: 5px;
