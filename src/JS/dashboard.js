@@ -1,9 +1,14 @@
 const BUTTONS = document.querySelectorAll(".btn")
 const ARROWS = document.querySelectorAll('.arrow')
+const sideBar = document.getElementById("sidebar");
+const containerServicos = document.querySelector(".container-servicos")
+const imgMenu = document.querySelector(".imgMenu")
+
 
 function toggleSide(){
-    
-}
+    sideBar.classList.toggle("active");
+};
+
 
 numb = 0;
 BUTTONS.forEach((BUTTON,index) =>{ 
