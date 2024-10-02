@@ -115,16 +115,6 @@ body::-webkit-scrollbar-thumb {
     gap: 10px;
 }
 
-.bloco{
-    display: flex;
-    height: 20vh;
-    width: 10vw;
-    color: #000;
-    position: absolute;
-    z-index: 2;
-}
-
-
 aside{
     grid-area: a;
     width: 40vw;
