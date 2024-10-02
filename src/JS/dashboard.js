@@ -9,6 +9,10 @@ function toggleSide(){
     sideBar.classList.toggle("active");
 };
 
+function openCMS(){
+    
+}
+
 
 numb = 0;
 BUTTONS.forEach((BUTTON,index) =>{ 

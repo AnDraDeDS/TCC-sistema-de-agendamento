@@ -3,13 +3,51 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+@font-face {
+    font-family: 'K2D';
+    src: url(../fonts/K2D/K2D-Regular.ttf);
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: 'Carme';
+    src: url(../fonts/Carme/Carme-Regular.ttf);
+}
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url(../fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: 'Arimo';
+    src: url(../fonts/Arimo/Arimo-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Kanit';
+    src: url(../fonts/Kanit/Kanit-Regular.ttf);
+}
+@font-face {
+    font-family: 'League Spartan';
+    src: url(../fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf);
+}
+
 *::selection{
     background: none;
 }
 
 body {
     background-color: #272727;
-    overflow-x: hidden;
     overflow-y: auto;
 }
 body::-webkit-scrollbar-track {
@@ -104,25 +142,62 @@ body::-webkit-scrollbar-thumb {
     padding-bottom: 5%;
 }
 
+
 .content {
     padding-top: 24vh;
-    display: grid;
-    grid-template-areas: "a b";
-    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    width: 99vw;
     margin: 0 auto;
     height: 10vh;
     gap: 10px;
 }
 
+.cms_add_servico{
+    height: 73vh;
+    width: 25vw;
+    background: #F2F2F3;
+    position: absolute;
+    z-index: 1;
+    left: 62%;
+    border-radius: 5%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.header-cms{
+    width: 100%;
+    height: 10%;
+    background: #0487D9;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    font-family: 'Kanit';
+    color: white;
+
+}
+
+.input_file{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    margin-top: 5px;
+}
+
+.content-cms{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10px 10px 10px;
+}
+
 aside{
     grid-area: a;
-    width: 45vw;
+    width: 50vw;
     z-index: 0;
     height: 100vh;
 }
 main{
     padding-top: 3.5vh;
-    width: 60vw;
+    width: 50vw;
     grid-area: b;
 }
 
@@ -327,7 +402,7 @@ aside h1 {
 }
 
 .grafico{
-    width: 80%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;

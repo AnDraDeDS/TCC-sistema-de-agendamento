@@ -40,6 +40,40 @@
 
   <!-- CONTEÚDO -->
       <div class="content">
+        <div class="cms_add_servico">
+          <div class="header-cms">Adicionar Serviço</div>
+          <div class="content-cms">
+            <form action="" method="post">
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Nome</label>
+              </div>
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Preço</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Descrição</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Duração</label>
+              </div>
+
+              <div class="files" style="display: flex; flex-direction: column;">
+                  <input class="input_file" type="file" style="border: 0;">
+                  <input class="input_file" type="file" style="border: 0;">
+              </div>
+
+              <button type="submit" class="submit_form">CONFIRMAR</button>
+            </form>
+          </div>
+        </div>
         <aside>
             <div id="sidebar" class="sidebar expandir">
                 <div class="header_sidebar">
@@ -52,27 +86,27 @@
                               <span>Serviços</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
                             </button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Inserir</a></li>
+                              <li><a class="dropdown-item" href="#" onclick="openCMS('inserir_servico')">Inserir</a></li>
                               <span class="linha"></span>
-                              <li><a class="dropdown-item" href="#">Atualizar</a></li>
+                              <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_servico')">Atualizar</a></li>
                               <span class="linha"></span>
-                              <li><a class="dropdown-item" href="#">Excluir</a></li>
+                              <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_servico')">Excluir</a></li>
                             </ul>
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span>Galeria</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
                               </button>
                               <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Inserir</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="openCMS('inserir_galeria')">Inserir</a></li>
                                 <span class="linha"></span>
-                                <li><a class="dropdown-item" href="#">Atualizar</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_galeria')">Atualizar</a></li>
                                 <span class="linha"></span>
-                                <li><a class="dropdown-item" href="#">Excluir</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_galeria')">Excluir</a></li>
                               </ul>
                               <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span>Informações</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
                               </button>
                               <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Atualizar</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_informacoes')">Atualizar</a></li>
                               </ul>
                     </div>
                 </div>
