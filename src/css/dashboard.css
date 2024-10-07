@@ -327,7 +327,7 @@ aside h1 {
 .active{
     transform: 0;
     box-shadow: -5px 0px 5px #333;
-    transform: translateY(0%) translateX(-10px);
+    transform: translateY(0%) translateX(-15px);
     transition: 0.8s;
 }
 
@@ -363,7 +363,7 @@ aside h1 {
 }
 
 .background-sidebar{
-    width: 650px;
+    width: 645px;
     height: 69vh;
     background-color: #1e1e1e;
     border-radius: 0 0 20px 0;
