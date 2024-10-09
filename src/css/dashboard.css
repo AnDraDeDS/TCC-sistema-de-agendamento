@@ -384,9 +384,19 @@ aside h1 {
     background-color: #0487D9;
     color:#fff;
 }
+.cabecalho-solicitacoes h5 {
+    font-weight: 480;
+}
 .container-itens-solicitacoes{
     background-color:#1E1E1E;
     height: 200px;
     border-radius: 0px 0px 20px 20px;
     width:45rem;
+}
+.item-solicitacao{
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    width: 35rem;
+    background-color: #5A5A5A;
 }
