@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +27,7 @@
                 </ul>
             </div>
         </div>
+        <p class="pageName">SERVIÇOS</p>
 
     <!-- CONTEÚDOS -->
 
@@ -151,20 +153,20 @@
                     
                     <div class="horarios">
                         <h1 id="title">HORÁRIOS</h1>
-                        <button type="button" class="horario" name="horario" vlaue="08:00 - 09:30" id="hora1">08:00 - 09:30</button>
-                        <button type="button" class="horario" name="horario" vlaue="09:30 - 11:00" id="hora2">09:30 - 11:00</button>
-                        <button type="button" class="horario" name="horario" vlaue="11:00 - 12:30" id="hora3">11:00 - 12:30</button>
-                        <button type="button" class="horario" name="horario" vlaue="12:30 - 14:00" id="hora4">12:30 - 14:00</button>
-                        <button type="button" class="horario" name="horario" vlaue="14:00 - 15:30" id="hora5">14:00 - 15:30</button>
-                        <button type="button" class="horario" name="horario" vlaue="15:30 - 17:00" id="hora6">15:30 - 17:00</button>
+                        <button type="button" class="horario" name="horario" onmouseover="selectItens('horario')" value="08:00 - 09:30" id="hora1">08:00 - 09:30</button>
+                        <button type="button" class="horario" name="horario" onmouseover="selectItens('horario')" value="09:30 - 11:00" id="hora2">09:30 - 11:00</button>
+                        <button type="button" class="horario" name="horario" onmouseover="selectItens('horario')" value="11:00 - 12:30" id="hora3">11:00 - 12:30</button>
+                        <button type="button" class="horario" name="horario" onmouseover="selectItens('horario')" value="12:30 - 14:00" id="hora4">12:30 - 14:00</button>
+                        <button type="button" class="horario" name="horario" onmouseover="selectItens('horario')" value="14:00 - 15:30" id="hora5">14:00 - 15:30</button>
+                        <button type="button" class="horario" name="horario" onmouseover="selectItens('horario')" value="15:30 - 17:00" id="hora6">15:30 - 17:00</button>
                     </div>
-                    <div class="line"></div>
+                    <div class="line"></div> 
                     
                     <div class="veiculos">
                         <h1 id="title">VEÍCULOS</h1>
-                        <button type="button" class="veiculo" name="veiculo" value="moto" id="moto"><img src="./images/icons/agendamento/moto.svg"></button>
-                        <button type="button" class="veiculo" name="veiculo" value="carro" id="carro"><img src="./images/icons/agendamento/carro.svg"></button>
-                        <button type="button" class="veiculo" name="veiculo" value="caminhonete" id="caminhonete"><img src="./images/icons/agendamento/caminhonete.svg"></button>
+                        <button type="button" class="veiculo" onmouseover="selectItens('veiculo')" name="veiculo" value="moto" id="moto"><img src="./images/icons/agendamento/moto.svg"></button>
+                        <button type="button" class="veiculo" onmouseover="selectItens('veiculo')" name="veiculo" value="carro" id="carro"><img src="./images/icons/agendamento/carro.svg"></button>
+                        <button type="button" class="veiculo" onmouseover="selectItens('veiculo')" name="veiculo" value="caminhonete" id="caminhonete"><img src="./images/icons/agendamento/caminhonete.svg"></button>
                     </div>
                     <button id="agendar_horario" type="submit">AGENDAR</button>
                 </div>
