@@ -271,6 +271,8 @@ aside h1 {
     border-radius: 10px;
     width: 460px;
     height:625px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .container-servicos ul{
     display:flex;
@@ -392,11 +394,26 @@ aside h1 {
     height: 200px;
     border-radius: 0px 0px 20px 20px;
     width:45rem;
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 .item-solicitacao{
     border-radius: 10px;
-    margin: 5px;
+    margin: 10px auto;
     padding: 5px;
-    width: 35rem;
+    width: 42rem;
     background-color: #5A5A5A;
+}
+.perfil-solicitacao{
+    display: flex;
+    gap:10px;
+    align-items:center;
+}
+.solicitacao{
+    color:#fff;
+}
+.linha {
+    width:1px;
+    height:40px;
+    background-color:#000;
 }
