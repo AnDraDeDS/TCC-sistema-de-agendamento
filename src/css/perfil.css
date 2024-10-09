@@ -7,7 +7,8 @@
 
 body {
     background-color: #272727;
-    overflow-x: hidden;
+    overflow: hidden;
+
 }
 
 body::-webkit-scrollbar-track {
@@ -231,6 +232,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 p {
+    height: fit-content;
+    width: 100%;
     font-size: 1em;
     padding-left: 60px;
     font-weight: lighter;
@@ -238,77 +241,115 @@ p {
     position: relative;
 }
 
-/* Estilos para o container da tabela */
-.table-container {
-    transform: translateX(6%);
-    height: 100vh;
-    width: 90%;
-    top: 25vh;
-    display: flex;
-    position: absolute;
+/*TABELA NOT*/
+.modal-header{
     justify-content: center;
-    align-items: center;
-    font-family: 'League Spartan', sans-serif;
+    color: white;
+    background-color:#007bff;
 }
 
-/* Estilos para a tabela */
-table {
-    width: 50%;
-    height: 50%;
-    border-radius: 0px 0px 20px 20px;
-    background-color: #ffffff;
+.modal-body{
     text-align: center;
 }
 
-/* Estilos para o cabeçalho */
-.table-header {
-    background-color: #007bff;
+.modal-content{
+    margin-top: 25vh;
+}
+
+#reagend{
     color: white;
-    margin: 0 auto;
-    padding: 25px 0px;
-    border-radius: 20px 20px 0px 0px;
-    font-size: xx-large;
-    text-align: center;
-    font-weight: bold;
-}
-
-th, td {
-    padding: 15px;
-    border: 1px solid #ddd;
-    height: auto;
-}
-
-/* Estilo para as células com informações */
-tbody tr td {
-    font-size: 16px;
-    color: #333;
-}
-
-/* Estilo para o botão de reagendar */
-.btn-reagendar {
     background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 15px;
+}
+
+
+/* TABELA DE EDIT */
+.edicao {
+    display: none; /* Inicialmente escondido */
+    position: fixed; /* Fixa na tela */
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(7px);
+    z-index: 9; /* Garantindo que esteja acima dos outros elementos */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    display: none; /* Para centralizar o conteúdo do modal */
+}
+
+.table-body{
+    border-radius: 20px;
+}
+
+/* Estilo do formulário dentro do modal */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px; /* Largura */
+    max-width: 90%; /* Garantir responsividade em telas menores */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo dos grupos de formulário */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Estilo dos labels */
+label {
+    display: block;
     font-size: 14px;
+    font-weight: bold;
+    color: #007bff; /* Azul claro como na imagem */
+    margin-bottom: 5px;
+}
+
+/* Estilo dos campos de input */
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/* Estilo para o upload de imagem */
+.image-uploud {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+/* Botão de upload de arquivo */
+input[type="file"] {
+    width: 48%;
+    border: 1px dashed #ccc; /* Borda tracejada */
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+/* Estilo do botão de confirmação */
+.confirm-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Azul */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Efeito hover para o botão */
-.btn-reagendar:hover {
-    background-color: #0056b3;
-}
-
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    th, td {
-        font-size: 12px;
-        padding: 10px;
-    }
-
-    .btn-reagendar {
-        padding: 5px 10px;
-        font-size: 12px;
-    }
+.confirm-btn:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
 }
