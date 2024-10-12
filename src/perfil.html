@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -38,9 +38,10 @@
             <div class="perfil">
                 <button type="button" class="edit" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img src="./images/icons/perfil/Icon_bell.svg"></button>
-                <button class="edit"><img src="./images/icons/perfil/edit_icon.svg"></button>
+                <button class="edit" id="lapinho"><img src="./images/icons/perfil/edit_icon.svg"></button>
             </div>
         </div>
+
         <div class="aside">
             <div class="infos">
                 <div class="dado" id="item1">
@@ -106,7 +107,6 @@
             </div>
         </div>
     </div>
-    
 
     <!-- TABELA DE EDIT -->
     <div class="edicao">
@@ -115,19 +115,25 @@
                 <label for="name">Nome</label>
                 <input type="text" id="name" placeholder="Nome">
 
-                <label for="call">Telefone</label>
-                <input type="text" id="call" placeholder="Telefone">
+                <label for="current-password">Senha Atual</label>
+                <input type="password" id="current-password" placeholder="Senha Atual">
 
                 <label for="password">Senha</label>
                 <input type="password" id="password" placeholder="Senha">
+
+                <label for="call">Telefone</label>
+                <input type="text" id="call" placeholder="Telefone">
 
                 <label for="name">Endereço</label>
                 <input type="text" id="address" placeholder="Endereço">
 
                 <label>Imagem de perfil</label>
-                <div class="image-uploud">
-                    <input type="file">
-                </div>
+                <label for="file-upload" class="custom-file-upload">
+                    <div class="upload-box">
+                        <span>Escolher Imagem</span>
+                    </div>
+                </label>
+                <input id="file-upload" type="file">
 
                 <button type="submit" class="confirm-btn">CONFIRMAR</button>
 

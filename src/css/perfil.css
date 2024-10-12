@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -178,11 +180,6 @@ body::-webkit-scrollbar-thumb {
     background-color: #0A090B;
 }
 
-.dado:hover {
-    background-color: #5a5a5a;
-    transition: 0.3s;
-}
-
 .text {
     height: 100%;
     width: 90%;
@@ -261,20 +258,18 @@ p {
     background-color: #007bff;
 }
 
-
 /* TABELA DE EDIT */
 .edicao {
-    display: none; /* Inicialmente escondido */
-    position: fixed; /* Fixa na tela */
+    display: none; /* O modal começa oculto */
+    position: fixed; 
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     backdrop-filter: blur(7px);
-    z-index: 9; /* Garantindo que esteja acima dos outros elementos */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    display: none; /* Para centralizar o conteúdo do modal */
+    justify-content: center; 
+    align-items: center; 
+    z-index: 999;
 }
 
 .table-body{
@@ -286,9 +281,9 @@ form {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    width: 350px; /* Largura */
-    max-width: 90%; /* Garantir responsividade em telas menores */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 350px;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 /* Estilo dos grupos de formulário */
@@ -299,7 +294,8 @@ form {
 /* Estilo dos labels */
 label {
     display: block;
-    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
     font-weight: bold;
     color: #007bff; /* Azul claro como na imagem */
     margin-bottom: 5px;
@@ -307,8 +303,7 @@ label {
 
 /* Estilo dos campos de input */
 input[type="text"],
-input[type="password"],
-input[type="file"] {
+input[type="password"] {
     width: 100%;
     padding: 10px;
     font-size: 14px;
@@ -318,35 +313,44 @@ input[type="file"] {
     margin-bottom: 15px;
 }
 
-/* Estilo para o upload de imagem */
-.image-uploud {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
-
 /* Botão de upload de arquivo */
 input[type="file"] {
-    width: 48%;
-    border: 1px dashed #ccc; /* Borda tracejada */
-    padding: 10px;
+    display: none;
+}
+
+.upload-box {
+    display: inline-block;
     text-align: center;
-    font-size: 14px;
-    cursor: pointer;
+    width: 310px;
+    height: 50px;
+    padding: 10px 20px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
     background-color: #f9f9f9;
+    cursor: pointer;
+
+}
+
+.upload-box span {
+    color: #c1c1c1;
+}
+
+.upload-box:hover {
+    background-color: #eee;
+    border-color: #007bff;
 }
 
 /* Estilo do botão de confirmação */
 .confirm-btn {
     width: 100%;
     padding: 12px;
-    background-color: #007bff; /* Azul */
+    background-color: #007bff; 
     color: white;
     font-size: 16px;
     font-weight: bold;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    margin-top: 10px;
     transition: background-color 0.3s ease;
 }
 
