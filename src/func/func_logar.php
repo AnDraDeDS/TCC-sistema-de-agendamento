@@ -16,14 +16,14 @@
         $cliente = $verificarLogin->fetch(PDO::FETCH_OBJ);
 
         if (password_verify($senha, $cliente->senha)) {
-
             session_start();
-            $_SESSION["logado"] = 1;
-
-            header("Location: ../agendamento.html");
+            $_SESSION["logado"] = true;
+            header("Location: ../agendamento.php");
         } else {
             include './FundoAlertLogin.php';
- 
     }
+}
+else {
+    include './FundoAlertLogin.php';
 }
 ?>

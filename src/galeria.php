@@ -1,3 +1,11 @@
+<?php 
+
+session_start();
+if($_SESSION['logado'] == false){
+  header("Location: ./cadastro.php");
+}
+?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
