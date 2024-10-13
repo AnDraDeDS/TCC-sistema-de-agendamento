@@ -19,11 +19,11 @@
 
             session_start();
             $_SESSION["logado"] = 1;
-            // Redirecionar para a página de agendamento
+
             header("Location: ../agendamento.html");
         } else {
-            echo "<script>alert('Telefone e/ou senha incorretos!');</script>";
-            echo "<meta http-equiv='refresh' content='0; url=../login.php'>";
+            include './FundoAlertLogin.php';
+ 
     }
 }
 ?>
