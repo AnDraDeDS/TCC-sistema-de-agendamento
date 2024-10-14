@@ -1,10 +1,10 @@
 <?php 
 
 session_start();
-if($_SESSION['logado'] == false){
+if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
   header("Location: ./cadastro.php");
-}
-?>
+  exit();
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,10 +27,10 @@ if($_SESSION['logado'] == false){
             <div class="logo"><img id="jr" src="./images/jr_navbar.svg"><img id="carwash" src="./images/carwash.svg"><div class="space"></div></div>
             <div class="navbar">
                 <ul>
-                        <li><a href="./agendamento.html">Agendamento</a></li>
-                        <li><a href="./informacoes.html">Informações</a></li>
-                        <li style="background-color: #63C3FF;"><a href="./galeria.html">Galeria</a></li>           
-                        <li><a href="./perfil.html">Perfil</a></li>
+                        <li><a href="./agendamento.php">Agendamento</a></li>
+                        <li><a href="./informacoes.php">Informações</a></li>
+                        <li style="background-color: #63C3FF;"><a href="./galeria.php">Galeria</a></li>           
+                        <li id="link"><a href="./perfil.php">Perfil</a></li>
                 </ul>
             </div>
         </div>
@@ -103,4 +103,15 @@ if($_SESSION['logado'] == false){
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let link = document.querySelector("#link");
+        
+        <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){ ?>
+            link.innerHTML = "<a href='./admin/dashboard.php'>Dashboard</a>";
+        <?php } else{ ?>
+            link.innerHTML = "<a href='./perfil.php'>Perfil</a>";
+        <?php } ?>
+    });
+</script>
 </html>

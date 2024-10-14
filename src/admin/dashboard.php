@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if($_SESSION['logado'] == false){
+  header("Location: ./cadastro.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,10 +37,10 @@
     </div>
     <div class="navbar">
       <ul>
-        <li><a href="../agendamento.html">Agendamento</a></li>
-        <li><a href="../informacoes.html">Informações</a></li>
-        <li><a href="../galeria.html">Galeria</a></li>
-        <li style="background-color: #63C3FF;"><a href="./perfil.html">Dashboard</a></li>
+        <li><a href="../agendamento.php">Agendamento</a></li>
+        <li><a href="../informacoes.php">Informações</a></li>
+        <li><a href="../galeria.php">Galeria</a></li>
+        <li style="background-color: #63C3FF;"><a href="../admin/dashboard.php">Dashboard</a></li>
       </ul>
     </div>
   </div>

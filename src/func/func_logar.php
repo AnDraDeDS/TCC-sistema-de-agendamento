@@ -18,12 +18,18 @@
         if (password_verify($senha, $cliente->senha)) {
             session_start();
             $_SESSION["logado"] = true;
+            if($telefoneFormatado === "15997646825"){
+            $_SESSION["admin"] = true;
+                header("Location: ../admin/dashboard.php");
+            }else {
             header("Location: ../agendamento.php");
+            exit();
+        }
         } else {
             include './FundoAlertLogin.php';
     }
 }
 else {
-    include './FundoAlertLogin.php';
-}
+            include './FundoAlertLogin.php';
+    }
 ?>
