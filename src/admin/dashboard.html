@@ -286,7 +286,7 @@
           </div>
         </div>
         <aside>
-            <div onclick="" id="sidebar" class="sidebar expandir">
+            <div id="sidebar" class="sidebar expandir">
                 <div class="header_sidebar">
                    <h4>Gerenciar</h4>
                     <button style="background: transparent; border: 0px;" onclick="toggleSide()"><img src="../images/icons/dashboard/menu.svg" alt="" height="25px" width="40px" class="imgMenu"></button>
@@ -298,9 +298,9 @@
                             </button>
                             <ul class="dropdown-menu">
                               <li><a class="dropdown-item" href="#" onclick="openCMS('inserir_servico')">Inserir</a></li>
-                              <span class="linha"></span>
+                              <span class="linhaCMS"></span>
                               <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_servico')">Atualizar</a></li>
-                              <span class="linha"></span>
+                              <span class="linhaCMS"></span>
                               <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_servico')">Excluir</a></li>
                             </ul>
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -308,9 +308,9 @@
                               </button>
                               <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#" onclick="openCMS('inserir_galeria')">Inserir</a></li>
-                                <span class="linha"></span>
+                                <span class="linhaCMS"></span>
                                 <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_galeria')">Atualizar</a></li>
-                                <span class="linha"></span>
+                                <span class="linhaCMS"></span>
                                 <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_galeria')">Excluir</a></li>
                               </ul>
                               <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -330,36 +330,36 @@
                 <img src="https://conteudo.imguol.com.br/c/entretenimento/19/2022/07/13/vikings-1657747090442_v2_1008x1389.jpg" alt="" class="foto-de-perfil" height="70" width="65">
                 <div class="container-nome-veiculo">
                 <p class="nome">João Bonicarlos</p>
-                  <span class="azul">Veículo:<span class="tipo"> Carro</span></span>              
+                  <span class="azul">Veículo: <span class="tipo"> Carro</span></span>              
                 </div>
                 <div class="info-agendamento">
-                 <span class="azul">Serviço:<span class="tipo">Higienização de Teto</span></span>
-                 <span class="azul">Horário:<span class="tipo">13:00 - 14:30</span></span>
-                 <span class="azul">Data:<span class="tipo">04/05</span></span>
+                 <span class="azul">Serviço: <span class="tipo">Higienização de Teto</span></span>
+                 <span class="azul">Horário: <span class="tipo">13:00 - 14:30</span></span>
+                 <span class="azul">Data: <span class="tipo">04/05</span></span>
                 </div>
             </li>
             <li class="container-item">
               <img src="https://conteudo.imguol.com.br/c/entretenimento/19/2022/07/13/vikings-1657747090442_v2_1008x1389.jpg" alt="" class="foto-de-perfil" height="70" width="65">
               <div class="container-nome-veiculo">
               <p class="nome">João Bonicarlos</p>
-                <span class="azul">Veículo:<span class="tipo"> Carro</span></span>              
+                <span class="azul">Veículo: <span class="tipo"> Carro</span></span>              
               </div>
               <div class="info-agendamento">
-               <span class="azul">Serviço:<span class="tipo">Higienização de Teto</span></span>
-               <span class="azul">Horário:<span class="tipo">13:00 - 14:30</span></span>
-               <span class="azul">Data:<span class="tipo">04/05</span></span>
+               <span class="azul">Serviço: <span class="tipo">Higienização de Teto</span></span>
+               <span class="azul">Horário: <span class="tipo">13:00 - 14:30</span></span>
+               <span class="azul">Data: <span class="tipo">04/05</span></span>
               </div>
           </li>
           <li class="container-item">
             <img src="https://conteudo.imguol.com.br/c/entretenimento/19/2022/07/13/vikings-1657747090442_v2_1008x1389.jpg" alt="" class="foto-de-perfil" height="70" width="65">
             <div class="container-nome-veiculo">
             <p class="nome">João Bonicarlos</p>
-              <span class="azul">Veículo:<span class="tipo"> Carro</span></span>              
+              <span class="azul">Veículo: <span class="tipo"> Carro</span></span>              
             </div>
             <div class="info-agendamento">
-             <span class="azul">Serviço:<span class="tipo">Higienização de Teto</span></span>
-             <span class="azul">Horário:<span class="tipo">13:00 - 14:30</span></span>
-             <span class="azul">Data:<span class="tipo">04/05</span></span>
+             <span class="azul">Serviço: <span class="tipo">Higienização de Teto</span></span>
+             <span class="azul">Horário: <span class="tipo">13:00 - 14:30</span></span>
+             <span class="azul">Data: <span class="tipo">04/05</span></span>
             </div>
         </li>
           </ul>
@@ -399,6 +399,8 @@
               }]
             },
             options: {
+              responsive: true,
+              maintainAspectRatio: false,
               plugins:{
               legend: {
                 display: false,
@@ -430,6 +432,36 @@
           });
       
         </script>
+
+          <div class="cabecalho-solicitacoes">
+            <h5>Solicitações de serviço</h5>
+          </div>
+            <div class="container-itens-solicitacoes">
+
+              
+              <div class="item-solicitacao">
+                <div class="perfil-solicitacao">
+                  <img src="../images/capa.png" alt="" height="50px" width="50">
+                  <p class="solicitacao">Solicitação de <br>João Bonicarlos</p>
+                </div>
+                <div class="linha"></div>
+                <div class="tipo-solicitacao">
+                  <p class="tipo">Servico:Lavagem Completa</p>
+                  <p class="tipo">Veículo</p>
+                </div>
+                <div class="linha"></div>
+                <div class="agendamento-solicitacao">
+                  <p class="tipo">Data: 02/05</p>
+                  <p class="tipo">Horário: 13:00 - 14:30</p>
+                </div>
+                <div class="container-buttons">
+                  <button><img src="../images/icons/dashboard/button-recusar.svg" alt=""></button>
+                  <button><img src="../images/icons/dashboard/button-confirmar.svg" alt=""></button>
+                </div>
+            </div>
+
+            
+          </div>
         
       
       </div>

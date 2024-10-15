@@ -1,10 +1,11 @@
+
 const BUTTONS = document.querySelectorAll(".btn")
 const ARROWS = document.querySelectorAll('.arrow')
 const sideBar = document.getElementById("sidebar");
 const containerServicos = document.querySelector(".container-servicos")
 const imgMenu = document.querySelector(".imgMenu")
 const main = document.querySelector("main")
-const cmsAll = document.querySelectorAll(".cms")
+const cmsAll = document.querySelector(".cms")
 
 const cms1 = document.getElementById("cms1");
 const cms2 = document.getElementById("cms2");
@@ -19,7 +20,7 @@ function unfocus(){
   main.style="filter: blur(0px);"
 
   cms1.classList.add("d-none");
-  cms2.classList.add("d-none");
+  cms2.classList.add("d-none"); 
   cms3.classList.add("d-none");
   cms4.classList.add("d-none");
   cms5.classList.add("d-none");
@@ -29,9 +30,11 @@ function unfocus(){
 
 document.addEventListener("click", (e) => {
   const path = e.composedPath();
-  if (!path.includes(sideBar)) {
-    unfocus();
-  }
+  cmsAll.forEach(cms => {
+    if (!path.includes(sideBar) && !path.includes(cms)) {
+      unfocus();
+    }
+  });
 });
 
 function toggleSide(){
