@@ -24,17 +24,19 @@ if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
 
     <!-- NAVBAR -->
 
-        <div class="header">
-            <div class="logo"><img id="jr" src="./images/jr_navbar.svg"><img id="carwash" src="./images/carwash.svg"><div class="space"></div></div>
-            <div class="navbar">
-                <ul>
-                        <li style="background-color: #63C3FF;"><a href="./agendamento.php">Agendamento</a></li>
-                        <li><a href="./informacoes.php">Informações</a></li>
-                        <li><a href="./galeria.php">Galeria</a></li>           
-                        <li id="link"><a href="./perfil.php">Perfil</a></li>
-                </ul>
-            </div>
-        </div>
+    <div class="header">
+    <div class="logo"><a href="./func/logout.php"><img id="jr" src="./images/jr_navbar.svg"></a><img id="carwash" src="./images/carwash.svg">
+      <div class="space"></div>
+    </div>
+    <div class="navbar">
+      <ul>
+        <li><a href="./agendamento.php"style="background-color: #63C3FF;">Agendamento</a></li>
+        <li><a href="./informacoes.php">Informações</a></li>
+        <li><a href="./galeria.php">Galeria</a></li>
+        <li id="link"><a href="./perfil.php">Perfil</a></li>
+      </ul>
+    </div>
+  </div>
         <p class="pageName">SERVIÇOS</p>
 
     <!-- CONTEÚDOS -->

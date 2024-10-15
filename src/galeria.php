@@ -1,13 +1,14 @@
-<?php 
+<?php
 
 session_start();
-if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
-  header("Location: ./cadastro.php");
-  exit();
-} 
+if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false) {
+    header("Location: ./cadastro.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,82 +20,85 @@ if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
     <script src="./js/navbar.js" defer></script>
     <title>Galeria de Serviços</title>
 </head>
+
 <body>
 
     <!-- NAVBAR -->
 
-        <div class="header">
-            <div class="logo"><img id="jr" src="./images/jr_navbar.svg"><img id="carwash" src="./images/carwash.svg"><div class="space"></div></div>
-            <div class="navbar">
-                <ul>
-                        <li><a href="./agendamento.php">Agendamento</a></li>
-                        <li><a href="./informacoes.php">Informações</a></li>
-                        <li style="background-color: #63C3FF;"><a href="./galeria.php">Galeria</a></li>           
-                        <li id="link"><a href="./perfil.php">Perfil</a></li>
-                </ul>
-            </div>
+    <div class="header">
+        <div class="logo"><a href="./func/logout.php"><img id="jr" src="./images/jr_navbar.svg"></a><img id="carwash" src="./images/carwash.svg">
+            <div class="space"></div>
         </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="./agendamento.php">Agendamento</a></li>
+                <li><a href="./informacoes.php">Informações</a></li>
+                <li style="background-color: #63C3FF;"><a href="./galeria.php">Galeria</a></li>
+                <li id="link"><a href="./perfil.php">Perfil</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- CONTEÚDO -->
 
-        <div class="content">
-            <div class="item">
-                <h3>LAVAGEM SIMPLES</h3>
-                <div class="imagens">
-                    <img src="./images/galeria/lavagem-simples01.png" alt="">
-                    <img src="./images/galeria/lavagem-simples02.png" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <h3>LAVAGEM COMPLETA</h3>
-                <div class="imagens">
-                    <img src="./images/galeria/lavagem-completa01.png" alt="">
-                    <img src="./images/galeria/lavagem-completa02.png" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <h3>LAVAGEM DE MOTOR</h3>
-                <div class="imagens">
-                    <img src="./images/galeria/lavagem-de-motor01.png" alt="">
-                    <img src="./images/galeria/lavagem-de-motor02.png" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <h3>HIGIENIZAÇÃO DE BANCO</h3>
-                <div class="imagens">
-                    <img src="./images/galeria/higienizacao-de-banco01.png" alt="">
-                    <img src="./images/galeria/higienizacao-de-banco02.png" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <h3>HIGIENIZAÇÃO DE BANCO DE COURO</h3>
-                <div class="imagens">
-                    <img src="./images/galeria/higienizacao-de-banco-de-couro01.png" alt="">
-                    <img src="./images/galeria/higienizacao-de-banco-de-couro02.png" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <h3>HIGIENIZAÇÃO DE TETO</h3>
-                <div class="imagens">
-                    <img src="./images/galeria/higienizacao-de-teto01.png" alt="">
-                    <img src="./images/galeria/higienizacao-de-teto02.png" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <h3>POLIMENTO E CRISTALIZAÇÃO</h3>
-                <div class="imagens">
-                    <img src="./images/galeria/polimento-e-cristalizacao01.png" alt="">
-                    <img src="./images/galeria/polimento-e-cristalizacao02.png" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <h3>POLIMENTO DE FAROL</h3>
-                <div class="imagens">
-                    <img src="./images/galeria/polimento-de-farol01.png" alt="">
-                    <img src="./images/galeria/polimento-de-farol02.png" alt="">
-                </div>
+    <div class="content">
+        <div class="item">
+            <h3>LAVAGEM SIMPLES</h3>
+            <div class="imagens">
+                <img src="./images/galeria/lavagem-simples01.png" alt="">
+                <img src="./images/galeria/lavagem-simples02.png" alt="">
             </div>
         </div>
+        <div class="item">
+            <h3>LAVAGEM COMPLETA</h3>
+            <div class="imagens">
+                <img src="./images/galeria/lavagem-completa01.png" alt="">
+                <img src="./images/galeria/lavagem-completa02.png" alt="">
+            </div>
+        </div>
+        <div class="item">
+            <h3>LAVAGEM DE MOTOR</h3>
+            <div class="imagens">
+                <img src="./images/galeria/lavagem-de-motor01.png" alt="">
+                <img src="./images/galeria/lavagem-de-motor02.png" alt="">
+            </div>
+        </div>
+        <div class="item">
+            <h3>HIGIENIZAÇÃO DE BANCO</h3>
+            <div class="imagens">
+                <img src="./images/galeria/higienizacao-de-banco01.png" alt="">
+                <img src="./images/galeria/higienizacao-de-banco02.png" alt="">
+            </div>
+        </div>
+        <div class="item">
+            <h3>HIGIENIZAÇÃO DE BANCO DE COURO</h3>
+            <div class="imagens">
+                <img src="./images/galeria/higienizacao-de-banco-de-couro01.png" alt="">
+                <img src="./images/galeria/higienizacao-de-banco-de-couro02.png" alt="">
+            </div>
+        </div>
+        <div class="item">
+            <h3>HIGIENIZAÇÃO DE TETO</h3>
+            <div class="imagens">
+                <img src="./images/galeria/higienizacao-de-teto01.png" alt="">
+                <img src="./images/galeria/higienizacao-de-teto02.png" alt="">
+            </div>
+        </div>
+        <div class="item">
+            <h3>POLIMENTO E CRISTALIZAÇÃO</h3>
+            <div class="imagens">
+                <img src="./images/galeria/polimento-e-cristalizacao01.png" alt="">
+                <img src="./images/galeria/polimento-e-cristalizacao02.png" alt="">
+            </div>
+        </div>
+        <div class="item">
+            <h3>POLIMENTO DE FAROL</h3>
+            <div class="imagens">
+                <img src="./images/galeria/polimento-de-farol01.png" alt="">
+                <img src="./images/galeria/polimento-de-farol02.png" alt="">
+            </div>
+        </div>
+    </div>
 
 
 
@@ -106,12 +110,13 @@ if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let link = document.querySelector("#link");
-        
-        <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){ ?>
+
+        <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) { ?>
             link.innerHTML = "<a href='./admin/dashboard.php'>Dashboard</a>";
-        <?php } else{ ?>
+        <?php } else { ?>
             link.innerHTML = "<a href='./perfil.php'>Perfil</a>";
         <?php } ?>
     });
 </script>
+
 </html>

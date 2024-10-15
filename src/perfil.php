@@ -1,14 +1,15 @@
-<?php 
+<?php
 
 session_start();
-if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
-  header("Location: ./cadastro.php");
-  exit();
-} 
+if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false) {
+    header("Location: ./cadastro.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,64 +21,67 @@ if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
     <script src="./js/navbar.js" defer></script>
     <title>Perfil de Usuários</title>
 </head>
+
 <body>
 
     <!-- NAVBAR -->
 
-        <div class="header">
-            <div class="logo"><img id="jr" src="./images/jr_navbar.svg"><img id="carwash" src="./images/carwash.svg"><div class="space"></div></div>
-            <div class="navbar">
-                <ul>
-                        <li><a href="./agendamento.php">Agendamento</a></li>
-                        <li><a href="./informacoes.php">Informações</a></li>
-                        <li><a href="./galeria.php">Galeria</a></li>           
-                        <li style="background-color: #63C3FF;" id="link"><a href="./perfil.php">Perfil</a></li>
-                </ul>
-            </div>
+    <div class="header">
+        <div class="logo"><a href="./func/logout.php"><img id="jr" src="./images/jr_navbar.svg"></a><img id="carwash" src="./images/carwash.svg">
+            <div class="space"></div>
         </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="./agendamento.php">Agendamento</a></li>
+                <li><a href="./informacoes.php">Informações</a></li>
+                <li><a href="./galeria.php">Galeria</a></li>
+                <li style="background-color: #63C3FF;" id="link"><a href="./perfil.php">Perfil</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- CONTEÚDO -->
 
-        <div class="content">
-            <div class="side">
-                <div class="perfil">
-                    <button class="edit"><img src="./images/icons/perfil/icon_bell.svg" ></button>
-                    <button class="edit"><img src="./images/icons/perfil/edit_icon.svg" ></button>
+    <div class="content">
+        <div class="side">
+            <div class="perfil">
+                <button class="edit"><img src="./images/icons/perfil/icon_bell.svg"></button>
+                <button class="edit"><img src="./images/icons/perfil/edit_icon.svg"></button>
+            </div>
+        </div>
+        <div class="aside">
+            <div class="infos">
+                <div class="dado" id="item1">
+                    <div class="text">
+                        <p class="titulo">Nome</p>
+                        <p>Flavio Costa e Silva Junior</p>
+                    </div>
+                    <div class="arrow"><img src="./images/perfil/arrow_icon.svg"></div>
                 </div>
+                <div class="dado" id="item2">
+                    <div class="text">
+                        <p class="titulo">Senha</p>
+                        <p>********</p>
+                    </div>
+                    <div class="arrow"><img src="./images/perfil/arrow_icon.svg"></div>
                 </div>
-            <div class="aside">
-                <div class="infos">
-                    <div class="dado" id="item1">
-                        <div class="text">
-                            <p class="titulo">Nome</p>
-                            <p>Flavio Costa e Silva Junior</p>
-                        </div>
-                        <div class="arrow"><img src="./images/perfil/arrow_icon.svg"></div>
+                <div class="dado" id="item3">
+                    <div class="text">
+                        <p class="titulo">Telefone</p>
+                        <p>15997653976</p>
                     </div>
-                    <div class="dado" id="item2">
-                        <div class="text">
-                            <p class="titulo">Senha</p>
-                            <p>********</p>
-                        </div>
-                        <div class="arrow"><img src="./images/perfil/arrow_icon.svg"></div>
+                    <div class="arrow"><img src="./images/perfil/arrow_icon.svg"></div>
+                </div>
+                <div class="dado" id="item4">
+                    <div class="text">
+                        <p class="titulo">Endereço</p>
+                        <p>Rua num sei oq do sei que lá</p>
                     </div>
-                    <div class="dado" id="item3">
-                        <div class="text">
-                            <p class="titulo">Telefone</p>
-                            <p>15997653976</p>
-                        </div>
-                        <div class="arrow"><img src="./images/perfil/arrow_icon.svg"></div>
-                    </div>
-                    <div class="dado" id="item4">
-                        <div class="text">
-                            <p class="titulo">Endereço</p>
-                            <p>Rua num sei oq do sei que lá</p>
-                        </div>
-                        <div class="arrow"><img src="./images/perfil/arrow_icon.svg"></div>
-                    </div>
+                    <div class="arrow"><img src="./images/perfil/arrow_icon.svg"></div>
                 </div>
             </div>
         </div>
+    </div>
 
 
 
@@ -89,12 +93,13 @@ if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let link = document.querySelector("#link");
-        
-        <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){ ?>
+
+        <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) { ?>
             link.innerHTML = "<a href='./admin/dashboard.php'>Dashboard</a>";
-        <?php } else{ ?>
+        <?php } else { ?>
             link.innerHTML = "<a href='./perfil.php'>Perfil</a>";
         <?php } ?>
     });
 </script>
+
 </html>
