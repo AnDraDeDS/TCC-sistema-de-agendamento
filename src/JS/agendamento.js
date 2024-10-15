@@ -1,4 +1,3 @@
-
 let content = document.querySelector(".content");
 let content2 = document.querySelector(".content_focus");
 let content3 = document.querySelector(".content_agenda");
@@ -9,9 +8,22 @@ const header = document.querySelector(".calendar button");
 const navs = document.querySelectorAll("#prev, #next");
 const dates = document.querySelector(".dates");
 
+let titulo_servico = document.getElementById("titulo_servico");
+let descricao_servico = document.getElementById("descricao_servico");
+let duracao_servico = document.getElementById("duracao_servico");
 
 
 function selectItens(item){
+  
+  if(item == 'reset'){
+    let horarios = Array.from(document.querySelectorAll('.horario'));
+    let veiculos = Array.from(document.querySelectorAll('.veiculo'));
+    let botoes = Array.from(document.querySelectorAll('.active_day'));
+
+    
+
+  }
+
   if(item == 'horario'){
     let horarios = Array.from(document.querySelectorAll('.horario'));
     horarios.forEach((hora)=>{
@@ -98,12 +110,56 @@ function hide(){
  dropdown.classList.add("d-none");
 }
 
-function servico_foco(servico,){
+function servico_foco(servico, valor, duracao) {
     content.classList.add("d-none");
     content3.classList.add("d-none");
     content2.classList.remove("d-none");
-    document.getElementById("ValorServico").value = servico;
-    alert(document.getElementById("ValorServico").value)
+    
+    document.getElementById("NameServico").value = servico;
+    document.getElementById("PrecoServico").value = valor;
+    document.getElementById("DuracaoServico").value = duracao;
+
+    const servicosInfo = {
+        "Lavagem Simples": {
+            descricao: 'Limpeza básica do veículo que inclui lavagem a seco do exterior, limpeza de tapetes e aplicação de produto para dar brilho aos pneus.',
+            duracao: '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 1h - 1h e 30min'
+        },
+        "Polimento de Farol": {
+            descricao: 'Processo de polimento para a restaurar a clareza dos faróis do veículo, tratando ambos os faróis.',
+            duracao: '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 1 dia'
+        },
+        "Polimento e Cristalização": {
+            descricao: 'Serviço avançado de polimento que inclui a aplicação de uma camada protetora para preservar o brilho e a integridade da pintura',
+            duracao: '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 2 dias'
+        },
+        "Lavagem de Motor": {
+            descricao: 'Limpeza específica de compartimento do motor seguida da aplicação de cera para a proteção e brilho.',
+            duracao: '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 1h - 1h e 30min'
+        },
+        "Lavagem Completa": {
+            descricao: 'Serviço de limpeza detalhada que engloba a lavagem simples, limpeza do painel, aspiração do interior, limpeza dos vidros e aplicação de cera líquida.',
+            duracao: '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 1h - 1h e 30min'
+        },
+        "Hig. Banco de Couro": {
+            descricao: 'Inclui lavagem completa do veículo, limpeza profunda e aplicação de hidratante específico para manter a aparência dos bancos de couro',
+            duracao: '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 2 dias'
+        },
+        "Higienização de Teto": {
+            descricao: 'Limpeza especializada do teto do veículo para remover manchas.',
+            duracao: '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 1 dia'
+        },
+        "Higienização de Banco": {
+            descricao: 'Lavagem completa do veículo acompanhada de uma higienização profunda dos bancos removendo sujeiras e odores.',
+            duracao: '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 2 dias'
+        }
+    };
+
+    const info = servicosInfo[servico];
+    if (info) {
+        titulo_servico.innerHTML = servico.toUpperCase();
+        descricao_servico.innerHTML = info.descricao;
+        duracao_servico.innerHTML = info.duracao;
+    }
 }
 
 function agend_foco(){
@@ -124,9 +180,6 @@ function voltar2(){
     content.classList.add("d-none");
 }
 
-function mostrar_dia(dia, mes, ano){
-alert(dia + ' de ' + months[mes] + ' de ' + ano);
-}
 
 const months = [
   "Janeiro",
@@ -188,12 +241,13 @@ function renderCalendar() {
         
         }else{
 
-          datesHtml += `<button class="active_day" name="data" value="${dia}, ${mes}, ${ano}" onmouseover="selectItens('btn')" onclick="mostrar_dia(${dia}, ${mes}, ${ano})"><li${className}>${i}</li></button>`;
+          datesHtml += `<button class="active_day" name="data" value="${dia}/${mes}/${ano}" onmouseover="selectItens('btn')"><li${className}>${i}</li></button>`;
 
         }
 
       }else{
-        datesHtml += `<button class="active_day" name="data" value="${dia}, ${mes}, ${ano}" onmouseover="selectItens('btn')" onclick="mostrar_dia(${dia}, ${mes}, ${ano})"><li${className}>${i}</li></button>`;
+
+        datesHtml += `<button class="active_day" name="data" value="${dia}/${mes}/${ano}" onmouseover="selectItens('btn')"><li${className}>${i}</li></button>`;
 
       }
 

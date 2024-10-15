@@ -4,6 +4,10 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false || $_SESSION['ad
   header("Location: ../login.php");
   exit();
 }
+require_once '../lib/conn.php';
+$sqlNomeServico = "SELECT * from servico";
+$stmt = $conn->query($sqlNomeServico);
+$servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <!DOCTYPE html>
@@ -49,25 +53,25 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false || $_SESSION['ad
     <div id="cms1" class="cms d-none">
       <div class="header-cms">Adicionar Serviço</div>
       <div class="content-cms">
-        <form action="" method="post">
+        <form action="./funcCMS/func_servico.php" method="post" enctype="multipart/form-data">
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;" name="nome">
             <label for="floatingInput">Nome</label>
           </div>
 
           <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;" name="preco" required>
             <label for="floatingInput">Preço</label>
           </div>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;" name="descricao" required>
             <label for="floatingInput">Descrição</label>
           </div>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;" name="duracao" required>
             <label for="floatingInput">Duração</label>
           </div>
 
@@ -76,12 +80,12 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false || $_SESSION['ad
                   <input class="input_file" type="file" style="border: 0;"> -->
             <label class="btn input_file" for="my-file-selector">
               <span style="color: #63C3FF;">Imagem 1</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo">
+              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem1" name="imagem1" accept="image/*" required>
             </label>
 
             <label class="btn input_file" for="my-file-selector">
               <span style="color: #63C3FF;">Imagem 2</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo">
+              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem2"name="imagem2" accept="image/*" required>
             </label>
 
           </div>
@@ -92,60 +96,61 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false || $_SESSION['ad
     </div>
     <!-- Atualizar Serviço -->
     <div id="cms2" class="cms d-none">
-      <div class="header-cms">
+    <div class="header-cms">
         <div class="dropdown-center">
-          <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <p>Atualizar Serviços</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
-          </button>
-          <ul id="menu_pesquisa" class="dropdown-menu">
-            <li><button>Lavagem Simples</button></li>
-            <li><button>Lavagem Completa</button></li>
-            <li><button>Polimento</button></li>
-          </ul>
+            <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <p>Atualizar Serviços</p> <img class="px-5" src="../images/icons/dashboard/lupa.svg" alt="">
+            </button>
+            <ul id="menu_pesquisa" class="dropdown-menu">
+                <?php foreach($servicos as $servico): ?>
+                    <li>
+                        <button type="button" class="servico-button" data-nome="<?= $servico->nome ?>" data-preco="<?= $servico->preco ?>" data-descricao="<?= $servico->descricao ?>" data-duracao="<?= $servico->duracao ?>">
+                            <?= $servico->nome ?>
+                        </button>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
         </div>
-      </div>
-      <div class="content-cms">
-        <form action="" method="post">
-
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
-            <label for="floatingInput">Nome</label>
-          </div>
-
-          <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
-            <label for="floatingInput">Preço</label>
-          </div>
-
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
-            <label for="floatingInput">Descrição</label>
-          </div>
-
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
-            <label for="floatingInput">Duração</label>
-          </div>
-
-          <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
-            <!-- <input class="input_file" type="file" style="border: 0;">
-                  <input class="input_file" type="file" style="border: 0;"> -->
-            <label class="btn input_file" for="my-file-selector">
-              <span style="color: #63C3FF;">Imagem 1</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo">
-            </label>
-
-            <label class="btn input_file" for="my-file-selector">
-              <span style="color: #63C3FF;">Imagem 2</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo">
-            </label>
-
-          </div>
-
-          <button type="submit" class="submit_form">CONFIRMAR</button>
-        </form>
-      </div>
     </div>
+    <div class="content-cms">
+        <form action="./funcCMS/func_updateServico.php" method="post">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" style="border: 0.5px solid black;">
+                <label for="nome">Nome</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="preco" placeholder="Preço" name="preco" style="border: 0.5px solid black;">
+                <label for="preco">Preço</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao" style="border: 0.5px solid black;">
+                <label for="descricao">Descrição</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="duracao" placeholder="Duração" name="duracao" style="border: 0.5px solid black;">
+                <label for="duracao">Duração</label>
+            </div>
+
+            <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
+                <label class="btn input_file" for="my-file-selector1">
+                    <span style="color: #63C3FF;">Imagem 1</span>
+                    <input id="my-file-selector1" type="file" placeholder="Arquivo">
+                </label>
+
+                <label class="btn input_file" for="my-file-selector2">
+                    <span style="color: #63C3FF;">Imagem 2</span>
+                    <input id="my-file-selector2" type="file" placeholder="Arquivo">
+                </label>
+            </div>
+
+            <button type="submit" class="submit_form">CONFIRMAR</button>
+        </form>
+    </div>
+</div>
+
     <!-- Excluir Serviço -->
     <div id="cms3" class="cms cms-excluir d-none">
       <div class="header-cms">

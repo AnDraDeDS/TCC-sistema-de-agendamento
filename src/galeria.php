@@ -5,6 +5,10 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false) {
     header("Location: ./cadastro.php");
     exit();
 }
+require_once "./lib/conn.php";
+$sqlListarImagensServicos = "SELECT *FROM servico";
+$stmt = $conn->query($sqlListarImagensServicos);
+$servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,65 +46,16 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false) {
     <!-- CONTEÚDO -->
 
     <div class="content">
+        <?php 
+            foreach($servicos as $servico){
+        ?>
         <div class="item">
-            <h3>LAVAGEM SIMPLES</h3>
+            <h3><?= $servico->nome?></h3>
             <div class="imagens">
-                <img src="./images/galeria/lavagem-simples01.png" alt="">
-                <img src="./images/galeria/lavagem-simples02.png" alt="">
+                <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem1) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
+                <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem2) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
             </div>
-        </div>
-        <div class="item">
-            <h3>LAVAGEM COMPLETA</h3>
-            <div class="imagens">
-                <img src="./images/galeria/lavagem-completa01.png" alt="">
-                <img src="./images/galeria/lavagem-completa02.png" alt="">
-            </div>
-        </div>
-        <div class="item">
-            <h3>LAVAGEM DE MOTOR</h3>
-            <div class="imagens">
-                <img src="./images/galeria/lavagem-de-motor01.png" alt="">
-                <img src="./images/galeria/lavagem-de-motor02.png" alt="">
-            </div>
-        </div>
-        <div class="item">
-            <h3>HIGIENIZAÇÃO DE BANCO</h3>
-            <div class="imagens">
-                <img src="./images/galeria/higienizacao-de-banco01.png" alt="">
-                <img src="./images/galeria/higienizacao-de-banco02.png" alt="">
-            </div>
-        </div>
-        <div class="item">
-            <h3>HIGIENIZAÇÃO DE BANCO DE COURO</h3>
-            <div class="imagens">
-                <img src="./images/galeria/higienizacao-de-banco-de-couro01.png" alt="">
-                <img src="./images/galeria/higienizacao-de-banco-de-couro02.png" alt="">
-            </div>
-        </div>
-        <div class="item">
-            <h3>HIGIENIZAÇÃO DE TETO</h3>
-            <div class="imagens">
-                <img src="./images/galeria/higienizacao-de-teto01.png" alt="">
-                <img src="./images/galeria/higienizacao-de-teto02.png" alt="">
-            </div>
-        </div>
-        <div class="item">
-            <h3>POLIMENTO E CRISTALIZAÇÃO</h3>
-            <div class="imagens">
-                <img src="./images/galeria/polimento-e-cristalizacao01.png" alt="">
-                <img src="./images/galeria/polimento-e-cristalizacao02.png" alt="">
-            </div>
-        </div>
-        <div class="item">
-            <h3>POLIMENTO DE FAROL</h3>
-            <div class="imagens">
-                <img src="./images/galeria/polimento-de-farol01.png" alt="">
-                <img src="./images/galeria/polimento-de-farol02.png" alt="">
-            </div>
-        </div>
-    </div>
-
-
+                <?php }?>
 
 
 

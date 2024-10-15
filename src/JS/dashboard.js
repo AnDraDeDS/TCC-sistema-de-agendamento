@@ -149,3 +149,22 @@ BUTTONS.forEach((BUTTON,index) =>{
            ARROWS[index].style.transform = `rotate(0deg)`
         }
     )})
+
+const buttons = document.querySelectorAll('.servico-button');
+
+// Adiciona um evento de clique a cada botão
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Obtém os valores dos atributos data
+        const nome = this.getAttribute('data-nome');
+        const preco = this.getAttribute('data-preco');
+        const descricao = this.getAttribute('data-descricao');
+        const duracao = this.getAttribute('data-duracao');
+
+        // Atualiza os campos de entrada do formulário
+        document.getElementById('nome').value = nome;
+        document.getElementById('preco').value = preco;
+        document.getElementById('descricao').value = descricao;
+        document.getElementById('duracao').value = duracao;
+    });
+});

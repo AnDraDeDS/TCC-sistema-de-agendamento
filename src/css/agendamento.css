@@ -284,6 +284,7 @@ body::-webkit-scrollbar-thumb {
     background-image: url("../images/agendamento/higienizacao-de-banco.png");
 }
 
+
 @media (max-width:1000px) and (min-width: 561px) {
     
     .item{

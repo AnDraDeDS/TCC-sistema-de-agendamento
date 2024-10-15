@@ -116,6 +116,7 @@ h3{
     font-size: 1.5em;
     padding-bottom: 1em;
     border-bottom: 1px solid #63C3FF;
+    text-transform: uppercase;
 }
 .imagens{
     display: flex;
@@ -124,6 +125,8 @@ h3{
 }
 .imagens img{
     border-radius: 5px;
+    height: 280px;
+    width: 350px;
 }
 .item{
     padding: 2em;
