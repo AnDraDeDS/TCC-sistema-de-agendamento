@@ -28,10 +28,10 @@ if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
             <div class="logo"><img id="jr" src="./images/jr_navbar.svg"><img id="carwash" src="./images/carwash.svg"><div class="space"></div></div>
             <div class="navbar">
                 <ul>
-                        <li style="background-color: #63C3FF;"><a href="./agendamento.html">Agendamento</a></li>
-                        <li><a href="./informacoes.html">Informações</a></li>
-                        <li><a href="./galeria.html">Galeria</a></li>           
-                        <li><a href="./perfil.html">Perfil</a></li>
+                        <li style="background-color: #63C3FF;"><a href="./agendamento.php">Agendamento</a></li>
+                        <li><a href="./informacoes.php">Informações</a></li>
+                        <li><a href="./galeria.php">Galeria</a></li>           
+                        <li id="link"><a href="./perfil.php">Perfil</a></li>
                 </ul>
             </div>
         </div>
@@ -49,10 +49,6 @@ if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
                         <button class="agendar" type="button" onclick="servico_foco('Lavagem Simples')"></button>
                     </div>
             </div>
-            <input type="hidden" id="ValorServico" name="ValorServico">
-         <input type="hidden" id="DataServico" name="DataServico">
-        <input type="hidden" id="HorarioServico" name="HorarioServico">
-        <input type="hidden" id="TipoVeiculo" name="TipoVeiculo">
             <div class="item item2">
                 <span></span>
                 <h3>Polimento de Farol</h3>
@@ -199,7 +195,6 @@ if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="./JS/agendamento.js"></script>
-</html>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let link = document.querySelector("#link");

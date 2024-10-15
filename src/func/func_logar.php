@@ -26,10 +26,10 @@
             exit();
         }
         } else {
-            include './FundoAlertLogin.php';
+            include './fundos/FundoAlertLogin.php';
     }
 }
 else {
-            include './FundoAlertLogin.php';
+            include './fundos/FundoAlertLogin.php';
     }
 ?>

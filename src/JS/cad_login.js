@@ -1,6 +1,7 @@
 let eye_closed = document.getElementById("eye_closed");
 let eye_open = document.getElementById("eye_open");
 let senha = document.getElementById("senha");
+
 let telefoneInput = document.getElementById("telefone")
 
 function olhar() {

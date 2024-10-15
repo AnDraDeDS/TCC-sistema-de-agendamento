@@ -1,12 +1,13 @@
 <?php 
 session_start();
-if($_SESSION['logado'] == false){
-  header("Location: ./cadastro.php");
-}
+if(!isset($_SESSION['logado']) || $_SESSION['logado'] == false){
+  header("Location: ../cadastro.php");
+  exit();
+} 
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -16,10 +17,7 @@ if($_SESSION['logado'] == false){
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../../src/css/dashboard.css">
   <script src="./js/navbar.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -40,13 +38,261 @@ if($_SESSION['logado'] == false){
         <li><a href="../agendamento.php">Agendamento</a></li>
         <li><a href="../informacoes.php">Informações</a></li>
         <li><a href="../galeria.php">Galeria</a></li>
-        <li style="background-color: #63C3FF;"><a href="../admin/dashboard.php">Dashboard</a></li>
+        <li style="background-color: #63C3FF;" id="link"><a href="./dashboard.php">Dashboard</a></li>
       </ul>
     </div>
   </div>
 
   <!-- CONTEÚDO -->
       <div class="content">
+        <!-- inserir servico -->
+        <div id="cms1" class="cms d-none">
+          <div class="header-cms">Adicionar Serviço</div>
+          <div class="content-cms">
+            <form action="" method="post">
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Nome</label>
+              </div>
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Preço</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Descrição</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Duração</label>
+              </div>
+
+              <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
+                  <!-- <input class="input_file" type="file" style="border: 0;">
+                  <input class="input_file" type="file" style="border: 0;"> -->
+                  <label class="btn input_file" for="my-file-selector">
+                    <span style="color: #63C3FF;">Imagem 1</span>
+                    <input id="my-file-selector" type="file" placeholder="Arquivo">
+                  </label>
+
+                  <label class="btn input_file" for="my-file-selector">
+                    <span style="color: #63C3FF;">Imagem 2</span>
+                    <input id="my-file-selector" type="file" placeholder="Arquivo">
+                  </label>
+                
+              </div>
+
+              <button type="submit" class="submit_form">CONFIRMAR</button>
+            </form>
+          </div>
+        </div>
+        <!-- Atualizar Serviço -->
+        <div id="cms2" class="cms d-none">
+          <div class="header-cms">
+            <div class="dropdown-center">
+              <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <p>Atualizar Serviços</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
+              </button>
+              <ul id="menu_pesquisa" class="dropdown-menu">
+                <li><button>Lavagem Simples</button></li>
+                <li><button>Lavagem Completa</button></li>
+                <li><button>Polimento</button></li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-cms">
+            <form action="" method="post">
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Nome</label>
+              </div>
+              
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Preço</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Descrição</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Duração</label>
+              </div>
+
+              <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
+                  <!-- <input class="input_file" type="file" style="border: 0;">
+                  <input class="input_file" type="file" style="border: 0;"> -->
+                  <label class="btn input_file" for="my-file-selector">
+                    <span style="color: #63C3FF;">Imagem 1</span>
+                    <input id="my-file-selector" type="file" placeholder="Arquivo">
+                  </label>
+
+                  <label class="btn input_file" for="my-file-selector">
+                    <span style="color: #63C3FF;">Imagem 2</span>
+                    <input id="my-file-selector" type="file" placeholder="Arquivo">
+                  </label>
+                
+              </div>
+
+              <button type="submit" class="submit_form">CONFIRMAR</button>
+            </form>
+          </div>
+        </div>
+        <!-- Excluir Serviço -->
+        <div id="cms3" class="cms cms-excluir d-none">
+          <div class="header-cms">
+            <div class="dropdown-center">
+              <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <p>Excluir Serviço</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
+              </button>
+              <ul id="menu_pesquisa" class="dropdown-menu">
+                <li><button>Lavagem Simples</button></li>
+                <li><button>Lavagem Completa</button></li>
+                <li><button>Polimento</button></li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-cms">
+            <input type="hidden" value=`${wd}`>
+              <button type="submit" class="submit_form">CONFIRMAR</button>
+          </div>
+        </div>
+        <!-- Inserir Galeria -->
+        <div id="cms4" class="cms cms-inserir-galeria d-none">
+          <div class="header-cms">Inserir na Galeria</div>
+          <div class="content-cms">
+            <form action="" method="post">
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Nome do Serviço</label>
+              </div>
+
+              <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
+                  <!-- <input class="input_file" type="file" style="border: 0;">
+                  <input class="input_file" type="file" style="border: 0;"> -->
+                  <label class="btn input_file" for="my-file-selector">
+                    <span style="color: #63C3FF;">Imagem 1</span>
+                    <input id="my-file-selector" type="file" placeholder="Arquivo">
+                  </label>
+
+                  <label class="btn input_file" for="my-file-selector">
+                    <span style="color: #63C3FF;">Imagem 2</span>
+                    <input id="my-file-selector" type="file" placeholder="Arquivo">
+                  </label>
+                
+              </div>
+
+              <button type="submit" class="submit_form">CONFIRMAR</button>
+            </form>
+          </div>
+        </div>
+        <!-- Atualizar Galeria -->
+        <div id="cms5" class="cms cms-atualizar-galeria d-none">
+          <div class="header-cms">
+            <div class="dropdown-center">
+              <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <p>Atualizar Galeria</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
+              </button>
+              <ul id="menu_pesquisa" class="dropdown-menu">
+                <li><button>Lavagem Simples</button></li>
+                <li><button>Lavagem Completa</button></li>
+                <li><button>Polimento</button></li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-cms">
+            <form action="" method="post">
+              <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
+                  <!-- <input class="input_file" type="file" style="border: 0;">
+                  <input class="input_file" type="file" style="border: 0;"> -->
+                  <label class="btn input_file" for="my-file-selector">
+                    <span style="color: #63C3FF;">Imagem 1</span>
+                    <input id="my-file-selector" type="file" placeholder="Arquivo">
+                  </label>
+
+                  <label class="btn input_file" for="my-file-selector">
+                    <span style="color: #63C3FF;">Imagem 2</span>
+                    <input id="my-file-selector" type="file" placeholder="Arquivo">
+                  </label>
+                </div>
+
+              <button type="submit" class="submit_form">CONFIRMAR</button>
+            </form>
+          </div>
+        </div>
+        <!-- Excluir Galeria -->
+        <div id="cms6" class="cms cms-excluir d-none">
+          <div class="header-cms">
+            <div class="dropdown-center">
+              <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <p>Excluir item Galeria</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
+              </button>
+              <ul id="menu_pesquisa" class="dropdown-menu">
+                <li><button>Lavagem Simples</button></li>
+                <li><button>Lavagem Completa</button></li>
+                <li><button>Polimento</button></li>
+              </ul>
+            </div>
+          </div>
+          <div class="content-cms">
+            <input type="hidden" value=`${wd}`>
+              <button type="submit" class="submit_form">CONFIRMAR</button>
+          </div>
+        </div>
+        <!-- Atualizar Informações -->
+        <div id="cms7" class="cms d-none">
+          <div class="header-cms">Atualizar Informações</div>
+          <div class="content-cms">
+            <form action="" method="post">
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Sobre Nós</label>
+              </div>
+              
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Whatsapp</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Instagram</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+                <label for="floatingInput">Localização</label>
+              </div>
+
+              <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
+                  <!-- <input class="input_file" type="file" style="border: 0;">
+                  <input class="input_file" type="file" style="border: 0;"> -->
+                  <label class="btn input_file" for="my-file-selector">
+                    <span style="color: #63C3FF;">Imagem 1</span>
+                    <input id="my-file-selector" type="file" placeholder="Arquivo">
+                  </label>
+
+                  <label class="btn input_file" for="my-file-selector">
+                    <span style="color: #63C3FF;">Imagem 2</span>
+                    <input id="my-file-selector" type="file" placeholder="Arquivo">
+                  </label>
+                
+              </div>
+
+              <button type="submit" class="submit_form">CONFIRMAR</button>
+            </form>
+          </div>
+        </div>
         <aside>
             <div id="sidebar" class="sidebar expandir">
                 <div class="header_sidebar">
@@ -59,27 +305,27 @@ if($_SESSION['logado'] == false){
                               <span>Serviços</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
                             </button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">Inserir</a></li>
-                              <span class="linha"></span>
-                              <li><a class="dropdown-item" href="#">Atualizar</a></li>
-                              <span class="linha"></span>
-                              <li><a class="dropdown-item" href="#">Excluir</a></li>
+                              <li><a class="dropdown-item" href="#" onclick="openCMS('inserir_servico')">Inserir</a></li>
+                              <span class="linhaCMS"></span>
+                              <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_servico')">Atualizar</a></li>
+                              <span class="linhaCMS"></span>
+                              <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_servico')">Excluir</a></li>
                             </ul>
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span>Galeria</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
                               </button>
                               <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Inserir</a></li>
-                                <span class="linha"></span>
-                                <li><a class="dropdown-item" href="#">Atualizar</a></li>
-                                <span class="linha"></span>
-                                <li><a class="dropdown-item" href="#">Excluir</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="openCMS('inserir_galeria')">Inserir</a></li>
+                                <span class="linhaCMS"></span>
+                                <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_galeria')">Atualizar</a></li>
+                                <span class="linhaCMS"></span>
+                                <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_galeria')">Excluir</a></li>
                               </ul>
                               <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span>Informações</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
                               </button>
                               <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Atualizar</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_informacoes')">Atualizar</a></li>
                               </ul>
                     </div>
                 </div>
@@ -92,15 +338,38 @@ if($_SESSION['logado'] == false){
                 <img src="https://conteudo.imguol.com.br/c/entretenimento/19/2022/07/13/vikings-1657747090442_v2_1008x1389.jpg" alt="" class="foto-de-perfil" height="70" width="65">
                 <div class="container-nome-veiculo">
                 <p class="nome">João Bonicarlos</p>
-                  <span class="azul">Veículo:<span class="tipo"> Carro</span></span>              
+                  <span class="azul">Veículo: <span class="tipo"> Carro</span></span>              
                 </div>
                 <div class="info-agendamento">
-                 <span class="azul">Serviço:<span class="tipo"> Higienização de Teto</span></span>
-                 <span class="azul">Horário:<span class="tipo"> 13:00 - 14:30</span></span>
-                 <span class="azul">Data:<span class="tipo"> 04/05</span></span>
+                 <span class="azul">Serviço: <span class="tipo">Higienização de Teto</span></span>
+                 <span class="azul">Horário: <span class="tipo">13:00 - 14:30</span></span>
+                 <span class="azul">Data: <span class="tipo">04/05</span></span>
                 </div>
             </li>
-            
+            <li class="container-item">
+              <img src="https://conteudo.imguol.com.br/c/entretenimento/19/2022/07/13/vikings-1657747090442_v2_1008x1389.jpg" alt="" class="foto-de-perfil" height="70" width="65">
+              <div class="container-nome-veiculo">
+              <p class="nome">João Bonicarlos</p>
+                <span class="azul">Veículo: <span class="tipo"> Carro</span></span>              
+              </div>
+              <div class="info-agendamento">
+               <span class="azul">Serviço: <span class="tipo">Higienização de Teto</span></span>
+               <span class="azul">Horário: <span class="tipo">13:00 - 14:30</span></span>
+               <span class="azul">Data: <span class="tipo">04/05</span></span>
+              </div>
+          </li>
+          <li class="container-item">
+            <img src="https://conteudo.imguol.com.br/c/entretenimento/19/2022/07/13/vikings-1657747090442_v2_1008x1389.jpg" alt="" class="foto-de-perfil" height="70" width="65">
+            <div class="container-nome-veiculo">
+            <p class="nome">João Bonicarlos</p>
+              <span class="azul">Veículo: <span class="tipo"> Carro</span></span>              
+            </div>
+            <div class="info-agendamento">
+             <span class="azul">Serviço: <span class="tipo">Higienização de Teto</span></span>
+             <span class="azul">Horário: <span class="tipo">13:00 - 14:30</span></span>
+             <span class="azul">Data: <span class="tipo">04/05</span></span>
+            </div>
+        </li>
           </ul>
         </div>
       </div>
@@ -117,7 +386,7 @@ if($_SESSION['logado'] == false){
         <h4>2024</h4>
       </div>
       <div class="container-grafico">
-        <canvas id="grafico1" "></canvas>
+        <canvas id="grafico1"></canvas>
       </div>
         <script>
           const ctx = document.getElementById('grafico1');
@@ -138,6 +407,8 @@ if($_SESSION['logado'] == false){
               }]
             },
             options: {
+              responsive: true,
+              maintainAspectRatio: false,
               plugins:{
               legend: {
                 display: false,
@@ -168,14 +439,17 @@ if($_SESSION['logado'] == false){
             }
           });
       
-        </script>   
+        </script>
+
           <div class="cabecalho-solicitacoes">
             <h5>Solicitações de serviço</h5>
           </div>
             <div class="container-itens-solicitacoes">
+
+              
               <div class="item-solicitacao">
                 <div class="perfil-solicitacao">
-                  <img src="../images/icons/dashboard/Ellipse 52.svg" alt="" height="50px" width="50">
+                  <img src="../images/capa.png" alt="" height="50px" width="50">
                   <p class="solicitacao">Solicitação de <br>João Bonicarlos</p>
                 </div>
                 <div class="linha"></div>
@@ -192,10 +466,12 @@ if($_SESSION['logado'] == false){
                   <button><img src="../images/icons/dashboard/button-recusar.svg" alt=""></button>
                   <button><img src="../images/icons/dashboard/button-confirmar.svg" alt=""></button>
                 </div>
-              <!-- <div class="item-solicitacao"></div> -->
             </div>
+
+            
           </div>
-        </div>
+        
+      
       </div>
     </main>
   </div>
@@ -204,5 +480,17 @@ if($_SESSION['logado'] == false){
 
 </body>
 <script src="../JS/dashboard.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let link = document.querySelector("#link");
+        
+        <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){ ?>
+            link.innerHTML = "<a href='./admin/dashboard.php'>Dashboard</a>";
+        <?php } else{ ?>
+            link.innerHTML = "<a href='./perfil.php'>Perfil</a>";
+        <?php } ?>
+    });
+</script>
+</body>
 </html>

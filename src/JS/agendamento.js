@@ -98,7 +98,7 @@ function hide(){
  dropdown.classList.add("d-none");
 }
 
-function servico_foco(servico){
+function servico_foco(servico,){
     content.classList.add("d-none");
     content3.classList.add("d-none");
     content2.classList.remove("d-none");
