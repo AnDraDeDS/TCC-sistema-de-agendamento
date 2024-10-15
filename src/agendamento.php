@@ -161,9 +161,13 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             </a>
         </ul>
     </div>
-       <input type="hidden" id="NameServico" name="NameServico">
+        <input type="hidden" id="NameServico" name="NameServico">
             <input type="hidden" id="PrecoServico" name="PrecoServico">
             <input type="hidden" id="DuracaoServico" name="DuracaoServico">
+            
+            <input type="hidden" id="DataServico" name="DataServico">
+            <input type="hidden" id="HorarioServico" name="HorarioServico">
+            <input type="hidden" id="VeiculoServico" name="VeiculoServico">
     </form>
     </div>
 

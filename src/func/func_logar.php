@@ -5,7 +5,7 @@
 
     $telefoneFormatado = preg_replace("/[^0-9]/", "", $telefone);
 
-    $sqlVerificarLogin = "SELECT senha FROM cliente WHERE telefone = :telefone LIMIT 1";
+    $sqlVerificarLogin = "SELECT id_cliente,senha FROM cliente WHERE telefone = :telefone LIMIT 1";
     $verificarLogin = $conn->prepare($sqlVerificarLogin);
     $verificarLogin->bindValue(":telefone", $telefoneFormatado);
 
@@ -18,6 +18,7 @@
         if (password_verify($senha, $cliente->senha)) {
             session_start();
             $_SESSION["logado"] = true;
+            $_SESSION["id_cliente"] = $cliente->id_cliente;
             if($telefoneFormatado === "15997646825"){
             $_SESSION["admin"] = true;
                 header("Location: ../admin/dashboard.php");
