@@ -9,6 +9,52 @@ const header = document.querySelector(".calendar button");
 const navs = document.querySelectorAll("#prev, #next");
 const dates = document.querySelector(".dates");
 
+
+
+function selectItens(item){
+  if(item == 'horario'){
+    let horarios = Array.from(document.querySelectorAll('.horario'));
+    horarios.forEach((hora)=>{
+      hora.addEventListener('click', ()=>{
+        hora.style="background-color: #44B2F7; border: 0; outline: 0; box-shadow: rgba(0, 0, 0, 0.25) 4px 7px 8px,rgba(0, 0, 0, 0.12) 0px 5px 5px,rgba(0, 0, 0, 0.12) 0px 2px 3px,rgba(0, 0, 0, 0.17) 0px 6px 7px,rgba(0, 0, 0, 0.09) 0px -1px 3px;"
+        let index = horarios.indexOf(hora);
+        horarios.splice( index, 1 );
+        horarios.forEach((hora)=>{
+          hora.style="background-color: transparent";
+        })
+      })
+    })
+  }
+  if(item == 'veiculo'){
+    let veiculos = Array.from(document.querySelectorAll('.veiculo'));
+    veiculos.forEach((veiculo)=>{
+      veiculo.addEventListener('click', ()=>{
+        veiculo.style="background-color: #44B2F7; border: 0; outline: 0; box-shadow: rgba(0, 0, 0, 0.25) 4px 7px 8px,rgba(0, 0, 0, 0.12) 0px 5px 5px,rgba(0, 0, 0, 0.12) 0px 2px 3px,rgba(0, 0, 0, 0.17) 0px 6px 7px,rgba(0, 0, 0, 0.09) 0px -1px 3px;"
+        let index = veiculos.indexOf(veiculo);
+        veiculos.splice( index, 1 );
+        veiculos.forEach((veiculo)=>{
+          veiculo.style="background-color: #074376";
+        })
+      })
+    })
+  }
+  if(item == 'btn'){
+    let botoes = Array.from(document.querySelectorAll('.active_day'));
+    botoes.forEach((botao)=>{
+      botao.addEventListener('click', ()=>{
+        botao.style="background-color: #44B2F7; border: 0; outline: 0; box-shadow: rgba(0, 0, 0, 0.25) 4px 7px 8px,rgba(0, 0, 0, 0.12) 0px 5px 5px,rgba(0, 0, 0, 0.12) 0px 2px 3px,rgba(0, 0, 0, 0.17) 0px 6px 7px,rgba(0, 0, 0, 0.09) 0px -1px 3px;"
+        let index = botoes.indexOf(botao);
+        botoes.splice( index, 1 );
+        botoes.forEach((botao)=>{
+          botao.style="background-color: transparent";
+        })
+      })
+    })
+  }
+}
+
+
+
 function atual(){
  dropdown.classList.toggle("d-none");
  if(dropdown.getAttribute("id") != "next"){
@@ -100,6 +146,9 @@ const months = [
 let date = new Date();
 let month = date.getMonth();
 let year = date.getFullYear();
+let currentDay = date.getDate();
+let currentMonth = date.getMonth();
+
 
 function renderCalendar() {
   const start = new Date(year, month, 1).getDay();
@@ -130,9 +179,23 @@ function renderCalendar() {
 
     if(diaSemana == 0){
       datesHtml += `<button class="btn_inactive" style="background:grey;color:white"><li${className}>${i}</li></button>`;
-
+      
     }else{
-      datesHtml += `<button name="data" value="${dia}, ${mes}, ${ano}" onclick="mostrar_dia(${dia}, ${mes}, ${ano})"><li${className}>${i}</li></button>`;
+      if(currentMonth == mes){
+        if(currentDay > i){
+
+          datesHtml += `<button class="btn_inactive"><li${className}>${i}</li></button>`;
+        
+        }else{
+
+          datesHtml += `<button class="active_day" name="data" value="${dia}, ${mes}, ${ano}" onmouseover="selectItens('btn')" onclick="mostrar_dia(${dia}, ${mes}, ${ano})"><li${className}>${i}</li></button>`;
+
+        }
+
+      }else{
+        datesHtml += `<button class="active_day" name="data" value="${dia}, ${mes}, ${ano}" onmouseover="selectItens('btn')" onclick="mostrar_dia(${dia}, ${mes}, ${ano})"><li${className}>${i}</li></button>`;
+
+      }
 
     }
   }

@@ -1,8 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 *::selection{
 background-color: transparent;
 }
@@ -92,6 +88,7 @@ body::-webkit-scrollbar-thumb {
     justify-self: center;
     max-width: 300px;
     padding: 1em;
+    max-width: 300px;
 }
 
 .navbar{
@@ -101,6 +98,63 @@ body::-webkit-scrollbar-thumb {
     padding: 0;
     margin: 0;
 }
+
+.navbar2{
+    width: 100%;
+    height: 10%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    position: fixed;
+    top: 90%;
+}
+
+.navbar2 ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 0;
+
+}
+
+.navbar2 ul a li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    font-size: 0.8em;
+}
+
+.navbar2 ul a li img{
+    width: 25px;
+}
+
+.navbar2 ul a{
+    display: flex;
+    width: 60px;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.page_atual{
+    background-color: #63C3FF;
+    width: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+
+
+
+
 .navbar>ul{
     list-style-type: none;
     height: 100%;
@@ -141,10 +195,9 @@ body::-webkit-scrollbar-thumb {
 
 .content{
     padding-top: 8vh;
-    display: grid;
-    grid-template-areas: "a b c"
-                         "d e f"
-                         "g  h .";
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
     width: 80vw;
     min-height: calc(100vh- 40px);
     margin: 0 auto;
@@ -153,23 +206,22 @@ body::-webkit-scrollbar-thumb {
 
 .item{
     margin-top: 5em;
-    width: 320px;
+    width: 20vw;
     height: 280px;
     background-color: #181A1B;
     border-radius: 10px;
+    margin-left: 5.5%;
 }
+
+
 .texto .agendar:hover  {
     transition: 0.1s;
-    width: 50px;
-    height: 50px;
     border: none;
     background: url("../images/icons/agendamento/pos-agendar.png");
     background-size: cover;
-    margin-bottom: 15px;
 }
 .texto{
     display: flex;
-    width: 328px;
     height: 50px;
     flex-direction: row;
     justify-content: space-between;
@@ -177,60 +229,36 @@ body::-webkit-scrollbar-thumb {
 }
 .item>h3{
     color: #fff;
-    font-size: 1.5em;
-    padding: .5em;
+    font-size: 1em;
+    padding: 0.5em;
 }
 .texto p {
     color: #BDC0C2;
-    font-size: 1.4em;
-    width: 200px;
+    font-size: 1em;
+    width: 45%;
     font-weight: 200;
-    margin-left: 3px;
-    padding: 10px;
 }
 .item>span{
     display: block;
-    width: 320px;
+    width: 100%;
     height: 160px;
     background-size: cover;
     border-radius: 10px;
 }
 .texto .agendar{
-    width: 50px;
-    height: 51px;
+    margin-right: 20px;
+    width: 3vw;
+    height: calc(3vw);
+    min-width: 40px;
+    min-height: 40px;
     border: none;
     background: url("../images/icons/agendamento/agendar.png");
     background-size: cover;
-    margin-bottom: 15px;
-    margin-right: 15px;
 }
-.texto button:hover{
+.texto .agendar:hover{
     cursor: auto;
 }
-.item1{
-    grid-area: a;
-}
-.item2{
-    grid-area: b;
-}
-.item3{
-    grid-area: c;
-}
-.item4{
-    grid-area: d;
-}
-.item5{
-    grid-area: e;
-}
-.item6{
-    grid-area: f;
-}
-.item7{
-    grid-area: g;
-}
-.item8{
-    grid-area: h;
-}
+
 .item1>span{
     background-image: url("../images/agendamento/lavagem-simples.png");
 }
@@ -255,41 +283,121 @@ body::-webkit-scrollbar-thumb {
 .item8>span{
     background-image: url("../images/agendamento/higienizacao-de-banco.png");
 }
-.item1>.texto{
-    width: 360px;
+
+@media (max-width:1000px) and (min-width: 561px) {
+    
+    .item{
+        margin-top: 5em;
+        width: 34vw;
+        height: 280px;
+    }
+
+    .texto .agendar{
+        margin-right: 20px;
+        width: 5vw;
+        height: calc(5vw);
+        min-width: 40px;
+        min-height: 40px;
+        border: none;
+        background: url("../images/icons/agendamento/agendar.png");
+        background-size: cover;
+    }
+
+    *{
+        outline: 1px solid rgb(255, 255, 255);
+    }
 }
-.item1>.texto button{
-    margin-right: 55px;
-}
-.item2>.texto{
-    width: 360px;
-}
-.item2>.texto button{
-    margin-right: 55px;
-}
-.item3>.texto{
-    width: 360px;
-}
-.item3>.texto button{
-    margin-right: 55px;
-}
-.item6>.texto{
-    width: 360px;
-}
-.item6>.texto button{
-    margin-right: 55px;
-}
-.item7>.texto{
-    width: 360px;
-}
-.item7>.texto button{
-    margin-right: 55px;
-}
-.item8>.texto{
-    width: 360px;
-}
-.item8>.texto button{
-    margin-right: 55px;
+
+@media (max-width: 560px){
+
+    *{
+        outline: 1px solid green;
+    }
+
+    .navbar{
+        display: none;
+    }
+
+    .navbar2{
+        display: flex;
+    }
+
+
+    .header{
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        position: fixed;
+    }
+
+    .pageName{
+        font-family: 'K2D';
+        width: 100%;
+        text-align: center;
+        background-color: rgba(59, 89, 152,.8);
+        color: white;
+        position: fixed;
+        top: 10%;
+    }
+
+    #jr{
+        width: 30px;
+    }
+
+    #carwash{
+        width: 200px;
+    }
+
+    .content{
+        padding-top: 40px;
+        width: 100vw;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .item{
+        margin-top: 3em;
+        width: 45%;
+        height: 180px;
+        background-color: #181A1B;
+        border-radius: 10px;
+        margin-left: 0%;
+    }
+
+    .item .agendar{
+        width: 10vw;
+        height: calc(10vw);
+        max-width: 40px;
+        max-height: 40px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .texto{
+        display: flex;
+        height: 50px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .item>h3{
+        color: #fff;
+        font-size: 13px;
+        padding: 0.5em;
+    }
+    .texto p {
+        color: #BDC0C2;
+        font-size: 0.8em;
+        width: 65%;
+        font-weight: 200;
+    }
+    .item>span{
+        display: block;
+        width: 100%;
+        height: 50%;
+        background-size: cover;
+        border-radius: 10px;
+    }
 }
 
 
@@ -431,7 +539,6 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     justify-content: center;
   }
-
   .calendar nav {
       display: flex;
       align-items: center;
@@ -455,39 +562,19 @@ body::-webkit-scrollbar-thumb {
         border-radius: 50%;
         color: white;
     }
-
-    .calendar section .dates button:focus{
-        transition: 0.2s;
-        background-color: #63C3FF;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-         rgba(0, 0, 0, 0.12) 0px -12px 30px,
-          rgba(0, 0, 0, 0.12) 0px 4px 6px,
-           rgba(0, 0, 0, 0.17) 0px 12px 13px,
-            rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    }
-    
-    .calendar section .dates .btn_inactive:focus{
-        color: #ccc;
-        background-color: transparent;
-        box-shadow: none;
-    }
-    
     .calendar section .dates .btn_inactive{
         color: #ccc;
         background-color: transparent;
         box-shadow: none;
     }
-
   #prev,#next {
     cursor: pointer;
   } 
-
   .days {
     font-weight: lighter;
     font-size: 1.5em;
     color: #BDC0C2;
   }
-
   .calendar .days li {  
     width: calc(100% / 7);
     margin-top: 25px;
@@ -495,7 +582,6 @@ body::-webkit-scrollbar-thumb {
     z-index: 2;
     font-size: 1em;
   }
-
 .content_agenda .aside{ 
     height: 100%;
     width: 45%;
@@ -504,7 +590,6 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-evenly;
     font-family: 'K2D';
 }
-
 .aside .opcoes{
     height: 20px;
     width: 70%;
@@ -513,7 +598,6 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-evenly;
     align-items: center;
 }
-
 .fechado, .aberto{
     display: flex;
     flex-direction: row;
@@ -521,25 +605,21 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-around;
     color: white;
 }
-
 .opcoes p{
     margin: 3px;
 }
-
 .fechado .circle{
     width: 30px;
     height: 30px;
     border-radius: 50%;
     background-color: #001747;
 }
-
 .aberto .circle{
     width: 30px;
     height: 30px;
     border-radius: 50%;
     background-color: #44B2F7;
 }
-
 .horarios{
     display: grid;
     grid-template-areas: "a a"
@@ -551,13 +631,11 @@ body::-webkit-scrollbar-thumb {
     color: white;
     text-align: center;
 }
-
 .horarios h1{
     height: 30px;
     font-weight: lighter;
     margin-bottom: 10%;
 }
-
 .horario{
     display: flex;
     align-items: center;
@@ -570,44 +648,19 @@ body::-webkit-scrollbar-thumb {
     width: 95%;
     height: 90%;
 }
-
 .horario:hover{
     transition: 0.3s;
     background-color: #44B2F7;
 }
-
-.horario:focus{
-    border: 0;
-    outline: 0;
-    background-color: #44B2F7;
-    box-shadow: rgba(0, 0, 0, 0.25) 4px 7px 8px,
-    rgba(0, 0, 0, 0.12) 0px 5px 5px,
-     rgba(0, 0, 0, 0.12) 0px 2px 3px,
-      rgba(0, 0, 0, 0.17) 0px 6px 7px,
-       rgba(0, 0, 0, 0.09) 0px -1px 3px;
-}
-.veiculo:focus{
-    border: 0;
-    outline: 0;
-    background-color: #44B2F7;
-    box-shadow: rgba(0, 0, 0, 0.25) 4px 7px 8px,
-    rgba(0, 0, 0, 0.12) 0px 5px 5px,
-     rgba(0, 0, 0, 0.12) 0px 2px 3px,
-      rgba(0, 0, 0, 0.17) 0px 6px 7px,
-       rgba(0, 0, 0, 0.09) 0px -1px 3px;
-}
 #title{
     grid-area: a;
 }
-
 #hora1{
     grid-area: b;
 }
-
 #hora2{
     grid-area: c;
 }
-
 #hora3{
     grid-area: d;
 }
@@ -615,21 +668,17 @@ body::-webkit-scrollbar-thumb {
 #hora4{
     grid-area: e;
 }
-
 #hora5{
     grid-area: f;
 }
-
 #hora6{
     grid-area: g;
 }
-
 .line{
     width: 50%;
     height: 1px;
     background-color: #63C3FF;
 }
-
 .veiculos{
     display: grid;
     grid-template-areas: "a a a"
@@ -639,7 +688,6 @@ body::-webkit-scrollbar-thumb {
     color: white;
     text-align: center;
 }
-
 #moto{
     grid-area: b;
     height: 60px;
@@ -647,7 +695,6 @@ body::-webkit-scrollbar-thumb {
     border: 0;
     border-radius: 5px;
 }
-
 #carro{
     grid-area: c;
     height: 60px;
@@ -655,7 +702,6 @@ body::-webkit-scrollbar-thumb {
     border: 0;
     border-radius: 5px;
 }
-
 #caminhonete{
     grid-area: d;
     height: 60px;
@@ -663,7 +709,6 @@ body::-webkit-scrollbar-thumb {
     border: 0;
     border-radius: 5px;
 }
-
 .veiculo{
     transition: 0.2s;
     background: #074376;
@@ -671,18 +716,14 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     align-items: center;
 }
-
 .veiculo:hover{
     background-color: #63C3FF;
 }
-
 .veiculo img{
     margin: 0;
     width: 50px;
     height: auto;
 }
-
-
 #agendar_horario{
     width: 55%;
     height: 10%;
