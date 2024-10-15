@@ -1,8 +1,8 @@
 let eye_closed = document.getElementById("eye_closed");
 let eye_open = document.getElementById("eye_open");
 let senha = document.getElementById("senha");
-
 let telefoneInput = document.getElementById("telefone")
+let form = document.querySelector("form");
 
 function olhar() {
     eye_open.classList.add("d-none");
@@ -35,4 +35,12 @@ telefoneInput.addEventListener("input", function (e) {
       input = input.slice(0, 10) + "-" + input.slice(10, 14);
     }
     e.target.value = input.slice(0, 15);
+  });
+  
+  document.querySelector('form').addEventListener('submit', function(event) {
+    const telefone = document.getElementById('telefone').value;
+    if (telefone.length < 15 || telefone.length > 15) {
+      alert('Por favor, insira um número de telefone válido com 15 dígitos.');
+      event.preventDefault(); // Impede o envio do formulário
+    }
   });

@@ -5,6 +5,10 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false) {
     header("Location: ./cadastro.php");
     exit();
 }
+require_once './lib/conn.php';
+$sqlListarInformacoes = "SELECT * FROM informacoes";
+$stmt = $conn->query($sqlListarInformacoes);
+$informacoes = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,24 +49,30 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false) {
         <div class="midia">
             <div class="sobre">
                 <h1>SOBRE NÓS</h1>
+                <?php
+                    foreach($informacoes as $informacao){
+                    
+                ?>
                 <div class="linha"></div>
-                <p>A JR Car Wash Estética Automotiva é especializada em cuidar e revitalizar veículos, oferecendo serviços detalhados de lavagem, polimento profissional e higienização interna para manter seu carro impecável.</p>
+                <p><?= $informacao->texto ?></p>
             </div>
             <div class="redes">
                 <h1>LOCALIZAÇÃO E REDES</h1>
                 <div class="linha"></div>
                 <div class="redes_local">
-                    <div class="info" id="info1"><img class="icon" src="./images/icons/informações/whatsapp.svg"><a href="https://wa.me/+5515997646825?text=Ol%C3%A1%20Fl%C3%A1vio%2C%20cheguei%20ao%20seu%20contato%20via%20site%20da%20JR%20Car%20Wash">
-                            <h2>(15) 997646825</h2>
+                    <div class="info" id="info1"><img class="icon" src="./images/icons/informações/whatsapp.svg"><a href="https://wa.me/+5515997646825?text=Ol%C3%A1%20Fl%C3%A1vio%2C%20cheguei%20ao%20seu%20contato%20via%20site%20da%20JR%20Car%20Wash" target="_blank">
+                            <h2><?= $informacao->numero ?></h2>
                         </a></div>
                     <div class="info" id="info2"><img class="icon" src="./images/icons/informações/instagram.svg">
-                        <h2>@jrcar_wash_</h2>
+                        <h2>@<?= $informacao->instagram ?></h2>
                     </div>
                     <div class="info" id="info3"><img class="icon" src="./images/icons/informações/localizacao.svg"><a href="https://maps.app.goo.gl/ZhLtuquNBv2EsDX57">
-                            <h2>Rua senador Laurindo minhoto 411, Tatuí, <br>1827-1480</h2>
+                            <h2><?= $informacao->endereco ?></h2>
                         </a></div>
                 </div>
-
+                        <?php
+                        }
+                        ?>
             </div>
         </div>
         <div class="imagens">

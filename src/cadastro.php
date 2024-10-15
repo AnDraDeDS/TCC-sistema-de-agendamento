@@ -25,7 +25,7 @@
     <div class="conteudo">
       <form action="./func/func_cadastrar.php" method="POST">
         <div class="nome"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_nome.svg"><input type="text" placeholder="Nome completo" name="nome" required></div>
-        <div class="telefone"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_telefone.svg"><input type="tel" id="telefone" placeholder="Telefone (com DDD)" pattern="\([0-9]){2}\)[9]{1}[0-9]{4}-[0-9]{4}" name="telefone" required></div>
+        <div class="telefone"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_telefone.svg"><input type="tel" id="telefone" placeholder="Telefone (com DDD)" pattern="\([0-9]){2}\)[9]{1}[0-9]{4}-[0-9]{4}" name="telefone" required minlength="15" maxlength="15"></div>
         <div class="senha"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_senha.svg"><input id="senha" type="password" placeholder="Digite sua senha" name="senha" required><img class="icon" id="eye_open" onclick="olhar()" src="./images/icons/cadastro_e_login/Icon_olho.png"><img class="icon d-none"  id="eye_closed" onclick="esconder()" src="./images/icons/cadastro_e_login/Icon_olho_fechado.png"></div>
       
         <div class="localizacao"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_localizacao.svg"><input type="text" placeholder="Endereço Completo" name="endereco" required></div>

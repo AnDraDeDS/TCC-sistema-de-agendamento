@@ -663,3 +663,8 @@ canvas{
     background-color: transparent;
     border: none;
 }
+
+#cms7 {
+    top: 30%;
+    height: fit-content;
+}

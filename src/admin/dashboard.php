@@ -274,20 +274,6 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false || $_SESSION['ad
             <label for="floatingInput">Localização</label>
           </div>
 
-          <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
-            <!-- <input class="input_file" type="file" style="border: 0;">
-                  <input class="input_file" type="file" style="border: 0;"> -->
-            <label class="btn input_file" for="my-file-selector">
-              <span style="color: #63C3FF;">Imagem 1</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo">
-            </label>
-
-            <label class="btn input_file" for="my-file-selector">
-              <span style="color: #63C3FF;">Imagem 2</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo">
-            </label>
-
-          </div>
 
           <button type="submit" class="submit_form">CONFIRMAR</button>
         </form>
