@@ -38,10 +38,13 @@
             <div class="perfil">
                 <button type="button" class="edit" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img src="./images/icons/perfil/Icon_bell.svg"></button>
-                <button class="edit" id="lapinho"><img src="./images/icons/perfil/edit_icon.svg"></button>
+                <button class="edit" id="lapinho">
+                    <img src="./images/icons/perfil/edit_icon.svg">
+                </button>
             </div>
         </div>
 
+        <!-- infos -->
         <div class="aside">
             <div class="infos">
                 <div class="dado" id="item1">
@@ -76,7 +79,7 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="cabecalho">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Agendamentos</h1>
                 </div>
                 <div class="modal-body">
@@ -98,7 +101,7 @@
                                 <td>04/05</td>
                                 <td>Aguardando confirmação <br></td>
                                 <td>
-                                    <button class="btn btn-reagendar btn-sm mt-1" id="reagend">Reagendar</button>
+                                    <button class="btn btn-reagendar btn-sm mt-1 confirm-btn" id="reagend">Reagendar</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -108,37 +111,126 @@
         </div>
     </div>
 
-    <!-- TABELA DE EDIT -->
-    <div class="edicao">
-        <form action="">
-            <div class="form-group">
-                <label for="name">Nome</label>
-                <input type="text" id="name" placeholder="Nome">
-
-                <label for="current-password">Senha Atual</label>
-                <input type="password" id="current-password" placeholder="Senha Atual">
-
-                <label for="password">Senha</label>
-                <input type="password" id="password" placeholder="Senha">
-
-                <label for="call">Telefone</label>
-                <input type="text" id="call" placeholder="Telefone">
-
-                <label for="name">Endereço</label>
-                <input type="text" id="address" placeholder="Endereço">
-
-                <label>Imagem de perfil</label>
-                <label for="file-upload" class="custom-file-upload">
-                    <div class="upload-box">
-                        <span>Escolher Imagem</span>
-                    </div>
-                </label>
-                <input id="file-upload" type="file">
-
-                <button type="submit" class="confirm-btn">CONFIRMAR</button>
-
-        </form>
+    <!--Modal Editar Nome-->
+    <div class="modal fade" id="modalnome" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="cabecalho">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Nome</h1>
+                </div>
+                <div class="corpinho">
+                    <form class="formulario">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Nome</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Modal Editar Senha -->
+    <div class="modal fade" id="senha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="cabecalho">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Senha</h1>
+                </div>
+                <div class="corpinho">
+                    <form class="formulario">
+                        <div class="mb-3">
+                            <label for="current-password" class="col-form-label">Senha atual</label>
+                            <input type="password" id="current-password" class="form-control" aria-describedby="passwordHelpBlock">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="col-form-label">Nova Senha</label>
+                            <input type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Telefone -->
+    <div class="modal fade" id="telefone" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="cabecalho">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Telefone</h1>
+                </div>
+                <div class="corpinho">
+                    <form class="formulario">
+                        <div class="mb-3">
+                            <label for="call" class="col-form-label">Telefone</label>
+                            <input type="number" class="form-control" id="call">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Endereço -->
+    <div class="modal fade" id="endereco" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="cabecalho">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Endereço</h1>
+                </div>
+                <div class="corpinho">
+                    <form class="formulario">
+                        <div class="mb-3">
+                            <label for="address" class="col-form-label">Endereço</label>
+                            <input type="text" class="form-control" id="address">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="img" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="cabecalho">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Imagem de perfil</h1>
+                </div>
+
+                <div class="corpinho">
+                    <form>
+                        <div class="mb-3">
+                            <label for="file-upload" class="custom-file-upload">
+                                <div class="upload-box">
+                                    <span>Escolher Imagem</span>
+                                </div>
+                            </label>
+                            <input id="file-upload" type="file">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

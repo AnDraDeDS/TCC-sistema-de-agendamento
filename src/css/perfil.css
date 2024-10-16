@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     outline: 1px;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -128,6 +129,17 @@ body::-webkit-scrollbar-thumb {
     height: 35%;
 }
 
+.infos .dado {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.infos .dado:hover {
+    background-color: #1a1a1a; 
+    color: #fff;
+}
+
+
 .perfil {
     height: 35vh;
     width: 35vh;
@@ -170,6 +182,7 @@ body::-webkit-scrollbar-thumb {
     display: grid;
     padding-bottom: 20px;
     grid-template-areas: "a b" "c d";
+    
 }
 
 .dado {
@@ -258,102 +271,59 @@ p {
     background-color: #007bff;
 }
 
-/* TABELA DE EDIT */
-.edicao {
-    display: none; /* O modal começa oculto */
-    position: fixed; 
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    backdrop-filter: blur(7px);
-    justify-content: center; 
-    align-items: center; 
-    z-index: 999;
+.cabecalho {
+    text-align: center;
+    padding: 15px; /* Aumentei o padding para deixar mais espaçado */
+    color: white;
+    background-color: #007bff;
+    border-radius: 8px 8px 0 0; /* Deixei as bordas mais arredondadas */
+    font-weight: bold; /* Adicionei um destaque ao título */
+    font-size: 1.3em; /* Ajustei o tamanho da fonte */
 }
 
-.table-body{
-    border-radius: 20px;
+.mb-3 {
+    padding: 15px;
+    color: #095b9f; /* Cor sutil para textos */
+    font-size: larger;
+    font-weight: 500; /* Suavizei o peso da fonte */
 }
 
-/* Estilo do formulário dentro do modal */
-form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 350px;
-    max-width: 90%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-}
-
-/* Estilo dos grupos de formulário */
-.form-group {
-    margin-bottom: 20px;
-}
-
-/* Estilo dos labels */
-label {
+.custom-file-upload {
     display: block;
-    font-family: "Roboto", sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: #007bff; /* Azul claro como na imagem */
-    margin-bottom: 5px;
-}
-
-/* Estilo dos campos de input */
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-}
-
-/* Botão de upload de arquivo */
-input[type="file"] {
-    display: none;
+    cursor: pointer;
 }
 
 .upload-box {
-    display: inline-block;
+    width: 100%;
+    padding: 12px; /* Ajustei o padding para melhor espaçamento */
+    background-color: #f9f9f9; /* Cor mais suave para o fundo */
+    border: 2px dashed #007bff; /* Dei destaque à borda com a cor do tema */
     text-align: center;
-    width: 310px;
-    height: 50px;
-    padding: 10px 20px;
-    border: 1px dashed #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    cursor: pointer;
-
-}
-
-.upload-box span {
-    color: #c1c1c1;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #333; /* Mudança da cor do texto para algo mais visível */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .upload-box:hover {
-    background-color: #eee;
-    border-color: #007bff;
+    background-color: #e1e1e1;
+    border-color: #005599; /* Adicionei um efeito de hover na borda */
 }
 
-/* Estilo do botão de confirmação */
-.confirm-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff; 
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
+#file-upload {
+    display: none;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Azul marinho */
     border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px; /* Bordas arredondadas para um toque mais suave */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Adicionei transição para hover */
 }
 
-.confirm-btn:hover {
-    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+.btn-primary:hover {
+    background-color: #005599; /* Azul mais escuro no hover */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Sombra ao passar o mouse */
 }

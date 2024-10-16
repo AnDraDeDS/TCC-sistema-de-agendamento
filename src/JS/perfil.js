@@ -1,78 +1,79 @@
-// GMMF (Gambiarra Muito Mal Feita)
-// elementos do modal
-const editButton = document.getElementById('lapinho');
-const modal = document.querySelector('.edicao');
-const nameInput = document.getElementById('name');
-const callInput = document.getElementById('call');
-const currentPasswordInput = document.getElementById('current-password'); // Este campo precisa existir no HTML
-const newPasswordInput = document.getElementById('password');
-const addressInput = document.getElementById('address');
+// armazenamento das infos atuais
+let userInfo = {
+    nome: "Flavio Costa e Silva Junior",
+    senha: "senha123", // Coloque a senha real aqui
+    telefone: "15997653976",
+    endereco: "Rua num sei oq do sei que lá",
+};
 
-// exibição de dados
-const nameDisplay = document.querySelector('#item1 p:last-child');
-const callDisplay = document.querySelector('#item3 p:last-child');
-const passwordDisplay = document.querySelector('#item2 p:last-child');
-const addressDisplay = document.querySelector('#item4 p:last-child');
+// abrir o modal e preencher os dados
+function openModal(modalId, inputId) {
+    const modal = new bootstrap.Modal(document.getElementById(modalId));
+    modal.show();
 
-// editar imagem de perfil
-const fileInput = document.getElementById('file-upload');
-const uploadBox = document.querySelector('.upload-box');
-const perfil = document.querySelector('.perfil');
-const confirmButton = document.querySelector('.confirm-btn');
-const currentActualPassword = "senha123"; // senha pra validacao
-
-// exibicao
-editButton.addEventListener("click", function() {
-    modal.style.display = "flex"; 
-});
-
-// blur
-modal.addEventListener("click", function(event) {
-    if (event.target === modal) {
-        modal.style.display = "none"; 
+    if (inputId) {
+        const inputField = document.getElementById(inputId);
+        inputField.value = userInfo[inputId] || '';
     }
-});
+}
 
-// atualizacao img
-fileInput.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            perfil.style.backgroundImage = `url(${event.target.result})`; 
-        };
-        reader.readAsDataURL(file);
-    }
-});
 
-// verifica atual
-confirmButton.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    
-    // verificacao
-    if (currentPasswordInput && currentPasswordInput.value !== currentActualPassword) {
-        alert("Senha atual está incorreta.");
-        return; 
-    }
 
-    // atualizacao
-    nameDisplay.textContent = nameInput.value || nameDisplay.textContent;
-    callDisplay.textContent = callInput.value || callDisplay.textContent;
-    passwordDisplay.textContent = newPasswordInput.value ? "********" : passwordDisplay.textContent; // Oculta a senha
-    addressDisplay.textContent = addressInput.value || addressDisplay.textContent;
+// atualiza as informações na interface
+function updateUserInfo() {
+    document.querySelector("#item1 p:nth-child(2)").innerText = userInfo.nome;
+    document.querySelector("#item2 p:nth-child(2)").innerText = "********"; // Manter senha oculta
+    document.querySelector("#item3 p:nth-child(2)").innerText = userInfo.telefone;
+    document.querySelector("#item4 p:nth-child(2)").innerText = userInfo.endereco;
+}
 
-    // da clean nos campos
-    nameInput.value = '';
-    callInput.value = '';
-    currentPasswordInput.value = '';
-    newPasswordInput.value = '';
-    addressInput.value = '';
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("item1").addEventListener("click", () => openModal('modalnome', 'recipient-name'));
+    document.getElementById("item2").addEventListener("click", () => openModal('senha'));
+    document.getElementById("item3").addEventListener("click", () => openModal('telefone', 'call'));
+    document.getElementById("item4").addEventListener("click", () => openModal('endereco', 'address'));
+    document.getElementById("lapinho").addEventListener("click", () => openModal('img'));
 
-    // fecha modal
-    modal.style.display = 'none';
-});
+    // edição de Nome
+    document.querySelector('#modalnome .confirm-btn').addEventListener("click", function () {
+        const newName = document.getElementById('recipient-name').value;
+        userInfo.nome = newName;
+        updateUserInfo();
+        bootstrap.Modal.getInstance(document.getElementById('modalnome')).hide();
+    });
 
-// redirecionamento
-document.getElementById("reagend").addEventListener("click", function () {
-    window.location.href = "agendamento.html";
+    // edição de Senha
+    document.querySelector('#senha .confirm-btn').addEventListener("click", function () {
+        const currentPassword = document.getElementById('current-password').value;
+        const newPassword = document.getElementById('password').value;
+
+        if (currentPassword === userInfo.senha) {
+            userInfo.senha = newPassword;
+            alert("Senha alterada com sucesso!");
+            bootstrap.Modal.getInstance(document.getElementById('senha')).hide();
+        } else {
+            alert("Senha atual incorreta. Tente novamente.");
+        }
+    });
+
+    // edição de Telefone
+    document.querySelector('#telefone .confirm-btn').addEventListener("click", function () {
+        const newPhone = document.getElementById('call').value;
+        userInfo.telefone = newPhone;
+        updateUserInfo();
+        bootstrap.Modal.getInstance(document.getElementById('telefone')).hide();
+    });
+
+    // edição de Endereço
+    document.querySelector('#endereco .confirm-btn').addEventListener("click", function () {
+        const newAddress = document.getElementById('address').value;
+        userInfo.endereco = newAddress;
+        updateUserInfo();
+        bootstrap.Modal.getInstance(document.getElementById('endereco')).hide();
+    });
+
+    // redirecionamento
+    document.getElementById("reagend").addEventListener("click", function () {
+        window.location.href = "agendamento.html";
+    });
 });
