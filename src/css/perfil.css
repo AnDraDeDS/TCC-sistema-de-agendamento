@@ -271,3 +271,97 @@ p{
     color: white;
     position: relative;
 }
+
+
+.navbar2{
+    width: 100%;
+    height: 10%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    position: fixed;
+    top: 90%;
+}
+
+.navbar2 ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 0;
+
+}
+
+.navbar2 ul a li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    font-size: 0.8em;
+}
+
+.navbar2 ul a li img{
+    width: 25px;
+}
+
+.navbar2 ul a{
+    display: flex;
+    width: 60px;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.page_atual{
+    background-color: #63C3FF;
+    width: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+
+
+@media(max-width:425px){
+
+    .navbar{
+        display: none;
+    }
+
+    .header{
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        position: fixed;
+    }
+
+    .pageName{
+        font-family: 'K2D';
+        width: 100%;
+        text-align: center;
+        background-color: rgba(59, 89, 152,.8);
+        color: white;
+        position: fixed;
+        top: 10%;
+    }
+
+    #jr{
+        width: 30px;
+    }
+
+    #carwash{
+        width: 200px;
+    }
+
+    .navbar2{
+        display: flex;
+    }
+
+    /* O CÓDIGO CSS DO @MEDIA() MOBILE ACIMA DEVE SER COPIADO EM TODAS AS PÁGINAS CSS's */
+
+}

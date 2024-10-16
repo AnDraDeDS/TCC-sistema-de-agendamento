@@ -150,3 +150,42 @@ float: right;
 #eye_open, #eye_closed:hover{
   cursor: pointer;
   }
+
+  @media(max-width:425px){
+
+    .navbar{
+        display: none;
+    }
+
+    .header{
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        position: fixed;
+    }
+
+    .pageName{
+        font-family: 'K2D';
+        width: 100%;
+        text-align: center;
+        background-color: rgba(59, 89, 152,.8);
+        color: white;
+        position: fixed;
+        top: 10%;
+    }
+
+    #jr{
+        width: 30px;
+    }
+
+    #carwash{
+        width: 200px;
+    }
+
+    .navbar2{
+        display: flex;
+    }
+  
+    /* O CÓDIGO CSS DO @MEDIA() MOBILE ACIMA DEVE SER COPIADO EM TODAS AS PÁGINAS CSS's */
+
+  }
