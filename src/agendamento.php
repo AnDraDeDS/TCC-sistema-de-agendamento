@@ -13,25 +13,25 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../src/css/agendamento.css">
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> <!--font awesome-->
-    <title>Agendamento</title>
-</head>
-
-<body>
-
-    <!-- NAVBAR -->
-
-    <div class="header">
-        <div class="logo"><a href="./func/logout.php"><img id="jr" src="./images/jr_navbar.svg"></a><img id="carwash" src="./images/carwash.svg">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="../src/css/agendamento.css">
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> <!--font awesome-->
+        <title>Agendamento</title>
+    </head>
+    
+    <body>
+        
+        <!-- NAVBAR -->
+        
+        <div class="header">
+            <div class="logo"><a href="./func/logout.php"><img id="jr" src="./images/jr_navbar.svg"></a><img id="carwash" src="./images/carwash.svg">
             <div class="space"></div>
         </div>
         <div class="navbar">
@@ -44,42 +44,51 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
     <p class="pageName">SERVIÇOS</p>
-
+    
     <!-- CONTEÚDOS -->
     <div class="content">
-        <form class="content" action="./func/func_agendar.php" method="post">
-            <?php foreach ($servicos as $servico): ?>
+        <form class="content" action="" method="post">
+            <?php foreach ($servicos as $servico){ ?>
                 <div class="item">
                     <span style="background-image: url('data:image/jpeg;base64,<?= base64_encode($servico->imagem1) ?>');"></span>
                     <h3><?= htmlspecialchars($servico->nome) ?></h3>
                     <div class="texto">
                         <p>A partir de <span style="font-weight: bold;">R$<?= number_format($servico->preco, 2, ',', '.') ?></span></p>
-                        <button class="agendar" type="button" onclick="servico_foco('<?= htmlspecialchars($servico->nome) ?>', '<?= htmlspecialchars($servico->preco) ?>', '<?= htmlspecialchars($servico->duracao) ?>')"></button>
+                        <button class="agendar" type="button" onclick="servico_foco('<?= htmlspecialchars($servico->nome) ?>', <?= htmlspecialchars($servico->preco) ?>, '<?= htmlspecialchars($servico->duracao) ?>', '<?= htmlspecialchars($servico->descricao) ?>')"></button>
+                        <input type="hidden" id="id" name="id">
                     </div>
                 </div>
-            <?php endforeach; ?>
-    </div>
-
-    <div class="content_focus d-none">
-        <button class="button_voltar" onclick="voltar()">
-            <img src="./images/icons/agendamento/icon_seta.svg" alt="">
-        </button>
-        <div class="side">
-            <h1>HIGIENIZAÇÃO DE BANCO DE COURO</h1>
-            <p>Lavagem completa do veículo acompanhada de uma higienização profunda dos bancos removendo sujeiras e odores. </p>
-            <p><span style="color: #63C3FF; font-weight: 700;">Duração:</span> 2 dias</p>
-
-            <button type="button" onclick="agend_foco()">CONFIRMAR<br>SELEÇÃO</button>
-
+                <?php }?>
+            </div>
+            
+            <div class="content_focus d-none">
+                <button type="button" class="button_voltar" onclick="voltar()">
+                    <img src="./images/icons/agendamento/icon_seta.svg" alt="">
+                </button>
+                <div class="side">
+                    <h1 id="titulo_servico"></h1>
+                    <p id="descricao_servico"></p>
+                    <p id="duracao_servico"><span style="color: #63C3FF; font-weight: 700;">Duração:</span></p>
+                    
+                    <button type="button" onclick="agend_foco()">CONFIRMAR<br>SELEÇÃO</button>
+                    
+                    <?php 
+                    $sqlListarImagensFoco = "SELECT * FROM servico WHERE id_servico = $id";
+                    $stmt = $conn->query($sqlListarImagensFoco);
+                    $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
+                    
+                    foreach($servicos as $servico){
+                ?>
         </div>
         <div class="aside">
-            <img src="./images/agendamento/higienizacao-de-banco.png" alt="">
-            <img src="./images/agendamento/higienizacao-de-banco_2.png" alt="">
+        <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem1) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
+        <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem2) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
+        <?php }?>
         </div>
     </div>
 
     <div class="content_agenda d-none">
-        <button class="button_voltar" onclick="voltar2()">
+        <button type="button" class="button_voltar" onclick="voltar2()">
             <img src="./images/icons/agendamento/icon_seta.svg" alt="">
         </button>
         <div class="side">
@@ -137,7 +146,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             <button id="agendar_horario" type="submit">AGENDAR</button>
         </div>
     </div>
-    <div class="navbar2">
+    <div class="navbar2 d-none">
         <ul>
             <a href="./agendamento.html">
                 <li>
@@ -168,7 +177,8 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             <input type="hidden" id="DataServico" name="DataServico">
             <input type="hidden" id="HorarioServico" name="HorarioServico">
             <input type="hidden" id="VeiculoServico" name="VeiculoServico">
-    </form>
+
+        </form> 
     </div>
 
 

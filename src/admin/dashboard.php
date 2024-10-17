@@ -90,12 +90,13 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
 
           </div>
 
-          <button type="submit" class="submit_form">CONFIRMAR</button>
+          <button type="submit" class="submit_form" name="enviar" value="inserir_servico">CONFIRMAR</button>
         </form>
       </div>
     </div>
     <!-- Atualizar Serviço -->
     <div id="cms2" class="cms d-none">
+    <form action="./funcCMS/func_servico.php" method="post" enctype="multipart/form-data">
     <div class="header-cms">
         <div class="dropdown-center">
             <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -106,6 +107,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <li>
                         <button type="button" class="servico-button" data-nome="<?= $servico->nome ?>" data-preco="<?= $servico->preco ?>" data-descricao="<?= $servico->descricao ?>" data-duracao="<?= $servico->duracao ?>">
                             <?= $servico->nome ?>
+                            <input type="hidden" name="id_servico" value="<?=$servico->id_servico?>">
                         </button>
                     </li>
                 <?php endforeach; ?>
@@ -113,7 +115,6 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
     </div>
     <div class="content-cms">
-        <form action="./funcCMS/func_updateServico.php" method="post">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" style="border: 0.5px solid black;">
                 <label for="nome">Nome</label>
@@ -135,40 +136,49 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             </div>
 
             <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
-                <label class="btn input_file" for="my-file-selector1">
-                    <span style="color: #63C3FF;">Imagem 1</span>
-                    <input id="my-file-selector1" type="file" placeholder="Arquivo">
-                </label>
+            <label class="btn input_file" for="my-file-selector">
+              <span style="color: #63C3FF;">Imagem 1</span>
+              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem1" name="imagem1" accept="image/*" required>
+            </label>
 
-                <label class="btn input_file" for="my-file-selector2">
-                    <span style="color: #63C3FF;">Imagem 2</span>
-                    <input id="my-file-selector2" type="file" placeholder="Arquivo">
-                </label>
+            <label class="btn input_file" for="my-file-selector">
+              <span style="color: #63C3FF;">Imagem 2</span>
+              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem2"name="imagem2" accept="image/*" required>
+            </label>
             </div>
 
-            <button type="submit" class="submit_form">CONFIRMAR</button>
-        </form>
+            <button type="submit" class="submit_form" name="enviar" value="atualizar_servico">CONFIRMAR</button>
+       
     </div>
+    </form>
 </div>
 
     <!-- Excluir Serviço -->
     <div id="cms3" class="cms cms-excluir d-none">
+    <form action="./funcCMS/func_servico.php" method="post" enctype="multipart/form-data">
+
       <div class="header-cms">
         <div class="dropdown-center">
           <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <p>Excluir Serviço</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
           </button>
           <ul id="menu_pesquisa" class="dropdown-menu">
-            <li><button>Lavagem Simples</button></li>
-            <li><button>Lavagem Completa</button></li>
-            <li><button>Polimento</button></li>
+          <?php foreach($servicos as $servico): ?>
+                    <li>
+                        <button type="button" class="servico-button" data-nome="<?= $servico->nome ?>" data-preco="<?= $servico->preco ?>" data-descricao="<?= $servico->descricao ?>" data-duracao="<?= $servico->duracao ?>">
+                            <?= $servico->nome ?>
+                            <input type="hidden" name="id_servico" value="<?=$servico->id_servico?>">
+                        </button>
+                    </li>
+          <?php endforeach; ?>
           </ul>
         </div>
       </div>
       <div class="content-cms">
         <input type="hidden" value=`${wd}`>
-        <button type="submit" class="submit_form">CONFIRMAR</button>
+        <button type="submit" class="submit_form" name="enviar" value="excluir_servico">CONFIRMAR</button>
       </div>
+    </form>
     </div>
     <!-- Inserir Galeria -->
     <div id="cms4" class="cms cms-inserir-galeria d-none">
@@ -196,7 +206,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
 
           </div>
 
-          <button type="submit" class="submit_form">CONFIRMAR</button>
+          <button type="submit" class="submit_form"  name="enviar" value="inserir_galeria">CONFIRMAR</button>
         </form>
       </div>
     </div>
@@ -230,7 +240,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             </label>
           </div>
 
-          <button type="submit" class="submit_form">CONFIRMAR</button>
+          <button type="submit" class="submit_form" name="enviar" value="atualizar_galeria">CONFIRMAR</button>
         </form>
       </div>
     </div>
@@ -250,7 +260,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
       </div>
       <div class="content-cms">
         <input type="hidden" value=`${wd}`>
-        <button type="submit" class="submit_form">CONFIRMAR</button>
+        <button type="submit" class="submit_form" name="enviar" value="excluir_galeria">CONFIRMAR</button>
       </div>
     </div>
     <!-- Atualizar Informações -->
@@ -280,7 +290,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
           </div>
 
 
-          <button type="submit" class="submit_form">CONFIRMAR</button>
+          <button type="submit" class="submit_form" name="enviar" value="atualizar_informacoes">CONFIRMAR</button>
         </form>
       </div>
     </div>
@@ -444,8 +454,8 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             </div>
             <div class="linha"></div>
             <div class="tipo-solicitacao">
-              <p class="tipo">Servico:Lavagem Completa</p>
-              <p class="tipo">Veículo</p>
+              <p class="tipo">Servico: Lavagem Completa</p>
+              <p class="tipo">Veículo: Carro</p>
             </div>
             <div class="linha"></div>
             <div class="agendamento-solicitacao">

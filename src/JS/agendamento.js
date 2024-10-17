@@ -12,9 +12,8 @@ let titulo_servico = document.getElementById("titulo_servico");
 let descricao_servico = document.getElementById("descricao_servico");
 let duracao_servico = document.getElementById("duracao_servico");
 
-
 function selectItens(item){
-
+  
   
   if(item == 'reset'){
     let horarios = Array.from(document.querySelectorAll('.horario'));
@@ -72,129 +71,76 @@ function selectItens(item){
 
 
 function atual(){
- dropdown.classList.toggle("d-none");
- if(dropdown.getAttribute("id") != "next"){
-  dropdown.setAttribute("id", "next");
- }else{
-  dropdown.setAttribute("id", "prev");
- }
-
-   
- if(dropdown.getAttribute("id") == "next"){
-  months[month] === "Dezembro" ? dropdown.textContent = `${months[0]} ${year+1}` :  dropdown.textContent = `${months[month+1]} ${year}`; // Resolver virada do ano
-}else{
+  dropdown.classList.toggle("d-none");
+  if(dropdown.getAttribute("id") != "next"){
+    dropdown.setAttribute("id", "next");
+  }else{
+    dropdown.setAttribute("id", "prev");
+  }
+  
+  
+  if(dropdown.getAttribute("id") == "next"){
+    months[month] === "Dezembro" ? dropdown.textContent = `${months[0]} ${year+1}` :  dropdown.textContent = `${months[month+1]} ${year}`; // Resolver virada do ano
+  }else{
     months[month] === "Janeiro" ? dropdown.textContent = `${months[11]} ${year-1}` :  dropdown.textContent = `${months[month-1]} ${year}`; // Resolver virada do ano
   }
 }
 
 function atualizar(){
-
+  
   const btnId = dropdown.getAttribute("id"); 
   if (btnId === "prev" && month === 0) {
     year--;
     month = 11;
-    } else if (btnId === "next" && month === 11) {
+  } else if (btnId === "next" && month === 11) {
     year++;
     month = 0;
-    } else {
+  } else {
     month = btnId === "next" ? month + 1 : month - 1;
-    }
-
-    date = new Date(year, month, new Date().getDate());
-    year = date.getFullYear();
-    month = date.getMonth();
-
-    console.log(year, month);
-    dropdown.classList.toggle("d-none");
-
-    renderCalendar();
+  }
+  
+  date = new Date(year, month, new Date().getDate());
+  year = date.getFullYear();
+  month = date.getMonth();
+  
+  console.log(year, month);
+  dropdown.classList.toggle("d-none");
+  
+  renderCalendar();
 }
 
 function hide(){
- dropdown.classList.add("d-none");
+  dropdown.classList.add("d-none");
 }
 
-function servico_foco(servico, valor, duracao){
+function servico_foco(servico, valor, duracao, descricao,){
+  content.classList.add("d-none");
+  content3.classList.add("d-none");
+  content2.classList.remove("d-none");
+  document.getElementById("NameServico").value = servico;
+  document.getElementById("PrecoServico").value = valor;
+  document.getElementById("DuracaoServico").value = duracao;
+  
 
-    content.classList.add("d-none");
-    content3.classList.add("d-none");
-    content2.classList.remove("d-none");
-    document.getElementById("NameServico").value = servico;
-    document.getElementById("PrecoServico").value = valor;
-    document.getElementById("DuracaoServico").value = duracao;
-
-    if(servico == 'Lavagem Simples'){
-      
-    titulo_servico.innerHTML = servico.toUpperCase();
-    descricao_servico.innerHTML = 'Limpeza básica do veículo que inclui lavagem a seco do exterior, limpeza de tapetes e aplicação de produto para dar brilho aos pneus.'
-    duracao_servico.innerHTML = '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 1h - 1h e 30min'
-    }
-
-    if(servico == 'Polimento de Farol'){
-      
-    titulo_servico.innerHTML =  servico.toUpperCase();
-    descricao_servico.innerHTML = 'Processo de polimento para a restaurar a clareza dos faróis do veículo, tratando ambos os faróis.'
-    duracao_servico.innerHTML =  '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 1 dia'
-    }
-
-    if(servico == 'Polimento e Cristalização'){
-      
-    titulo_servico.innerHTML =  servico.toUpperCase();
-    descricao_servico.innerHTML = 'Serviço avançado de polimento que inclui a aplicação de uma camada protetora para preservar o brilho e a integridade da pintura '
-    duracao_servico.innerHTML =  '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 2 dias'
-    }
-
-    if(servico == 'Lavagem de Motor'){
-      
-    titulo_servico.innerHTML =  servico.toUpperCase();
-    descricao_servico.innerHTML = 'Limpeza específica de compartimento do motor seguida da aplicação de cera para a proteção e brilho.'
-    duracao_servico.innerHTML =  '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 1h - 1h e 30min'
-    }
-
-    if(servico == 'Lavagem Completa'){
-      
-    titulo_servico.innerHTML =  servico.toUpperCase();
-    descricao_servico.innerHTML = 'Serviço de limpeza detalhada que engloba a lavagem simples, limpeza do painel, aspiração do interior, limpeza dos vidros e aplicação de cera líquida.'
-    duracao_servico.innerHTML =  '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 1h - 1h e 30min'
-    }
-
-    if(servico == 'Hig. Banco de Couro'){
-      
-    titulo_servico.innerHTML =  servico.toUpperCase();
-    descricao_servico.innerHTML = 'Inclui lavagem completa do veículo, limpeza profunda e aplicação de hidratante específico para manter a aparência dos bancos de couro'
-    duracao_servico.innerHTML =  '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 2 dias'
-    }
-
-    if(servico == 'Higienização de Teto'){
-      
-    titulo_servico.innerHTML =  servico.toUpperCase();
-    descricao_servico.innerHTML = 'Limpeza especializada do teto do veículo para remover manchas.'
-    duracao_servico.innerHTML = '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 1 dia'
-    }
-
-    if(servico == 'Higienização de Banco'){
-      
-    titulo_servico.innerHTML =  servico.toUpperCase();
-    descricao_servico.innerHTML = 'Lavagem completa do veículo acompanhada de uma higienização profunda dos bancos removendo sujeiras e odores. '
-    duracao_servico.innerHTML =  '<span style="color: #63C3FF; font-weight: 700;">Duração:</span> 2 dias'
-    }
-
+  titulo_servico.innerHTML = `${servico.toUpperCase()}`;
+  descricao_servico.innerHTML = `${descricao}`;
+  duracao_servico.innerHTML = `<span style="color: #63C3FF; font-weight: 700;">Duração:</span> ${duracao}`
 }
 
 function agend_foco(){
-    content.classList.add("d-none");
-    content2.classList.add("d-none");
-    content3.classList.remove("d-none");
+  content.classList.add("d-none");
+  content2.classList.add("d-none");
+  content3.classList.remove("d-none");
 }
 
 function voltar(){
-    content2.classList.add("d-none");
-    content3.classList.add("d-none");
-    content.classList.remove("d-none");
+  content2.classList.add("d-none");
+  content3.classList.add("d-none");
+  content.classList.remove("d-none");
 }
 
 function voltar2(){
-    content2.classList.remove("d-none");
+  content2.classList.remove("d-none");
     content3.classList.add("d-none");
     content.classList.add("d-none");
 }
