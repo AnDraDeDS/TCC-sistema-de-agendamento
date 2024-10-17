@@ -193,7 +193,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
           </div>
 
           <div class="form-floating mb-3">
-            <input name="numero" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+            <input type="tel" class="form-control" id="telefoneInput" placeholder="name@example.com" style="border: 0.5px solid black;" id="telefone" placeholder="Telefone (com DDD)" pattern="\([0-9]){2}\)[9]{1}[0-9]{4}-[0-9]{4}" name="telefone" required>
             <label for="floatingInput">Whatsapp</label>
           </div>
 
@@ -401,5 +401,4 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
   });
 </script>
 </body>
-
 </html>

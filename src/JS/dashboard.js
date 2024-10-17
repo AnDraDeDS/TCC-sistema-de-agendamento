@@ -5,6 +5,7 @@ const containerServicos = document.querySelector(".container-servicos")
 const imgMenu = document.querySelector(".imgMenu")
 const main = document.querySelector("main")
 const cmsAll = document.querySelector(".cms")
+const telefoneInput = document.getElementById("telefoneInput");
 
 const cms1 = document.getElementById("cms1");
 const cms2 = document.getElementById("cms2");
@@ -135,4 +136,23 @@ buttons.forEach(button => {
         document.getElementById('descricao').value = descricao;
         document.getElementById('duracao').value = duracao;
     });
+});
+
+telefoneInput.addEventListener("input", function (e) {
+  let input = e.target.value;
+  
+  input = input.replace(/\D/g, "");
+
+  if (input.length > 0) {
+    input = "(" + input;
+  }
+  if (input.length > 3) {
+    input = input.slice(0, 3) + ") " + input.slice(3);
+  }
+  
+
+  if (input.length > 10) {
+    input = input.slice(0, 10) + "-" + input.slice(10, 14);
+  }
+  e.target.value = input.slice(0, 15);
 });

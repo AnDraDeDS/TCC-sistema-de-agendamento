@@ -2,6 +2,7 @@
 require_once '../../lib/conn.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $telefoneFormatado = preg_replace("/[^0-9]/", "", $_POST["telefone"]);
 
     // Extrair os dados do formulário
     extract($_POST);
@@ -17,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Definir os parâmetros
                 $stmt->bindValue(':texto', $texto);
                 $stmt->bindValue(':instagram', $instagram);
-                $stmt->bindValue(':numero', $numero);
+                $stmt->bindValue(':numero', $telefone);
                 $stmt->bindValue(':endereco', $endereco);
                 $stmt->execute();
 
