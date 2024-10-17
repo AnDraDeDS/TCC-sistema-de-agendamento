@@ -348,6 +348,7 @@ p{
         color: white;
         position: fixed;
         top: 10%;
+        height: auto;
     }
 
     #jr{

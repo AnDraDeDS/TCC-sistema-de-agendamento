@@ -343,6 +343,7 @@ body::-webkit-scrollbar-thumb {
         color: white;
         position: fixed;
         top: 10%;
+        height: auto;
     }
 
     #jr{

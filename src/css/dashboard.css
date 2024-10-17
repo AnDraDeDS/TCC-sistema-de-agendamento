@@ -739,7 +739,8 @@ canvas{
         background-color: rgba(59, 89, 152,.8);
         color: white;
         position: fixed;
-        top: 10%;
+        top: 8%;
+        height: auto;
     }
 
     #jr{
