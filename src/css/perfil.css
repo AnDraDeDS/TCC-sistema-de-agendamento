@@ -1,29 +1,38 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: 1px;
+    font-family: "Roboto", sans-serif;
 }
+
 body {
     background-color: #272727;
-    overflow-x: hidden;
+    overflow: hidden;
+
 }
+
 body::-webkit-scrollbar-track {
     background-color: #000;
     width: 15px;
 }
+
 body::-webkit-scrollbar {
     background: #F4F4F4;
     width: 10px;
 }
+
 body::-webkit-scrollbar-thumb {
     background: #8A8A8A;
     border-radius: 20px;
     border: 3px solid #000;
 }
 
-.header{
+.header {
     width: 100vw;
-    filter: drop-shadow(0 6mm 4mm rgba(59, 89, 152,.5));
+    filter: drop-shadow(0 6mm 4mm rgba(59, 89, 152, .5));
     height: 20vh;
     background: url('../images/capa.png');
     background-size: cover;
@@ -31,7 +40,7 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
 }
 
-.logo{
+.logo {
     display: flex;
     width: 100%;
     height: 60%;
@@ -40,28 +49,29 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
 }
 
-#jr, .space{
+#jr, .space {
     max-width: 80px;
     margin: 20px;
     display: flex;
     justify-self: start;
 }
 
-#carwash{
+#carwash {
     display: flex;
     justify-self: center;
     max-width: 300px;
     padding: 1em;
 }
 
-.navbar{
+.navbar {
     width: 100%;
     height: 40%;
     border: 0;
     padding: 0;
     margin: 0;
 }
-.navbar>ul{
+
+.navbar > ul {
     list-style-type: none;
     height: 100%;
     width: 100%;
@@ -75,7 +85,7 @@ body::-webkit-scrollbar-thumb {
     flex-direction: row;
 }
 
-.navbar ul li{
+.navbar ul li {
     display: flex;
     width: 25%;
     height: 100%;
@@ -84,12 +94,12 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
 }
 
-.navbar ul li:hover{
+.navbar ul li:hover {
     border: 2px solid white;
     transition: 0.1s;
 }
 
-.navbar li>a{
+.navbar li > a {
     text-decoration: none;
     color: white;
     font-size: 1.3em;
@@ -98,8 +108,7 @@ body::-webkit-scrollbar-thumb {
     padding-bottom: 5%;
 }
 
-
-.content{
+.content {
     padding-top: 65vh;
     height: 30vh;
     width: 100vw;
@@ -107,7 +116,7 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
 }
 
-.side{
+.side {
     display: flex;
     width: 100%;
     height: 65%;
@@ -115,24 +124,36 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
 }
 
-.aside{
+.aside {
     width: 100%;
     height: 35%;
 }
 
-.perfil{
-    height: 230px;
-    width: 230px;
+.infos .dado {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.infos .dado:hover {
+    background-color: #1a1a1a; 
+    color: #fff;
+}
+
+
+.perfil {
+    height: 35vh;
+    width: 35vh;
     border-radius: 50%;
     background-image: url('../images/perfil_default.png');
     background-size: cover;
-    margin-bottom: 50px;
+    margin-bottom: 5vh;
     display: flex;
-    filter: drop-shadow(0 2mm 0.9mm rgba(0, 0, 0,.5));
+    filter: drop-shadow(0 2mm 0.9mm rgba(0, 0, 0, .5));
     justify-content: space-between;
     align-items: end;
 }
-.edit{
+
+.edit {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -141,30 +162,30 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     align-items: center;
     border: 0;
-    filter: drop-shadow(0 2mm 0.9mm rgba(0, 0, 0,.5));
+    filter: drop-shadow(0 2mm 0.9mm rgba(0, 0, 0, .5));
 }
 
-.edit:hover{
+.edit:hover {
     width: 62px;
     height: 62px;
     transition: 0.3s;
 }
 
-.edit img{
-    max-width: 30px
+.edit img {
+    max-width: 30px;
 }
 
-.infos{
+.infos {
     margin: 0 auto;
     width: 60%;
     height: 100%;
     display: grid;
     padding-bottom: 20px;
-    grid-template-areas: "a b"
-                         "c d";
+    grid-template-areas: "a b" "c d";
+    
 }
 
-.dado{
+.dado {
     display: flex;
     flex-direction: row;
     width: 30vw;
@@ -172,64 +193,137 @@ body::-webkit-scrollbar-thumb {
     background-color: #0A090B;
 }
 
-.dado:hover{
-    background-color: #5a5a5a;
-    transition: 0.3s;
-    
+.text {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
 }
 
-.text{
-height: 100%;
-width: 90%;
-display: flex;
-flex-direction: column;
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 10%;
 }
 
-.arrow{
-display: flex;
-align-items: center;
-justify-content: center;
-height: 100%;
-width: 10%;
-}
-
-#item1{
+#item1 {
     grid-area: a;
     border-bottom: 1px solid rgb(121, 121, 121);
     border-right: 1px solid rgb(121, 121, 121);
     border-radius: 8px 0 0 0;
 }
 
-#item2{
+#item2 {
     grid-area: b;
     border-bottom: 1px solid rgb(121, 121, 121);
     border-radius: 0 8px 0 0;
 }
 
-#item3{
+#item3 {
     grid-area: c;
     border-right: 1px solid rgb(121, 121, 121);
     border-radius: 0 0 0 8px;
 }
 
-#item4{
+#item4 {
     grid-area: d;
     border-radius: 0 0 8px 0;
 }
 
-.titulo{
+.titulo {
     margin: 0;
     margin-top: 20px;
     padding-left: 60px;
     font-size: 1.5em;
-    font-weight:400;
+    font-weight: 400;
     color: white;
 }
 
-p{
+p {
+    height: fit-content;
+    width: 100%;
     font-size: 1em;
     padding-left: 60px;
     font-weight: lighter;
     color: white;
     position: relative;
+}
+
+/*TABELA NOT*/
+.modal-header{
+    justify-content: center;
+    color: white;
+    background-color:#007bff;
+}
+
+.modal-body{
+    text-align: center;
+}
+
+.modal-content{
+    margin-top: 25vh;
+}
+
+#reagend{
+    color: white;
+    background-color: #007bff;
+}
+
+.cabecalho {
+    text-align: center;
+    padding: 15px; /* Aumentei o padding para deixar mais espaçado */
+    color: white;
+    background-color: #007bff;
+    border-radius: 8px 8px 0 0; /* Deixei as bordas mais arredondadas */
+    font-weight: bold; /* Adicionei um destaque ao título */
+    font-size: 1.3em; /* Ajustei o tamanho da fonte */
+}
+
+.mb-3 {
+    padding: 15px;
+    color: #095b9f; /* Cor sutil para textos */
+    font-size: larger;
+    font-weight: 500; /* Suavizei o peso da fonte */
+}
+
+.custom-file-upload {
+    display: block;
+    cursor: pointer;
+}
+
+.upload-box {
+    width: 100%;
+    padding: 12px; /* Ajustei o padding para melhor espaçamento */
+    background-color: #f9f9f9; /* Cor mais suave para o fundo */
+    border: 2px dashed #007bff; /* Dei destaque à borda com a cor do tema */
+    text-align: center;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #333; /* Mudança da cor do texto para algo mais visível */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.upload-box:hover {
+    background-color: #e1e1e1;
+    border-color: #005599; /* Adicionei um efeito de hover na borda */
+}
+
+#file-upload {
+    display: none;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Azul marinho */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px; /* Bordas arredondadas para um toque mais suave */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Adicionei transição para hover */
+}
+
+.btn-primary:hover {
+    background-color: #005599; /* Azul mais escuro no hover */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Sombra ao passar o mouse */
 }

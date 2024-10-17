@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS agendamento;
 CREATE TABLE IF NOT EXISTS agendamento(
     id_agendamento INT AUTO_INCREMENT NOT NULL,
     data VARCHAR(10) NOT NULL,
-    horario TIME NOT NULL,
+    horario VARCHAR(15) NOT NULL,
     status BIT(1) NOT NULL,
     fk_id_cliente INT NOT NULL,
     fk_id_servico INT NOT NULL,
@@ -37,7 +37,7 @@ DROP TABLE IF EXISTS admin;
 CREATE TABLE IF NOT EXISTS admin(
     id_admin INT AUTO_INCREMENT NOT NULL,
     nome VARCHAR(50) NOT NULL,
-    telefone INT(20) NOT NULL,
+    telefone VARCHAR(15) NOT NULL,
     senha VARCHAR(100) NOT NULL,
     PRIMARY KEY(id_admin)
 );
@@ -51,8 +51,6 @@ CREATE TABLE  IF NOT EXISTS informacoes(
     endereco VARCHAR(50) NOT NULL,
     PRIMARY KEY(id_informacoes)
 );
-
-INSERT INTO 
 
 DROP TABLE IF EXISTS servico;
 CREATE TABLE IF NOT EXISTS servico(
@@ -81,8 +79,10 @@ CREATE TABLE IF NOT EXISTS servico(
 -- ", ""),
 -- (0,"Higienização de Banco", 280.00, "Lavagem completa do veículo acompanhada de uma higienização profunda dos bancos, removendo sujeiras e odores. ", ""),
 
--- INSERT INTO informacoes VALUES
--- (0, "A JR Car Wash Estética Automotiva é especializada em cuidar e revitalizar veículos, oferecendo serviços detalhados de lavagem, polimento profissional e higienização interna para manter seu carro impecável.", "jrcar_wash_","15 997646825","Rua senador Laurindo minhoto 411, Tatuí, 18271480")
+INSERT INTO informacoes VALUES
+(0, "A JR Car Wash Estética Automotiva é especializada em cuidar e revitalizar veículos, oferecendo serviços detalhados de lavagem, polimento profissional e higienização interna para manter seu carro impecável.", "jrcar_wash_","15 997646825","Rua senador Laurindo minhoto 411, Tatuí, 18271480");
+
+INSERT INTO admin VALUES(0, "Flávio Costa e Silva Júnior", "(15)99764-6825", "$2y$10$rEdNndfOQjdnG9AOHctppOFwLxmC7dtV6Vt53c2QxMo726fc3/qDO");
 
 
 

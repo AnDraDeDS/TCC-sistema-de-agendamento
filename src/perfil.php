@@ -31,7 +31,7 @@ if ($selectCliente->rowCount() > 0) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -39,17 +39,19 @@ if ($selectCliente->rowCount() > 0) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/perfil.css">
     <script src="./js/navbar.js" defer></script>
-    <title>Perfil de Usuário</title>
+    <title>Perfil de Usuários</title>
 </head>
 
 <body>
 
     <!-- NAVBAR -->
+
     <div class="header">
-        <div class="logo"><a href="./func/logout.php"><img id="jr" src="./images/jr_navbar.svg"></a><img id="carwash" src="./images/carwash.svg">
+        <div class="logo"><img id="jr" src="./images/jr_navbar.svg"><img id="carwash" src="./images/carwash.svg">
             <div class="space"></div>
         </div>
         <div class="navbar">
@@ -57,7 +59,7 @@ if ($selectCliente->rowCount() > 0) {
                 <li><a href="./agendamento.php">Agendamento</a></li>
                 <li><a href="./informacoes.php">Informações</a></li>
                 <li><a href="./galeria.php">Galeria</a></li>
-                <li style="background-color: #63C3FF;" id="link"><a href="./perfil.php">Perfil</a></li>
+                <li style="background-color: #63C3FF;"><a href="./perfil.php">Perfil</a></li>
             </ul>
         </div>
     </div>
@@ -66,47 +68,207 @@ if ($selectCliente->rowCount() > 0) {
     <div class="content">
         <div class="side">
             <div class="perfil">
-                <button class="edit"><img src="./images/icons/perfil/icon_bell.svg"></button>
-                <button class="edit"><img src="./images/icons/perfil/edit_icon.svg"></button>
+                <button type="button" class="edit" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img src="./images/icons/perfil/Icon_bell.svg"></button>
+                <button class="edit" id="lapinho">
+                    <img src="./images/icons/perfil/edit_icon.svg">
+                </button>
             </div>
         </div>
+
+        <!-- infos -->
         <div class="aside">
             <div class="infos">
-                <!-- Exibindo os dados do cliente -->
                 <div class="dado" id="item1">
                     <div class="text">
                         <p class="titulo">Nome</p>
-                        <p><?php echo htmlspecialchars($cliente->nome); ?></p> <!-- Exibe o nome do cliente -->
+                        <p><?php echo htmlspecialchars($cliente->nome); ?></p>
                     </div>
-                    <div class="arrow"><img src="./images/perfil/arrow_icon.svg"></div>
                 </div>
                 <div class="dado" id="item2">
                     <div class="text">
                         <p class="titulo">Senha</p>
-                        <p>********</p> <!-- Exibe um link para alterar a senha -->
+                        <p>***</p>
                     </div>
-                    <div class="arrow"><a href="./func/alterar_senha.php"><img src="./images/perfil/arrow_icon.svg"></a></div>
                 </div>
                 <div class="dado" id="item3">
                     <div class="text">
                         <p class="titulo">Telefone</p>
-                        <p><?php echo htmlspecialchars($cliente->telefone); ?></p> <!-- Exibe o telefone do cliente -->
+                        <p><?php echo htmlspecialchars($cliente->telefone); ?></p>
                     </div>
-                    <div class="arrow"><img src="./images/perfil/arrow_icon.svg"></div>
                 </div>
                 <div class="dado" id="item4">
                     <div class="text">
                         <p class="titulo">Endereço</p>
-                        <p><?php echo htmlspecialchars($cliente->endereco); ?></p> <!-- Exibe o endereço do cliente -->
+                        <p><?php echo htmlspecialchars($cliente->endereco); ?></p>
                     </div>
-                    <div class="arrow"><img src="./images/perfil/arrow_icon.svg"></div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="cabecalho">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agendamentos</h1>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-header">
+                                <th scope="col">Serviço</th>
+                                <th scope="col">Horário</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="table-body">
+                            <tr>
+                                <td>Lavagem completa</td>
+                                <td>12:30 - 14:00</td>
+                                <td>04/05</td>
+                                <td>Aguardando confirmação <br></td>
+                                <td>
+                                    <button class="btn btn-reagendar btn-sm mt-1 confirm-btn" id="reagend">Reagendar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Editar Nome-->
+    <div class="modal fade" id="modalnome" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="cabecalho">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Nome</h1>
+                </div>
+                <div class="corpinho">
+                    <form class="formulario">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Nome</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Senha -->
+    <div class="modal fade" id="senha" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="cabecalho">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Senha</h1>
+                </div>
+                <div class="corpinho">
+                    <form class="formulario">
+                        <div class="mb-3">
+                            <label for="current-password" class="col-form-label">Senha atual</label>
+                            <input type="password" id="current-password" class="form-control" aria-describedby="passwordHelpBlock">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="col-form-label">Nova Senha</label>
+                            <input type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Telefone -->
+    <div class="modal fade" id="telefone" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="cabecalho">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Telefone</h1>
+                </div>
+                <div class="corpinho">
+                    <form class="formulario">
+                        <div class="mb-3">
+                            <label for="call" class="col-form-label">Telefone</label>
+                            <input type="number" class="form-control" id="call">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Endereço -->
+    <div class="modal fade" id="endereco" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="cabecalho">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Endereço</h1>
+                </div>
+                <div class="corpinho">
+                    <form class="formulario">
+                        <div class="mb-3">
+                            <label for="address" class="col-form-label">Endereço</label>
+                            <input type="text" class="form-control" id="address">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="img" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="cabecalho">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Imagem de perfil</h1>
+                </div>
+
+                <div class="corpinho">
+                    <form>
+                        <div class="mb-3">
+                            <label for="file-upload" class="custom-file-upload">
+                                <div class="upload-box">
+                                    <span>Escolher Imagem</span>
+                                </div>
+                            </label>
+                            <input id="file-upload" type="file">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<script src="./JS/perfil.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let link = document.querySelector("#link");

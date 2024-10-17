@@ -58,7 +58,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <div class="texto">
                         <p>A partir de <span style="font-weight: bold;">R$<?= number_format($servico->preco, 2, ',', '.') ?></span></p>
                         <button class="agendar" type="button" onclick='servico_foco("<?= addslashes($servico->nome) ?>", <?= json_encode($servico->preco) ?>, <?= json_encode($servico->duracao) ?> , "<?= addslashes($servico->descricao) ?>", "<?= base64_encode($servico->imagem1) ?>", "<?= base64_encode($servico->imagem2) ?>")'></button>
-                        
+                        <input type="hidden" name="id_servico" value="<?= $servico->id_servico ?>">
                     </div>
                 </div>
                 <?php }?>

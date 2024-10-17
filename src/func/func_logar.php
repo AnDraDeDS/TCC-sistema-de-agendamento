@@ -8,8 +8,11 @@
     $sqlVerificarLogin = "SELECT id_cliente,senha FROM cliente WHERE telefone = :telefone LIMIT 1";
     $verificarLogin = $conn->prepare($sqlVerificarLogin);
     $verificarLogin->bindValue(":telefone", $telefoneFormatado);
-
     $verificarLogin->execute();
+    
+    $verificarAdmin = "SELECT * FROM admin";
+    $stmt = $conn->query($verificarAdmin);
+    $admin = $stmt->fetch(PDO::FETCH_OBJ);
 
     if ($verificarLogin->rowCount() === 1) {
 
@@ -19,18 +22,20 @@
             session_start();
             $_SESSION["logado"] = true;
             $_SESSION["id_cliente"] = $cliente->id_cliente;
-            if($telefoneFormatado === "15997646825"){
-            $_SESSION["admin"] = true;
-                header("Location: ../admin/dashboard.php");
-            }else {
             header("Location: ../agendamento.php");
             exit();
         }
-        } else {
+         else {
             include './fundos/FundoAlertLogin.php';
     }
-}
+    }
 else {
             include './fundos/FundoAlertLogin.php';
+    }
+    if ($stmt->rowCount() === 1) {
+        session_start();
+        $_SESSION["logado"] = true;
+        $_SESSION["admin"] = true;
+        header("Location: ../admin/dashboard.php");
     }
 ?>

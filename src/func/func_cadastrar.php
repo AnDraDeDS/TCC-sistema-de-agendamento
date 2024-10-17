@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($verificarCadastro->rowCount() === 0) { // verificando se tem conta
         extract($_POST);
-
         $sqlInsertCliente = "INSERT INTO cliente VALUES(0,:nome,:telefone,:senha,:endereco)";
         $inserirCliente = $conn->prepare($sqlInsertCliente);
         $inserirCliente->bindValue(":nome", $nome);

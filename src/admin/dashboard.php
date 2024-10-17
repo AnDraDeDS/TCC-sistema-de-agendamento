@@ -21,15 +21,12 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../src/css/bootstrap.css">
-  <link rel="stylesheet" href="../../src/css/dashboard.css">
-  <script src="../../src/JS/bootstrap.js" defer></script>
   <script src="./js/navbar.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="../../src/JS/chart.js" defer></script>
-
-
-
+  <!-- <script src="../../src/JS/bootstrap.js" ></script>
+  <script src="../JS/bootstrap.js" ></script> -->
+  <link rel="stylesheet" href="../../src/css/bootstrap.css">
+  <link rel="stylesheet" href="../../src/css/dashboard.css">
   <title>Painel de Controle</title>
 </head>
 
@@ -391,8 +388,12 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 
 </body>
-<script src="../JS/dashboard.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+<script src="../JS/dashboard.js" defer></script>
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     let link = document.querySelector("#link");
