@@ -11,6 +11,8 @@ const dates = document.querySelector(".dates");
 let titulo_servico = document.getElementById("titulo_servico");
 let descricao_servico = document.getElementById("descricao_servico");
 let duracao_servico = document.getElementById("duracao_servico");
+let img1 = document.getElementById("img1");
+let img2 = document.getElementById("img2");
 
 function selectItens(item){
   
@@ -113,7 +115,7 @@ function hide(){
   dropdown.classList.add("d-none");
 }
 
-function servico_foco(servico, valor, duracao, descricao,){
+function servico_foco(servico, valor, duracao, descricao, imagem1, imagem2){
   content.classList.add("d-none");
   content3.classList.add("d-none");
   content2.classList.remove("d-none");
@@ -125,6 +127,8 @@ function servico_foco(servico, valor, duracao, descricao,){
   titulo_servico.innerHTML = `${servico.toUpperCase()}`;
   descricao_servico.innerHTML = `${descricao}`;
   duracao_servico.innerHTML = `<span style="color: #63C3FF; font-weight: 700;">Duração:</span> ${duracao}`
+  img1.setAttribute("src", `data:image/jpeg;base64,${imagem1}`);
+  img2.setAttribute("src", `data:image/jpeg;base64,${imagem2}`);
 }
 
 function agend_foco(){

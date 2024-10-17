@@ -143,7 +143,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-.content {
+.content{
     padding-top: 24vh;
     display: flex;
     flex-direction: row;
@@ -208,7 +208,6 @@ body::-webkit-scrollbar-thumb {
     font-size: 2em;
     font-family: 'Kanit';
     color: white;
-
 }
 
 .input_file{
@@ -367,24 +366,22 @@ aside h1 {
 
 .background-sidebar{
     width: 645px;
-    height: 69vh;
+    height: 40vh;
     background-color: #1e1e1e;
     border-radius: 0 0 20px 0;
 }
 .sidebar .container-cms {
-    height: 60vh;
+    height: 100%;
     display: flex;
     list-style: none;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 2em;
 }
 
 .sidebar .container-cms button{
     cursor:  auto;
     color: #fff;
-    margin-top: 2.5em;
     display: flex;
     justify-content: space-between;
     align-items: center;

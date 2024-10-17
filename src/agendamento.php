@@ -54,7 +54,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <h3><?= htmlspecialchars($servico->nome) ?></h3>
                     <div class="texto">
                         <p>A partir de <span style="font-weight: bold;">R$<?= number_format($servico->preco, 2, ',', '.') ?></span></p>
-                        <button class="agendar" type="button" onclick="servico_foco('<?= htmlspecialchars($servico->nome) ?>', <?= htmlspecialchars($servico->preco) ?>, '<?= htmlspecialchars($servico->duracao) ?>', '<?= htmlspecialchars($servico->descricao) ?>')"></button>
+                        <button class="agendar" type="button" onclick="servico_foco('<?= htmlspecialchars($servico->nome) ?>', <?= htmlspecialchars($servico->preco) ?>, '<?= htmlspecialchars($servico->duracao) ?>', '<?= htmlspecialchars($servico->descricao) ?>', '<?= htmlspecialchars($servico->imagem1) ?>', '<?= htmlspecialchars($servico->imagem2) ?>')"></button>
                         <input type="hidden" id="id" name="id">
                     </div>
                 </div>
@@ -72,18 +72,11 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                     
                     <button type="button" onclick="agend_foco()">CONFIRMAR<br>SELEÇÃO</button>
                     
-                    <?php 
-                    $sqlListarImagensFoco = "SELECT * FROM servico WHERE id_servico = $id";
-                    $stmt = $conn->query($sqlListarImagensFoco);
-                    $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
-                    
-                    foreach($servicos as $servico){
-                ?>
         </div>
         <div class="aside">
-        <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem1) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
-        <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem2) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
-        <?php }?>
+        <img id="img1">
+        <img id="img2">
+        
         </div>
     </div>
 
@@ -170,11 +163,11 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             </a>
         </ul>
     </div>
-        <input type="hidden" id="NameServico" name="NameServico">
+            <input type="hidden" id="NameServico" name="NameServico">
             <input type="hidden" id="PrecoServico" name="PrecoServico">
             <input type="hidden" id="DuracaoServico" name="DuracaoServico">
             
-            <input type="hidden" id="DataServico" name="DataServico">
+            <input type="hidden" id="DataServico" name="DataServico">                                                                                                                           
             <input type="hidden" id="HorarioServico" name="HorarioServico">
             <input type="hidden" id="VeiculoServico" name="VeiculoServico">
 

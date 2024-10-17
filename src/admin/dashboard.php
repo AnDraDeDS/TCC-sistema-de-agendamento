@@ -180,112 +180,30 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
       </div>
     </form>
     </div>
-    <!-- Inserir Galeria -->
-    <div id="cms4" class="cms cms-inserir-galeria d-none">
-      <div class="header-cms">Inserir na Galeria</div>
-      <div class="content-cms">
-        <form action="" method="post">
-
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
-            <label for="floatingInput">Nome do Serviço</label>
-          </div>
-
-          <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
-            <!-- <input class="input_file" type="file" style="border: 0;">
-                  <input class="input_file" type="file" style="border: 0;"> -->
-            <label class="btn input_file" for="my-file-selector">
-              <span style="color: #63C3FF;">Imagem 1</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo">
-            </label>
-
-            <label class="btn input_file" for="my-file-selector">
-              <span style="color: #63C3FF;">Imagem 2</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo">
-            </label>
-
-          </div>
-
-          <button type="submit" class="submit_form"  name="enviar" value="inserir_galeria">CONFIRMAR</button>
-        </form>
-      </div>
-    </div>
-    <!-- Atualizar Galeria -->
-    <div id="cms5" class="cms cms-atualizar-galeria d-none">
-      <div class="header-cms">
-        <div class="dropdown-center">
-          <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <p>Atualizar Galeria</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
-          </button>
-          <ul id="menu_pesquisa" class="dropdown-menu">
-            <li><button>Lavagem Simples</button></li>
-            <li><button>Lavagem Completa</button></li>
-            <li><button>Polimento</button></li>
-          </ul>
-        </div>
-      </div>
-      <div class="content-cms">
-        <form action="" method="post">
-          <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
-            <!-- <input class="input_file" type="file" style="border: 0;">
-                  <input class="input_file" type="file" style="border: 0;"> -->
-            <label class="btn input_file" for="my-file-selector">
-              <span style="color: #63C3FF;">Imagem 1</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo">
-            </label>
-
-            <label class="btn input_file" for="my-file-selector">
-              <span style="color: #63C3FF;">Imagem 2</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo">
-            </label>
-          </div>
-
-          <button type="submit" class="submit_form" name="enviar" value="atualizar_galeria">CONFIRMAR</button>
-        </form>
-      </div>
-    </div>
-    <!-- Excluir Galeria -->
-    <div id="cms6" class="cms cms-excluir d-none">
-      <div class="header-cms">
-        <div class="dropdown-center">
-          <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <p>Excluir item Galeria</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
-          </button>
-          <ul id="menu_pesquisa" class="dropdown-menu">
-            <li><button>Lavagem Simples</button></li>
-            <li><button>Lavagem Completa</button></li>
-            <li><button>Polimento</button></li>
-          </ul>
-        </div>
-      </div>
-      <div class="content-cms">
-        <input type="hidden" value=`${wd}`>
-        <button type="submit" class="submit_form" name="enviar" value="excluir_galeria">CONFIRMAR</button>
-      </div>
-    </div>
+    
     <!-- Atualizar Informações -->
     <div id="cms7" class="cms d-none">
       <div class="header-cms">Atualizar Informações</div>
       <div class="content-cms">
-        <form action="" method="post">
+      <form action="./funcCMS/func_informacoes.php" method="post" enctype="multipart/form-data">
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+            <input name="texto" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
             <label for="floatingInput">Sobre Nós</label>
           </div>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+            <input name="numero" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
             <label for="floatingInput">Whatsapp</label>
           </div>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+            <input name="instagram" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
             <label for="floatingInput">Instagram</label>
           </div>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
+            <input name="endereco" type="text" class="form-control" id="floatingInput" placeholder="name@example.com" style="border: 0.5px solid black;">
             <label for="floatingInput">Localização</label>
           </div>
 
@@ -311,16 +229,6 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
               <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_servico')">Atualizar</a></li>
               <span class="linhaCMS"></span>
               <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_servico')">Excluir</a></li>
-            </ul>
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <span>Galeria</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#" onclick="openCMS('inserir_galeria')">Inserir</a></li>
-              <span class="linhaCMS"></span>
-              <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_galeria')">Atualizar</a></li>
-              <span class="linhaCMS"></span>
-              <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_galeria')">Excluir</a></li>
             </ul>
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <span>Informações</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
