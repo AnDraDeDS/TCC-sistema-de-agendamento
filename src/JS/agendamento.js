@@ -17,14 +17,6 @@ let img2 = document.getElementById("img2");
 function selectItens(item){
   
   
-  if(item == 'reset'){
-    let horarios = Array.from(document.querySelectorAll('.horario'));
-    let veiculos = Array.from(document.querySelectorAll('.veiculo'));
-    let botoes = Array.from(document.querySelectorAll('.active_day'));
-    
-    
-    
-  }
   
   if(item == 'horario'){
     let horarios = Array.from(document.querySelectorAll('.horario'));

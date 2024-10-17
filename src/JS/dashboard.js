@@ -12,7 +12,7 @@ const cms3 = document.getElementById("cms3");
 const cms4 = document.getElementById("cms4");
 const cms5 = document.getElementById("cms5");
 const cms6 = document.getElementById("cms6");
-const cms7 = document.getElementById("cms7");
+const cms7 = document.querySelector("#cms7");
 
 function unfocus(){
   sideBar.classList.remove("active");
@@ -40,11 +40,6 @@ document.addEventListener("click", (e) => {
 function toggleSide(){
   sideBar.classList.toggle("active");
   main.style="filter: blur(0px);"
-  if (sideBar.classList.contains('active')){
-    console.log('O elemento possui a classe.');
-  } else {
-    console.log('O elemento não possui a classe.');
-  }
   
   cms1.classList.add("d-none");
   cms2.classList.add("d-none");
@@ -89,39 +84,6 @@ function openCMS(cms){
             cms4.classList.add("d-none");
             cms5.classList.add("d-none");
             cms6.classList.add("d-none");
-            cms7.classList.add("d-none");
-          break;
-
-        case 'inserir_galeria':
-            cms4.classList.toggle("d-none");
-
-            cms1.classList.add("d-none");
-            cms2.classList.add("d-none");
-            cms3.classList.add("d-none");
-            cms5.classList.add("d-none");
-            cms6.classList.add("d-none");
-            cms7.classList.add("d-none");
-          break;
-
-        case 'atualizar_galeria':
-            cms5.classList.toggle("d-none");
-
-            cms1.classList.add("d-none");
-            cms2.classList.add("d-none");
-            cms3.classList.add("d-none");
-            cms4.classList.add("d-none");
-            cms6.classList.add("d-none");
-            cms7.classList.add("d-none");
-          break;
-          
-        case 'excluir_galeria':
-            cms6.classList.toggle("d-none");
-
-            cms1.classList.add("d-none");
-            cms2.classList.add("d-none");
-            cms3.classList.add("d-none");
-            cms4.classList.add("d-none");
-            cms5.classList.add("d-none");
             cms7.classList.add("d-none");
           break;
 

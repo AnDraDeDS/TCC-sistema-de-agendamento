@@ -54,15 +54,15 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <h3><?= htmlspecialchars($servico->nome) ?></h3>
                     <div class="texto">
                         <p>A partir de <span style="font-weight: bold;">R$<?= number_format($servico->preco, 2, ',', '.') ?></span></p>
-                        <button class="agendar" type="button" onclick="servico_foco('<?= htmlspecialchars($servico->nome) ?>', <?= htmlspecialchars($servico->preco) ?>, '<?= htmlspecialchars($servico->duracao) ?>', '<?= htmlspecialchars($servico->descricao) ?>', '<?= htmlspecialchars($servico->imagem1) ?>', '<?= htmlspecialchars($servico->imagem2) ?>')"></button>
-                        <input type="hidden" id="id" name="id">
+                        <button class="agendar" type="button" onclick='servico_foco("<?= addslashes($servico->nome) ?>", <?= json_encode($servico->preco) ?>, <?= json_encode($servico->duracao) ?> , "<?= addslashes($servico->descricao) ?>", "<?= base64_encode($servico->imagem1) ?>", "<?= base64_encode($servico->imagem2) ?>")'></button>
+                        
                     </div>
                 </div>
                 <?php }?>
             </div>
             
             <div class="content_focus d-none">
-                <button type="button" class="button_voltar" onclick="voltar()">
+                <button type="button" class="button_voltar" onclick="voltar()"> 
                     <img src="./images/icons/agendamento/icon_seta.svg" alt="">
                 </button>
                 <div class="side">
@@ -191,5 +191,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     });
 </script>
 </body>
-
+<?php
+    echo "<script>console.log('PHP process finished');</script>";
+?>
 </html>
