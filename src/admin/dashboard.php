@@ -43,7 +43,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         <li><a href="../agendamento.php">Agendamento</a></li>
         <li><a href="../informacoes.php">Informações</a></li>
         <li><a href="../galeria.php">Galeria</a></li>
-        <li style="background-color: #63C3FF;" id="link"><a href="./dashboard.php">Dashboard</a></li>
+        <li style="background-color: #63C3FF;" id="link"><a href="#">Dashboard</a></li>
       </ul>
     </div>
   </div>
@@ -399,7 +399,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     let link = document.querySelector("#link");
 
     <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) { ?>
-      link.innerHTML = "<a href='./admin/dashboard.php'>Dashboard</a>";
+      link.innerHTML = "<a href='#'>dashboard.php</a>";
     <?php } else { ?>
       link.innerHTML = "<a href='./perfil.php'>Perfil</a>";
     <?php } ?>
