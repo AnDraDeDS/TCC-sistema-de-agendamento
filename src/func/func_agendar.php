@@ -18,11 +18,11 @@ extract($_POST);
     if($stmt->execute()){
 ?>   
         <script>alert('Agendamento feito com sucesso!')</script>
-        <meta http-equiv="refresh" content="2; url=../informacoes.php">  
+        <meta http-equiv="refresh" content="url=../informacoes.php">  
  <?php  } else {
     ?>  
        <script>alert('Erro ao fazer o agendamento, verifique as informações!')</script>
-       <meta http-equiv="refresh" content="2; url=../informacoes.php"> 
+       <meta http-equiv="refresh" content="url=../informacoes.php"> 
     <?php 
     }}
     ?>
