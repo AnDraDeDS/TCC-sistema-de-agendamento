@@ -21,6 +21,9 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../src/css/bootstrap.css">
+  <script src="../src/JS/bootstrap.js" defer></script>
+        
         <link rel="stylesheet" href="../src/css/agendamento.css">
         <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> <!--font awesome-->
         <title>Agendamento</title>
@@ -47,7 +50,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     
     <!-- CONTEÚDOS -->
     <div class="content">
-        <form class="content" action="" method="post">
+        <form class="content" action="./func/func_agendar.php" method="post">
             <?php foreach ($servicos as $servico){ ?>
                 <div class="item">
                     <span style="background-image: url('data:image/jpeg;base64,<?= base64_encode($servico->imagem1) ?>');"></span>
