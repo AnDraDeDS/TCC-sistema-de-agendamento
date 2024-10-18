@@ -244,42 +244,35 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         <h1>SERVIÇOS AGENDADOS</h1>
         <div class="background-servicos">
           <ul>
+          <?php
+
+          $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
+          INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
+          INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
+          WHERE a.  status = 1";
+
+        $stmt = $conn->query($sqlReq);
+
+        if($stmt->rowCount() > 0){
+
+          $solicitacoes = $stmt->fetchAll(PDO::FETCH_OBJ);
+          
+          forEach($solicitacoes as $solicitacao){
+        ?>
             <li class="container-item">
-              <img src="https://conteudo.imguol.com.br/c/entretenimento/19/2022/07/13/vikings-1657747090442_v2_1008x1389.jpg" alt="" class="foto-de-perfil" height="70" width="65">
+              <img src="../images/perfil_default.png" alt="" class="foto-de-perfil" height="70" width="70">
               <div class="container-nome-veiculo">
-                <p class="nome">João Bonicarlos</p>
-                <span class="azul">Veículo: <span class="tipo"> Carro</span></span>
+                <p class="nome"><?= $solicitacao->nome_cliente?></p>
+                <span class="azul">Veículo: <span class="tipo"> <?= $solicitacao->veiculo ?></span></span>
               </div>
               <div class="info-agendamento">
-                <span class="azul">Serviço: <span class="tipo">Higienização de Teto</span></span>
-                <span class="azul">Horário: <span class="tipo">13:00 - 14:30</span></span>
-                <span class="azul">Data: <span class="tipo">04/05</span></span>
+                <span class="azul">Serviço: <span class="tipo"><?= $solicitacao->nome_servico?></span></span>
+                <span class="azul">Horário: <span class="tipo"><?= $solicitacao->horario?></span></span>
+                <span class="azul">Data: <span class="tipo"><?= $solicitacao->data?></span></span>
               </div>
             </li>
-            <li class="container-item">
-              <img src="https://conteudo.imguol.com.br/c/entretenimento/19/2022/07/13/vikings-1657747090442_v2_1008x1389.jpg" alt="" class="foto-de-perfil" height="70" width="65">
-              <div class="container-nome-veiculo">
-                <p class="nome">João Bonicarlos</p>
-                <span class="azul">Veículo: <span class="tipo"> Carro</span></span>
-              </div>
-              <div class="info-agendamento">
-                <span class="azul">Serviço: <span class="tipo">Higienização de Teto</span></span>
-                <span class="azul">Horário: <span class="tipo">13:00 - 14:30</span></span>
-                <span class="azul">Data: <span class="tipo">04/05</span></span>
-              </div>
-            </li>
-            <li class="container-item">
-              <img src="https://conteudo.imguol.com.br/c/entretenimento/19/2022/07/13/vikings-1657747090442_v2_1008x1389.jpg" alt="" class="foto-de-perfil" height="70" width="65">
-              <div class="container-nome-veiculo">
-                <p class="nome">João Bonicarlos</p>
-                <span class="azul">Veículo: <span class="tipo"> Carro</span></span>
-              </div>
-              <div class="info-agendamento">
-                <span class="azul">Serviço: <span class="tipo">Higienização de Teto</span></span>
-                <span class="azul">Horário: <span class="tipo">13:00 - 14:30</span></span>
-                <span class="azul">Data: <span class="tipo">04/05</span></span>
-              </div>
-            </li>
+
+            <?php } } ?>
           </ul>
         </div>
       </div>
@@ -355,27 +348,56 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
         <div class="container-itens-solicitacoes">
 
+        <?php
+        // if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) { 
 
+        // $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario FROM agendamento as a 
+        // INNER JOIN admin as c ON a.fk_id_cliente = c.id_admin
+        // INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
+        // WHERE a.  status = 0";
+
+        // } else { 
+
+        $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
+        INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
+        INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
+        WHERE a.  status = 0";
+
+        // }
+
+
+        $stmt = $conn->query($sqlReq);
+
+        if($stmt->rowCount() > 0){
+
+          $solicitacoes = $stmt->fetchAll(PDO::FETCH_OBJ);
+          
+          forEach($solicitacoes as $solicitacao){
+        ?>
+            <form action="./funcCMS/func_agendamento.php" method="post">
           <div class="item-solicitacao">
             <div class="perfil-solicitacao">
-              <img src="../images/capa.png" alt="" height="50px" width="50">
-              <p class="solicitacao">Solicitação de <br>João Bonicarlos</p>
+              <img id="cliente" src="../images/perfil_default.png" alt="" height="50px" width="50">
+              <p class="solicitacao">Solicitação de <br><?= $solicitacao->nome_cliente?></p>
             </div>
             <div class="linha"></div>
             <div class="tipo-solicitacao">
-              <p class="tipo">Servico: Lavagem Completa</p>
-              <p class="tipo">Veículo: Carro</p>
+              <p class="tipo">Servico: <?= $solicitacao->nome_servico?></p>
+              <p class="tipo">Veículo: <?= $solicitacao->veiculo?></p>
             </div>
             <div class="linha"></div>
             <div class="agendamento-solicitacao">
-              <p class="tipo">Data: 02/05</p>
-              <p class="tipo">Horário: 13:00 - 14:30</p>
+              <p class="tipo">Data: <?= $solicitacao->data?></p>
+              <p class="tipo">Horário: <?= $solicitacao->horario?></p>
             </div>
             <div class="container-buttons">
-              <button><img src="../images/icons/dashboard/button-recusar.svg" alt=""></button>
-              <button><img src="../images/icons/dashboard/button-confirmar.svg" alt=""></button>
+              <input type="hidden" name="id_agendamento" value="<?= $solicitacao->id_agendamento?>">
+              <button type="submit" name="acao_req" value="negar"><img src="../images/icons/dashboard/button-recusar.svg" alt=""></button>
+              <button type="submit" name="acao_req" value="confirmar"><img src="../images/icons/dashboard/button-confirmar.svg" alt=""></button>
             </div>
           </div>
+          </form>
+          <?php } } ?>
 
 
         </div>

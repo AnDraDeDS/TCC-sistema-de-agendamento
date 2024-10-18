@@ -194,7 +194,4 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     });
 </script>
 </body>
-<?php
-    echo "<script>console.log('PHP process finished');</script>";
-?>
 </html>

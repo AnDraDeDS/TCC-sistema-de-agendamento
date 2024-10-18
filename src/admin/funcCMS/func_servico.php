@@ -34,6 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt->execute();
                 // Executar a query
                 echo "<script>alert('Serviço cadastrado!')</script>";
+        }else{
+            echo "<script>alert('Erro ao Cadastrar, tipo de imagem incompatível. Tente imagens jpg')</script>";
         }
 
     }
