@@ -42,19 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bootstrap.Modal.getInstance(document.getElementById('modalnome')).hide();
     });
 
-    // edição de Senha
-    document.querySelector('#senha .confirm-btn').addEventListener("click", function () {
-        const currentPassword = document.getElementById('current-password').value;
-        const newPassword = document.getElementById('password').value;
-
-        if (currentPassword === userInfo.senha) {
-            userInfo.senha = newPassword;
-            alert("Senha alterada com sucesso!");
-            bootstrap.Modal.getInstance(document.getElementById('senha')).hide();
-        } else {
-            alert("Senha atual incorreta. Tente novamente.");
-        }
-    });
+    
 
     // edição de Telefone
     document.querySelector('#telefone .confirm-btn').addEventListener("click", function () {
@@ -74,6 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // redirecionamento
     document.getElementById("reagend").addEventListener("click", function () {
-        window.location.href = "agendamento.html";
+        window.location.href = "agendamento.php";
     });
 });

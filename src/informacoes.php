@@ -62,7 +62,7 @@ $informacoes = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <h1>LOCALIZAÇÃO E REDES</h1>
                 <div class="linha"></div>
                 <div class="redes_local">
-                    <div class="info" id="info1"><img class="icon" src="./images/icons/informações/whatsapp.svg"><a href="https://wa.me/+55<?= $telefoneFormatado ?>?text=Ol%C3%A1%20Fl%C3%A1vio%2C%20cheguei%20ao%20seu%20contato%20via%20site%20da%20JR%20Car%20Wash`` target="_blank">
+                    <div class="info" id="info1"><img class="icon" src="./images/icons/informações/whatsapp.svg"><a href="https://wa.me/+55 <?= $telefoneFormatado ?>?text=Ol%C3%A1%20Fl%C3%A1vio%2C%20cheguei%20ao%20seu%20contato%20via%20site%20da%20JR%20Car%20Wash`` target="_blank">
                             <h2 id="telefoneFormatado"><?= $informacao->numero ?></h2>
                         </a></div>
                     <div class="info" id="info2"><img class="icon" src="./images/icons/informações/instagram.svg">

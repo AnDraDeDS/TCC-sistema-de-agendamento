@@ -51,9 +51,9 @@ if ($selectCliente->rowCount() > 0) {
     <!-- NAVBAR -->
 
     <div class="header">
-        <div class="logo"><img id="jr" src="./images/jr_navbar.svg"><img id="carwash" src="./images/carwash.svg">
-            <div class="space"></div>
-        </div>
+    <div class="logo"><a href="./func/logout.php"><img id="jr" src="./images/jr_navbar.svg"></a><img id="carwash" src="./images/carwash.svg">
+      <div class="space"></div>
+    </div>
         <div class="navbar">
             <ul>
                 <li><a href="./agendamento.php">Agendamento</a></li>
@@ -67,7 +67,15 @@ if ($selectCliente->rowCount() > 0) {
     <!-- CONTEÚDO -->
     <div class="content">
         <div class="side">
-            <div class="perfil">
+            <div class="perfil" stytle="background-image: url(`data:image/jpeg;base64,<?php 
+            if($cliente->foto != null){
+                echo htmlspecialchars($cliente->foto);
+            }else{
+                echo '../images/perfil_default.png';
+            }
+             ?>
+            
+            );">
                 <button type="button" class="edit" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img src="./images/icons/perfil/Icon_bell.svg"></button>
                 <button class="edit" id="lapinho">
@@ -88,7 +96,7 @@ if ($selectCliente->rowCount() > 0) {
                 <div class="dado" id="item2">
                     <div class="text">
                         <p class="titulo">Senha</p>
-                        <p>***</p>
+                        <p>***********</p>
                     </div>
                 </div>
                 <div class="dado" id="item3">
@@ -151,16 +159,17 @@ if ($selectCliente->rowCount() > 0) {
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Nome</h1>
                 </div>
                 <div class="corpinho">
-                    <form class="formulario">
+                    <form action="./func/func_updatePerfil.php" method="post" enctype="multipart/form-data">
+
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Nome</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <input name="nome" type="text" class="form-control" id="recipient-name">
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="acao" value="atualizar_nome" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -173,21 +182,21 @@ if ($selectCliente->rowCount() > 0) {
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Senha</h1>
                 </div>
                 <div class="corpinho">
-                    <form class="formulario">
+                    <form action="./func/func_updatePerfil.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="current-password" class="col-form-label">Senha atual</label>
-                            <input type="password" id="current-password" class="form-control" aria-describedby="passwordHelpBlock">
+                            <input name="senha_atual" type="password" id="current-password" class="form-control" aria-describedby="passwordHelpBlock">
 
                         </div>
                         <div class="mb-3">
                             <label for="password" class="col-form-label">Nova Senha</label>
-                            <input type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock">
+                            <input name="nova_senha" type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock">
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="acao" value="atualizar_senha" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -200,16 +209,16 @@ if ($selectCliente->rowCount() > 0) {
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Telefone</h1>
                 </div>
                 <div class="corpinho">
-                    <form class="formulario">
+                    <form action="./func/func_updatePerfil.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="call" class="col-form-label">Telefone</label>
-                            <input type="number" class="form-control" id="call">
+                            <input name="telefone" type="number" class="form-control" id="call">
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="acao" value="atualizar_telefone" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -222,16 +231,16 @@ if ($selectCliente->rowCount() > 0) {
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Endereço</h1>
                 </div>
                 <div class="corpinho">
-                    <form class="formulario">
+                    <form action="./func/func_updatePerfil.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="address" class="col-form-label">Endereço</label>
-                            <input type="text" class="form-control" id="address">
+                            <input name="endereco" type="text" class="form-control" id="address">
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" name="acao" value="atualizar_endereco" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -244,22 +253,22 @@ if ($selectCliente->rowCount() > 0) {
                 </div>
 
                 <div class="corpinho">
-                    <form>
+                    <form action="./func/func_updatePerfil.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="file-upload" class="custom-file-upload">
                                 <div class="upload-box">
                                     <span>Escolher Imagem</span>
                                 </div>
                             </label>
-                            <input id="file-upload" type="file">
+                            <input id="file-upload" type="file" placeholder="Arquivo" id="imagem1" name="foto" accept="image/*">
                         </div>
-                    </form>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="submit" name="acao" value="atualizar_foto" class="btn btn-primary btn-sm">CONFIRMAR</button>
+                    </div>
+                </form>
                 </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-sm">CONFIRMAR</button>
-                </div>
-            </div>
         </div>
     </div>
 

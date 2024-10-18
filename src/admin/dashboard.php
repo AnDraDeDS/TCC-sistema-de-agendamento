@@ -399,7 +399,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     let link = document.querySelector("#link");
 
     <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) { ?>
-      link.innerHTML = "<a href='#'>dashboard.php</a>";
+      link.innerHTML = "<a href='#'>Dashboard</a>";
     <?php } else { ?>
       link.innerHTML = "<a href='./perfil.php'>Perfil</a>";
     <?php } ?>
