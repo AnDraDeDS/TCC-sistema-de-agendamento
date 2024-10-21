@@ -1,4 +1,4 @@
-let content = document.querySelector(".content");
+let content = document.querySelector("#content1");
 let content2 = document.querySelector(".content_focus");
 let content3 = document.querySelector(".content_agenda");
 let button_mes = document.querySelector("#mes");
@@ -107,7 +107,7 @@ function hide(){
   dropdown.classList.add("d-none");
 }
 
-function servico_foco(servico, valor, duracao, descricao, imagem1, imagem2){
+function servico_foco(servico, valor, duracao, descricao, imagem1, imagem2, id){
   content.classList.add("d-none");
   content3.classList.add("d-none");
   content2.classList.remove("d-none");
@@ -115,6 +115,7 @@ function servico_foco(servico, valor, duracao, descricao, imagem1, imagem2){
   document.getElementById("PrecoServico").value = valor;
   document.getElementById("DuracaoServico").value = duracao;
   
+  document.getElementById("id_servico").value = id;
 
   titulo_servico.innerHTML = `${servico.toUpperCase()}`;
   descricao_servico.innerHTML = `${descricao}`;
@@ -192,23 +193,23 @@ function renderCalendar() {
 
 
     if(diaSemana == 0){
-      datesHtml += `<button class="btn_inactive" style="background:grey;color:white"><li${className}>${i}</li></button>`;
+      datesHtml += `<button type="button" class="btn_inactive" style="background:grey;color:white"><li${className}>${i}</li></button>`;
       
     }else{
       if(currentMonth == mes){
         if(currentDay > i){
 
-          datesHtml += `<button class="btn_inactive"><li${className}>${i}</li></button>`;
+          datesHtml += `<button type="button" class="btn_inactive"><li${className}>${i}</li></button>`;
         
         }else{
 
-          datesHtml += `<button class="active_day" name="data" value="${dia}/${mes+1}/${ano}" onmouseover="selectItens('btn')"><li${className}>${i}</li></button>`;
+          datesHtml += `<button type="button" class="active_day" name="data" value="${dia}/${mes+1}/${ano}" onmouseover="selectItens('btn')"><li${className}>${i}</li></button>`;
 
         }
 
       }else{
 
-        datesHtml += `<button class="active_day" name="data" value="${dia}/${mes+1}/${ano}" onmouseover="selectItens('btn')"><li${className}>${i}</li></button>`;
+        datesHtml += `<button type="button" class="active_day" name="data" value="${dia}/${mes+1}/${ano}" onmouseover="selectItens('btn')"><li${className}>${i}</li></button>`;
 
       }
 
@@ -216,7 +217,7 @@ function renderCalendar() {
   }
 
   for (let i = end; i < 6; i++) {
-    datesHtml += `<button class="btn_inactive"><li class="inactive">${i - end + 1}</li></button>`;
+    datesHtml += `<button type="button" class="btn_inactive"><li class="inactive">${i - end + 1}</li></button>`;
   }
 
   dates.innerHTML = datesHtml;

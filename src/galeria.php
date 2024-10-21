@@ -20,7 +20,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/galeria.css">
+    <link rel="stylesheet" href="../src/css/galeria.css">
     <script src="./js/navbar.js" defer></script>
     <title>Galeria de Serviços</title>
 </head>
@@ -49,19 +49,19 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         <?php 
             foreach($servicos as $servico){
         ?>
-        <div class="item">
-            <h3><?= $servico->nome?></h3>
-            <div class="imagens">
-                <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem1) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
-                <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem2) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
+            <div class="item">  
+                <h3><?= $servico->nome?></h3>
+                <div class="imagens">
+                    <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem1) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
+                    <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem2) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
+                </div>
             </div>
                 <?php }?>
 
-
+    </div>
 
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let link = document.querySelector("#link");

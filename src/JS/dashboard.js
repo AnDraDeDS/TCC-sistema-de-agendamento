@@ -7,6 +7,19 @@ const main = document.querySelector("main")
 const cmsAll = document.querySelector(".cms")
 const telefoneInput = document.getElementById("telefoneInput");
 
+
+function excluir(id){
+  let input_id = document.getElementById("delete_id");
+  input_id.value = id;
+}
+
+function update(id){
+  let input_id = document.getElementById("update_id");
+  input_id.value = id;
+  alert(input_id.value);
+}
+
+
 const cms1 = document.getElementById("cms1");
 const cms2 = document.getElementById("cms2");
 const cms3 = document.getElementById("cms3");
@@ -156,3 +169,8 @@ telefoneInput.addEventListener("input", function (e) {
   }
   e.target.value = input.slice(0, 15);
 });
+
+function atribuirId(id){
+document.getElementById("atualizar_id").value = id;
+console.log(document.getElementById("atualizar_id").value);
+}

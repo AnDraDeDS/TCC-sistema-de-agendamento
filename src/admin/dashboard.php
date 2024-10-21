@@ -104,50 +104,50 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <p>Atualizar Serviços</p> <img class="px-5" src="../images/icons/dashboard/lupa.svg" alt="">
             </button>
             <ul id="menu_pesquisa" class="dropdown-menu">
-                <?php foreach($servicos as $servico): ?>
+                <?php foreach($servicos as $servico){ ?>
                     <li>
-                        <button type="button" class="servico-button" data-nome="<?= $servico->nome ?>" data-preco="<?= $servico->preco ?>" data-descricao="<?= $servico->descricao ?>" data-duracao="<?= $servico->duracao ?>">
+                        <button  onclick="update(<?=$servico->id_servico?>)" type="button" class="servico-button" data-nome="<?= $servico->nome ?>" data-preco="<?= $servico->preco ?>" data-descricao="<?= $servico->descricao ?>" data-duracao="<?= $servico->duracao ?>">
                             <?= $servico->nome ?>
-                            <input type="hidden" name="id_servico" value="<?=$servico->id_servico?>">
                         </button>
                     </li>
-                <?php endforeach; ?>
+                <?php } ?>
             </ul>
         </div>
     </div>
     <div class="content-cms">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" style="border: 0.5px solid black;">
+                <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome" style="border: 0.5px solid black;" required>
                 <label for="nome">Nome</label>
             </div>
 
             <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="preco" placeholder="Preço" name="preco" style="border: 0.5px solid black;">
+                <input type="number" class="form-control" id="preco" placeholder="Preço" name="preco" style="border: 0.5px solid black;" required>
                 <label for="preco">Preço</label>
             </div>
 
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao" style="border: 0.5px solid black;">
+                <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao" style="border: 0.5px solid black;" required>
                 <label for="descricao">Descrição</label>
             </div>
 
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="duracao" placeholder="Duração" name="duracao" style="border: 0.5px solid black;">
+                <input type="text" class="form-control" id="duracao" placeholder="Duração" name="duracao" style="border: 0.5px solid black;" required>
                 <label for="duracao">Duração</label>
             </div>
 
             <div class="files" style="display: flex; flex-direction: row; justify-content: space-between;">
             <label class="btn input_file" for="my-file-selector">
               <span style="color: #63C3FF;">Imagem 1</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem1" name="imagem1" accept="image/*" required>
+              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem1" name="imagem1" accept="image/*">
             </label>
 
             <label class="btn input_file" for="my-file-selector">
               <span style="color: #63C3FF;">Imagem 2</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem2"name="imagem2" accept="image/*" required>
+              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem2"name="imagem2" accept="image/*">
             </label>
             </div>
-
+            
+            <input type="hidden" id="update_id" name="id_servico_update">
             <button type="submit" class="submit_form" name="enviar" value="atualizar_servico">CONFIRMAR</button>
        
     </div>
@@ -166,9 +166,8 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
           <ul id="menu_pesquisa" class="dropdown-menu">
           <?php foreach($servicos as $servico): ?>
                     <li>
-                        <button type="button" class="servico-button" data-nome="<?= $servico->nome ?>" data-preco="<?= $servico->preco ?>" data-descricao="<?= $servico->descricao ?>" data-duracao="<?= $servico->duracao ?>">
+                        <button onclick="excluir(<?=$servico->id_servico?>)"  type="button" class="servico-button" data-id_servico="<?=$servico->id_servico?>">
                             <?= $servico->nome ?>
-                            <input type="hidden" name="id_servico" value="<?=$servico->id_servico?>">
                         </button>
                     </li>
           <?php endforeach; ?>
@@ -176,7 +175,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
       </div>
       <div class="content-cms">
-        <input type="hidden" value=`${wd}`>
+      <input type="hidden" name="id_servico_delete" id="delete_id">
         <button type="submit" class="submit_form" name="enviar" value="excluir_servico">CONFIRMAR</button>
       </div>
     </form>
@@ -361,7 +360,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
         INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
         INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
-        WHERE a.  status = 0";
+        WHERE status = 0";
 
         // }
 

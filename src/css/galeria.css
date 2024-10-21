@@ -107,9 +107,14 @@ body::-webkit-scrollbar-thumb {
     grid-template-areas: "a b";
     gap: 1em;
     padding-bottom: 80px;
-    padding-top: 80px;
+    padding-top: 10%;
 }
-h3{
+.item{
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+}
+h3{ 
     margin-top: 30px;
     color: #63C3FF;
     letter-spacing: 2px;
@@ -117,6 +122,7 @@ h3{
     padding-bottom: 1em;
     border-bottom: 1px solid #63C3FF;
     text-transform: uppercase;
+    width: 100%;
 }
 .imagens{
     display: flex;
@@ -125,12 +131,6 @@ h3{
 }
 .imagens img{
     border-radius: 5px;
-    height: 280px;
-    width: 350px;
-}
-.item{
-    padding: 2em;
-}
-.item:nth-child(-n + 2){
-    padding-top: 6.5em;
+    height: 90%;
+    width: 45%;
 }
