@@ -49,7 +49,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     <p class="pageName">SERVIÇOS</p>
     
     <!-- CONTEÚDOS -->
-    <form action="./func/func_agendar.php" method="post" style="margin: 0 auto; padding 0;>
+    <form action="./func/func_agendar.php" method="post" style="margin: 0 auto; padding 0;">
 
         <input type="hidden" id="NameServico" name="NameServico">
         <input type="hidden" id="PrecoServico" name="PrecoServico">
@@ -67,7 +67,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                     <h3><?= htmlspecialchars($servico->nome) ?></h3>
                     <div class="texto">
                         <p>A partir de <span style="font-weight: bold;">R$<?= number_format($servico->preco, 2, ',', '.') ?></span></p>
-                        <button class="agendar" type="button" onclick='servico_foco("<?= addslashes($servico->nome) ?>", <?= json_encode($servico->preco) ?>, <?= json_encode($servico->duracao) ?> , "<?= addslashes($servico->descricao) ?>", "<?= base64_encode($servico->imagem1) ?>", "<?= base64_encode($servico->imagem2) ?>", <?= ($servico->id_servico)?>)'></button>
+                        <button class="agendar" type="button" onclick='servico_foco("<?= addslashes($servico->nome) ?>", "<?= addslashes($servico->preco) ?>", "<?= addslashes($servico->duracao) ?>" , "<?= addslashes($servico->descricao) ?>", "<?= base64_encode($servico->imagem1) ?>", "<?= base64_encode($servico->imagem2) ?>", <?= ($servico->id_servico)?>)'></button>
                     </div>
                 </div>
                 <?php }?>
@@ -79,8 +79,8 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                 </button>
                 <div class="side">
                     <h1 id="titulo_servico"></h1>
-                    <p style="width: 80%; overflow-y: auto;" id="descricao_servico"></p>
-                    <p id="duracao_servico"><span style="color: #63C3FF; font-weight: 700;">Duração:</span></p>
+                    <p style="width: 80%; overflow-y: auto;color:white" id="descricao_servico"></p>
+                    <p id="duracao_servico"></p>
                     
                     <button type="button" onclick="agend_foco()">CONFIRMAR<br>SELEÇÃO</button>
                     
