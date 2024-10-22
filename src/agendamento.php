@@ -79,7 +79,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                 </button>
                 <div class="side">
                     <h1 id="titulo_servico"></h1>
-                    <p style="width: 80%; overflow-y: auto;color:white" id="descricao_servico"></p>
+                    <p style="width: 80%; overflow-y: auto; color:white;" id="descricao_servico"></p>
                     <p id="duracao_servico"></p>
                     
                     <button type="button" onclick="agend_foco()">CONFIRMAR<br>SELEÇÃO</button>

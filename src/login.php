@@ -18,7 +18,7 @@
 
     <div class="logo"><img class="JR" src="./images/JR.png" alt=""><img class="car_wash" src="./images/carwash.svg" alt=""></div>
     
-    <div class="cadastro_login"><a href="./login.php"><button class="log_button2">Login</button></a><a href="./cadastro.php"><button class="cad_button2">Cadastro</button></a></div>
+    <div class="cadastro_login"><a href="./login.php"><button class="log_button2">Login</button></a><a href="./index.php"><button class="cad_button2">Cadastro</button></a></div>
 
     <div class="conteudo">
       <form action="./func/func_logar.php" method="post">

@@ -10,13 +10,12 @@ extract($_POST);
          $id_admin = $_SESSION['id_admin'];
 
          $sql= "INSERT INTO agendamento(id_agendamento,data,horario,veiculo,status,fk_id_cliente,fk_id_servico) VALUES
-         (0,:data,:horario,:veiculo,0,:id_admin,:id_servico)";
+         (0,:data,:horario,:veiculo,0,99999,:id_servico)";
      
          $stmt = $conn->prepare($sql);
          $stmt->bindValue(":data",$DataServico);
          $stmt->bindValue(":horario",$HorarioServico);
          $stmt->bindValue(":veiculo",$VeiculoServico);
-         $stmt->bindValue(":id_admin",$id_admin);
          $stmt->bindValue(":id_servico",$id_servico);
 
        }else{
