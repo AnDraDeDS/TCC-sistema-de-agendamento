@@ -4,7 +4,6 @@ const sideBar = document.getElementById("sidebar");
 const containerServicos = document.querySelector(".container-servicos")
 const imgMenu = document.querySelector(".imgMenu")
 const main = document.querySelector("main")
-const cmsAll = document.querySelector(".cms")
 const telefoneInput = document.getElementById("telefoneInput");
 
 
@@ -19,14 +18,15 @@ function update(id){
   alert(input_id.value);
 }
 
+let cms1 = document.getElementById("cms1");
+let cms2 = document.getElementById("cms2");
+let cms3 = document.getElementById("cms3");
+let cms7 = document.getElementById("cms7");
 
-const cms1 = document.getElementById("cms1");
-const cms2 = document.getElementById("cms2");
-const cms3 = document.getElementById("cms3");
-const cms4 = document.getElementById("cms4");
-const cms5 = document.getElementById("cms5");
-const cms6 = document.getElementById("cms6");
-const cms7 = document.querySelector("#cms7");
+function graficToggle(){
+  ctx.classList.toggle("d-none");
+  ctx2.classList.toggle("d-none");
+}
 
 function unfocus(){
   sideBar.classList.remove("active");
@@ -35,11 +35,17 @@ function unfocus(){
   cms1.classList.add("d-none");
   cms2.classList.add("d-none"); 
   cms3.classList.add("d-none");
-  cms4.classList.add("d-none");
-  cms5.classList.add("d-none");
-  cms6.classList.add("d-none");
   cms7.classList.add("d-none");
 }
+
+let cmsAll = [cms1, cms2, cms3, cms7];
+
+cmsAll.forEach(cms => {
+  cms.addEventListener("click", function(e) {
+    e.stopPropagation();
+  });
+});
+
 
 document.addEventListener("click", (e) => {
   const path = e.composedPath();
@@ -58,63 +64,44 @@ function toggleSide(){
   cms1.classList.add("d-none");
   cms2.classList.add("d-none");
   cms3.classList.add("d-none");
-  cms4.classList.add("d-none");
-  cms5.classList.add("d-none");
-  cms6.classList.add("d-none");
   cms7.classList.add("d-none");
 };
 
 function openCMS(cms){
+
   main.style="filter: blur(8px);"
-  
-  switch (cms) {
-    case 'inserir_servico':
-      cms1.classList.toggle("d-none");
-      
-          cms2.classList.add("d-none");
-          cms3.classList.add("d-none");
-          cms4.classList.add("d-none");
-          cms5.classList.add("d-none");
-          cms6.classList.add("d-none");
-          cms7.classList.add("d-none");
-          break;
+
+  if(cms == 'inserir_servico'){
+            cms1.classList.toggle("d-none");
+        
+            cms2.classList.add("d-none");
+            cms3.classList.add("d-none");
+            cms7.classList.add("d-none");
+        }
           
-          case 'atualizar_servico':
+   if(cms == 'atualizar_servico'){
             cms2.classList.toggle("d-none");
 
             cms1.classList.add("d-none");
             cms3.classList.add("d-none");
-            cms4.classList.add("d-none");
-            cms5.classList.add("d-none");
-            cms6.classList.add("d-none");
             cms7.classList.add("d-none");
-          break;
+   }
 
-        case 'excluir_servico':
+   if(cms == 'excluir_servico'){
             cms3.classList.toggle("d-none");
 
             cms1.classList.add("d-none");
             cms2.classList.add("d-none");
-            cms4.classList.add("d-none");
-            cms5.classList.add("d-none");
-            cms6.classList.add("d-none");
             cms7.classList.add("d-none");
-          break;
+   }
 
-        case 'atualizar_informacoes':
+   if(cms == 'atualizar_informacoes'){
             cms7.classList.toggle("d-none");
 
             cms1.classList.add("d-none");
             cms2.classList.add("d-none");
             cms3.classList.add("d-none");
-            cms4.classList.add("d-none");
-            cms5.classList.add("d-none");
-            cms6.classList.add("d-none");
-          break;
-              default:
-          break;
-      }
-    
+         }
 }
 
 

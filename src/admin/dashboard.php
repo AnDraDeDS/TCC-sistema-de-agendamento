@@ -103,7 +103,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <p>Atualizar Serviços</p> <img class="px-5" src="../images/icons/dashboard/lupa.svg" alt="">
             </button>
-            <ul id="menu_pesquisa" class="dropdown-menu">
+            <ul id="menu_pesquisa" class="dropdown-menu" style="height: 30vh; overflow-y: auto">
                 <?php foreach($servicos as $servico){ ?>
                     <li>
                         <button  onclick="update(<?=$servico->id_servico?>)" type="button" class="servico-button" data-nome="<?= $servico->nome ?>" data-preco="<?= $servico->preco ?>" data-descricao="<?= $servico->descricao ?>" data-duracao="<?= $servico->duracao ?>">
@@ -163,7 +163,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
           <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <p>Excluir Serviço</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
           </button>
-          <ul id="menu_pesquisa" class="dropdown-menu">
+          <ul id="menu_pesquisa" class="dropdown-menu" style="height: 30vh; overflow-y: auto">
           <?php foreach($servicos as $servico): ?>
                     <li>
                         <button onclick="excluir(<?=$servico->id_servico?>)"  type="button" class="servico-button" data-id_servico="<?=$servico->id_servico?>">
@@ -248,7 +248,8 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
           $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
           INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
           INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
-          WHERE a.  status = 1";
+          WHERE a.  status = 1
+          ORDER BY a.data ASC";
 
         $stmt = $conn->query($sqlReq);
 
@@ -279,22 +280,23 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     <main>
       <div class="grafico">
         <div class="cabecalho">Média de Rendimentos
-          <select id="select">
-            <option value="anual">Anual</option>
+          <select onchange="graficToggle()" id="select">
+          <option value="anual">Anual</option>
             <option value="mensal">Mensal</option>
-            <option value="dia">Dia</option>
             <img src="../images/icons/dashboard/arrow-mes.svg" alt="" class="arrow">
           </select>
           <h4>2024</h4>
         </div>
         <div class="container-grafico">
-          <canvas id="grafico1"></canvas>
+          <canvas id="grafico1" class=""></canvas>
+          <canvas id="grafico2" class="d-none"></canvas>
         </div>
         <script>
           const ctx = document.getElementById('grafico1');
-          let valoresX = [500, 1000, 2000, 4000, 6000, 8000, 10000, 12000, 14000, 10200, 13000, 4590];
+          let valoresX = [ <?php require_once '../func/func_lucros.php'?> ];
           let meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-
+          
+          
           new Chart(ctx, {
             type: 'bar',
             data: {
@@ -340,6 +342,59 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
               }
             }
           });
+          </script>
+          <script>
+            const ctx2 = document.getElementById('grafico2');
+            
+          let valoresX_2 = [ ];
+          let meses_2 = ["Semana 1", "Semana 2", "Semana 3", "Semana 4"];
+          
+          new Chart(ctx2, {
+            type: 'bar',
+            data: {
+              labels: meses_2,
+              datasets: [{
+                label: '',
+                data: valoresX_2,
+                borderWidth: 1,
+                borderColor: '#63C3FF',
+                backgroundColor: '#63C3FF',
+                color: '#fff',
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  display: false,
+                },
+              },
+              scales: {
+                x: {
+                  ticks: {
+                    font: {
+                      size: 10
+                    },
+                    color: 'white'
+                  },
+                },
+                y: {
+                  grid: {
+                    color: '#777'
+                  },
+                  ticks: {
+                    font: {
+                      size: 15
+                    },
+                    color: 'white'
+                  },
+                  beginAtZero: true,
+                },
+              }
+            }
+          });
+
         </script>
 
         <div class="cabecalho-solicitacoes">

@@ -404,7 +404,6 @@ aside h1 {
 .dropdown-menu{
     width: 300px;
     background-color: #151515;
-    height: auto;
 }
  
 .dropdown-toggle::after{ 

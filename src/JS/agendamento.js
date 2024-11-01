@@ -191,25 +191,42 @@ function renderCalendar() {
     let mes = data.getMonth();
     let ano = data.getFullYear();
 
+    mes = mes + 1;
 
+    let dia_text = dia.toString();
+    let mes_text = mes.toString();
+    let ano_text = ano.toString();
+
+    arrayDates = [dia_text, mes_text, ano_text];
+
+   arrayDates.forEach(text => {
+
+    if(text. lenght == 1){
+      text = '0'+text;
+    }
+       
+    });
+    
     if(diaSemana == 0){
       datesHtml += `<button type="button" class="btn_inactive" style="background:grey;color:white"><li${className}>${i}</li></button>`;
       
     }else{
-      if(currentMonth == mes){
+
+      if(currentMonth == (mes - 1)){
+        console.log(currentDay);
         if(currentDay > i){
 
           datesHtml += `<button type="button" class="btn_inactive"><li${className}>${i}</li></button>`;
         
         }else{
 
-          datesHtml += `<button type="button" class="active_day" name="data" value="${dia}/${mes+1}/${ano}" onmouseover="selectItens('btn')"><li${className}>${i}</li></button>`;
+          datesHtml += `<button type="button" class="active_day" name="data" value="${ano_text}${mes_text}${dia_text}" onmouseover="selectItens('btn')"><li${className}>${i}</li></button>`;
 
         }
 
       }else{
 
-        datesHtml += `<button type="button" class="active_day" name="data" value="${dia}/${mes+1}/${ano}" onmouseover="selectItens('btn')"><li${className}>${i}</li></button>`;
+        datesHtml += `<button type="button" class="active_day" name="data" value="${ano_text}${mes_text}${dia_text}" onmouseover="selectItens('btn')"><li${className}>${i}</li></button>`;
 
       }
 

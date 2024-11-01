@@ -51,3 +51,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 ?>
+            exit();
+        }
+    }
+
+    // Verificar cliente
+    $sqlVerificarLogin = "SELECT id_cliente, senha FROM cliente WHERE telefone = :telefone LIMIT 1";
+    $verificarLogin = $conn->prepare($sqlVerificarLogin);
+    $verificarLogin->bindValue(":telefone", $telefoneFormatado);
+    $verificarLogin->execute();
+
+    if ($verificarLogin->rowCount() === 1) {
+        $cliente = $verificarLogin->fetch(PDO::FETCH_OBJ);
+
+        // Verifica a senha do cliente
+        if (password_verify($senha, $cliente->senha)) {
+            $_SESSION["logado"] = true;
+            $_SESSION["id_cliente"] = $cliente->id_cliente;
+            header("Location: ../agendamento.php");
+            exit();
+        }
+    }
+
+    // Se não encontrar nenhum login válido
+    include './fundos/FundoAlertLogin.php'; 
+}
+
+
+
+?>
