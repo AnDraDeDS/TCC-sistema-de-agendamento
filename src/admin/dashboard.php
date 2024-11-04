@@ -35,8 +35,8 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
   <!-- NAVBAR -->
 
   <div class="header">
-    <div class="logo"><a href="../func/logout.php"><img id="jr" src="../images/jr_navbar.svg"></a><img id="carwash" src="../images/carwash.svg">
-      <div class="space"></div>
+    <div class="logo"><img id="jr" src="../images/jr_navbar.svg"><img id="carwash" src="../images/carwash.svg">
+    <a href="../func/logout.php"><img id="logout"  src="../images/icons/dashboard/logout_icon.png"></a>
     </div>
     <div class="navbar">
       <ul>
@@ -281,11 +281,10 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
       <div class="grafico">
         <div class="cabecalho">Média de Rendimentos
           <select onchange="graficToggle()" id="select">
-          <option value="anual">Anual</option>
+            <option value="anual">Anual</option>
             <option value="mensal">Mensal</option>
-            <img src="../images/icons/dashboard/arrow-mes.svg" alt="" class="arrow">
           </select>
-          <h4>2024</h4>
+          <h4 id="ano_atual"></h4>
         </div>
         <div class="container-grafico">
           <canvas id="grafico1" class=""></canvas>
@@ -293,7 +292,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
         <script>
           const ctx = document.getElementById('grafico1');
-          let valoresX = [ <?php require_once '../func/func_lucros.php'?> ];
+          let valoresX = [ <?php require_once '../func/func_lucros.php';?> ];
           let meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
           
           
@@ -346,7 +345,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
           <script>
             const ctx2 = document.getElementById('grafico2');
             
-          let valoresX_2 = [ ];
+          let valoresX_2 = [ <?php require '../func/func_lucroMensal.php';?> ];
           let meses_2 = ["Semana 1", "Semana 2", "Semana 3", "Semana 4"];
           
           new Chart(ctx2, {

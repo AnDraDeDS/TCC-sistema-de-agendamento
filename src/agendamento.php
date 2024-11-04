@@ -148,7 +148,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <button type="button" class="veiculo" onmouseover="selectItens('veiculo')" name="veiculo" value="carro" id="carro"><img src="./images/icons/agendamento/carro.svg"></button>
                 <button type="button" class="veiculo" onmouseover="selectItens('veiculo')" name="veiculo" value="caminhonete" id="caminhonete"><img src="./images/icons/agendamento/caminhonete.svg"></button>
             </div>
-            <button id="agendar_horario" type="submit">AGENDAR</button>
+            <button style="background-color: transparent; border: 2px solid white;" id="agendar_horario">AGENDAR</button>
         </div>
     </div>
     <div class="navbar2 d-none">

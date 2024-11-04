@@ -84,11 +84,16 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
 }
 
-#jr, .space{
+#jr{
     max-width: 80px;
     margin: 20px;
     display: flex;
-    justify-self: start;
+}
+
+#logout{
+    width: 50px;
+    display: flex;
+    margin: 20px;
 }
 
 #carwash{
@@ -570,7 +575,7 @@ aside h1 {
 }
 
 .cabecalho > h4{
-    font-size: 2em;
+    font-size: 1em;
 }
 .container-grafico{
     display: flex;

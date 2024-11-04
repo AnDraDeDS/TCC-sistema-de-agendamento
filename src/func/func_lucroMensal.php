@@ -2,7 +2,11 @@
 
 require_once '../lib/conn.php';
 
-$mesAtual = date("M");
+$data = new DateTime();
+
+$mesAtual = $data->format('m');
+$anoAtual = date("Y");
+
 $semana1 = 'BETWEEN 01 AND 07';
 $semana2 = 'BETWEEN 08 AND 14';
 $semana3 = 'BETWEEN 15 AND 21';
@@ -61,5 +65,5 @@ foreach ($solicitacoes as $solicitacao) {
 }
 
 
-echo 1 . ',' . 2 . ',' . 3 . ',' . 4;
+echo $sem1 . ',' . $sem2 . ',' . $sem3 . ',' . $sem4;
 ?>

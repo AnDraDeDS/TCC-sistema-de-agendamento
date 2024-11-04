@@ -6,6 +6,26 @@ const imgMenu = document.querySelector(".imgMenu")
 const main = document.querySelector("main")
 const telefoneInput = document.getElementById("telefoneInput");
 
+let date = new Date();
+let anoh4 = date.getFullYear();
+const months = [
+  "Janeiro",
+  "Fevereiro",
+  "Março",
+  "Abril",
+  "Maio",
+  "Junho",
+  "Julho",
+  "Agosto",
+  "Setembro",
+  "Outubro",
+  "Novembro",
+  "Dezembro",
+];
+let mesh4 = months[date.getMonth()];
+
+document.getElementById("ano_atual").innerText=`${mesh4}, ${anoh4}`;
+
 
 function excluir(id){
   let input_id = document.getElementById("delete_id");
