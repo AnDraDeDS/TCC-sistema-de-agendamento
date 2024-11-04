@@ -40,7 +40,7 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
 }
 
-.logo {
+.logo{
     display: flex;
     width: 100%;
     height: 60%;
@@ -49,14 +49,19 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
 }
 
-#jr, .space {
+#jr{
     max-width: 80px;
     margin: 20px;
     display: flex;
-    justify-self: start;
 }
 
-#carwash {
+#logout{
+    width: 50px;
+    display: flex;
+    margin: 20px;
+}
+
+#carwash{
     display: flex;
     justify-self: center;
     max-width: 300px;

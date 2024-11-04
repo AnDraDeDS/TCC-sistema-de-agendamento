@@ -216,7 +216,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
       <div id="sidebar" class="sidebar expandir">
         <div class="header_sidebar">
           <h4>Gerenciar</h4>
-          <button style="background: transparent; border: 0px;" onclick="toggleSide()"><img src="../images/icons/dashboard/menu.svg" alt="" height="25px" width="40px" class="imgMenu"></button>
+          <button id="btn_openside" style="background: transparent; border: 0px;" onclick="toggleSide()"><img src="../images/icons/dashboard/menu.svg" alt="" height="25px" width="40px" class="imgMenu"></button>
         </div>
         <div class="background-sidebar">
           <div class="container-cms">

@@ -33,9 +33,9 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         
         <!-- NAVBAR -->
         
-        <div class="header">
-            <div class="logo"><a href="./func/logout.php"><img id="jr" src="./images/jr_navbar.svg"></a><img id="carwash" src="./images/carwash.svg">
-            <div class="space"></div>
+    <div class="header">
+        <div class="logo"><img id="jr" src="./images/jr_navbar.svg"><img id="carwash" src="./images/carwash.svg">
+            <a href="./func/logout.php"><img id="logout"  src="./images/icons/dashboard/logout_icon.png"></a>
         </div>
         <div class="navbar">
             <ul>
@@ -46,6 +46,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             </ul>
         </div>
     </div>
+
     <p class="pageName">SERVIÇOS</p>
     
     <!-- CONTEÚDOS -->

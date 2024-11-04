@@ -35,8 +35,8 @@ $telefoneFormatado = preg_replace("/[^0-9]/", "", $informacao->numero);
     <!-- NAVBAR -->
 
     <div class="header">
-        <div class="logo"><a href="./func/logout.php"><img id="jr" src="./images/jr_navbar.svg"></a><img id="carwash" src="./images/carwash.svg">
-            <div class="space"></div>
+    <div class="logo"><img id="jr" src="./images/jr_navbar.svg"><img id="carwash" src="./images/carwash.svg">
+            <a href="./func/logout.php"><img id="logout"  src="./images/icons/dashboard/logout_icon.png"></a>
         </div>
         <div class="navbar">
             <ul>
