@@ -180,7 +180,7 @@ INSERT INTO servico VALUES
 (0,"Lavagem de Motor", 30.00, " Limpeza específica do compartimento do motor seguida da aplicação de cera para proteção e brilho.", "30min", "", ""),
 (0,"Polimento de Farol", 120.00, "Processo de polimento para restaurar a clareza dos faróis do veículo, tratando ambos os faróis.", "1h e 30min", "", ""),
 (0,"Polimento e Cristal.", 350.00, "Serviço avançado de polimento que inclui a aplicação de uma camada protetora para preservar o brilho e a integridade da pintura.", "1 dia", "", ""),
-(0,"Higienização de Banco", 280.00, "Lavagem completa do veículo acompanhada de uma higienização profunda dos bancos, removendo sujeiras e odores. ", "1 dia", "", "");
+(0,"Higienização de Banco", 280.00, "Lavagem completa do veículo acompanhada de uma higienização profunda dos bancos, removendo sujeiras e odores. ", "1 dia", "", ""),
 (0,"Hig. Banco de Couro", 200.00, " Inclui lavagem completa do veículo, limpeza profunda e aplicação de hidratante específico para manter a qualidade e aparência dos bancos de couro. ", "1 dia", "", ""),
 (0,"Higienização de Teto", 100.00, " Limpeza especializada do teto do veículo para remover manchas, sujeiras e odores. ", "1 hora", "", "");
 
