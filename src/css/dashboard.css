@@ -84,11 +84,16 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
 }
 
-#jr, .space{
+#jr{
     max-width: 80px;
     margin: 20px;
     display: flex;
-    justify-self: start;
+}
+
+#logout{
+    width: 50px;
+    display: flex;
+    margin: 20px;
 }
 
 #carwash{
@@ -306,6 +311,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: start;
+    z-index: 0;
 }
 
 aside h1 {
@@ -358,6 +364,7 @@ aside h1 {
     text-align: center;
     font-weight: bold;
     flex-grow: 1;
+    margin: 0 auto;
 }
 .sidebar img{
     cursor: pointer;
@@ -570,7 +577,7 @@ aside h1 {
 }
 
 .cabecalho > h4{
-    font-size: 2em;
+    font-size: 1em;
 }
 .container-grafico{
     display: flex;
