@@ -97,6 +97,8 @@ function openCMS(cms){
             cms2.classList.add("d-none");
             cms3.classList.add("d-none");
             cms7.classList.add("d-none");
+            cms8.classList.add("d-none")
+            cms9.classList.add("d-none")
         }
           
    if(cms == 'atualizar_servico'){
@@ -105,6 +107,8 @@ function openCMS(cms){
             cms1.classList.add("d-none");
             cms3.classList.add("d-none");
             cms7.classList.add("d-none");
+            cms8.classList.add("d-none")
+            cms9.classList.add("d-none")
    }
 
    if(cms == 'excluir_servico'){
@@ -113,6 +117,8 @@ function openCMS(cms){
             cms1.classList.add("d-none");
             cms2.classList.add("d-none");
             cms7.classList.add("d-none");
+            cms8.classList.add("d-none")
+            cms9.classList.add("d-none")
    }
 
    if(cms == 'atualizar_informacoes'){
@@ -121,7 +127,25 @@ function openCMS(cms){
             cms1.classList.add("d-none");
             cms2.classList.add("d-none");
             cms3.classList.add("d-none");
+            cms8.classList.add("d-none")
+            cms9.classList.add("d-none")
          }
+
+if(cms == 'visualizar_cliente'){
+  cms8.classList.toggle("d-none");
+
+  cms1.classList.add("d-none");
+  cms2.classList.add("d-none");
+  cms3.classList.add("d-none");
+  cms9.classList.add("d-none")
+}
+
+if(cms == 'excluir_cliente'){
+  cms9.classList.toggle("d-none");
+
+  cms1.classList.add("d-none");
+  cms2.classList.add("d-none");
+  cms3.classList.add("d-none");
 }
 
 
@@ -137,8 +161,7 @@ BUTTONS.forEach((BUTTON,index) =>{
     BUTTON.addEventListener("blur", ()=>{
            ARROWS[index].style.transform = `rotate(0deg)`
         }
-    )})
-
+    )})}
 const buttons = document.querySelectorAll('.servico-button');
 
 // Adiciona um evento de clique a cada botão

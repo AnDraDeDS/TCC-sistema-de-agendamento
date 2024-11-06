@@ -212,6 +212,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </form>
       </div>
     </div>
+    
     <aside>
       <div id="sidebar" class="sidebar expandir">
         <div class="header_sidebar">
@@ -231,11 +232,21 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
               <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_servico')">Excluir</a></li>
             </ul>
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span>Clientes</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" onclick="openCMS('visualizar_cliente')">Visualizar</a></li>
+              <span class="linhaCMS"></span>
+              <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_cliente')">Excluir</a></li>
+            </ul>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <span>Informações</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_informacoes')">Atualizar</a></li>
             </ul>
+
+           
           </div>
         </div>
       </div>
