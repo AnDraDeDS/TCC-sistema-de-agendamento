@@ -5,6 +5,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false) {
     exit();
 }
 require_once './lib/conn.php';
+
 $sqlListarServicos = "SELECT * FROM servico";
 $stmt = $conn->query($sqlListarServicos);
 $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -62,13 +63,15 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         <input type="hidden" id="id_servico" name="id_servico">
 
         <div id="content1" class="content">
-            <?php foreach ($servicos as $servico){ ?>
+            <?php
+            $pastaImagensUsuario = "./images/upload_servicos/";
+                    foreach ($servicos as $servico){ ?>
                 <div class="item">
-                    <span style="background-image: url('data:image/jpeg;base64,<?= base64_encode($servico->imagem1) ?>');"></span>
+                <span style="background-image: url('<?= $pastaImagensUsuario . htmlspecialchars($servico->imagem1) ?>');" class="servico-img"></span>
                     <h3><?= htmlspecialchars($servico->nome) ?></h3>
                     <div class="texto">
                         <p>A partir de <span style="font-weight: bold;">R$<?= number_format($servico->preco, 2, ',', '.') ?></span></p>
-                        <button class="agendar" type="button" onclick='servico_foco("<?= addslashes($servico->nome) ?>", "<?= addslashes($servico->preco) ?>", "<?= addslashes($servico->duracao) ?>" , "<?= addslashes($servico->descricao) ?>", "<?= base64_encode($servico->imagem1) ?>", "<?= base64_encode($servico->imagem2) ?>", <?= ($servico->id_servico)?>)'></button>
+                        <button class="agendar" type="button" onclick='servico_foco("<?= addslashes($servico->nome) ?>", "<?= addslashes($servico->preco) ?>", "<?= addslashes($servico->duracao) ?>" , "<?= addslashes($servico->descricao) ?>", "<?= $pastaImagensUsuario . basename($servico->imagem1) ?>", "<?= $pastaImagensUsuario . basename($servico->imagem2) ?>", <?= ($servico->id_servico)?>)'></button>
                     </div>
                 </div>
                 <?php }?>
@@ -87,8 +90,8 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                     
                 </div>
                 <div class="aside">
-                    <img id="img1">
-                    <img id="img2">
+                    <img id="img1" src="">
+                    <img id="img2" src="">
                     
                 </div>
             </div>

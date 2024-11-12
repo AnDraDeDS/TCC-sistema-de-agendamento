@@ -148,6 +148,7 @@ function hide(){
   dropdown.classList.add("d-none");
 }
 
+
 function servico_foco(servico, valor, duracao, descricao, imagem1, imagem2, id){
   content.classList.add("d-none");
   content3.classList.add("d-none");
@@ -161,8 +162,8 @@ function servico_foco(servico, valor, duracao, descricao, imagem1, imagem2, id){
   titulo_servico.innerHTML = `${servico.toUpperCase()}`;
   descricao_servico.innerText = `${descricao}`;
   duracao_servico.innerHTML = `<span style="color: #63C3FF; font-weight: 700;">Duração: ${duracao}</span> `
-  img1.setAttribute("src", `data:image/jpeg;base64,${imagem1}`);
-  img2.setAttribute("src", `data:image/jpeg;base64,${imagem2}`);
+  img1.src= imagem1;
+  img2.src= imagem2;
 }
 
 function agend_foco(){

@@ -81,12 +81,12 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                   <input class="input_file" type="file" style="border: 0;"> -->
             <label class="btn input_file" for="my-file-selector">
               <span style="color: #63C3FF;">Imagem 1</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem1" name="imagem1" accept="image/*" required>
+              <input type="file" placeholder="Arquivo" id="imagem1" name="imagem1" accept="image/*" required>
             </label>
 
             <label class="btn input_file" for="my-file-selector">
               <span style="color: #63C3FF;">Imagem 2</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem2"name="imagem2" accept="image/*" required>
+              <input type="file" placeholder="Arquivo" id="imagem2" name="imagem2" accept="image/*" required>
             </label>
 
           </div>
