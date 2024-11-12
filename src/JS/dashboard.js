@@ -1,9 +1,10 @@
-const BUTTONS = document.querySelectorAll(".btn")
-const ARROWS = document.querySelectorAll('.arrow')
+const BUTTONS = document.querySelectorAll(".btn");
+const ARROWS = document.querySelectorAll('.arrow');
 const sideBar = document.getElementById("sidebar");
-const containerServicos = document.querySelector(".container-servicos")
-const imgMenu = document.querySelector(".imgMenu")
-const main = document.querySelector("main")
+const containerServicos = document.querySelector(".container-servicos");
+const imgMenu = document.querySelector(".imgMenu");
+const main = document.querySelector("main");
+const agendados = document.querySelector(".container-servicos");
 const telefoneInput = document.getElementById("telefoneInput");
 
 let date = new Date();
@@ -50,6 +51,7 @@ function graficToggle(){
 
 function unfocus(){
   sideBar.classList.remove("active");
+  agendados.style="filter: blur(0px);"
   main.style="filter: blur(0px);"
   
   cms1.classList.add("d-none");
@@ -79,7 +81,8 @@ document.addEventListener("click", (e) => {
 
 function toggleSide(){
   sideBar.classList.toggle("active");
-  main.style="filter: blur(0px);"
+  agendados.style="filer: blur(0px);"
+  main.style="filer: blur(0px);"
   
   cms1.classList.add("d-none");
   cms2.classList.add("d-none");
@@ -89,6 +92,7 @@ function toggleSide(){
 
 function openCMS(cms){
 
+  agendados.style="filter: blur(8px);";
   main.style="filter: blur(8px);"
 
   if(cms == 'inserir_servico'){

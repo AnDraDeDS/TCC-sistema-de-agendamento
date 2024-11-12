@@ -251,16 +251,53 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </div>
       </div>
       <div class="container-servicos">
-        <h1>SERVIÇOS AGENDADOS</h1>
+        <div class="cabecalho">
+
+          <h1>SERVIÇOS AGENDADOS</h1>
+
+        </div>
         <div class="background-servicos">
           <ul>
           <?php
+
+
+
+          if(isset($consulta)){
+
+            if ($consulta == 'nome'){
+              $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
+              INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
+              INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
+              WHERE a.  status = 1 && c.nome LIKE %$dado%;
+              ORDER BY a.data ASC";
+            }
+
+            if ($consulta == 'servico'){
+              $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
+              INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
+              INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
+              WHERE a.  status = 1 && s.nome  LIKE %$dado%;
+              ORDER BY a.data ASC";
+            }
+
+            if ($consulta == 'data'){
+              $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
+              INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
+              INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
+              WHERE a.  status = 1 && a.data = %$dado%;
+              ORDER BY a.data ASC";
+            }
+            
+          }else{
 
           $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
           INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
           INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
           WHERE a.  status = 1
           ORDER BY a.data ASC";
+
+          }
+
 
         $stmt = $conn->query($sqlReq);
 
@@ -318,6 +355,8 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                 borderColor: '#63C3FF',
                 backgroundColor: '#63C3FF',
                 color: '#fff',
+                barThickness: 40
+
               }]
             },
             options: {
@@ -370,6 +409,8 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                 borderColor: '#63C3FF',
                 backgroundColor: '#63C3FF',
                 color: '#fff',
+                barThickness: 40
+
               }]
             },
             options: {
