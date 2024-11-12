@@ -65,6 +65,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         <div id="content1" class="content">
             <?php
             $pastaImagensUsuario = "./images/upload_servicos/";
+
                     foreach ($servicos as $servico){ ?>
                 <div class="item">
                 <span style="background-image: url('<?= $pastaImagensUsuario . htmlspecialchars($servico->imagem1) ?>');" class="servico-img"></span>
@@ -90,7 +91,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                     
                 </div>
                 <div class="aside">
-                    <img id="img1" src="">
+                    <img id="img1" src=>
                     <img id="img2" src="">
                     
                 </div>
