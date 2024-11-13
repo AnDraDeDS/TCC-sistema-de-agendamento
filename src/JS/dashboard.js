@@ -1,9 +1,10 @@
-const BUTTONS = document.querySelectorAll(".btn")
-const ARROWS = document.querySelectorAll('.arrow')
+const BUTTONS = document.querySelectorAll(".btn");
+const ARROWS = document.querySelectorAll('.arrow');
 const sideBar = document.getElementById("sidebar");
-const containerServicos = document.querySelector(".container-servicos")
-const imgMenu = document.querySelector(".imgMenu")
-const main = document.querySelector("main")
+const containerServicos = document.querySelector(".container-servicos");
+const imgMenu = document.querySelector(".imgMenu");
+const main = document.querySelector("main");
+const agendados = document.querySelector(".container-servicos");
 const telefoneInput = document.getElementById("telefoneInput");
 
 let date = new Date();
@@ -42,6 +43,8 @@ let cms1 = document.getElementById("cms1");
 let cms2 = document.getElementById("cms2");
 let cms3 = document.getElementById("cms3");
 let cms7 = document.getElementById("cms7");
+let cms8 = document.getElementById("cms8");
+let cms9 = document.getElementById("cms9");
 
 function graficToggle(){
   ctx.classList.toggle("d-none");
@@ -50,15 +53,18 @@ function graficToggle(){
 
 function unfocus(){
   sideBar.classList.remove("active");
-  main.style="filter: blur(0px);"
-  
+  agendados.style="filter: blur(0px)";
+  main.style="filter: blur(0px)";
+
   cms1.classList.add("d-none");
-  cms2.classList.add("d-none"); 
+  cms2.classList.add("d-none");
   cms3.classList.add("d-none");
   cms7.classList.add("d-none");
+  cms8.classList.add("d-none");
+  cms9.classList.add("d-none");
 }
 
-let cmsAll = [cms1, cms2, cms3, cms7];
+let cmsAll = [cms1, cms2, cms3, cms7, cms8, cms9];
 
 cmsAll.forEach(cms => {
   cms.addEventListener("click", function(e) {
@@ -79,16 +85,20 @@ document.addEventListener("click", (e) => {
 
 function toggleSide(){
   sideBar.classList.toggle("active");
+  agendados.style="filter: blur(0px);"
   main.style="filter: blur(0px);"
   
   cms1.classList.add("d-none");
   cms2.classList.add("d-none");
   cms3.classList.add("d-none");
   cms7.classList.add("d-none");
+  cms8.classList.add("d-none");
+  cms9.classList.add("d-none");
 };
 
 function openCMS(cms){
 
+  agendados.style="filter: blur(8px);";
   main.style="filter: blur(8px);"
 
   if(cms == 'inserir_servico'){
@@ -146,18 +156,19 @@ if(cms == 'excluir_cliente'){
   cms1.classList.add("d-none");
   cms2.classList.add("d-none");
   cms3.classList.add("d-none");
+  cms8.classList.add("d-none")
 }
 
 
 numb = 0;
-BUTTONS.forEach((BUTTON,index) =>{ 
+BUTTONS.forEach((BUTTON,index) =>{
  BUTTON.addEventListener("click", ()=>{
     numb = numb + 180;
     ARROWS[index].style.transform = `rotate(${numb}deg)`
 })
 })
 
-BUTTONS.forEach((BUTTON,index) =>{ 
+BUTTONS.forEach((BUTTON,index) =>{
     BUTTON.addEventListener("blur", ()=>{
            ARROWS[index].style.transform = `rotate(0deg)`
         }
@@ -183,7 +194,7 @@ buttons.forEach(button => {
 
 telefoneInput.addEventListener("input", function (e) {
   let input = e.target.value;
-  
+
   input = input.replace(/\D/g, "");
 
   if (input.length > 0) {
@@ -192,7 +203,7 @@ telefoneInput.addEventListener("input", function (e) {
   if (input.length > 3) {
     input = input.slice(0, 3) + ") " + input.slice(3);
   }
-  
+
 
   if (input.length > 10) {
     input = input.slice(0, 10) + "-" + input.slice(10, 14);

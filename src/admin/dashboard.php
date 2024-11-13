@@ -213,6 +213,14 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
       </div>
     </div>
     
+    <div id="cms8" class="cms d-none">
+      <div class="header-cms">Tabela de Clientes</div>
+      <div class="content-cms">
+       
+      </div>
+    </div>
+    
+
     <aside>
       <div id="sidebar" class="sidebar expandir">
         <div class="header_sidebar">
