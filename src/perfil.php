@@ -42,7 +42,6 @@ if ($selectCliente->rowCount() > 0) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/perfil.css">
-    <script src="./js/navbar.js" defer></script>
     <title>Perfil de Usuários</title>
 </head>
 
@@ -185,12 +184,12 @@ if ($selectCliente->rowCount() > 0) {
                     <form action="./func/func_updatePerfil.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="current-password" class="col-form-label">Senha atual</label>
-                            <input name="senha_atual" type="password" id="current-password" class="form-control" aria-describedby="passwordHelpBlock">
+                            <input name="senha_atual" type="password" id="senha-atual" class="form-control" aria-describedby="passwordHelpBlock">
 
                         </div>
                         <div class="mb-3">
                             <label for="password" class="col-form-label">Nova Senha</label>
-                            <input name="nova_senha" type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock">
+                            <input name="nova_senha" type="password" id="nova-senha" class="form-control" aria-describedby="passwordHelpBlock">
                         </div>
                     </div>
                     <div class="modal-footer">

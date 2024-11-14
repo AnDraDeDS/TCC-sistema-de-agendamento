@@ -46,17 +46,21 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     <!-- CONTEÚDO -->
 
     <div class="content">
-        <?php 
+    <?php 
+            // Caminho para as imagens na galeria (pasta visível pelo navegador)
+            $pastaImagensUsuario = "./images/upload_servicos/";
+
             foreach($servicos as $servico){
         ?>
-            <div class="item">  
-                <h3><?= $servico->nome?></h3>
+            <div class="item">
+                <h3><?= htmlspecialchars($servico->nome) ?></h3>
                 <div class="imagens">
-                    <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem1) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
-                    <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem2) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
+                    <!-- Exibe as imagens com o caminho correto para a galeria -->
+                    <img src="<?= $pastaImagensUsuario . basename($servico->imagem1) ?>" alt="<?= htmlspecialchars($servico->nome) ?>" >
+                    <img src="<?= $pastaImagensUsuario . basename($servico->imagem2) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
                 </div>
             </div>
-                <?php }?>
+        <?php } ?>
 
     </div>
 

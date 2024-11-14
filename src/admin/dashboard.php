@@ -81,12 +81,12 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                   <input class="input_file" type="file" style="border: 0;"> -->
             <label class="btn input_file" for="my-file-selector">
               <span style="color: #63C3FF;">Imagem 1</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem1" name="imagem1" accept="image/*" required>
+              <input type="file" placeholder="Arquivo" id="imagem1" name="imagem1" accept="image/*" required>
             </label>
 
             <label class="btn input_file" for="my-file-selector">
               <span style="color: #63C3FF;">Imagem 2</span>
-              <input id="my-file-selector" type="file" placeholder="Arquivo" id="imagem2"name="imagem2" accept="image/*" required>
+              <input type="file" placeholder="Arquivo" id="imagem2" name="imagem2" accept="image/*" required>
             </label>
 
           </div>
@@ -212,6 +212,15 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </form>
       </div>
     </div>
+    
+    <div id="cms8" class="cms d-none">
+      <div class="header-cms">Tabela de Clientes</div>
+      <div class="content-cms">
+       
+      </div>
+    </div>
+    
+
     <aside>
       <div id="sidebar" class="sidebar expandir">
         <div class="header_sidebar">
@@ -231,11 +240,21 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
               <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_servico')">Excluir</a></li>
             </ul>
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span>Clientes</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" onclick="openCMS('visualizar_cliente')">Visualizar</a></li>
+              <span class="linhaCMS"></span>
+              <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_cliente')">Excluir</a></li>
+            </ul>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <span>Informações</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_informacoes')">Atualizar</a></li>
             </ul>
+
+           
           </div>
         </div>
       </div>

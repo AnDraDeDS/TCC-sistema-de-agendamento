@@ -6,7 +6,14 @@ session_start();
 extract($_POST);
 $id_cliente = $_SESSION['id_cliente'];
 
-if($acao == 'atualizar_nome'){
+
+if ($acao == 'atualizar_nome') {
+
+    if (empty($nome)) {
+        echo '<script>alert("O campo não pode ficar vazio"); window.location.href="../perfil.php";</script>';
+        exit;
+    }
+
     $sql = "UPDATE cliente SET nome = :nome WHERE id_cliente = :id_cliente";
     $stmt = $conn->prepare($sql);
     $stmt->bindValue(":nome", $nome);
@@ -15,6 +22,12 @@ if($acao == 'atualizar_nome'){
 }
 
 if ($acao == 'atualizar_senha') {
+
+    if (empty($senha_atual) || empty($nova_senha)) {
+        echo '<script>alert("Todos os campos devem ser preenchidos"); window.location.href="../perfil.php";</script>';
+        exit;
+    }
+
     $sqlVerificarSenha = "SELECT senha FROM cliente WHERE id_cliente = :id_cliente";
     $stmt = $conn->prepare($sqlVerificarSenha);
     $stmt->bindValue(":id_cliente", $id_cliente);
@@ -30,14 +43,23 @@ if ($acao == 'atualizar_senha') {
             $stmt->bindValue(":id_cliente", $id_cliente);
             
             if ($stmt->execute()) {
-                echo '<script>alert("Senha atualizada com sucesso")</script>';
+                echo '<script>alert("Senha atualizada com sucesso"); window.location.href="../perfil.php";</script>';
             } else {
-                echo '<script>alert("Erro ao atualizar a senha")</script>';
+                echo '<script>alert("Erro ao atualizar a senha"); window.location.href="../perfil.php";</script>';
             }
+        } else {
+            echo '<script>alert("Senha atual incorreta"); window.location.href="../perfil.php";</script>';
         }
     }
+    exit;
 }
+
 if($acao == 'atualizar_endereco'){
+
+    if (empty($endereco)) {
+        echo '<script>alert("O campo não pode ficar vazio"); window.location.href="../perfil.php";</script>';
+        exit;
+    }
     
     $sql = "UPDATE cliente SET endereco = :endereco WHERE id_cliente = :id_cliente";
     $stmt = $conn->prepare($sql);
@@ -47,6 +69,11 @@ if($acao == 'atualizar_endereco'){
 
 }
 if($acao == 'atualizar_telefone'){
+
+    if (empty($telefone)) {
+        echo '<script>alert("O campo não pode ficar vazio"); window.location.href="../perfil.php";</script>';
+        exit;
+    }
     
     $sql = "UPDATE cliente SET telefone = :telefone WHERE id_cliente = :id_cliente";
     $stmt = $conn->prepare($sql);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 01/11/2024 às 00:58
+-- Tempo de geração: 05/11/2024 às 21:59
 -- Versão do servidor: 8.2.0
 -- Versão do PHP: 8.2.13
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `jrcar`
 --
+CREATE DATABASE IF NOT EXISTS `jrcar` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `jrcar`;
 
 -- --------------------------------------------------------
 
@@ -61,24 +63,36 @@ CREATE TABLE IF NOT EXISTS `agendamento` (
   PRIMARY KEY (`id_agendamento`),
   KEY `fk_id_cliente` (`fk_id_cliente`),
   KEY `fk_id_servico` (`fk_id_servico`)
-) ENGINE=MyISAM AUTO_INCREMENT=158 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=181 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `agendamento`
 --
 
-INSERT INTO `agendamento` (`id_agendamento`, `data`, `horario`, `veiculo`, `status`, `fk_id_cliente`, `fk_id_servico`) VALUES
-(153, '2024-11-21', '14:00 - 15:30', 'carro', b'1', 99999, 89),
-(152, '0000-00-00', '11:00 - 12:30', 'carro', b'1', 99999, 89),
-(151, '2024-11-15', '14:00 - 15:30', 'carro', b'1', 99999, 89),
-(150, '2024-10-31', '08:00 - 09:30', 'carro', b'1', 99999, 89),
-(149, '0000-00-00', '12:30 - 14:00', 'carro', b'1', 99999, 89),
-(148, '2024-10-31', '14:00 - 15:30', 'carro', b'1', 99999, 89),
-(147, '2024-10-31', '14:00 - 15:30', '', b'1', 99999, 89),
-(154, '2024-10-31', '09:30 - 11:00', 'caminhonete', b'1', 99999, 89),
-(155, '2024-12-30', '14:00 - 15:30', 'carro', b'1', 99999, 89),
-(156, '0000-00-00', '14:00 - 15:30', 'moto', b'1', 99999, 89),
-(157, '0000-00-00', '14:00 - 15:30', 'carro', b'1', 99999, 89);
+-- INSERT INTO `agendamento` (`id_agendamento`, `data`, `horario`, `veiculo`, `status`, `fk_id_cliente`, `fk_id_servico`) VALUES
+-- (153, '2024-11-21', '14:00 - 15:30', 'carro', b'1', 99999, 89),
+-- (152, '0000-00-00', '11:00 - 12:30', 'carro', b'1', 99999, 89),
+-- (151, '2024-11-15', '14:00 - 15:30', 'carro', b'1', 99999, 89),
+-- (150, '2024-10-31', '08:00 - 09:30', 'carro', b'1', 99999, 89),
+-- (149, '0000-00-00', '12:30 - 14:00', 'carro', b'1', 99999, 89),
+-- (148, '2024-10-31', '14:00 - 15:30', 'carro', b'1', 99999, 89),
+-- (147, '2024-10-31', '14:00 - 15:30', '', b'1', 99999, 89),
+-- (154, '2024-10-31', '09:30 - 11:00', 'caminhonete', b'1', 99999, 89),
+-- (155, '2024-12-30', '14:00 - 15:30', 'carro', b'1', 99999, 89),
+-- (156, '0000-00-00', '14:00 - 15:30', 'moto', b'1', 99999, 89),
+-- (157, '0000-00-00', '14:00 - 15:30', 'carro', b'1', 99999, 89),
+-- (172, '2025-01-22', '14:00 - 15:30', 'carro', b'1', 99999, 89),
+-- (163, '2024-12-27', '11:00 - 12:30', 'moto', b'1', 99999, 89),
+-- (171, '2025-01-10', '14:00 - 15:30', 'carro', b'1', 99999, 89),
+-- (170, '2024-12-26', '15:30 - 17:00', 'moto', b'1', 99999, 89),
+-- (173, '2024-11-30', '14:00 - 15:30', 'carro', b'1', 99999, 89),
+-- (174, '2025-01-31', '14:00 - 15:30', 'carro', b'1', 99999, 89),
+-- (175, '2025-01-01', '11:00 - 12:30', 'carro', b'1', 99999, 89),
+-- (176, '2025-01-13', '15:30 - 17:00', 'moto', b'1', 99999, 89),
+-- (177, '2024-12-23', '15:30 - 17:00', 'carro', b'1', 99999, 89),
+-- (178, '2025-01-31', '15:30 - 17:00', 'moto', b'1', 99999, 89),
+-- (179, '2025-01-21', '14:00 - 15:30', 'moto', b'1', 99999, 89),
+-- (180, '2025-02-06', '14:00 - 15:30', 'moto', b'1', 99999, 89);
 
 -- --------------------------------------------------------
 
@@ -93,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `telefone` varchar(15) NOT NULL,
   `senha` varchar(100) NOT NULL,
   `endereco` varchar(50) NOT NULL,
-  `foto` blob NOT NULL,
+  `foto` varchar(100) NOT NULL,
   PRIMARY KEY (`id_cliente`)
 ) ENGINE=MyISAM AUTO_INCREMENT=100002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -159,30 +173,8 @@ CREATE TABLE IF NOT EXISTS `servico` (
   `preco` decimal(5,2) NOT NULL,
   `descricao` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `duracao` varchar(50) NOT NULL,
-  `imagem1` mediumblob NOT NULL,
-  `imagem2` mediumblob NOT NULL,
+  `imagem1` varchar(100) NOT NULL,
+  `imagem2` varchar(100) NOT NULL,
   PRIMARY KEY (`id_servico`)
 ) ENGINE=MyISAM AUTO_INCREMENT=90 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Despejando dados para a tabela `servico`
---
-
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-INSERT INTO servico VALUES
-(0, "Lavagem Simples", 30.00, "Limpeza básica do veículo que inclui lavagem a seco do exterior, limpeza de tapetes e aplicação de produto para dar brilho aos pneus.", "30min", "", ""),
-(0,"Lavagem Completa", 70.00, "Serviço de limpeza detalhada que engloba a lavagem simples, limpeza do painel, aspiração do interior, limpeza dos vidros e aplicação de cera líquida.", "1h 20min", "", ""),
-(0,"Lavagem de Motor", 30.00, " Limpeza específica do compartimento do motor seguida da aplicação de cera para proteção e brilho.", "30min", "", ""),
-(0,"Polimento de Farol", 120.00, "Processo de polimento para restaurar a clareza dos faróis do veículo, tratando ambos os faróis.", "1h e 30min", "", ""),
-(0,"Polimento e Cristal.", 350.00, "Serviço avançado de polimento que inclui a aplicação de uma camada protetora para preservar o brilho e a integridade da pintura.", "1 dia", "", ""),
-(0,"Higienização de Banco", 280.00, "Lavagem completa do veículo acompanhada de uma higienização profunda dos bancos, removendo sujeiras e odores. ", "1 dia", "", "");
-(0,"Hig. Banco de Couro", 200.00, " Inclui lavagem completa do veículo, limpeza profunda e aplicação de hidratante específico para manter a qualidade e aparência dos bancos de couro. ", "1 dia", "", ""),
-(0,"Higienização de Teto", 100.00, " Limpeza especializada do teto do veículo para remover manchas, sujeiras e odores. ", "1 hora", "", "");
-
-
 
