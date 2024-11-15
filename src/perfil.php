@@ -20,6 +20,7 @@ $selectCliente = $conn->prepare($sqlListarCliente);
 $selectCliente->bindValue(":id_cliente", $id_cliente);
 $selectCliente->execute();
 
+
 // Verificar se algum cliente foi encontrado
 if ($selectCliente->rowCount() > 0) {
     $cliente = $selectCliente->fetch(PDO::FETCH_OBJ);
@@ -42,7 +43,6 @@ if ($selectCliente->rowCount() > 0) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/perfil.css">
-    <script src="./js/navbar.js" defer></script>
     <title>Perfil de Usuários</title>
 </head>
 
@@ -65,17 +65,22 @@ if ($selectCliente->rowCount() > 0) {
     </div>
 
     <!-- CONTEÚDO -->
+    <?php 
+  
+    $pastaImagensCliente = "./images/upload_clientes/";
+
+    $fotoCaminho = (strpos($cliente->foto, '../images/upload_clientes/') === 0)
+        ? substr($cliente->foto, strlen('../images/upload_clientes/'))
+        : $cliente->foto;
+
+    $caminhoImagem = (file_exists($pastaImagensCliente . $fotoCaminho))
+        ? htmlspecialchars($pastaImagensCliente . $fotoCaminho)
+        : './images/perfil_default.png';
+
+?>
     <div class="content">
         <div class="side">
-            <div class="perfil" stytle="background-image: url(`data:image/jpeg;base64,<?php 
-            if($cliente->foto != null){
-                echo htmlspecialchars($cliente->foto);
-            }else{
-                echo '../images/perfil_default.png';
-            }
-             ?>
-            
-            );">
+        <div class="perfil" style="background-image: url('<?= $caminhoImagem; ?>');">
                 <button type="button" class="edit" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img src="./images/icons/perfil/Icon_bell.svg"></button>
                 <button class="edit" id="lapinho">
@@ -109,6 +114,10 @@ if ($selectCliente->rowCount() > 0) {
                     <div class="text">
                         <p class="titulo">Endereço</p>
                         <p><?php echo htmlspecialchars($cliente->endereco); ?></p>
+                        <?php
+    // Exibe o caminho para depurar
+
+?>
                     </div>
                 </div>
             </div>
@@ -185,12 +194,12 @@ if ($selectCliente->rowCount() > 0) {
                     <form action="./func/func_updatePerfil.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="current-password" class="col-form-label">Senha atual</label>
-                            <input name="senha_atual" type="password" id="current-password" class="form-control" aria-describedby="passwordHelpBlock">
+                            <input name="senha_atual" type="password" id="senha-atual" class="form-control" aria-describedby="passwordHelpBlock">
 
                         </div>
                         <div class="mb-3">
                             <label for="password" class="col-form-label">Nova Senha</label>
-                            <input name="nova_senha" type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock">
+                            <input name="nova_senha" type="password" id="nova-senha" class="form-control" aria-describedby="passwordHelpBlock">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -212,7 +221,7 @@ if ($selectCliente->rowCount() > 0) {
                     <form action="./func/func_updatePerfil.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="call" class="col-form-label">Telefone</label>
-                            <input name="telefone" type="number" class="form-control" id="call">
+                            <input name="telefone" type="tel" class="form-control telefone" id="call" placeholder="Telefone (com DDD)" pattern="\([0-9]){2}\)[9]{1}[0-9]{4}-[0-9]{4}" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -289,5 +298,6 @@ if ($selectCliente->rowCount() > 0) {
         <?php } ?>
     });
 </script>
+
 
 </html>

@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `telefone` varchar(15) NOT NULL,
   `senha` varchar(100) NOT NULL,
   `endereco` varchar(50) NOT NULL,
-  `foto` varchar(100) NOT NULL,
+  `foto` varchar(100),
   PRIMARY KEY (`id_cliente`)
 ) ENGINE=MyISAM AUTO_INCREMENT=100002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
