@@ -443,13 +443,14 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         if($stmt->rowCount() > 0){
 
           $solicitacoes = $stmt->fetchAll(PDO::FETCH_OBJ);
+          $pastaImagensCliente = "../images/upload_clientes/";
           
           forEach($solicitacoes as $solicitacao){
         ?>
             <form action="./funcCMS/func_agendamento.php" method="post">
           <div class="item-solicitacao">
             <div class="perfil-solicitacao">
-              <img id="cliente" src="../images/perfil_default.png" alt="" height="50px" width="50">
+              <img id="cliente" src="<?= $pastaImagensCliente . basename($solicitacao->foto) ?>" alt="" height="50px" width="50">
               <p class="solicitacao">Solicitação de <br><?= $solicitacao->nome_cliente?></p>
             </div>
             <div class="linha"></div>
