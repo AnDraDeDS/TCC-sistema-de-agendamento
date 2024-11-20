@@ -43,6 +43,7 @@ let cms1 = document.getElementById("cms1");
 let cms2 = document.getElementById("cms2");
 let cms3 = document.getElementById("cms3");
 let cms7 = document.getElementById("cms7");
+let cms8 = document.getElementById("cms8");
 
 function graficToggle(){
   ctx.classList.toggle("d-none");
@@ -51,16 +52,17 @@ function graficToggle(){
 
 function unfocus(){
   sideBar.classList.remove("active");
-  agendados.style="filter: blur(0px);"
-  main.style="filter: blur(0px);"
-  
+  agendados.style="filter: blur(0px)";
+  main.style="filter: blur(0px)";
+
   cms1.classList.add("d-none");
-  cms2.classList.add("d-none"); 
+  cms2.classList.add("d-none");
   cms3.classList.add("d-none");
   cms7.classList.add("d-none");
+  cms8.classList.add("d-none");
 }
 
-let cmsAll = [cms1, cms2, cms3, cms7];
+let cmsAll = [cms1, cms2, cms3, cms7, cms8];
 
 cmsAll.forEach(cms => {
   cms.addEventListener("click", function(e) {
@@ -81,13 +83,14 @@ document.addEventListener("click", (e) => {
 
 function toggleSide(){
   sideBar.classList.toggle("active");
-  agendados.style="filer: blur(0px);"
-  main.style="filer: blur(0px);"
+  agendados.style="filter: blur(0px);"
+  main.style="filter: blur(0px);"
   
   cms1.classList.add("d-none");
   cms2.classList.add("d-none");
   cms3.classList.add("d-none");
   cms7.classList.add("d-none");
+  cms8.classList.add("d-none");
 };
 
 function openCMS(cms){
@@ -102,7 +105,6 @@ function openCMS(cms){
             cms3.classList.add("d-none");
             cms7.classList.add("d-none");
             cms8.classList.add("d-none")
-            cms9.classList.add("d-none")
         }
           
    if(cms == 'atualizar_servico'){
@@ -112,7 +114,6 @@ function openCMS(cms){
             cms3.classList.add("d-none");
             cms7.classList.add("d-none");
             cms8.classList.add("d-none")
-            cms9.classList.add("d-none")
    }
 
    if(cms == 'excluir_servico'){
@@ -122,7 +123,6 @@ function openCMS(cms){
             cms2.classList.add("d-none");
             cms7.classList.add("d-none");
             cms8.classList.add("d-none")
-            cms9.classList.add("d-none")
    }
 
    if(cms == 'atualizar_informacoes'){
@@ -132,7 +132,6 @@ function openCMS(cms){
             cms2.classList.add("d-none");
             cms3.classList.add("d-none");
             cms8.classList.add("d-none")
-            cms9.classList.add("d-none")
          }
 
 if(cms == 'visualizar_cliente'){
@@ -141,15 +140,14 @@ if(cms == 'visualizar_cliente'){
   cms1.classList.add("d-none");
   cms2.classList.add("d-none");
   cms3.classList.add("d-none");
-  cms9.classList.add("d-none")
 }
 
 if(cms == 'excluir_cliente'){
-  cms9.classList.toggle("d-none");
 
   cms1.classList.add("d-none");
   cms2.classList.add("d-none");
   cms3.classList.add("d-none");
+  cms8.classList.add("d-none")
 }
 
 

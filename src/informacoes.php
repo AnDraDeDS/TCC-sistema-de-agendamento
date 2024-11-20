@@ -51,6 +51,7 @@ $telefoneFormatado = preg_replace("/[^0-9]/", "", $informacao->numero);
     <!-- CONTEÚDO -->
 
     <div class="content">
+    <img class="img-mobile" src="./images/informacoes/imagem_info_1.png">
         <div class="midia">
             <div class="sobre">
                 <h1>SOBRE NÓS</h1>
@@ -68,7 +69,7 @@ $telefoneFormatado = preg_replace("/[^0-9]/", "", $informacao->numero);
                 <div class="redes_local">
                     <div class="info" id="info1"><img class="icon" src="./images/icons/informações/whatsapp.svg"><a href="https://wa.me/+55<?= $telefoneFormatado ?>?text=Ol%C3%A1%20Fl%C3%A1vio%2C%20cheguei%20ao%20seu%20contato%20via%20site%20da%20JR%20Car%20Wash`` target="_blank">
                             <h2 id="telefoneFormatado"><?= $informacao->numero ?></h2>
-                        </a></div>
+                        </a></div>                                              
                     <div class="info" id="info2"><img class="icon" src="./images/icons/informações/instagram.svg">
                         <h2>@<?= $informacao->instagram ?></h2>
                     </div>
@@ -89,7 +90,14 @@ $telefoneFormatado = preg_replace("/[^0-9]/", "", $informacao->numero);
     </div>
 
 
-
+    <div class="navbar2" d-none>
+            <ul>
+                <a href="./agendamento.html"><li><div><img src="./images/icons/icon_mobile/" alt=""></div>Info</li></a>
+                <a href=".informacoes.html"><li><div class="page_atual"><img src="./images/icons/icon_mobile/info.svg" alt=""></div>Agendamento</li></a>
+                <a href="./galeria.html"><li><div><img src="./images/icons/icon_mobile" alt=""></div>Galeria</li></a>           
+                <a href="./perfil.html"><li><div><img src="./images/icons/icon_mobile" alt=""></div>Perfil</li></a>
+            </ul>
+        </div>
 
 
 

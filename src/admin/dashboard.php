@@ -152,7 +152,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
        
     </div>
     </form>
-</div>
+    </div>
 
     <!-- Excluir Serviço -->
     <div id="cms3" class="cms cms-excluir d-none">
@@ -212,6 +212,48 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         </form>
       </div>
     </div>
+
+    <div id="cms8" class="cms d-none">
+      <div style="font-size: 1.5em; height: 40px;" class="header-cms">Clientes Cadastrados</div>
+      <div class="content-cms">
+       <ul>
+        <?php 
+        
+        $sqlCliente = "SELECT * FROM cliente ORDER BY nome ASC";
+
+        $stmt = $conn->query($sqlCliente);
+
+
+        if($stmt->rowCount() > 0){
+
+          $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
+          
+          forEach($clientes as $cliente){
+
+            $telefoneCliente = preg_replace("/[^0-9]/", "", $cliente->telefone);
+
+        ?>
+        <li>
+          <div class="cliente">
+            <div class="foto-cli">
+              <div class="image"></div>
+            </div>
+            <div class="dados-cli">
+              <h3><?= $cliente->nome?></h3>
+              <hr>
+              <p id="telefoneFormatado">Contato: <a href="https://wa.me/+55<?= $telefoneCliente ?>?text=Ol%C3%A1%20Fl%C3%A1vio%2C%20cheguei%20ao%20seu%20contato%20via%20site%20da%20JR%20Car%20Wash`` target="_blank">
+                            <?= $cliente->telefone ?>
+                        </a></p>
+              <hr>
+              <p>Endereço: <?= $cliente->endereco?></p>
+            </div>
+          <input type="hidden" value="">
+        </li>
+        <?php }}?>
+       </ul>
+      </div>
+    </div>
+    
     
     <aside>
       <div id="sidebar" class="sidebar expandir">
@@ -224,7 +266,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <span>Serviços</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu drop">
               <li><a class="dropdown-item" href="#" onclick="openCMS('inserir_servico')">Inserir</a></li>
               <span class="linhaCMS"></span>
               <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_servico')">Atualizar</a></li>
@@ -234,7 +276,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <span>Clientes</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu drop">
               <li><a class="dropdown-item" href="#" onclick="openCMS('visualizar_cliente')">Visualizar</a></li>
               <span class="linhaCMS"></span>
               <li><a class="dropdown-item" href="#" onclick="openCMS('excluir_cliente')">Excluir</a></li>
@@ -242,7 +284,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <span>Informações</span><img src="../images/icons/dashboard/icon_seta.svg" alt="" class="arrow">
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu drop">
               <li><a class="dropdown-item" href="#" onclick="openCMS('atualizar_informacoes')">Atualizar</a></li>
             </ul>
 
@@ -254,6 +296,10 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         <div class="cabecalho">
 
           <h1>SERVIÇOS AGENDADOS</h1>
+          <button onclick="search()" style="border: 0; outline: 0; background-color: transparent;">
+            <img id="filter" src="../images/icons/dashboard/filtro.png" alt="">
+          </button>
+          
 
         </div>
         <div class="background-servicos">
@@ -317,6 +363,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <span class="azul">Serviço: <span class="tipo"><?= $solicitacao->nome_servico?></span></span>
                 <span class="azul">Horário: <span class="tipo"><?= $solicitacao->horario?></span></span>
                 <span class="azul">Data: <span class="tipo"><?= $solicitacao->data?></span></span>
+                <input type="hidden" value="<?= $solicitacao->id_agendamento?>">
               </div>
             </li>
 
@@ -436,9 +483,9 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
                   },
                   ticks: {
                     font: {
-                      size: 15
+                      size: 15,
                     },
-                    color: 'white'
+                    color: 'white',
                   },
                   beginAtZero: true,
                 },
