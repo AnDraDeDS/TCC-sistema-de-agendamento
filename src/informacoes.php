@@ -2,7 +2,7 @@
 
 session_start();
 if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false) {
-    header("Location: ./cadastro.php");
+    header("Location: ./login.php");
     exit();
 }
 require_once './lib/conn.php';

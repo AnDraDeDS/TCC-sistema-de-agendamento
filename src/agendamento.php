@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false) {
-    header("Location: ./cadastro.php");
+    header("Location: ./login.php");
     exit();
 }
 require_once './lib/conn.php';
@@ -134,6 +134,8 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             
             <div class="horarios">
                 <h1 id="title">HORÁRIOS</h1>
+
+
                 <button type="button" class="horario" name="horario" onmouseover="selectItens('horario')" value="08:00 - 09:30" id="hora1">08:00 - 09:30</button>
                 <button type="button" class="horario" name="horario" onmouseover="selectItens('horario')" value="09:30 - 11:00" id="hora2">09:30 - 11:00</button>
                 <button type="button" class="horario" name="horario" onmouseover="selectItens('horario')" value="11:00 - 12:30" id="hora3">11:00 - 12:30</button>
@@ -183,6 +185,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="./JS/agendamento.js"></script>
 <script>

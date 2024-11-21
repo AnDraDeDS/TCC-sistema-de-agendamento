@@ -35,9 +35,26 @@ let img2 = document.getElementById("img2");
 function selectItens(item){
   
   
+  if(item == 'btn'){
+    let botoes = Array.from(document.querySelectorAll('.active_day'));
+    botoes.forEach((botao)=>{
+      botao.addEventListener('click', ()=>{
+        verify();
+        document.getElementById("DataServico").value = botao.value; 
+        botao.style="background-color: #44B2F7; border: 0; outline: 0; box-shadow: rgba(0, 0, 0, 0.25) 4px 7px 8px,rgba(0, 0, 0, 0.12) 0px 5px 5px,rgba(0, 0, 0, 0.12) 0px 2px 3px,rgba(0, 0, 0, 0.17) 0px 6px 7px,rgba(0, 0, 0, 0.09) 0px -1px 3px;"
+        let index = botoes.indexOf(botao);
+        botoes.splice( index, 1 );
+        botoes.forEach((botao)=>{
+          botao.style="background-color: transparent";
+        })
+      })
+    })
+  }
+
   
   if(item == 'horario'){
     let horarios = Array.from(document.querySelectorAll('.horario'));
+    if(document.getElementById("DataServico").value != ""){
     horarios.forEach((hora)=>{
       hora.addEventListener('click', ()=>{
         verify();
@@ -50,7 +67,9 @@ function selectItens(item){
               })
             })
           })
+          }
         }
+        
         if(item == 'veiculo'){
           let veiculos = Array.from(document.querySelectorAll('.veiculo'));
           veiculos.forEach((veiculo)=>{
@@ -66,23 +85,8 @@ function selectItens(item){
             })
           })
         }
-        if(item == 'btn'){
-          let botoes = Array.from(document.querySelectorAll('.active_day'));
-          botoes.forEach((botao)=>{
-            botao.addEventListener('click', ()=>{
-              verify();
-              document.getElementById("DataServico").value = botao.value; 
-              botao.style="background-color: #44B2F7; border: 0; outline: 0; box-shadow: rgba(0, 0, 0, 0.25) 4px 7px 8px,rgba(0, 0, 0, 0.12) 0px 5px 5px,rgba(0, 0, 0, 0.12) 0px 2px 3px,rgba(0, 0, 0, 0.17) 0px 6px 7px,rgba(0, 0, 0, 0.09) 0px -1px 3px;"
-              let index = botoes.indexOf(botao);
-              botoes.splice( index, 1 );
-              botoes.forEach((botao)=>{
-                botao.style="background-color: transparent";
-              })
-            })
-          })
-        }
       }
-      
+
       function verify(){
 
         inputA = document.getElementById("DataServico").value;
@@ -105,6 +109,22 @@ function selectItens(item){
         }
       }
       
+      function servico_foco(servico, valor, duracao, descricao, imagem1, imagem2, id){
+        content.classList.add("d-none");
+        content3.classList.add("d-none");
+        content2.classList.remove("d-none");
+        document.getElementById("NameServico").value = servico;
+        document.getElementById("PrecoServico").value = valor;
+        document.getElementById("DuracaoServico").value = duracao;
+        
+        document.getElementById("id_servico").value = id;
+        console.log(duracao);
+        titulo_servico.innerHTML = `${servico.toUpperCase()}`;
+        descricao_servico.innerText = `${descricao}`;
+        duracao_servico.innerHTML = `<span style="color: #63C3FF; font-weight: 700;">Duração: ${duracao}</span> `
+        img1.setAttribute("src", `data:image/jpeg;base64,${imagem1}`);
+        img2.setAttribute("src", `data:image/jpeg;base64,${imagem2}`);
+      }
       function atual(){
         dropdown.classList.toggle("d-none");
         if(dropdown.getAttribute("id") != "next"){
@@ -148,22 +168,6 @@ function hide(){
   dropdown.classList.add("d-none");
 }
 
-function servico_foco(servico, valor, duracao, descricao, imagem1, imagem2, id){
-  content.classList.add("d-none");
-  content3.classList.add("d-none");
-  content2.classList.remove("d-none");
-  document.getElementById("NameServico").value = servico;
-  document.getElementById("PrecoServico").value = valor;
-  document.getElementById("DuracaoServico").value = duracao;
-  
-  document.getElementById("id_servico").value = id;
-  console.log(duracao);
-  titulo_servico.innerHTML = `${servico.toUpperCase()}`;
-  descricao_servico.innerText = `${descricao}`;
-  duracao_servico.innerHTML = `<span style="color: #63C3FF; font-weight: 700;">Duração: ${duracao}</span> `
-  img1.setAttribute("src", `data:image/jpeg;base64,${imagem1}`);
-  img2.setAttribute("src", `data:image/jpeg;base64,${imagem2}`);
-}
 
 function agend_foco(){
   content.classList.add("d-none");
