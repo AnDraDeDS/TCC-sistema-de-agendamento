@@ -12,7 +12,7 @@ $semana2 = 'BETWEEN 08 AND 14';
 $semana3 = 'BETWEEN 15 AND 21';
 $semana4 = 'BETWEEN 22 AND 31';
 
-$sql = "SELECT sum(s.preco) as soma FROM agendamento as a INNER JOIN servico as s ON a.fk_id_servico = s.id_servico WHERE MONTH(a.data) = $mesAtual && a.status = 1 && YEAR(a.data) = $anoAtual && DAY(a.data) $semana1";
+$sql = "SELECT sum(s.preco) as soma FROM agendamento as a INNER JOIN servico as s ON a.fk_id_servico = s.id_servico WHERE MONTH(a.data) = $mesAtual && a.status = 2 && YEAR(a.data) = $anoAtual && DAY(a.data) $semana1";
 $stmt = $conn->query($sql);
 
 $solicitacoes = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -25,7 +25,7 @@ foreach ($solicitacoes as $solicitacao) {
     }
 }
 
-$sql = "SELECT sum(s.preco) as soma FROM agendamento as a INNER JOIN servico as s ON a.fk_id_servico = s.id_servico WHERE MONTH(a.data) = $mesAtual && a.status = 1 && YEAR(a.data) = $anoAtual && DAY(a.data) $semana2";
+$sql = "SELECT sum(s.preco) as soma FROM agendamento as a INNER JOIN servico as s ON a.fk_id_servico = s.id_servico WHERE MONTH(a.data) = $mesAtual && a.status = 2 && YEAR(a.data) = $anoAtual && DAY(a.data) $semana2";
 $stmt = $conn->query($sql);
 
 $solicitacoes = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -38,7 +38,7 @@ foreach ($solicitacoes as $solicitacao) {
     }
 }
 
-$sql = "SELECT sum(s.preco) as soma FROM agendamento as a INNER JOIN servico as s ON a.fk_id_servico = s.id_servico WHERE MONTH(a.data) = $mesAtual && a.status = 1 && YEAR(a.data) = $anoAtual && DAY(a.data) $semana3";
+$sql = "SELECT sum(s.preco) as soma FROM agendamento as a INNER JOIN servico as s ON a.fk_id_servico = s.id_servico WHERE MONTH(a.data) = $mesAtual && a.status = 2 && YEAR(a.data) = $anoAtual && DAY(a.data) $semana3";
 $stmt = $conn->query($sql);
 
 $solicitacoes = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -51,7 +51,7 @@ foreach ($solicitacoes as $solicitacao) {
     }
 }
 
-$sql = "SELECT sum(s.preco) as soma FROM agendamento as a INNER JOIN servico as s ON a.fk_id_servico = s.id_servico WHERE MONTH(a.data) = $mesAtual && a.status = 1 && YEAR(a.data) = $anoAtual && DAY(a.data) $semana4";
+$sql = "SELECT sum(s.preco) as soma FROM agendamento as a INNER JOIN servico as s ON a.fk_id_servico = s.id_servico WHERE MONTH(a.data) = $mesAtual && a.status = 2 && YEAR(a.data) = $anoAtual && DAY(a.data) $semana4";
 $stmt = $conn->query($sql);
 
 $solicitacoes = $stmt->fetchAll(PDO::FETCH_OBJ);

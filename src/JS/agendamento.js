@@ -15,7 +15,7 @@ inputC = document.getElementById("VeiculoServico").value;
 
 
 function aviso(){
-  alert('preencha todos os campos vazios para agendar!');
+  alert('preencha todos os campos vazios para agendar ou selecione novamente!');
 }
 
 

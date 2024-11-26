@@ -113,6 +113,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         echo "<script>alert('Serviço Atpagado com sucesso!')</script>";
         }
+    
+    if($enviar == 'excluir_cliente'){
+        
+        $sql = "DELETE FROM cliente WHERE id_cliente = :id_cliente";
+        
+        // Preparar a query
+        $stmt = $conn->prepare($sql);
+        
+        // Definir os parâmetros
+        $stmt->bindValue(':id_cliente', $id_cliente_delete);
+        $stmt->execute();
+        
+        
+        
+        echo "<script>alert('Serviço Atpagado com sucesso!')</script>";
+        }
         
         header("Location: ../dashboard.php");
 }

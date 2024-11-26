@@ -19,13 +19,11 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="./js/navbar.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- <script src="../../src/JS/bootstrap.js" ></script>
   <script src="../JS/bootstrap.js" ></script> -->
-  <link rel="stylesheet" href="../../src/css/bootstrap.css">
   <link rel="stylesheet" href="../../src/css/dashboard.css">
   <title>Painel de Controle</title>
 </head>
@@ -255,6 +253,42 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     </div>
     
     
+    <!-- Excluir Cliente -->
+    <div id="cms9" class="cms cms-excluir d-none">
+    <form action="./funcCMS/func_servico.php" method="post" enctype="multipart/form-data">
+
+      <div class="header-cms">
+        <div class="dropdown-center">
+          <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <p>Excluir Cliente</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
+          </button>
+          <ul id="menu_pesquisa" class="dropdown-menu" style="height: 30vh; overflow-y: auto">
+          <?php
+                  
+        $sqlCliente = "SELECT * FROM cliente ORDER BY nome ASC";
+
+        $stmt = $conn->query($sqlCliente);
+
+          $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
+          
+          
+          foreach($clientes as $cliente): ?>
+                    <li>
+                        <button onclick="excluir(<?=$cliente->id_cliente?>)"  type="button" class="servico-button">
+                            <?= $cliente->nome ?>
+                        </button>
+                    </li>
+          <?php endforeach; ?>
+          </ul>
+        </div>
+      </div>
+      <div class="content-cms">
+      <input type="hidden" name="id_cliente_delete" id="delete_id_cli">
+        <button type="submit" class="submit_form" name="enviar" value="excluir_cliente">CONFIRMAR</button>
+      </div>
+    </form>
+    </div>
+    
     <aside>
       <div id="sidebar" class="sidebar expandir">
         <div class="header_sidebar">
@@ -296,51 +330,52 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         <div class="cabecalho">
 
           <h1>SERVIÇOS AGENDADOS</h1>
-          <button onclick="search()" style="border: 0; outline: 0; background-color: transparent;">
+          <button id="btn-search" onclick="search()" style="border: 0; outline: 0; background-color: transparent;">
             <img id="filter" src="../images/icons/dashboard/filtro.png" alt="">
           </button>
           
+          <div id="dropdown-consulta" class="d-none">
+            <form method="GET" class="height: 100%; width: 100%;">
+            <ul>
+              <li><button type="submit" class="btn-agendamentos" name="consulta" value="andamento">Em Andamento</button></li>
+              <li><button type="submit" class="btn-agendamentos" name="consulta" value="concluido">Concluídos</button></li>
+            </ul>
+          </form>
+          </div>
 
         </div>
         <div class="background-servicos">
           <ul>
           <?php
 
+            extract($_GET);
 
 
           if(isset($consulta)){
 
-            if ($consulta == 'nome'){
-              $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
+            if ($consulta == 'andamento'){
+              $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto, a.status as statos  FROM agendamento as a 
               INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
               INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
-              WHERE a.  status = 1 && c.nome LIKE %$dado%;
+              WHERE a.status = 1
               ORDER BY a.data ASC";
             }
 
-            if ($consulta == 'servico'){
-              $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
+            if ($consulta == 'concluido'){
+              $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto, a.status as statos  FROM agendamento as a 
               INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
               INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
-              WHERE a.  status = 1 && s.nome  LIKE %$dado%;
+              WHERE a.status = 2
               ORDER BY a.data ASC";
             }
 
-            if ($consulta == 'data'){
-              $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
-              INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
-              INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
-              WHERE a.  status = 1 && a.data = %$dado%;
-              ORDER BY a.data ASC";
-            }
-            
           }else{
 
-          $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto  FROM agendamento as a 
-          INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
-          INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
-          WHERE a.  status = 1
-          ORDER BY a.data ASC";
+            $sqlReq = "SELECT a.id_agendamento, s.nome as nome_servico,  c.nome as nome_cliente, a.veiculo, a.data, a.horario, c.foto, a.status as statos  FROM agendamento as a 
+            INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
+            INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
+            WHERE a.status = 1
+            ORDER BY a.data ASC";
 
           }
 
@@ -362,8 +397,24 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
               <div class="info-agendamento">
                 <span class="azul">Serviço: <span class="tipo"><?= $solicitacao->nome_servico?></span></span>
                 <span class="azul">Horário: <span class="tipo"><?= $solicitacao->horario?></span></span>
-                <span class="azul">Data: <span class="tipo"><?= $solicitacao->data?></span></span>
+                <span class="azul">Data: <span class="tipo"><?= date('d/m/Y', strtotime($solicitacao->data)) ?></span></span>
                 <input type="hidden" value="<?= $solicitacao->id_agendamento?>">
+              </div>
+              <div class="concluir">
+                
+                <form action="./funcCMS/func_agendamento.php" method="post">
+                  <input type="hidden" name="id_concluir" value="<?= $solicitacao->id_agendamento?>">
+                <?php
+                    if($solicitacao->statos == 1){
+                      echo'
+                    <button type="submit" name="acao_req" value="concluir" class="btn-finish"><img src="../images/icons/dashboard/button-confirmar.svg" style="width: 50px; height: 50px; border: 0; border-radius: 50%;" alt="">
+                    <p>Concluir</p>
+                    </button>
+                  <?php ';
+                    
+                    }?>
+                  </form>
+                  
               </div>
             </li>
 
@@ -539,7 +590,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             </div>
             <div class="linha"></div>
             <div class="agendamento-solicitacao">
-              <p class="tipo">Data: <?= $solicitacao->data?></p>
+              <p class="tipo">Data: <?= date('d/m/Y', strtotime($solicitacao->data)) ?></p>
               <p class="tipo">Horário: <?= $solicitacao->horario?></p>
             </div>
             <div class="container-buttons">
@@ -563,7 +614,6 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
 
 <script src="../JS/dashboard.js" defer></script>
 

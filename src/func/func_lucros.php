@@ -8,7 +8,7 @@ $mes = 1;
 
 while ($mes <= 12) {
 
-    $sql = "SELECT sum(s.preco) as soma FROM agendamento as a INNER JOIN servico as s ON a.fk_id_servico = s.id_servico WHERE MONTH(a.data) = $mes && a.status = 1 && YEAR(a.data) = $anoAtual";
+    $sql = "SELECT sum(s.preco) as soma FROM agendamento as a INNER JOIN servico as s ON a.fk_id_servico = s.id_servico WHERE MONTH(a.data) = $mes && a.status = 2 && YEAR(a.data) = $anoAtual";
     $stmt = $conn->query($sql);
 
     $solicitacoes = $stmt->fetchAll(PDO::FETCH_OBJ);

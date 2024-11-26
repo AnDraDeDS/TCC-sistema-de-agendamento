@@ -30,7 +30,9 @@ document.getElementById("ano_atual").innerText=`${mesh4}, ${anoh4}`;
 
 function excluir(id){
   let input_id = document.getElementById("delete_id");
+  let input_id_cli = document.getElementById("delete_id_cli");
   input_id.value = id;
+  input_id_cli.value = id;
 }
 
 function update(id){
@@ -44,6 +46,9 @@ let cms2 = document.getElementById("cms2");
 let cms3 = document.getElementById("cms3");
 let cms7 = document.getElementById("cms7");
 let cms8 = document.getElementById("cms8");
+let cms9 = document.getElementById("cms9");
+
+let cmsAll = [cms1, cms2, cms3, cms7, cms8, cms9];
 
 function graficToggle(){
   ctx.classList.toggle("d-none");
@@ -60,19 +65,19 @@ function unfocus(){
   cms3.classList.add("d-none");
   cms7.classList.add("d-none");
   cms8.classList.add("d-none");
+  cms9.classList.add("d-none");
 }
-
-let cmsAll = [cms1, cms2, cms3, cms7, cms8];
 
 cmsAll.forEach(cms => {
   cms.addEventListener("click", function(e) {
     e.stopPropagation();
   });
 });
-
-
 document.addEventListener("click", (e) => {
   const path = e.composedPath();
+  if(!path.includes(document.getElementById("dropdown-consulta")) && !path.includes(document.getElementById("btn-search"))){
+    document.getElementById("dropdown-consulta").classList.add("d-none")
+  }
   cmsAll.forEach(cms => {
     if (!path.includes(sideBar) && !path.includes(cms)) {
       unfocus();
@@ -80,6 +85,9 @@ document.addEventListener("click", (e) => {
   });
 });
 
+function search(){
+  document.getElementById("dropdown-consulta").classList.toggle("d-none");
+}
 
 function toggleSide(){
   sideBar.classList.toggle("active");
@@ -91,70 +99,79 @@ function toggleSide(){
   cms3.classList.add("d-none");
   cms7.classList.add("d-none");
   cms8.classList.add("d-none");
+  cms9.classList.add("d-none");
 };
 
 function openCMS(cms){
-
+  
   agendados.style="filter: blur(8px);";
   main.style="filter: blur(8px);"
-
+  
   if(cms == 'inserir_servico'){
-            cms1.classList.toggle("d-none");
-        
-            cms2.classList.add("d-none");
-            cms3.classList.add("d-none");
+    cms1.classList.toggle("d-none");
+    
+    cms2.classList.add("d-none");
+    cms3.classList.add("d-none");
+    cms7.classList.add("d-none");
+    cms8.classList.add("d-none");
+    cms9.classList.add("d-none");
+  }
+  
+  if(cms == 'atualizar_servico'){
+    cms2.classList.toggle("d-none");
+    
+    cms1.classList.add("d-none");
+    cms3.classList.add("d-none");
+    cms7.classList.add("d-none");
+    cms8.classList.add("d-none")
+    cms9.classList.add("d-none");
+  }
+  
+  if(cms == 'excluir_servico'){
+    cms3.classList.toggle("d-none");
+    
+    cms1.classList.add("d-none");
+    cms2.classList.add("d-none");
             cms7.classList.add("d-none");
             cms8.classList.add("d-none")
-        }
+            cms9.classList.add("d-none");
+          }
           
-   if(cms == 'atualizar_servico'){
-            cms2.classList.toggle("d-none");
-
-            cms1.classList.add("d-none");
-            cms3.classList.add("d-none");
-            cms7.classList.add("d-none");
-            cms8.classList.add("d-none")
-   }
-
-   if(cms == 'excluir_servico'){
-            cms3.classList.toggle("d-none");
-
-            cms1.classList.add("d-none");
-            cms2.classList.add("d-none");
-            cms7.classList.add("d-none");
-            cms8.classList.add("d-none")
-   }
-
-   if(cms == 'atualizar_informacoes'){
+          if(cms == 'atualizar_informacoes'){
             cms7.classList.toggle("d-none");
-
+            
             cms1.classList.add("d-none");
             cms2.classList.add("d-none");
             cms3.classList.add("d-none");
             cms8.classList.add("d-none")
-         }
-
-if(cms == 'visualizar_cliente'){
-  cms8.classList.toggle("d-none");
-
-  cms1.classList.add("d-none");
-  cms2.classList.add("d-none");
-  cms3.classList.add("d-none");
-}
-
-if(cms == 'excluir_cliente'){
-
-  cms1.classList.add("d-none");
-  cms2.classList.add("d-none");
-  cms3.classList.add("d-none");
-  cms8.classList.add("d-none")
-}
-
-
-numb = 0;
-BUTTONS.forEach((BUTTON,index) =>{ 
- BUTTON.addEventListener("click", ()=>{
-    numb = numb + 180;
+            cms9.classList.add("d-none");
+          }
+          
+          if(cms == 'visualizar_cliente'){
+            cms8.classList.toggle("d-none");
+            
+            cms1.classList.add("d-none");
+            cms2.classList.add("d-none");
+            cms3.classList.add("d-none");
+            cms7.classList.add("d-none")
+            cms9.classList.add("d-none");
+          }
+          
+          if(cms == 'excluir_cliente'){
+            cms9.classList.remove("d-none");
+            
+            cms1.classList.add("d-none");
+            cms2.classList.add("d-none");
+            cms3.classList.add("d-none");
+            cms7.classList.add("d-none");
+            cms8.classList.add("d-none");
+          }
+          
+          
+          numb = 0;
+          BUTTONS.forEach((BUTTON,index) =>{ 
+            BUTTON.addEventListener("click", ()=>{
+              numb = numb + 180;
     ARROWS[index].style.transform = `rotate(${numb}deg)`
 })
 })
