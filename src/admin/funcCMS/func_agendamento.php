@@ -14,7 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $conn->query($sql);
     }
         header("Location: ../dashboard.php");
+
+    if($acao_req == "concluir"){
+        $sql = "UPDATE agendamento SET status = 2 WHERE id_agendamento = $id_concluir";
+        $stmt = $conn->query($sql);
+    }
+        header("Location: ../dashboard.php");
+
 }
 
 ?>
-
