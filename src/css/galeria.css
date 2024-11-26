@@ -42,9 +42,13 @@
     src: url(../fonts/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf);
 }
 
+*::selection{
+    background: none;
+}
+
 body {
     background-color: #272727;
-    overflow-x: hidden;
+    overflow-y: auto;
 }
 body::-webkit-scrollbar-track {
     background-color: #000;
@@ -61,6 +65,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header{
+    z-index: 2;
     width: 100vw;
     filter: drop-shadow(0 6mm 4mm rgba(59, 89, 152,.5));
     height: 20vh;
@@ -79,11 +84,16 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
 }
 
-#jr, .space{
+#jr{
     max-width: 80px;
     margin: 20px;
     display: flex;
-    justify-self: start;
+}
+
+#logout{
+    width: 50px;
+    display: flex;
+    margin: 20px;
 }
 
 #carwash{
@@ -136,6 +146,7 @@ body::-webkit-scrollbar-thumb {
     padding-top: 5%;
     padding-bottom: 5%;
 }
+
 
 .content{
     margin: 0 auto;
