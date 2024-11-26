@@ -137,7 +137,7 @@ if ($selectCliente->rowCount() > 0) {
                             $sqlReq = "SELECT a.id_agendamento, a.status, s.nome as nome_servico,  c.nome as nome_cliente, a.data, a.horario FROM agendamento as a 
                     INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
                     INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
-                    WHERE a.status = 1
+                    WHERE a.status = 1 or a.status = 0
                     ORDER BY a.data ASC";
 
                             $stmt = $conn->query($sqlReq);
