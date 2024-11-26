@@ -20,7 +20,6 @@ $selectCliente = $conn->prepare($sqlListarCliente);
 $selectCliente->bindValue(":id_cliente", $id_cliente);
 $selectCliente->execute();
 
-
 // Verificar se algum cliente foi encontrado
 if ($selectCliente->rowCount() > 0) {
     $cliente = $selectCliente->fetch(PDO::FETCH_OBJ);
@@ -29,6 +28,7 @@ if ($selectCliente->rowCount() > 0) {
     echo "Cliente não encontrado.";
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -51,8 +51,8 @@ if ($selectCliente->rowCount() > 0) {
     <!-- NAVBAR -->
 
     <div class="header">
-    <div class="logo"><img id="jr" src="./images/jr_navbar.svg"><img id="carwash" src="./images/carwash.svg">
-            <a href="./func/logout.php"><img id="logout"  src="./images/icons/dashboard/logout_icon.png"></a>
+        <div class="logo"><img id="jr" src="./images/jr_navbar.svg"><img id="carwash" src="./images/carwash.svg">
+            <a href="./func/logout.php"><img id="logout" src="./images/icons/dashboard/logout_icon.png"></a>
         </div>
         <div class="navbar">
             <ul>
@@ -63,9 +63,7 @@ if ($selectCliente->rowCount() > 0) {
             </ul>
         </div>
     </div>
-
-    <!-- CONTEÚDO -->
-    <?php 
+<?php 
   
     $pastaImagensCliente = "./images/upload_clientes/";
 
@@ -78,6 +76,7 @@ if ($selectCliente->rowCount() > 0) {
         : './images/upload_clientes/perfil_default.png';
 
 ?>
+    <!-- CONTEÚDO -->
     <div class="content">
         <div class="side">
         <div class="perfil" style="background-image: url('<?= $caminhoImagem; ?>');">
@@ -114,10 +113,6 @@ if ($selectCliente->rowCount() > 0) {
                     <div class="text">
                         <p class="titulo">Endereço</p>
                         <p><?php echo htmlspecialchars($cliente->endereco); ?></p>
-                        <?php
-    // Exibe o caminho para depurar
-
-?>
                     </div>
                 </div>
             </div>
@@ -133,26 +128,50 @@ if ($selectCliente->rowCount() > 0) {
                 </div>
                 <div class="modal-body">
                     <table class="table table-bordered">
-                        <thead>
+                        <tbody class="table-body">
+
                             <tr class="table-header">
                                 <th scope="col">Serviço</th>
                                 <th scope="col">Horário</th>
                                 <th scope="col">Data</th>
                                 <th scope="col">Status</th>
-                                <th scope="col"></th>
                             </tr>
-                        </thead>
 
-                        <tbody class="table-body">
-                            <tr>
-                                <td>Lavagem completa</td>
-                                <td>12:30 - 14:00</td>
-                                <td>04/05</td>
-                                <td>Aguardando confirmação <br></td>
-                                <td>
-                                    <button class="btn btn-reagendar btn-sm mt-1 confirm-btn" id="reagend">Reagendar</button>
-                                </td>
-                            </tr>
+                            <?php
+                            $sqlReq = "SELECT a.id_agendamento, a.status, s.nome as nome_servico,  c.nome as nome_cliente, a.data, a.horario FROM agendamento as a 
+                    INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
+                    INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
+                    WHERE a.status = 1
+                    ORDER BY a.data ASC";
+
+                            $stmt = $conn->query($sqlReq);
+
+                            if ($stmt->rowCount() > 0) {
+
+                                $solicitacoes = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+                                foreach ($solicitacoes as $solicitacao) { ?>
+                                    <tr>
+                                        <td><?= $solicitacao->nome_servico ?></td>
+                                        <td><?= $solicitacao->horario ?></td>
+                                        <td><?= $solicitacao->data ?></td>
+                                        <td><?php
+                                            if ($solicitacao->status == 1) {
+                                                echo "Aceito";
+                                            }
+                                            if ($solicitacao->status == 0) {
+                                                echo "Pendente";
+                                            }
+
+                                            ?></td>
+                                    
+                                            <!-- Botões de Ação -->
+                                           <td> <button class="btn btn-primary btn-sm" onclick="reagendar(<?= $solicitacao->id_agendamento ?>)">Reagendar</button> </td>
+                                            <td> <button class="btn btn-danger btn-sm" onclick="excluir(<?= $solicitacao->id_agendamento ?>)">Excluir</button> </td>
+                                        
+                                    </tr>
+                                <?php } ?>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -164,7 +183,7 @@ if ($selectCliente->rowCount() > 0) {
     <div class="modal fade" id="modalnome" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            <div class="cabecalho">
+                <div class="cabecalho">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Nome</h1>
                 </div>
                 <div class="corpinho">
@@ -174,10 +193,10 @@ if ($selectCliente->rowCount() > 0) {
                             <label for="recipient-name" class="col-form-label">Nome</label>
                             <input name="nome" type="text" class="form-control" id="recipient-name">
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" name="acao" value="atualizar_nome" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="acao" value="atualizar_nome" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
                 </form>
             </div>
         </div>
@@ -201,10 +220,10 @@ if ($selectCliente->rowCount() > 0) {
                             <label for="password" class="col-form-label">Nova Senha</label>
                             <input name="nova_senha" type="password" id="nova-senha" class="form-control" aria-describedby="passwordHelpBlock">
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" name="acao" value="atualizar_senha" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="acao" value="atualizar_senha" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
                 </form>
             </div>
         </div>
@@ -221,12 +240,12 @@ if ($selectCliente->rowCount() > 0) {
                     <form action="./func/func_updatePerfil.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="call" class="col-form-label">Telefone</label>
-                            <input name="telefone" type="tel" class="form-control telefone" id="call" placeholder="Telefone (com DDD)" pattern="\([0-9]){2}\)[9]{1}[0-9]{4}-[0-9]{4}" required>
+                            <input name="telefone" type="number" class="form-control" id="call">
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" name="acao" value="atualizar_telefone" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="acao" value="atualizar_telefone" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
                 </form>
             </div>
         </div>
@@ -245,10 +264,10 @@ if ($selectCliente->rowCount() > 0) {
                             <label for="address" class="col-form-label">Endereço</label>
                             <input name="endereco" type="text" class="form-control" id="address">
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" name="acao" value="atualizar_endereco" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="acao" value="atualizar_endereco" class="btn btn-primary btn-sm confirm-btn">CONFIRMAR</button>
+                </div>
                 </form>
             </div>
         </div>
@@ -271,13 +290,13 @@ if ($selectCliente->rowCount() > 0) {
                             </label>
                             <input id="file-upload" type="file" placeholder="Arquivo" id="imagem1" name="foto" accept="image/*">
                         </div>
-                    </div>
-                    
-                    <div class="modal-footer">
-                        <button type="submit" name="acao" value="atualizar_foto" class="btn btn-primary btn-sm">CONFIRMAR</button>
-                    </div>
-                </form>
                 </div>
+
+                <div class="modal-footer">
+                    <button type="submit" name="acao" value="atualizar_foto" class="btn btn-primary btn-sm">CONFIRMAR</button>
+                </div>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -298,6 +317,5 @@ if ($selectCliente->rowCount() > 0) {
         <?php } ?>
     });
 </script>
-
 
 </html>
