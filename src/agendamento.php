@@ -162,22 +162,22 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 <div class="navbar2">
     <ul>
-        <a href="./agendamento.html">
+        <a href="./agendamento.php">
             <li>
                 <div class="page_atual"><img src="./images/icons/agendamento/navbar-mobile/agendamento.svg" alt=""></div>Agendamento
             </li>
         </a>
-        <a href="./informacoes.html">
+        <a href="./informacoes.php">
             <li>
                 <div><img src="./images/icons/agendamento/navbar-mobile/informacoes.svg" alt=""></div>Info
             </li>
         </a>
-        <a href="./galeria.html">
+        <a href="./galeria.php">
             <li>
                 <div><img src="./images/icons/agendamento/navbar-mobile/galeria.svg" alt=""></div>Galeria
             </li>
         </a>
-        <a href="./perfil.html">
+        <a href="./perfil.php">
             <li>
                 <div><img src="./images/icons/agendamento/navbar-mobile/perfil.svg" alt=""></div>Perfil
             </li>

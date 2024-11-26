@@ -203,7 +203,7 @@ body::-webkit-scrollbar-thumb {
  
 
 .content{
-    padding-top: 18vh;
+    padding-top: 20vh;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -344,6 +344,13 @@ p{
         height: auto;
         margin: 0;
     }
+
+    
+.midia a{
+    color: #63C3FF;
+    text-decoration: none;
+    font-size: 3vw;
+}
 
     #jr{
         width: 30px;

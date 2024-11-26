@@ -92,10 +92,10 @@ $telefoneFormatado = preg_replace("/[^0-9]/", "", $informacao->numero);
 
     <div class="navbar2" d-none>
             <ul>
-                <a href="./agendamento.html"><li><div><img src="./images/icons/icon_mobile/" alt=""></div>Info</li></a>
-                <a href=".informacoes.html"><li><div class="page_atual"><img src="./images/icons/icon_mobile/info.svg" alt=""></div>Agendamento</li></a>
-                <a href="./galeria.html"><li><div><img src="./images/icons/icon_mobile" alt=""></div>Galeria</li></a>           
-                <a href="./perfil.html"><li><div><img src="./images/icons/icon_mobile" alt=""></div>Perfil</li></a>
+                <a href="./agendamento.php"><li><div><img src="./images/icons/icon_mobile/servicos.svg" alt=""></div>Info</li></a>
+                <a href=".informacoes.php"><li><div class="page_atual"><img src="./images/icons/icon_mobile/info.svg" alt=""></div>Agendamento</li></a>
+                <a href="./galeria.php"><li><div><img src="./images/icons/icon_mobile/galeria.svg" alt=""></div>Galeria</li></a>           
+                <a href="./perfil.php"><li><div><img src="./images/icons/icon_mobile/perfil.svg" alt=""></div>Perfil</li></a>
             </ul>
         </div>
 
