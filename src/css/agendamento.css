@@ -64,7 +64,7 @@ body::-webkit-scrollbar-thumb {
     background: url('../images/capa.png');
     background-size: cover;
     background-position: 15% 75%;
-    position: absolute;
+    position: fixed;
     z-index: 2;
 }
 
@@ -199,7 +199,7 @@ body::-webkit-scrollbar-thumb {
 
 
 .content{
-    padding-top: 25vh;
+    padding-top: 20vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
@@ -569,12 +569,14 @@ body::-webkit-scrollbar-thumb {
       display: flex;
       align-items: center;
     }
+    
     .calendar ul {
         list-style: none;
         display: flex;
         flex-wrap: wrap;
         text-align: center;
     }
+
     .calendar section .dates button {
         width: calc(100% / 8);
         height: calc(100vw / 27);
@@ -588,19 +590,23 @@ body::-webkit-scrollbar-thumb {
         border-radius: 50%;
         color: white;
     }
+
     .calendar section .dates .btn_inactive{
-        color: #ccc;
+        color: #a0a0a0;
         background-color: transparent;
         box-shadow: none;
     }
+
   #prev,#next {
     cursor: pointer;
   } 
+
   .days {
     font-weight: lighter;
     font-size: 1.5em;
-    color: #BDC0C2;
+    color: #ffffff;
   }
+
   .calendar .days li {  
     width: calc(100% / 7);
     margin-top: 25px;
@@ -638,7 +644,7 @@ body::-webkit-scrollbar-thumb {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #001747;
+    background-color: #a0a0a0;  
 }
 .aberto .circle{
     width: 30px;
