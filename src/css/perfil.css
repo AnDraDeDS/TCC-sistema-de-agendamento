@@ -149,8 +149,8 @@ body::-webkit-scrollbar-thumb {
     height: 35vh;
     width: 35vh;
     border-radius: 50%;
+    background-image: url('../images/perfil_default.png');
     background-size: cover;
-    background-position: center;
     margin-bottom: 5vh;
     display: flex;
     filter: drop-shadow(0 2mm 0.9mm rgba(0, 0, 0, .5));

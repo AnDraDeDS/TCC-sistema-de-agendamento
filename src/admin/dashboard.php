@@ -225,7 +225,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         if($stmt->rowCount() > 0){
 
           $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
-          
+          $pastaImagensCliente = "../images/upload_clientes/";
           forEach($clientes as $cliente){
 
             $telefoneCliente = preg_replace("/[^0-9]/", "", $cliente->telefone);
@@ -234,12 +234,12 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         <li>
           <div class="cliente">
             <div class="foto-cli">
-              <div class="image"></div>
+              <div class="image"><img src="<?= $pastaImagensCliente . basename($cliente->foto) ?>" alt="" height="100" width = "100" style="border-radius:50%;"></div>
             </div>
             <div class="dados-cli">
               <h3><?= $cliente->nome?></h3>
               <hr>
-              <p id="telefoneFormatado">Contato: <a href="https://wa.me/+55<?= $telefoneCliente ?>?text=Ol%C3%A1%20Fl%C3%A1vio%2C%20cheguei%20ao%20seu%20contato%20via%20site%20da%20JR%20Car%20Wash`` target="_blank">
+              <p id="telefoneFormatado">Contato: <a href="https://wa.me/+55<?= $telefoneCliente ?>?text=Ol%C3%A1%20Fl%C3%A1vio%2C%20cheguei%20ao%20seu%20contato%20via%20site%20da%20JR%20Car%20Wash`` target=" _blank>
                             <?= $cliente->telefone ?>
                         </a></p>
               <hr>
@@ -328,7 +328,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
       </div>
       <div class="container-servicos">
         <div class="cabecalho">
-
+            
           <h1>SERVIÇOS AGENDADOS</h1>
           <button id="btn-search" onclick="search()" style="border: 0; outline: 0; background-color: transparent;">
             <img id="filter" src="../images/icons/dashboard/filtro.png" alt="">
@@ -385,11 +385,12 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         if($stmt->rowCount() > 0){
 
           $solicitacoes = $stmt->fetchAll(PDO::FETCH_OBJ);
+          $pastaImagensCliente = "../images/upload_clientes/";
           
           forEach($solicitacoes as $solicitacao){
         ?>
             <li class="container-item">
-              <img src="../images/perfil_default.png" alt="" class="foto-de-perfil" height="70" width="70">
+              <img src="<?= $pastaImagensCliente . basename($solicitacao->foto) ?>" alt="" class="foto-de-perfil" height="70" width="70">
               <div class="container-nome-veiculo">
                 <p class="nome"><?= $solicitacao->nome_cliente?></p>
                 <span class="azul">Veículo: <span class="tipo"> <?= $solicitacao->veiculo ?></span></span>
@@ -574,13 +575,14 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
         if($stmt->rowCount() > 0){
 
           $solicitacoes = $stmt->fetchAll(PDO::FETCH_OBJ);
+          $pastaImagensCliente = "../images/upload_clientes/";
           
           forEach($solicitacoes as $solicitacao){
         ?>
             <form action="./funcCMS/func_agendamento.php" method="post">
           <div class="item-solicitacao">
             <div class="perfil-solicitacao">
-              <img id="cliente" src="../images/perfil_default.png" alt="" height="50px" width="50">
+              <img id="cliente" src="<?= $pastaImagensCliente . basename($solicitacao->foto) ?>" alt="" height="50px" width="50">
               <p class="solicitacao">Solicitação de <br><?= $solicitacao->nome_cliente?></p>
             </div>
             <div class="linha"></div>
@@ -609,6 +611,8 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
       </div>
     </main>
   </div>
+
+
 
 
 

@@ -5,7 +5,8 @@ require_once '../lib/conn.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefoneFormatado = preg_replace("/[^0-9]/", "", $_POST["telefone"]);
     $senha = $_POST["senha"];
-    $foto = "";
+    $caminhoFoto = "../images/upload_clientes/perfil_default.png";
+    
 
     $sqlVerificarCadastro = "SELECT * FROM cliente WHERE telefone = :telefone";
     $verificarCadastro = $conn->prepare($sqlVerificarCadastro);
@@ -20,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $inserirCliente->bindValue(":telefone", $telefoneFormatado); 
         $inserirCliente->bindValue(":senha", password_hash($senha, PASSWORD_BCRYPT));
         $inserirCliente->bindValue(":endereco", $endereco);
-        $inserirCliente->bindValue(":foto", $foto, PDO::PARAM_LOB);
+        $inserirCliente->bindValue(":foto", $caminhoFoto);
         $inserirCliente->execute();
         include './fundos/SucessCadastro.php';
 

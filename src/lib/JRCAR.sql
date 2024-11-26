@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `agendamento` (
   `data` date NOT NULL,
   `horario` varchar(15) NOT NULL,
   `veiculo` varchar(15) NOT NULL,
-  `status` bit(1) NOT NULL,
+  `status` int NOT NULL,
   `fk_id_cliente` int NOT NULL,
   `fk_id_servico` int NOT NULL,
   PRIMARY KEY (`id_agendamento`),

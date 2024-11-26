@@ -75,7 +75,7 @@ if ($selectCliente->rowCount() > 0) {
 
     $caminhoImagem = (file_exists($pastaImagensCliente . $fotoCaminho))
         ? htmlspecialchars($pastaImagensCliente . $fotoCaminho)
-        : './images/perfil_default.png';
+        : './images/upload_clientes/perfil_default.png';
 
 ?>
     <div class="content">
