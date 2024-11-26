@@ -69,6 +69,7 @@ if($acao == 'atualizar_endereco'){
     $stmt->bindValue(":id_cliente", $id_cliente);
     $stmt->execute();
 
+    header("Location: ../perfil.php");
 }
 if($acao == 'atualizar_telefone'){
     $telefoneFormatado = preg_replace("/[^0-9]/", "", $_POST["telefone"]);
