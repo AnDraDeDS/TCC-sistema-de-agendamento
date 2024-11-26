@@ -64,7 +64,8 @@ body::-webkit-scrollbar-thumb {
     background: url('../images/capa.png');
     background-size: cover;
     background-position: 15% 75%;
-    position: fixed;
+    position: absolute;
+    z-index: 2;
 }
 
 .logo{
@@ -198,14 +199,14 @@ body::-webkit-scrollbar-thumb {
 
 
 .content{
-    padding-top: 8vh;
+    padding-top: 25vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
     width: 80vw;
     min-height: calc(100vh- 40px);
     margin: 0 auto;
-    padding-bottom: 40px;                                                                                                                                                                                                   
+    padding-bottom: 20vh;                                                                                                                                                                                                   
 }
 
 .item{

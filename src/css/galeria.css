@@ -231,6 +231,17 @@ h3{
     align-items: center;
 }
 
+
+.page_atual{
+    background-color: #63C3FF;
+    width: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+
+
 @media(max-width:768px) {
 
     .navbar{
