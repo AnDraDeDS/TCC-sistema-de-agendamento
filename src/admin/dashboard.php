@@ -5,7 +5,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false || $_SESSION['ad
   exit();
 }
 require_once '../lib/conn.php';
-$sqlNomeServico = "SELECT * from servico";
+$sqlNomeServico = "SELECT * from servico ORDER BY preco";
 $stmt = $conn->query($sqlNomeServico);
 $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -255,39 +255,44 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     
     <!-- Excluir Cliente -->
     <div id="cms9" class="cms cms-excluir d-none">
-    <form action="./funcCMS/func_servico.php" method="post" enctype="multipart/form-data">
-
-      <div class="header-cms">
-        <div class="dropdown-center">
-          <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <p>Excluir Cliente</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
-          </button>
-          <ul id="menu_pesquisa" class="dropdown-menu" style="height: 30vh; overflow-y: auto">
+  <form action="./funcCMS/func_servico.php" method="post" enctype="multipart/form-data">
+    <div class="header-cms">
+      <div class="dropdown-center">
+        <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <?php
-                  
-        $sqlCliente = "SELECT * FROM cliente ORDER BY nome ASC";
+            // Verifica se um cliente foi selecionado
+            if (isset($_POST['id_cliente'])) {
+              // Mostra o nome do cliente selecionado
+              echo "<p>Excluir " . htmlspecialchars($_POST['nome_cliente']) . "</p>";
+            } else {
+              // Caso não tenha nenhum cliente selecionado, exibe o texto padrão
+              echo "<p>Excluir Cliente</p>";
+            }
+          ?>
+          <img src="../images/icons/dashboard/lupa.svg" alt="">
+        </button>
+        <ul id="menu_pesquisa" class="dropdown-menu" style="height: 30vh; overflow-y: auto">
+          <?php
+            $sqlCliente = "SELECT * FROM cliente ORDER BY nome ASC";
+            $stmt = $conn->query($sqlCliente);
+            $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-        $stmt = $conn->query($sqlCliente);
-
-          $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
-          
-          
-          foreach($clientes as $cliente): ?>
-                    <li>
-                        <button onclick="excluir(<?=$cliente->id_cliente?>)"  type="button" class="servico-button">
-                            <?= $cliente->nome ?>
-                        </button>
-                    </li>
+            // Exibe a lista de clientes
+            foreach ($clientes as $cliente): ?>
+              <li>
+                <!-- Ao clicar, envia o id e nome do cliente via POST -->
+                <button type="submit" name="id_cliente" value="<?= $cliente->id_cliente ?>" class="servico-button">
+                  <?= $cliente->nome ?>
+                </button>
+                <input type="hidden" name="nome_cliente" value="<?= $cliente->nome ?>">
+              </li>
           <?php endforeach; ?>
-          </ul>
-        </div>
+        </ul>
       </div>
-      <div class="content-cms">
-      <input type="hidden" name="id_cliente_delete" id="delete_id_cli">
-        <button type="submit" class="submit_form" name="enviar" value="excluir_cliente">CONFIRMAR</button>
-      </div>
-    </form>
     </div>
+  </form>
+</div>
+
     
     <aside>
       <div id="sidebar" class="sidebar expandir">

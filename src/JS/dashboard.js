@@ -38,7 +38,6 @@ function excluir(id){
 function update(id){
   let input_id = document.getElementById("update_id");
   input_id.value = id;
-  alert(input_id.value);
 }
 
 let cms1 = document.getElementById("cms1");
@@ -223,3 +222,7 @@ function atribuirId(id){
 document.getElementById("atualizar_id").value = id;
 console.log(document.getElementById("atualizar_id").value);
 } 
+function excluir(id_cliente, nome_cliente) {
+  // Atualiza o botão com o nome do cliente selecionado
+  document.getElementById("select_servico").innerHTML = "<p>Excluir " + nome_cliente + "</p> <img src='../images/icons/dashboard/lupa.svg' alt=''>";
+}
