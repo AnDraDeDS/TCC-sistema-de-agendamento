@@ -43,7 +43,7 @@ if(isset($_POST))
 
             
             $sql= "INSERT INTO agendamento(id_agendamento,data,horario,veiculo,status,fk_id_cliente,fk_id_servico) VALUES
-               (0,:data,:horario,:veiculo,0,99999,:id_servico)";
+               (0,:data,:horario,:veiculo,0,1,:id_servico)";
          
          $stmt = $conn->prepare($sql);
          $stmt->bindValue(":data",$DataServico);
@@ -55,14 +55,15 @@ if(isset($_POST))
          
          $id_cliente = $_SESSION['id_cliente'];
          
-         $sql= "INSERT INTO agendamento(id_agendamento,data,horario,status,fk_id_cliente,fk_id_servico) VALUES
-               (0,:data,:horario,0,:id_cliente,:id_servico)";
-         
-         $stmt = $conn->prepare($sql);
-         $stmt->bindValue(":data",$DataServico);
-         $stmt->bindValue(":horario",$HorarioServico);
-         $stmt->bindValue(":id_cliente",$id_cliente);
-         $stmt->bindValue(":id_servico",$id_servico);
+         $sql= "INSERT INTO agendamento(id_agendamento,data,horario,veiculo,status,fk_id_cliente,fk_id_servico) VALUES
+         (0,:data,:horario,:veiculo,0,:id_cliente,:id_servico)";
+   
+   $stmt = $conn->prepare($sql);
+   $stmt->bindValue(":data",$DataServico);
+   $stmt->bindValue(":horario",$HorarioServico);
+   $stmt->bindValue(":veiculo",$VeiculoServico);
+   $stmt->bindValue(":id_servico",$id_servico);
+   $stmt->bindValue(":id_cliente",$id_cliente);
          
       }
       if($stmt->execute()){

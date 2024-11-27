@@ -71,6 +71,7 @@ if($acao == 'atualizar_endereco'){
     header("Location: ../perfil.php");
 
 
+    header("Location: ../perfil.php");
 }
 if($acao == 'atualizar_telefone'){
     $telefoneFormatado = preg_replace("/[^0-9]/", "", $_POST["telefone"]);
