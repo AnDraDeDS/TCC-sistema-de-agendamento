@@ -278,19 +278,19 @@ p {
 
 .cabecalho {
     text-align: center;
-    padding: 15px; /* Aumentei o padding para deixar mais espaçado */
+    padding: 15px; 
     color: white;
     background-color: #007bff;
-    border-radius: 8px 8px 0 0; /* Deixei as bordas mais arredondadas */
-    font-weight: bold; /* Adicionei um destaque ao título */
-    font-size: 1.3em; /* Ajustei o tamanho da fonte */
+    border-radius: 8px 8px 0 0;
+    font-weight: bold; 
+    font-size: 1.3em; 
 }
 
 .mb-3 {
     padding: 15px;
-    color: #095b9f; /* Cor sutil para textos */
+    color: #095b9f; 
     font-size: larger;
-    font-weight: 500; /* Suavizei o peso da fonte */
+    font-weight: 500; 
 }
 
 .custom-file-upload {
