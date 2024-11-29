@@ -3,9 +3,52 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+@font-face {
+    font-family: 'K2D';
+    src: url(../fonts/K2D/K2D-Regular.ttf);
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: 'Carme';
+    src: url(../fonts/Carme/Carme-Regular.ttf);
+}
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url(../fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: 'Arimo';
+    src: url(../fonts/Arimo/Arimo-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Kanit';
+    src: url(../fonts/Kanit/Kanit-Regular.ttf);
+}
+@font-face {
+    font-family: 'League Spartan';
+    src: url(../fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf);
+}
+
+*::selection{
+    background: none;
+}
+
 body {
     background-color: #272727;
-    overflow-x: hidden;
+    overflow-y: auto;
 }
 body::-webkit-scrollbar-track {
     background-color: #000;
@@ -22,6 +65,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header{
+    z-index: 2;
     width: 100vw;
     filter: drop-shadow(0 6mm 4mm rgba(59, 89, 152,.5));
     height: 20vh;
@@ -103,6 +147,7 @@ body::-webkit-scrollbar-thumb {
     padding-bottom: 5%;
 }
 
+
 .content{
     margin: 0 auto;
     width: 90vw;
@@ -112,30 +157,171 @@ body::-webkit-scrollbar-thumb {
     grid-template-areas: "a b";
     gap: 1em;
     padding-bottom: 80px;
-    padding-top: 10%;
+    padding-top: 80px;
 }
-.item{
-    width: 40vw;
-    display: flex;
-    flex-direction: column;
-}
-h3{ 
+h3{
     margin-top: 30px;
     color: #63C3FF;
     letter-spacing: 2px;
-    font-size: 1.5em;
+    font-size: 1.5vw;
     padding-bottom: 1em;
     border-bottom: 1px solid #63C3FF;
-    text-transform: uppercase;
     width: 100%;
 }
 .imagens{
     display: flex;
     justify-content: space-between;
+    gap: 20px;
+}
+.imagens img{
+    border-radius: 5px;
+    width: 18vw;
+    height: calc(width * 0.7);
+}
+.item{
+    padding: 2em;
+    width: 40vw;
+}
+.item:nth-child(-n + 2){
+    padding-top: 6.5em;
+}
+
+
+.navbar2{
+    width: 100%;
+    height: 10%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    position: fixed;
+    top: 90%;
+}
+
+.navbar2 ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 0;
+
+}
+
+.navbar2 ul a li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    font-size: 0.8em;
+}
+
+.navbar2 ul a li img{
+    width: 25px;
+}
+
+.navbar2 ul a{
+    display: flex;
+    width: 60px;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.page_atual{
+    background-color: #63C3FF;
+    width: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+
+
+@media(max-width:768px) {
+
+    .navbar{
+        display: none;
+    }
+
+    .header{
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        position: fixed;
+    }
+
+    .pageName{
+        font-family: 'K2D';
+        width: 100%;
+        text-align: center;
+        background-color: rgba(59, 89, 152,.8);
+        color: white;
+        position: fixed;
+        top: 10%;
+    }
+
+    #jr{
+        width: 30px;
+    }
+
+    #carwash{
+        width: 200px;
+    }
+
+    .navbar2{
+        display: flex;
+    }
+
+    /* O CÓDIGO CSS DO @MEDIA() MOBILE ACIMA DEVE SER COPIADO EM TODAS AS PÁGINAS CSS's*/
+
+    
+.content{
+    margin: 0 auto;
+    width: 90vw;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding-bottom: 80px;
+   
+}
+h3{
+    margin-top: 30px;
+    color: #63C3FF;
+    letter-spacing: 2px;
+    font-size: 6vw;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #63C3FF;
+}
+.imagens{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     gap: 30px;
 }
 .imagens img{
     border-radius: 5px;
-    height: 90%;
-    width: 45%;
+    width: 75vw;
+    height: calc(width * 0.5);
+}
+.item{
+    padding: 2em;
+    width: 90vw;
+}
+.item:nth-child(-n + 2){
+    padding-top: 0.5em;
+}
+
+    @media(max-width:888px){
+        .item h3 {
+            font-size: 5vw;
+        }
+    }
 }

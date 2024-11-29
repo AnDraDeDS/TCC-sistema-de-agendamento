@@ -2,7 +2,7 @@
 
 session_start();
 if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false) {
-    header("Location: ./cadastro.php");
+    header("Location: ./login.php");
     exit();
 }
 require_once "./lib/conn.php";
@@ -46,21 +46,17 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     <!-- CONTEÚDO -->
 
     <div class="content">
-    <?php 
-            // Caminho para as imagens na galeria (pasta visível pelo navegador)
-            $pastaImagensUsuario = "./images/upload_servicos/";
-
+        <?php 
             foreach($servicos as $servico){
         ?>
-            <div class="item">
-                <h3><?= htmlspecialchars($servico->nome) ?></h3>
+            <div class="item">  
+                <h3><?= $servico->nome?></h3>
                 <div class="imagens">
-                    <!-- Exibe as imagens com o caminho correto para a galeria -->
-                    <img src="<?= $pastaImagensUsuario . basename($servico->imagem1) ?>" alt="<?= htmlspecialchars($servico->nome) ?>" >
-                    <img src="<?= $pastaImagensUsuario . basename($servico->imagem2) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
+                    <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem1) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
+                    <img src="data:image/jpeg;base64,<?= base64_encode($servico->imagem2) ?>" alt="<?= htmlspecialchars($servico->nome) ?>">
                 </div>
             </div>
-        <?php } ?>
+                <?php }?>
 
     </div>
 
@@ -78,4 +74,12 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     });
 </script>
 
+<div class="navbar2">
+            <ul>
+                <a href="./agendamento.php"><li><div><img src="./images/icons/agendamento/navbar-mobile/agendamento.svg" alt=""></div>Agendamento</li></a>
+                <a href="./informacoes.php"><li><div><img src="./images/icons/agendamento/navbar-mobile/informacoes.svg" alt=""></div>Info</li></a>
+                <a href="./galeria.php"><li><div class="page_atual"><img src="./images/icons/agendamento/navbar-mobile/galeria.svg" alt=""></div>Galeria</li></a>           
+                <a href="./perfil.php"><li><div><img src="./images/icons/agendamento/navbar-mobile/perfil.svg" alt=""></div>Perfil</li></a>
+            </ul>
+        </div>
 </html>

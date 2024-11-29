@@ -3,7 +3,7 @@
 require_once '../lib/conn.php';
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && isset($_GET['id_agendamento'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_agendamento'])) {
 
 
     echo $_GET['id_agendamento'];

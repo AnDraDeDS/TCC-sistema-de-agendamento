@@ -3,8 +3,8 @@ function excluir(id_agendamento) {
     if (confirm('Tem certeza que deseja excluir este agendamento?')) {
 
         // envia a requisição pra excluir o agendamento
-        fetch(`../func/func_reagend.php?id_agendamento=${id_agendamento}`, {
-            method: 'DELETE' 
+        fetch(`http://localhost/TCC/src/func/func_reagend.php?id_agendamento=${id_agendamento}`, {
+            method: 'GET' 
         })
         .then(response => response.text()) 
         .then(data => {
@@ -26,12 +26,12 @@ function reagendar(id_agendamento) {
     console.log(`Reagendando o agendamento com ID: ${id_agendamento}`);
     if (confirm('Tem certeza que deseja reagendar este agendamento?')) {
 
-        fetch(`http://localhost/TCC/func/func_reagend.php?id_agendamento=${id_agendamento}`, {
-            method: 'DELETE'
+        fetch(`http://localhost/TCC/src/func/func_reagend.php?id_agendamento=${id_agendamento}`, {
+            method: 'GET'
         })
         .then(response => response.text())
         .then(data => {
-            if (data.includes('Agendamento excluído com sucesso')) {
+            if (data.includes('Antigo agendamento excluído com sucesso')) {
                 alert(data);
 
                 window.location.href = `http://localhost/TCC/src/agendamento.php`;
