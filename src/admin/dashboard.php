@@ -240,7 +240,16 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
               <h3><?= $cliente->nome?></h3>
               <hr>
               <p id="telefoneFormatado">Contato: <a href="https://wa.me/+55<?= $telefoneCliente ?>?text=Ol%C3%A1%20Fl%C3%A1vio%2C%20cheguei%20ao%20seu%20contato%20via%20site%20da%20JR%20Car%20Wash`` target=" _blank>
-                            <?= $cliente->telefone ?>
+              <?php 
+
+                      $telefoneComMascara = '(' . substr($cliente->telefone, 0, 2) . ') ' .
+                      substr($cliente->telefone, 2, 5) . '-' .
+                      substr($cliente->telefone, 7, 4);
+
+
+              
+              ?>
+                            <?= $telefoneComMascara ?>
                         </a></p>
               <hr>
               <p>Endereço: <?= $cliente->endereco?></p>
