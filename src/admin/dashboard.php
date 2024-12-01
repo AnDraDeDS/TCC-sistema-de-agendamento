@@ -255,14 +255,14 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
     
     <!-- Excluir Cliente -->
     <div id="cms9" class="cms cms-excluir d-none">
-    <form action="./funcCMS/func_servico.php" method="post" enctype="multipart/form-data">
+    <form action="./funcCMS/func_servico.php" method="post">
 
       <div class="header-cms">
         <div class="dropdown-center">
           <button id="select_servico" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <p>Excluir Cliente</p> <img src="../images/icons/dashboard/lupa.svg" alt="">
           </button>
-          <ul id="menu_pesquisa" class="dropdown-menu" style="height: 30vh; overflow-y: auto">
+          <ul type="hidden" id="menu_pesquisa" class="dropdown-menu" style="height: 30vh; overflow-y: auto">
           <?php
                   
         $sqlCliente = "SELECT * FROM cliente ORDER BY nome ASC";
