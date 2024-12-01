@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro</title>
+  <title>Login</title>
   <link rel="stylesheet" href="../css/cadastro.css">
   <link rel="stylesheet" href="../css/output.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <style>
     .conteudo > div {
-        font-size: 20px;
+        font-size: 18px;
     }
   </style>
 </head>
@@ -27,13 +27,13 @@
 
     <div class="conteudo">
     <div class="alert alert-success mt-5 d-flex h-100 w-100 justify-content-center align-items-center" role="alert">
-        <img src="./success.svg" alt="" class="px-2" height="33px" width="33px">Conta cadastrada!
+        <img src="https://www.svgrepo.com/show/13679/success.svg" alt="" class="px-2" height="35px" width="35px">Conta cadastrada!
         </div>
         </div>
     </div>
   </div>
   <meta http-equiv="Refresh" content="2; url=../login.php">
- 
+
     
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

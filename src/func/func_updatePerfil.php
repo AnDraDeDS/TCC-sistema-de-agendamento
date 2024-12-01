@@ -68,6 +68,8 @@ if($acao == 'atualizar_endereco'){
     $stmt->bindValue(":endereco", $endereco);
     $stmt->bindValue(":id_cliente", $id_cliente);
     $stmt->execute();
+    header("Location: ../perfil.php");
+
 
     header("Location: ../perfil.php");
 }
@@ -117,4 +119,6 @@ if ($acao == 'atualizar_foto') {
         header("Location: ../perfil.php");
         exit;
     }
+
+    
 }

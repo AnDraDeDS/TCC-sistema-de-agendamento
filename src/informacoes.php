@@ -66,12 +66,13 @@ $telefoneFormatado = preg_replace("/[^0-9]/", "", $informacao->numero);
                 <h1>LOCALIZAÇÃO E REDES</h1>
                 <div class="linha"></div>
                 <div class="redes_local">
-                    <div class="info" id="info1"><img class="icon" src="./images/icons/informações/whatsapp.svg"><a href="https://wa.me/+55<?= $telefoneFormatado ?>?text=Ol%C3%A1%20Fl%C3%A1vio%2C%20cheguei%20ao%20seu%20contato%20via%20site%20da%20JR%20Car%20Wash`` target="_blank">
+                    <div class="info" id="info1"><img class="icon" src="./images/icons/informações/whatsapp.svg"><a href="https://wa.me/+55<?= $telefoneFormatado ?>?text=Ol%C3%A1%20Fl%C3%A1vio%2C%20cheguei%20ao%20seu%20contato%20via%20site%20da%20JR%20Car%20Wash`` target="_blank>
                             <h2 id="telefoneFormatado"><?= $informacao->numero ?></h2>
                         </a></div>
                     <div class="info" id="info2"><img class="icon" src="./images/icons/informações/instagram.svg">
-                        <h2>@<?= $informacao->instagram ?></h2>
+                    <a href="https://www.instagram.com/<?=$informacao->instagram?>/"><h2>@<?= $informacao->instagram ?></h2></a>
                     </div>
+                    
                     <div class="info" id="info3"><img class="icon" src="./images/icons/informações/localizacao.svg"><a href="https://maps.app.goo.gl/ZhLtuquNBv2EsDX57">
                             <h2><?= $informacao->endereco ?></h2>
                         </a></div>

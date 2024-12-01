@@ -6,7 +6,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == false) {
 }
 require_once './lib/conn.php';
 
-$sqlListarServicos = "SELECT * FROM servico";
+$sqlListarServicos = "SELECT * FROM servico ORDER BY preco";
 $stmt = $conn->query($sqlListarServicos);
 $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
