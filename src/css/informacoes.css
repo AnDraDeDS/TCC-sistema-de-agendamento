@@ -3,9 +3,52 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+@font-face {
+    font-family: 'K2D';
+    src: url(../fonts/K2D/K2D-Regular.ttf);
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: 'Carme';
+    src: url(../fonts/Carme/Carme-Regular.ttf);
+}
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url(../fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: 'Arimo';
+    src: url(../fonts/Arimo/Arimo-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Kanit';
+    src: url(../fonts/Kanit/Kanit-Regular.ttf);
+}
+@font-face {
+    font-family: 'League Spartan';
+    src: url(../fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter/Inter-Italic-VariableFont_opsz\,wght.ttf);
+}
+
+*::selection{
+    background: none;
+}
+
 body {
     background-color: #272727;
-    overflow-x: hidden;
+    overflow-y: auto;
 }
 body::-webkit-scrollbar-track {
     background-color: #000;
@@ -22,6 +65,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header{
+    z-index: 2;
     width: 100vw;
     filter: drop-shadow(0 6mm 4mm rgba(59, 89, 152,.5));
     height: 20vh;
@@ -103,8 +147,63 @@ body::-webkit-scrollbar-thumb {
     padding-bottom: 5%;
 }
 
+
+.navbar2{
+    width: 100%;
+    height: 10%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    position: fixed;
+    top: 90%;
+}
+
+.navbar2 ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 0;
+
+}
+
+.navbar2 ul a li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    font-size: 0.8em;
+}
+
+.navbar2 ul a li img{
+    width: 25px;
+}
+
+.navbar2 ul a{
+    display: flex;
+    width: 60px;
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.page_atual{
+    background-color: #63C3FF;
+    width: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
+ 
+
 .content{
-    padding-top: 18vh;
+    padding-top: 20vh;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -129,7 +228,14 @@ h1{
 p, .linha{
     margin-top: 2vh;
     margin-left: 2vw;
-    font-size: 1.5em;
+    font-size: 2vw;
+    text-align: justify;
+}
+
+p{
+    margin-top: 2vh;
+    margin-left: 2vw;
+    font-size: 2vw;
     text-align: justify;
 }
 
@@ -155,7 +261,6 @@ p, .linha{
     height: min-content;
     text-align: justify;
 }
-
 
 .redes_local{
     margin-top: 40px;
@@ -199,7 +304,129 @@ h2{
     height: 28%;
 }
 
-a{
+p{
+    min-height: 31em;
+}
+
+.midia a{
     color: #63C3FF;
     text-decoration: none;
+    font-size: 1.3vw;
+}
+
+.img-mobile{
+    display: none;
+    margin: 0 auto;
+    width: 95%;
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        display: none;
+    }
+
+    .header{
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        position: fixed;
+    }
+
+    .pageName{
+        font-family: 'K2D';
+        width: 100%;
+        text-align: center;
+        background-color: rgba(59, 89, 152,.8);
+        color: white;
+        position: fixed;
+        top: 10%;
+        height: auto;
+        margin: 0;
+    }
+
+    
+.midia a{
+    color: #63C3FF;
+    text-decoration: none;
+    font-size: 3vw;
+}
+
+    #jr{
+        width: 30px;
+    }
+
+    #carwash{
+        width: 200px;
+    }
+
+    .navbar2{
+        display: flex;
+    }
+
+    /* O CÓDIGO CSS DO @MEDIA() MOBILE ACIMA DEVE SER COPIADO EM TODAS AS PÁGINAS CSS's */
+
+    p, .linha{
+        margin-top: 2vh;
+        margin-left: 2vw;
+        font-size: 1em;
+        text-align: start;
+    }
+
+    .sobre p{
+        height: 20vh;
+        margin-bottom: 5px;
+    }
+
+    .imagens{
+        display: none;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .midia{
+        width: 90%;
+        margin: 0 auto;
+        padding: 0;
+    }
+    
+    .redes_local{
+        border: 0;
+        margin: 0 auto;
+        gap: 2vw;
+        text-align: start;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-areas: "a"
+                             "b" 
+                             "c";
+        font-size: 10px;
+    }
+
+    .img-mobile{
+    display: block;
+    margin: 0 auto;
+}
+
+    #info1{
+        margin-top: 20px;
+    }
+
+    .sobre{
+        height: 35vw;
+    }
+    .sobrec p{
+        margin: 0 auto;
+    }
+
+    .redes{
+        height: 20vh;
+        margin-top: 10vh;
+    }
 }
