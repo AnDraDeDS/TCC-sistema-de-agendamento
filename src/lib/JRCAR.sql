@@ -86,11 +86,8 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nome`, `telefone`, `senha`, `endereco`, `foto`) VALUES
-(1, 'rhyan', '15996653897', '$2y$10$qybiRju30TmPsaLldiM6zO8o42WPhvMwfLsgKWtdWFPkdhPaD2pi.', 'oi', ''),
-(2, 'Fulaninho de Tal', '11111111111', '$2y$10$Er5haKIlkOTuYcWn.O.2TuOqr2FbO.BOSDmxMJAR9MTsW2UjoVMYi', 'bobaerbad', ''),
 (99999, 'Flávio Gerente', '15997646825', '$2y$10$sxoOkUqeJPOkgsCiZkNJwuPfmHxT8udObyuTHRaiKDob0J.qG8oNm', 'dd', ''),
-(100000, 'Giovanni Francesco Guarnieri', '15991294545', '$2y$10$zotZ1N40gUPv3JAR.4WXX.beTGsSoMAamou/txvXm8sNTVkgpNtp2', 'Rua Professor Giovanni, 12 - Tatuí/SP', ''),
-(100001, 'houfindias', '54545455454', '$2y$10$vjwUA9ow8Qful6mZkUdBGOhI3Ti3t464zkLSCLhuNPvpS7gnRNcVa', 'asdasdasdasdasd', '');
+
 
 -- --------------------------------------------------------
 

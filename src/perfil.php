@@ -87,7 +87,12 @@ if ($selectCliente->rowCount() > 0) {
                 </button>
             </div>
         </div>
-
+        <?php 
+        $telefoneComMascara = '(' . substr($cliente->telefone, 0, 2) . ') ' .
+        substr($cliente->telefone, 2, 5) . '-' .
+        substr($cliente->telefone, 7, 4);
+        ?>
+        
         <!-- infos -->
         <div class="aside">
             <div class="infos">
@@ -106,7 +111,7 @@ if ($selectCliente->rowCount() > 0) {
                 <div class="dado" id="item3">
                     <div class="text">
                         <p class="titulo">Telefone</p>
-                        <p><?php echo htmlspecialchars($cliente->telefone); ?></p>
+                        <p><?php echo htmlspecialchars($telefoneComMascara); ?></p>
                     </div>
                 </div>
                 <div class="dado" id="item4">
@@ -141,7 +146,7 @@ if ($selectCliente->rowCount() > 0) {
                             $sqlReq = "SELECT a.id_agendamento, a.status, s.nome as nome_servico,  c.nome as nome_cliente, a.data, a.horario FROM agendamento as a 
                     INNER JOIN cliente as c ON a.fk_id_cliente = c.id_cliente
                     INNER JOIN servico as s ON a.fk_id_servico = s.id_servico 
-                    WHERE a.status = 1 or a.status = 0
+                    WHERE a.status = 1 or a.status = 0 or a.status = 2
                     ORDER BY a.data ASC";
 
                             $stmt = $conn->query($sqlReq);
@@ -161,6 +166,9 @@ if ($selectCliente->rowCount() > 0) {
                                             }
                                             if ($solicitacao->status == 0) {
                                                 echo "Pendente";
+                                            }
+                                            if ($solicitacao->status == 2) {
+                                                echo "Concluído";
                                             }
                                             ?></td>
                                     
@@ -239,7 +247,7 @@ if ($selectCliente->rowCount() > 0) {
                     <form action="./func/func_updatePerfil.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="call" class="col-form-label">Telefone</label>
-                            <input name="telefone" type="number" class="form-control" id="call">
+                            <input type="tel" id="call" placeholder="Telefone (com DDD)" pattern="\([0-9]){2}\)[9]{1}[0-9]{4}-[0-9]{4}" name="telefone" required class="form-control">
                         </div>
                 </div>
                 <div class="modal-footer">
