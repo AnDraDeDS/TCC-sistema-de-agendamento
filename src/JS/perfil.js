@@ -8,10 +8,10 @@ function excluir(id_agendamento) {
         .then(data => {
             console.log('Resposta do servidor:', data);
             if (data.success) {
-                alert(data.message); // Mostra a mensagem de sucesso
-                location.reload(); // Atualiza a página
+                alert(data.message); 
+                location.reload(); 
             } else {
-                alert(data.message); // Mostra a mensagem de erro do servidor
+                alert(data.message);
             }
         })
         .catch(error => {
@@ -28,14 +28,14 @@ function reagendar(id_agendamento) {
         fetch(`http://localhost/TCC/src/func/func_reagend.php?id_agendamento=${id_agendamento}`, {
             method: 'GET'
         })
-        .then(response => response.json()) // Interpreta a resposta como JSON
+        .then(response => response.json()) 
         .then(data => {
             console.log('Resposta do servidor:', data);
-            if (data.success) { // Verifica o campo "success"
-                alert(data.message); // Mostra a mensagem de sucesso
-                window.location.href = `http://localhost/TCC/src/agendamento.php`; // Redireciona
+            if (data.success) { 
+                alert(data.message); 
+                window.location.href = `http://localhost/TCC/src/agendamento.php`; 
             } else {
-                alert(data.message); // Mostra a mensagem de erro do servidor
+                alert(data.message); 
             }
         })
         .catch(error => {
