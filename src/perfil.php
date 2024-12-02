@@ -84,6 +84,15 @@ if ($selectCliente->rowCount() > 0) {
             </div>
         </div>
 
+        <div class="navbar2" d-none>
+            <ul>
+                <a href="./agendamento.php"><li><div><img src="./images/icons/icon_mobile/servicos.svg" alt=""></div>Info</li></a>
+                <a href=".informacoes.php"><li><div class="page_atual"><img src="./images/icons/icon_mobile/info.svg" alt=""></div>Agendamento</li></a>
+                <a href="./galeria.php"><li><div><img src="./images/icons/icon_mobile/galeria.svg" alt=""></div>Galeria</li></a>           
+                <a href="./perfil.php"><li><div><img src="./images/icons/icon_mobile/perfil.svg" alt=""></div>Perfil</li></a>
+            </ul>
+        </div>
+
         <!-- infos -->
         <div class="aside">
             <div class="infos">

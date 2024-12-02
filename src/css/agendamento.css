@@ -320,7 +320,6 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-@media (max-width: 768px){
 
     *{
         outline: 1px solid green;
@@ -412,12 +411,19 @@ body::-webkit-scrollbar-thumb {
     }
 
     .side{
-        padding-top: 45%;
+        padding-left: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 100%;
+        outline: 1px solid red;
+        height: 100%;
     }
-}
+
 
 
 /*Content após seleção de serviço*/
+@media (min-width: 769px){
 
 .content_focus{
     padding-top: 25vh;
@@ -529,6 +535,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     justify-content: center;
+}
 }
 
 .side *{
