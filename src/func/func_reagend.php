@@ -3,6 +3,8 @@
 require_once '../lib/conn.php';
 session_start();
 
+header('Content-Type: application/json');
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_agendamento'])) {
     $id = $_GET['id_agendamento'];
 
@@ -16,10 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_agendamento'])) {
         header("Location: ../perfil.php");
     } else {
         http_response_code(500);
-        echo "Erro ao excluir o agendamento.";
+        echo json_encode(['success' => false, 'message' => 'Erro ao excluir o agendamento.']);
     }
 } else {
     http_response_code(400);
-    echo "Requisição inválida.";
+    echo json_encode(['success' => false, 'message' => 'Requisição inválida.']);
 }
-?>
