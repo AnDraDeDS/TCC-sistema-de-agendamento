@@ -25,26 +25,25 @@ function excluir(id_agendamento) {
 function reagendar(id_agendamento) {
     console.log(`Reagendando o agendamento com ID: ${id_agendamento}`);
     if (confirm('Tem certeza que deseja reagendar este agendamento?')) {
-
         fetch(`http://localhost/TCC/src/func/func_reagend.php?id_agendamento=${id_agendamento}`, {
             method: 'GET'
         })
-        .then(response => response.text())
+        .then(response => response.json()) 
         .then(data => {
-            if (data.includes('Antigo agendamento excluído com sucesso')) {
-                alert(data);
-
-                window.location.href = `http://localhost/TCC/src/agendamento.php`;
+            console.log('Resposta do servidor:', data);
+            if (data.success) { 
+                alert(data.message); 
+                window.location.href = `http://localhost/TCC/src/agendamento.php`; 
             } else {
-                alert('Erro ao excluir o agendamento.');
+                alert(data.message); 
             }
         })
         .catch(error => {
             console.error('Erro:', error);
-            alert('Erro ao tentar excluir.');
-        });
-    }
-}
+            alert('Erro ao tentar reagendar.');
+   });
+}}
+
 
 function openModal(modalId, inputId) { 
     const modal = new bootstrap.Modal(document.getElementById(modalId)); 
