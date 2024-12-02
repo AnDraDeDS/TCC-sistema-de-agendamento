@@ -14,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_agendamento'])) {
 
     if ($stmt->execute()) {
         http_response_code(200);
-        echo json_encode(['success' => true, 'message' => 'Agendamento excluído com sucesso']);
+        echo "Antigo agendamento excluído com sucesso";
+        header("Location: ../perfil.php");
     } else {
         http_response_code(500);
         echo json_encode(['success' => false, 'message' => 'Erro ao excluir o agendamento.']);

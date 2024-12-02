@@ -118,24 +118,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         echo "<script>alert('Serviço Apagado com sucesso!')</script>";
     }
-
-    header("Location: ../dashboard.php");
-    exit;
-}
-
-if($enviar == 'excluir_cliente'){
+    
+    if($enviar == 'excluir_cliente'){
         
-    $sql = "DELETE FROM cliente WHERE id_cliente = :id_cliente";
-    
-    // Preparar a query
-    $stmt = $conn->prepare($sql);
-    
-    // Definir os parâmetros
-    $stmt->bindValue(':id_cliente', $id_cliente_delete);
-    $stmt->execute();
-    
-    
-    
-    echo "<script>alert('Serviço Atpagado com sucesso!')</script>";
+        $sql = "DELETE FROM cliente WHERE id_cliente = :delete_id_cli ";
+        
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(":delete_id_cli", $delete_id_cli);
+
+        $stmt->execute();
+        
+        echo "<script>alert('Cliente Apagado com sucesso!')</script>";
     }
-?>
+    
+    var_dump($_POST);
+        header("Location: ../dashboard.php");
+        exit;
+}
+    ?>
