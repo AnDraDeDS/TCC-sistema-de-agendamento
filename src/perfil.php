@@ -63,23 +63,19 @@ if ($selectCliente->rowCount() > 0) {
             </ul>
         </div>
     </div>
-<?php 
-  
-    $pastaImagensCliente = "./images/upload_clientes/";
 
-    $fotoCaminho = (strpos($cliente->foto, '../images/upload_clientes/') === 0)
-        ? substr($cliente->foto, strlen('../images/upload_clientes/'))
-        : $cliente->foto;
-
-    $caminhoImagem = (file_exists($pastaImagensCliente . $fotoCaminho))
-        ? htmlspecialchars($pastaImagensCliente . $fotoCaminho)
-        : './images/upload_clientes/perfil_default.png';
-
-?>
     <!-- CONTEÚDO -->
     <div class="content">
         <div class="side">
-        <div class="perfil" style="background-image: url('<?= $caminhoImagem; ?>');">
+            <div class="perfil" stytle="background-image: url(`data:image/jpeg;base64,<?php
+                                                                                        if ($cliente->foto != null) {
+                                                                                            echo htmlspecialchars($cliente->foto);
+                                                                                        } else {
+                                                                                            echo '../images/perfil_default.png';
+                                                                                        }
+                                                                                        ?>
+            
+            );">
                 <button type="button" class="edit" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img src="./images/icons/perfil/Icon_bell.svg"></button>
                 <button class="edit" id="lapinho">
@@ -87,12 +83,7 @@ if ($selectCliente->rowCount() > 0) {
                 </button>
             </div>
         </div>
-        <?php 
-        $telefoneComMascara = '(' . substr($cliente->telefone, 0, 2) . ') ' .
-        substr($cliente->telefone, 2, 5) . '-' .
-        substr($cliente->telefone, 7, 4);
-        ?>
-        
+
         <!-- infos -->
         <div class="aside">
             <div class="infos">
@@ -111,7 +102,7 @@ if ($selectCliente->rowCount() > 0) {
                 <div class="dado" id="item3">
                     <div class="text">
                         <p class="titulo">Telefone</p>
-                        <p><?php echo htmlspecialchars($telefoneComMascara); ?></p>
+                        <p><?php echo htmlspecialchars($cliente->telefone); ?></p>
                     </div>
                 </div>
                 <div class="dado" id="item4">
@@ -167,6 +158,7 @@ if ($selectCliente->rowCount() > 0) {
                                             if ($solicitacao->status == 0) {
                                                 echo "Pendente";
                                             }
+
                                             ?></td>
                                     
                                             <!-- Botões de Ação -->
@@ -244,7 +236,7 @@ if ($selectCliente->rowCount() > 0) {
                     <form action="./func/func_updatePerfil.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="call" class="col-form-label">Telefone</label>
-                            <input type="tel" id="call" placeholder="Telefone (com DDD)" pattern="\([0-9]){2}\)[9]{1}[0-9]{4}-[0-9]{4}" name="telefone" required class="form-control">
+                            <input name="telefone" type="number" class="form-control" id="call">
                         </div>
                 </div>
                 <div class="modal-footer">
