@@ -4,14 +4,14 @@ function excluir(id_agendamento) {
         fetch(`http://localhost/TCC/src/func/func_reagend.php?id_agendamento=${id_agendamento}`, {
             method: 'GET'
         })
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
-            console.log('Resposta do servidor:', data); // Log para depuração
-            if (data.includes('Agendamento excluído com sucesso')) {
-                alert(data);
-                location.reload();
+            console.log('Resposta do servidor:', data);
+            if (data.success) {
+                alert(data.message); // Mostra a mensagem de sucesso
+                location.reload(); // Atualiza a página
             } else {
-                alert('Erro ao excluir o agendamento.');
+                alert(data.message); // Mostra a mensagem de erro do servidor
             }
         })
         .catch(error => {
@@ -21,20 +21,21 @@ function excluir(id_agendamento) {
     }
 }
 
+
 function reagendar(id_agendamento) {
     console.log(`Reagendando o agendamento com ID: ${id_agendamento}`);
     if (confirm('Tem certeza que deseja reagendar este agendamento?')) {
         fetch(`http://localhost/TCC/src/func/func_reagend.php?id_agendamento=${id_agendamento}`, {
             method: 'GET'
         })
-        .then(response => response.text())
+        .then(response => response.json()) // Interpreta a resposta como JSON
         .then(data => {
-            console.log('Resposta do servidor:', data); // Log para depuração
-            if (data.includes('Antigo agendamento excluído com sucesso')) {
-                alert(data);
-                window.location.href = `http://localhost/TCC/src/agendamento.php`;
+            console.log('Resposta do servidor:', data);
+            if (data.success) { // Verifica o campo "success"
+                alert(data.message); // Mostra a mensagem de sucesso
+                window.location.href = `http://localhost/TCC/src/agendamento.php`; // Redireciona
             } else {
-                alert('Erro ao reagendar o agendamento.');
+                alert(data.message); // Mostra a mensagem de erro do servidor
             }
         })
         .catch(error => {
@@ -43,6 +44,7 @@ function reagendar(id_agendamento) {
         });
     }
 }
+
 
 function openModal(modalId, inputId) {
     const modal = new bootstrap.Modal(document.getElementById(modalId));
