@@ -278,19 +278,19 @@ p {
 
 .cabecalho {
     text-align: center;
-    padding: 15px; /* Aumentei o padding para deixar mais espaçado */
+    padding: 15px; 
     color: white;
     background-color: #007bff;
-    border-radius: 8px 8px 0 0; /* Deixei as bordas mais arredondadas */
-    font-weight: bold; /* Adicionei um destaque ao título */
-    font-size: 1.3em; /* Ajustei o tamanho da fonte */
+    border-radius: 8px 8px 0 0; 
+    font-weight: bold; 
+    font-size: 1.3em; 
 }
 
 .mb-3 {
     padding: 15px;
-    color: #095b9f; /* Cor sutil para textos */
+    color: #095b9f; 
     font-size: larger;
-    font-weight: 500; /* Suavizei o peso da fonte */
+    font-weight: 500; 
 }
 
 .custom-file-upload {
@@ -300,19 +300,19 @@ p {
 
 .upload-box {
     width: 100%;
-    padding: 12px; /* Ajustei o padding para melhor espaçamento */
-    background-color: #f9f9f9; /* Cor mais suave para o fundo */
-    border: 2px dashed #007bff; /* Dei destaque à borda com a cor do tema */
+    padding: 12px;
+    background-color: #f9f9f9;
+    border: 2px dashed #007bff; 
     text-align: center;
     border-radius: 10px;
     font-size: 16px;
-    color: #333; /* Mudança da cor do texto para algo mais visível */
+    color: #333; 
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .upload-box:hover {
     background-color: #e1e1e1;
-    border-color: #005599; /* Adicionei um efeito de hover na borda */
+    border-color: #005599; 
 }
 
 #file-upload {
@@ -320,15 +320,15 @@ p {
 }
 
 .btn-primary {
-    background-color: #007bff; /* Azul marinho */
+    background-color: #007bff; 
     border: none;
     padding: 10px 20px;
     font-size: 1em;
-    border-radius: 5px; /* Bordas arredondadas para um toque mais suave */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Adicionei transição para hover */
+    border-radius: 5px; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #005599; /* Azul mais escuro no hover */
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Sombra ao passar o mouse */
+    background-color: #005599; 
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
 }
