@@ -121,14 +121,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if($enviar == 'excluir_cliente'){
         
-        $sql = "DELETE FROM cliente WHERE id_cliente = $id_cliente_delete";
+        $sql = "DELETE FROM cliente WHERE id_cliente = :delete_id_cli ";
         
-        $stmt = $conn->query($sql);
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(":delete_id_cli", $delete_id_cli);
+
+        $stmt->execute();
         
         echo "<script>alert('Cliente Apagado com sucesso!')</script>";
     }
     
-    
+    var_dump($_POST);
         header("Location: ../dashboard.php");
         exit;
 }

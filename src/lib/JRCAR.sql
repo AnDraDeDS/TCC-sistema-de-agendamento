@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nome`, `telefone`, `senha`, `endereco`, `foto`) VALUES
-(99999, 'Flávio Gerente', '15997646825', '$2y$10$sxoOkUqeJPOkgsCiZkNJwuPfmHxT8udObyuTHRaiKDob0J.qG8oNm', 'dd', '');
+(1, 'Flávio Gerente', '15997646825', '$2y$10$sxoOkUqeJPOkgsCiZkNJwuPfmHxT8udObyuTHRaiKDob0J.qG8oNm', 'dd', '');
 
 
 -- --------------------------------------------------------

@@ -1,3 +1,11 @@
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("DOM completamente carregado");
+});
+
+
 const BUTTONS = document.querySelectorAll(".btn");
 const ARROWS = document.querySelectorAll('.arrow');
 const sideBar = document.getElementById("sidebar");
@@ -28,11 +36,36 @@ let mesh4 = months[date.getMonth()];
 document.getElementById("ano_atual").innerText=`${mesh4}, ${anoh4}`;
 
 
-function excluir(id){
-  let input_id = document.getElementById("delete_id");
-  let input_id_cli = document.getElementById("delete_id_cli");
-  input_id.value = id;
-  input_id_cli.value = id;
+function excluir(campo, id) {
+  if (campo === 'cliente') {
+
+    let input_id_cli = document.getElementById("delete_id_cli");
+
+    if (input_id_cli) {
+
+      input_id_cli.value = id;
+      console.log("ID do cliente atribuído:", id);
+
+    } else {
+      console.error("Elemento 'delete_id_cli' não encontrado.");
+    }
+
+  }
+
+  if (campo === 'servico') {
+
+    let input_id = document.getElementById("delete_id");
+
+    if (input_id) {
+
+      input_id.value = id;
+      console.log("ID do serviço atribuído:", id);
+
+    } else {
+      console.error("Elemento 'delete_id' não encontrado.");
+    }
+
+  }
 }
 
 function update(id){
@@ -166,20 +199,7 @@ function openCMS(cms){
             cms8.classList.add("d-none");
           }
           
-          
-          numb = 0;
-          BUTTONS.forEach((BUTTON,index) =>{ 
-            BUTTON.addEventListener("click", ()=>{
-              numb = numb + 180;
-    ARROWS[index].style.transform = `rotate(${numb}deg)`
-})
-})
 
-BUTTONS.forEach((BUTTON,index) =>{ 
-    BUTTON.addEventListener("blur", ()=>{
-           ARROWS[index].style.transform = `rotate(0deg)`
-        }
-    )})}
 const buttons = document.querySelectorAll('.servico-button');
 
 // Adiciona um evento de clique a cada botão
@@ -217,12 +237,4 @@ telefoneInput.addEventListener("input", function (e) {
   }
   e.target.value = input.slice(0, 15);
 });
-
-function atribuirId(id){
-document.getElementById("atualizar_id").value = id;
-console.log(document.getElementById("atualizar_id").value);
-} 
-function excluir(id_cliente, nome_cliente) {
-  // Atualiza o botão com o nome do cliente selecionado
-  document.getElementById("select_servico").innerHTML = "<p>Excluir " + nome_cliente + "</p> <img src='../images/icons/dashboard/lupa.svg' alt=''>";
 }

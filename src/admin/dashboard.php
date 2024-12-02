@@ -20,7 +20,6 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="./js/navbar.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- <script src="../../src/JS/bootstrap.js" ></script>
   <script src="../JS/bootstrap.js" ></script> -->
@@ -164,7 +163,7 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
           <ul id="menu_pesquisa" class="dropdown-menu" style="height: 30vh; overflow-y: auto">
           <?php foreach($servicos as $servico): ?>
                     <li>
-                        <button onclick="excluir(<?=$servico->id_servico?>)"  type="button" class="servico-button" data-id_servico="<?=$servico->id_servico?>">
+                        <button type="button" onclick="excluir('servico', <?= $servico->id_servico?>)" name="id_cliente" class="servico-button">
                             <?= $servico->nome ?>
                         </button>
                     </li>
@@ -289,16 +288,19 @@ $servicos = $stmt->fetchAll(PDO::FETCH_OBJ);
             // Exibe a lista de clientes
             foreach ($clientes as $cliente): ?>
               <li>
-                <!-- Ao clicar, envia o id e nome do cliente via POST -->
-                <button type="submit" name="id_cliente" value="<?= $cliente->id_cliente ?>" class="servico-button">
-                  <?= $cliente->nome ?>
+                <button type="button" onclick="excluir('cliente', <?= $cliente->id_cliente ?>)" name="id_cliente" class="servico-button">
+                    <?= $cliente->nome ?>
                 </button>
-                <input type="hidden" name="nome_cliente" value="<?= $cliente->nome ?>">
+
               </li>
-          <?php endforeach; ?>
-        </ul>
-      </div>
-    </div>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        </div>
+        <div class="content-cms">
+          <input type="hidden" name="delete_id_cli" id="delete_id_cli">
+          <button type="submit" class="submit_form" name="enviar" value="excluir_cliente">CONFIRMAR</button>
+        </div>
   </form>
 </div>
 
