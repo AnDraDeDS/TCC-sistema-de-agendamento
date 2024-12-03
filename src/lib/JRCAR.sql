@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `nome` varchar(50) NOT NULL,
   `telefone` varchar(15) NOT NULL,
   `senha` varchar(100) NOT NULL,
-  `endereco` varchar(50) NOT NULL,
+  `endereco` varchar(200) NOT NULL,
   `foto` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_cliente`)
 ) ENGINE=MyISAM AUTO_INCREMENT=100002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nome`, `telefone`, `senha`, `endereco`, `foto`) VALUES
-(1, 'Flávio Gerente', '15997646825', '$2y$10$sxoOkUqeJPOkgsCiZkNJwuPfmHxT8udObyuTHRaiKDob0J.qG8oNm', 'dd', '');
+(1, 'Flávio Gerente', '15997646825', '$2y$10$sxoOkUqeJPOkgsCiZkNJwuPfmHxT8udObyuTHRaiKDob0J.qG8oNm', 'dd', '../images/upload_clientes/perfil_default.png');
 
 
 -- --------------------------------------------------------

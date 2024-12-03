@@ -94,3 +94,29 @@ document.addEventListener("DOMContentLoaded", function () {
         bootstrap.Modal.getInstance(document.getElementById('endereco')).hide();
     });
 });
+document.querySelector('#modalnome .confirm-btn').addEventListener("click", function () {
+    const newName = document.getElementById('recipient-name').value;
+    userInfo.nome = newName;
+    updateUserInfo();
+    bootstrap.Modal.getInstance(document.getElementById('modalnome')).hide();
+});
+
+let telefoneInput = document.querySelector("input#call");
+telefoneInput.addEventListener("input", function (e) {
+    let input = e.target.value;
+    
+    input = input.replace(/\D/g, "");
+
+    if (input.length > 0) {
+      input = "(" + input;
+    }
+    if (input.length > 3) {
+      input = input.slice(0, 3) + ") " + input.slice(3);
+    }
+    
+
+    if (input.length > 10) {
+      input = input.slice(0, 10) + "-" + input.slice(10, 14);
+    }
+    e.target.value = input.slice(0, 15);
+  });
