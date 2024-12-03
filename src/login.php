@@ -15,14 +15,15 @@
   <div class="container w-full h-full">
     <span class="fundo"></span>
 
+
     <div class="logo"><img class="JR" src="./images/JR.png" alt=""><img class="car_wash" src="./images/carwash.svg" alt=""></div>
     
-    <div class="cadastro_login"><a href="./login.html"><button class="log_button2">Login</button></a><a href="./cadastro.html"><button class="cad_button2">Cadastro</button></a></div>
+    <div class="cadastro_login"><a href="./login.php"><button class="log_button2">Login</button></a><a href="./index.php"><button class="cad_button2">Cadastro</button></a></div>
 
     <div class="conteudo">
-      <form action="" method="post">
-        <div class="telefone"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_telefone.svg" alt=""><input type="number" placeholder="Telefone (com DDD)"></div>
-        <div class="senha"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_senha.svg" alt=""><input id="senha" type="password" placeholder="Digite sua senha"><img class="icon" id="eye_open" onclick="olhar()" src="./images/icons/cadastro_e_login/Icon_olho.png"><img class="icon d-none"  id="eye_closed" onclick="esconder()" src="./images/icons/cadastro_e_login/Icon_olho_fechado.png"></div>
+      <form action="./func/func_logar.php" method="post">
+        <div class="telefone"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_telefone.svg" alt=""><input  type="tel" id="telefone" placeholder="Telefone (com DDD)" pattern="\([0-9]){2}\)[9]{1}[0-9]{4}-[0-9]{4}" name="telefone" required></div>
+        <div class="senha"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_senha.svg" alt=""><input id="senha" type="password" placeholder="Digite sua senha" name="senha" required><img class="icon" id="eye_open" onclick="olhar()" src="./images/icons/cadastro_e_login/Icon_olho.png"><img class="icon d-none"  id="eye_closed" onclick="esconder()" src="./images/icons/cadastro_e_login/Icon_olho_fechado.png"></div>
         
         <div class="botao">
           <button class="cadastrar" type="submit" style="color: white; font-family:'League Spartan', sans-serif; font-size: 1.2em;">Entrar</button>

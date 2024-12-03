@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 </head>
 <body>
   <div class="container w-full h-full">
@@ -17,17 +20,19 @@
 
     <div class="logo"><img class="JR" src="./images/JR.png" alt=""><img class="car_wash" src="./images/carwash.svg" alt=""></div>
     
-    <div class="cadastro_login"><a href="./login.html"><button class="log_button">Login</button></a><a href="./cadastro.html"><button class="cad_button">Cadastro</button></a></div>
+    <div class="cadastro_login"><a href="./login.php"><button class="log_button">Login</button></a><a href="./index.php"><button class="cad_button">Cadastro</button></a></div>
 
     <div class="conteudo">
-      <form action="" method="post">
-        <div class="nome"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_nome.svg"><input type="text" placeholder="Nome completo"></div>
-        <div class="telefone"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_telefone.svg"><input type="number" placeholder="Telefone (com DDD)"></div>
-        <div class="senha"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_senha.svg"><input id="senha" type="password" placeholder="Digite sua senha"><img class="icon" id="eye_open" onclick="olhar()" src="./images/icons/cadastro_e_login/Icon_olho.png"><img class="icon d-none"  id="eye_closed" onclick="esconder()" src="./images/icons/cadastro_e_login/Icon_olho_fechado.png"></div>
-        <div class="localizacao"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_localizacao.svg"><input type="text" placeholder="Endereço Completo"></div>
+      <form action="./func/func_cadastrar.php" method="POST">
+        <div class="nome"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_nome.svg"><input type="text" placeholder="Nome completo" name="nome" required></div>
+        <div class="telefone"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_telefone.svg"><input type="tel" id="telefone" placeholder="Telefone (com DDD)" pattern="\([0-9]){2}\)[9]{1}[0-9]{4}-[0-9]{4}" name="telefone" required minlength="15" maxlength="15"></div>
+        <div class="senha"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_senha.svg"><input id="senha" type="password" placeholder="Digite sua senha" name="senha" required><img class="icon" id="eye_open" onclick="olhar()" src="./images/icons/cadastro_e_login/Icon_olho.png"><img class="icon d-none"  id="eye_closed" onclick="esconder()" src="./images/icons/cadastro_e_login/Icon_olho_fechado.png"></div>
+      
+        <div class="localizacao"><img  class="icon" src="./images/icons/cadastro_e_login/Icon_localizacao.svg"><input type="text" placeholder="Endereço Completo" name="endereco" required></div>
       
         <div class="botao">
           <button class="cadastrar" type="submit" style="color: white; font-family:'League Spartan', sans-serif; font-size: 1.2em;">Cadastrar</button>
+
         </div>
       </form>
     </div>
