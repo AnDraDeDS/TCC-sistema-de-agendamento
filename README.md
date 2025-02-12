@@ -2,6 +2,11 @@
 
 <p align="center">A JR Car Wash é uma empresa que fornece serviços para a área automotiva já sendo consolidada no mercado e está situada na 411 - Avenida Senador Laurindo Minhoto, Vila Doutor Laurindo</p>
 
+
+<p align="center">
+  <img alt="imagem da logo" src="./src/images/carwash.png">
+</p>
+
 <p align="center">
   <a href="#-tecnologias">Objetivo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -9,9 +14,6 @@
   <a href="#memo-licença">Creditos</a>
 </p>
 
-<!-- <p align="center">
-  <img alt="imagem licenca" src="https://cdn-icons-png.flaticon.com/512/3206/3206042.png">
-</p> -->
 
 <br>
 
@@ -34,7 +36,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 
 O nosso app tem como o objetivo de gerenciar o agendamento de serviços solicitados pelo cliente cadastrado no sistema e controle administrativo dos lucros mensais e anuais.
-- [Visite o projeto online](link já hospedado)
 
 ## 🔖 Layout
 
