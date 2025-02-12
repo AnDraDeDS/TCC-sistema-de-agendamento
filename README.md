@@ -4,7 +4,7 @@
 
 
 <p align="center">
-  <img alt="imagem da logo" src="./src/images/carwash.png" height ="500px" width= "500px">
+  <img alt="imagem da logo" src="./src/images/carwash.png" height ="450px" width= "450px">
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@ O nosso app tem como o objetivo de gerenciar o agendamento de serviços solicita
 
 ## 🔖 Layout
 
-<p align="center">Você pode visualizar o layout do projeto através https://www.figma.com/team_invite/redeem/7yMg88R5DbLxmUdAgnniJn. É necessário ter conta no [Figma](https://figma.com) para acessá-lo.</p>
+<p>Você pode visualizar o layout do projeto através https://www.figma.com/team_invite/redeem/7yMg88R5DbLxmUdAgnniJn. É necessário ter conta no [Figma](https://figma.com) para acessá-lo.</p>
 
 
 
