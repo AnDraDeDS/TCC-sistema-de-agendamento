@@ -4,7 +4,7 @@
 
 
 <p align="center">
-  <img alt="imagem da logo" src="./src/images/carwash.png" height ="450px" width= "500px">
+  <img alt="imagem da logo" src="./src/images/carwash.png" width= "100%">
 </p>
 
 <p align="center">
